@@ -1,0 +1,284 @@
+{
+    "tiposervicio":[
+    {
+        "IdCia": "18",
+        "IdServicio": "001",
+        "DescEspServicio": "PERFORACION AIRE REVERSO",
+        "DescIngServicio": "REVERSE CIRCULATION DRILLING",
+        "IndEst": "1"
+    },
+    {
+        "IdCia": "18",
+        "IdServicio": "002",
+        "DescEspServicio": "PERFORACION DIAMANTINA",
+        "DescIngServicio": "DIAMOND DRILLING",
+        "IndEst": "1"
+    },
+    {
+        "IdCia": "18",
+        "IdServicio": "003",
+        "DescEspServicio": "POZOS DE AGUA",
+        "DescIngServicio": "WATER WELLS",
+        "IndEst": "1"
+    },
+    {
+        "IdCia": "18",
+        "IdServicio": "005",
+        "DescEspServicio": "CONTROL DE SUELOS",
+        "DescIngServicio": "GRADE CONTROL",
+        "IndEst": "1"
+    },
+    {
+        "IdCia": "18",
+        "IdServicio": "006",
+        "DescEspServicio": "GEOTECNIA",
+        "DescIngServicio": "GEOTECHNY",
+        "IndEst": "1"
+    },
+    {
+        "IdCia": "18",
+        "IdServicio": "007",
+        "DescEspServicio": "PIEZOMETROS",
+        "DescIngServicio": "PIEZOMETER DRILLING",
+        "IndEst": "1"
+    },
+    {
+        "IdCia": "18",
+        "IdServicio": "008",
+        "DescEspServicio": "PERFORACION DD SUBTERRANEA",
+        "DescIngServicio": "DRILLING UNDERGROUND DD",
+        "IndEst": "1"
+    },
+    {
+        "IdCia": "18",
+        "IdServicio": "009",
+        "DescEspServicio": "BOMBAS SUMERGIBLES",
+        "DescIngServicio": "PUMP WORK",
+        "IndEst": "1"
+    },
+    {
+        "IdCia": "18",
+        "IdServicio": "013",
+        "DescEspServicio": "OTROS SERVICIOS",
+        "DescIngServicio": "OTHER SERVICES",
+        "IndEst": "1"
+    },
+    {
+        "IdCia": "18",
+        "IdServicio": "014",
+        "DescEspServicio": "EXPLORACION",
+        "DescIngServicio": "EXPLORATION",
+        "IndEst": "1"
+    },
+    {
+        "IdCia": "18",
+        "IdServicio": "015",
+        "DescEspServicio": "HIDROLOGIA",
+        "DescIngServicio": "HIDROGEOLOGICAL DRILLING",
+        "IndEst": "1"
+    },
+    {
+        "IdCia": "18",
+        "IdServicio": "016",
+        "DescEspServicio": "CUERDAS VIBRANTES",
+        "DescIngServicio": "VIBRATING WIRE",
+        "IndEst": "1"
+    },
+    {
+        "IdCia": "18",
+        "IdServicio": "017",
+        "DescEspServicio": "PRE SPLIT",
+        "DescIngServicio": "PRE SPLIT",
+        "IndEst": "1"
+    },
+    {
+        "IdCia": "18",
+        "IdServicio": "018",
+        "DescEspServicio": "CONCRETO",
+        "DescIngServicio": "CONCRETE DRILLING",
+        "IndEst": "1"
+    },
+    {
+        "IdCia": "18",
+        "IdServicio": "019",
+        "DescEspServicio": "PILAS DE STOCK",
+        "DescIngServicio": "STOCK PILES",
+        "IndEst": "1"
+    },
+    {
+        "IdCia": "18",
+        "IdServicio": "020",
+        "DescEspServicio": "LIMPIEZA DE POZO",
+        "DescIngServicio": "HOLE CLEANING",
+        "IndEst": "1"
+    },
+    {
+        "IdCia": "18",
+        "IdServicio": "021",
+        "DescEspServicio": "BOOSTER WORK",
+        "DescIngServicio": "BOOSTER WORK",
+        "IndEst": "1"
+    },
+    {
+        "IdCia": "18",
+        "IdServicio": "022",
+        "DescEspServicio": "SIN SERVICIO",
+        "DescIngServicio": "NO SERVICE",
+        "IndEst": "1"
+    },
+    {
+        "IdCia": "18",
+        "IdServicio": "023",
+        "DescEspServicio": "BLAST HOLE",
+        "DescIngServicio": "BLAST HOLE",
+        "IndEst": "1"
+    },
+    {
+        "IdCia": "18",
+        "IdServicio": "024",
+        "DescEspServicio": "PUMP DIVISION",
+        "DescIngServicio": "PUMP DIVISION",
+        "IndEst": "1"
+    },
+    {
+        "IdCia": "21",
+        "IdServicio": "001",
+        "DescEspServicio": "PERFORACION AIRE REVERSO",
+        "DescIngServicio": "REVERSE CIRCULATION DRILLING",
+        "IndEst": "1"
+    },
+    {
+        "IdCia": "21",
+        "IdServicio": "002",
+        "DescEspServicio": "PERFORACION DIAMANTINA",
+        "DescIngServicio": "DIAMOND DRILLING",
+        "IndEst": "1"
+    },
+    {
+        "IdCia": "21",
+        "IdServicio": "003",
+        "DescEspServicio": "POZOS DE AGUA",
+        "DescIngServicio": "WATER WELLS",
+        "IndEst": "1"
+    },
+    {
+        "IdCia": "21",
+        "IdServicio": "005",
+        "DescEspServicio": "CONTROL DE SUELOS",
+        "DescIngServicio": "GRADE CONTROL",
+        "IndEst": "1"
+    },
+    {
+        "IdCia": "21",
+        "IdServicio": "006",
+        "DescEspServicio": "GEOTECNIA",
+        "DescIngServicio": "GEOTECHNY",
+        "IndEst": "1"
+    },
+    {
+        "IdCia": "21",
+        "IdServicio": "007",
+        "DescEspServicio": "PIEZOMETROS",
+        "DescIngServicio": "PIEZOMETER DRILLING",
+        "IndEst": "1"
+    },
+    {
+        "IdCia": "21",
+        "IdServicio": "008",
+        "DescEspServicio": "PERFORACION DD SUBTERRANEA",
+        "DescIngServicio": "DRILLING UNDERGROUND DD",
+        "IndEst": "1"
+    },
+    {
+        "IdCia": "21",
+        "IdServicio": "009",
+        "DescEspServicio": "BOMBAS SUMERGIBLES",
+        "DescIngServicio": "PUMP WORK",
+        "IndEst": "1"
+    },
+    {
+        "IdCia": "21",
+        "IdServicio": "013",
+        "DescEspServicio": "OTROS SERVICIOS",
+        "DescIngServicio": "OTHER SERVICES",
+        "IndEst": "1"
+    },
+    {
+        "IdCia": "21",
+        "IdServicio": "014",
+        "DescEspServicio": "EXPLORACION",
+        "DescIngServicio": "EXPLORATION",
+        "IndEst": "1"
+    },
+    {
+        "IdCia": "21",
+        "IdServicio": "015",
+        "DescEspServicio": "HIDROLOGIA",
+        "DescIngServicio": "HIDROGEOLOGICAL DRILLING",
+        "IndEst": "1"
+    },
+    {
+        "IdCia": "21",
+        "IdServicio": "016",
+        "DescEspServicio": "CUERDAS VIBRANTES",
+        "DescIngServicio": "VIBRATING WIRE",
+        "IndEst": "1"
+    },
+    {
+        "IdCia": "21",
+        "IdServicio": "017",
+        "DescEspServicio": "PRE SPLIT",
+        "DescIngServicio": "PRE SPLIT",
+        "IndEst": "1"
+    },
+    {
+        "IdCia": "21",
+        "IdServicio": "018",
+        "DescEspServicio": "CONCRETO",
+        "DescIngServicio": "CONCRETE DRILLING",
+        "IndEst": "1"
+    },
+    {
+        "IdCia": "21",
+        "IdServicio": "019",
+        "DescEspServicio": "PILAS DE STOCK",
+        "DescIngServicio": "STOCK PILES",
+        "IndEst": "1"
+    },
+    {
+        "IdCia": "21",
+        "IdServicio": "020",
+        "DescEspServicio": "LIMPIEZA DE POZO",
+        "DescIngServicio": "HOLE CLEANING",
+        "IndEst": "1"
+    },
+    {
+        "IdCia": "21",
+        "IdServicio": "021",
+        "DescEspServicio": "BOOSTER WORK",
+        "DescIngServicio": "BOOSTER WORK",
+        "IndEst": "1"
+    },
+    {
+        "IdCia": "21",
+        "IdServicio": "022",
+        "DescEspServicio": "SIN SERVICIO",
+        "DescIngServicio": "NO SERVICE",
+        "IndEst": "1"
+    },
+    {
+        "IdCia": "21",
+        "IdServicio": "023",
+        "DescEspServicio": "BLAST HOLE",
+        "DescIngServicio": "BLAST HOLE",
+        "IndEst": "1"
+    },
+    {
+        "IdCia": "21",
+        "IdServicio": "024",
+        "DescEspServicio": "PUMP DIVISION",
+        "DescIngServicio": "PUMP DIVISION",
+        "IndEst": "1"
+    }
+]
+}

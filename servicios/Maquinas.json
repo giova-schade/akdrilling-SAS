@@ -1,0 +1,879 @@
+{
+    "maquinas":{
+  "status": "ok",
+  "datos": [
+    {
+      "idcia": "18",
+      "idmaquina": "29010003",
+      "descmaquina": "AK-205",
+      "desclarmaquina": "MAQUINA PERFORADORA FOREMOST W750 N.S. 951875 - AK-205",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "18",
+      "idmaquina": "29010006",
+      "descmaquina": "AK-200",
+      "desclarmaquina": "MAQUINA PERFORADORA FOREMOST W750 N.S. 971996 - AK200",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "18",
+      "idmaquina": "29010007",
+      "descmaquina": "AK-201",
+      "desclarmaquina": "MAQUINA PERFORADORA FOREMOST W750 N.S. 972023 - AK-201",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "18",
+      "idmaquina": "29010015",
+      "descmaquina": "AK-206",
+      "desclarmaquina": "MAQUINA PERFORADORA FOREMOST W750 N.S. 951876 - AK-206",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "18",
+      "idmaquina": "29010026",
+      "descmaquina": "AK-M01",
+      "desclarmaquina": "VEHICUL APOY MOROOKA MST600VD MONT ORUGA GOMA -MOTOR IZUSU 4JG1285049 -NS 60313",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "18",
+      "idmaquina": "29010057",
+      "descmaquina": "AK-S03",
+      "desclarmaquina": "MAQ PERF. SCHRAMM MONTADO SOBRE CAMION T-685 WS-C J24-9915 AK-S03",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "18",
+      "idmaquina": "29010082",
+      "descmaquina": "AK-D14",
+      "desclarmaquina": "MAQUINA PERFORADORA SONDA DIAMANTINA DE710 AK-D14",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "18",
+      "idmaquina": "29010083",
+      "descmaquina": "AK-D15",
+      "desclarmaquina": "MAQUINA PERFORADORA SONDA DIAMANTINA DE710 AK-D15",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "18",
+      "idmaquina": "29010116",
+      "descmaquina": "AK-107",
+      "desclarmaquina": "MAQUINA PERFORADORA SCHRAMM AK-107",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "18",
+      "idmaquina": "29010117",
+      "descmaquina": "AK-210",
+      "desclarmaquina": "MAQUINA PERF. MONTADA S/ ORUGAS MODELO EDM HXR40",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "18",
+      "idmaquina": "29010118",
+      "descmaquina": "AK-204",
+      "desclarmaquina": "MAQUINA PERFORADORA FOREMOST W750 N.S. 951873 - AK-204",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "18",
+      "idmaquina": "29010119",
+      "descmaquina": "AK-D05",
+      "desclarmaquina": "MAQUINA PERFORADORA UDR200D LS TRACK MOUNT AK-D05 AÃ‘O 2007",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "18",
+      "idmaquina": "29010149",
+      "descmaquina": "AK-D23",
+      "desclarmaquina": "MAQUINA PERFORADORA DIAMANTINA AK-D23",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "18",
+      "idmaquina": "29010156",
+      "descmaquina": "AK-P01",
+      "desclarmaquina": "MAQUINA PERFORADORA PRAKLA RB50 FM AK-P01 (REVERSE CIRCULATION RIG)",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "18",
+      "idmaquina": "29010157",
+      "descmaquina": "AK-D30",
+      "desclarmaquina": "MAQUINA PERFORADORA MARCA DURALITE MODELO T800N SERIE DL201701 AÃ‘O 2017",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "18",
+      "idmaquina": "29010159",
+      "descmaquina": "AK-M16",
+      "desclarmaquina": "VEHICULO DE APOYO MST-300VD",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "18",
+      "idmaquina": "29010160",
+      "descmaquina": "AK-D31",
+      "desclarmaquina": "MAQUINA PERF. DE-740 SANDVIK DE740-044-013 AK-D31",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "18",
+      "idmaquina": "29010161",
+      "descmaquina": "AK-D32",
+      "desclarmaquina": "MAQUINA PERF. DE-710 SANDVIK DE710-450-012 AK-D32",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "18",
+      "idmaquina": "29010163",
+      "descmaquina": "R008",
+      "desclarmaquina": "MAQUINA SUBTERRANEA R008",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "18",
+      "idmaquina": "29010170",
+      "descmaquina": "AK-D28",
+      "desclarmaquina": "MAQUINA PERFORAD AK-D28 SERIE EDM 2000-HC-14-074",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "18",
+      "idmaquina": "29010171",
+      "descmaquina": "AK-D34",
+      "desclarmaquina": "MAQUINA PERFOR. AK-D34 MARCA EDM MOD 2000 SERIE EDM2000-12-069",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "18",
+      "idmaquina": "29010172",
+      "descmaquina": "AK-D35",
+      "desclarmaquina": "MAQUINA DE PERFORACION T800N201503 SERIAL DL201503 , MOTOR JOHN DEERE SERIAL PE4",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "18",
+      "idmaquina": "29010173",
+      "descmaquina": "AK-D36",
+      "desclarmaquina": "MAQUINA DE PERFORACION MARCA DURALITE T800N SERIAL #DL202003 AK-D36",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "18",
+      "idmaquina": "29010176",
+      "descmaquina": "AK-D37",
+      "desclarmaquina": "MAQUINA DURALITE MODELO T800N SERIE DL2020004 AÃ‘O 2020 AK-D37",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "18",
+      "idmaquina": "29010179",
+      "descmaquina": "AK-U11",
+      "desclarmaquina": "MAQUINA PERF. SUBTERRANEA MOD.LM 90 DCI/RH SERIE LM90-2021-082 AK-U11",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "18",
+      "idmaquina": "29010180",
+      "descmaquina": "AK-U12",
+      "desclarmaquina": "MAQUINA PERFORADORA BOART LONGYEAR LM90 + DCI SONDA BOART",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "18",
+      "idmaquina": "29010181",
+      "descmaquina": "AK-U13",
+      "desclarmaquina": "MAQUINA PERF. LONGYEAR LM90-2021-091 AK-U13",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "18",
+      "idmaquina": "29010182",
+      "descmaquina": "AK-U14",
+      "desclarmaquina": "MAQUINA PERFORADORA INT MINA MOD LM 90 SERIE LM902021-092",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "18",
+      "idmaquina": "29040005",
+      "descmaquina": "AC-002",
+      "desclarmaquina": "COMPRESORA SULLAIR 900XHDTQ CA -N.S. 004-122849 AÃ‘O 1997 AC-002",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "18",
+      "idmaquina": "29040029",
+      "descmaquina": "AC-001",
+      "desclarmaquina": "COMPRESORA SULLAIR 1150 CFM/350 PSI - N.S. 200603010049",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "18",
+      "idmaquina": "29100005",
+      "descmaquina": "AK-107",
+      "desclarmaquina": "CAMION GRUA MERCEDEZ 4 X 4 HIAB SERIE 9BM384114LB892760 AÃ‘O 1991",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "18",
+      "idmaquina": "29150209",
+      "descmaquina": "AK-RENTALS",
+      "desclarmaquina": "ALQUILERES QUE EL CLIENTE PIDE FACTURAR POR SEPARADO A LA PERFORACION",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "18",
+      "idmaquina": "29150210",
+      "descmaquina": "AK-SERVICES",
+      "desclarmaquina": "SERVICIOS QUE EL CLIENTE PIDE FACTURAR POR SEPARADO A LA PERFORACION",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "18",
+      "idmaquina": "29150211",
+      "descmaquina": "AK-SALES",
+      "desclarmaquina": "COTIZACIONES Y VENTAS DE MATERIALES A CLIENTE",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "18",
+      "idmaquina": "29150288",
+      "descmaquina": "AK-MOVILIZA",
+      "desclarmaquina": "MOVILIZACION",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "18",
+      "idmaquina": "29150289",
+      "descmaquina": "AK-HERR PERDI",
+      "desclarmaquina": "HERRAMIENTAS PERDIDAS",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "18",
+      "idmaquina": "29150299",
+      "descmaquina": "AK-MAT CARGABLE",
+      "desclarmaquina": "MATERIAL CARGABLE",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010001",
+      "descmaquina": "AK-W01",
+      "desclarmaquina": "MAQUINA PERFORADORA FOREMOST DR24 N.S. 971987 - AK- W01",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010002",
+      "descmaquina": "AK-204",
+      "desclarmaquina": "MAQUINA PERFORADORA FOREMOST W750 N.S. 951873 - AK-204",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010003",
+      "descmaquina": "AK-205",
+      "desclarmaquina": "MAQUINA PERFORADORA FOREMOST W750 N.S. 951875 - AK-205",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010005",
+      "descmaquina": "AK-202",
+      "desclarmaquina": "MAQUINA PERFORADORA FOREMOST W750 N.S. 961974 - AK-202",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010006",
+      "descmaquina": "AK-200",
+      "desclarmaquina": "MAQUINA PERFORADORA FOREMOST W750 N.S. 971996 - AK200",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010007",
+      "descmaquina": "AK-201",
+      "desclarmaquina": "MAQUINA PERFORADORA FOREMOST W750 N.S. 972023 - AK-201",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010015",
+      "descmaquina": "AK-206",
+      "desclarmaquina": "MAQUINA PERFORADORA FOREMOST W750 N.S. 951876 - AK-206",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010017",
+      "descmaquina": "AK-D01",
+      "desclarmaquina": "MAQUINA PERFORADORA UDR200D LS TRACK MOUNT AK-D01",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010022",
+      "descmaquina": "AK-S01",
+      "desclarmaquina": "MAQUINA PERFORADORA SCHRAMM T-660H N.S J12-23582 AK-S01",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010023",
+      "descmaquina": "AK-S02",
+      "desclarmaquina": "MAQUINA PERFORADORA SCHRAMM T-660H N.S J11-23463 AK-S02",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010024",
+      "descmaquina": "AK-D02",
+      "desclarmaquina": "MAQUINA PERFORADORA UDR200D LS TRACK MOUNT AK-D02",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010025",
+      "descmaquina": "AK-D03",
+      "desclarmaquina": "MAQUINA PERFORADORA UDR200D LS TRACK MOUNT AK-D03",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010029",
+      "descmaquina": "AK-207",
+      "desclarmaquina": "MAQUINA PERFORADORA FOREMOST MOD. DISCOVERY N.S. 89-171 - AK-207",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010036",
+      "descmaquina": "AK-D04",
+      "desclarmaquina": "MAQUINA PERFORADORA UDR200D LS TRACK MOUNT AK-D04",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010038",
+      "descmaquina": "AK-S04",
+      "desclarmaquina": "SCHRAMM T685WS-D, BASIC RIG MOD DETROIT DIESEL DDC/MTU 12V 750BHP",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010043",
+      "descmaquina": "AK-D05",
+      "desclarmaquina": "MAQUINA PERFORADORA UDR200D LS TRACK MOUNT AK-D05",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010045",
+      "descmaquina": "AK-D09",
+      "desclarmaquina": "MAQUINA PERFORADORA EDM 2000 LS TRACK MOUNT AK-D09",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010046",
+      "descmaquina": "AK-D06",
+      "desclarmaquina": "MAQUINA PERFORADORA UDR200D LS TRACK MOUNT AK-D06",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010047",
+      "descmaquina": "AK-D07",
+      "desclarmaquina": "MAQUINA PERFORADORA UDR200D LS TRACK MOUNT AK-D07",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010057",
+      "descmaquina": "AK-S03",
+      "desclarmaquina": "MAQ PERF. SCHRAMM MONTADO SOBRE CAMION T-685 WS-C J24-9915 AK-S03",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010058",
+      "descmaquina": "AK-D08",
+      "desclarmaquina": "MAQUINA PERFORADORA EDM 2000 LS TRACK MOUNT AK-D08",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010066",
+      "descmaquina": "PUMP WORK",
+      "desclarmaquina": "TRABAJOS DE PERFORACION SIN MAQUINA",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010067",
+      "descmaquina": "AK-D10",
+      "desclarmaquina": "MAQUINA PERFORADORA SONDA DIAMANTINA DE710 AK-D10",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010068",
+      "descmaquina": "AK-D12",
+      "desclarmaquina": "MAQUINA PERFORADORA SONDA DIAMANTINA DE740 AK-D12",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010069",
+      "descmaquina": "AK-D11",
+      "desclarmaquina": "MAQUINA PERFORADORA SONDA DIAMANTINA DE710 AK-D11",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010070",
+      "descmaquina": "AK-D13",
+      "desclarmaquina": "MAQUINA PERFORADORA SONDA DIAMANTINA DE740 AK-D13 SERIE 06-09",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010082",
+      "descmaquina": "AK-D14",
+      "desclarmaquina": "MAQUINA PERFORADORA SONDA DIAMANTINA DE710 AK-D14",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010083",
+      "descmaquina": "AK-D15",
+      "desclarmaquina": "MAQUINA PERFORADORA SONDA DIAMANTINA DE710 AK-D15",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010106",
+      "descmaquina": "AK-D16",
+      "desclarmaquina": "MAQUINA PERFORADORA SONDA DIAMANTINA  AK-D16",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010107",
+      "descmaquina": "AK-D17",
+      "desclarmaquina": "MAQUINA PERFORADORA SONDA DIAMANTINA  AK-D17",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010109",
+      "descmaquina": "AC-004",
+      "desclarmaquina": "COMPRESOR AUXILIAR SULLAIR 900 / 350  8759 35215051",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010110",
+      "descmaquina": "AK-D18",
+      "desclarmaquina": "PERFORADORA DIAMANTINA AK-D18",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010114",
+      "descmaquina": "AK-209",
+      "desclarmaquina": "BUGGY - W750 AK - 209",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010122",
+      "descmaquina": "AK-S05",
+      "desclarmaquina": "MAQUINA PERFORADORA SCHRAMM T-685WS-D N.S J125-5708 AK-S05",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010123",
+      "descmaquina": "AK-D19",
+      "desclarmaquina": "MAQUINA PERFORADORA SONDA DIAMANTINA DE710 AK-D19",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010125",
+      "descmaquina": "AK-D20",
+      "desclarmaquina": "MAQUINA PERFORADORA SANDVIK DE710 SERIE DE710-419-12 AKD-20",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010126",
+      "descmaquina": "AK-D21",
+      "desclarmaquina": "MAQUINA PERFORADORA SANDVIK DE-740 AK-D21 SERIE DE740-020-12",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010127",
+      "descmaquina": "AK-D22",
+      "desclarmaquina": "MAQUINA PERFORADORA SANDVIK DE-740 AK-D22 SERIE DE740-021-12",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010128",
+      "descmaquina": "AK-209",
+      "desclarmaquina": "MAQUINA PERFORADORA FOREMOST W750  -AK-209 SERIE 122637",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010148",
+      "descmaquina": "AK-W02",
+      "desclarmaquina": "MAQUINA FOREMOST MOD DR12/26P-80/24HF-900 SER 132672",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010149",
+      "descmaquina": "AK-D23",
+      "desclarmaquina": "MAQUINA PERFORADORA DIAMANTINA AK-D23",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010150",
+      "descmaquina": "AK-D25",
+      "desclarmaquina": "MAQUINA PERF. GEMEX MP1500 H NS 7009189992",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010152",
+      "descmaquina": "AK-D27",
+      "desclarmaquina": "MAQUINA PERFORAD AK-D27 SERIE EDM 2000-HC-14-073",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010153",
+      "descmaquina": "AK-D28",
+      "desclarmaquina": "MAQUINA PERFORAD AK-D28 SERIE EDM 2000-HC-14-074",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010154",
+      "descmaquina": "AK-212",
+      "desclarmaquina": "MAQUINA PERFORADORA ATLAS COPCO FLEXIROC D65 -10LF- AK-212",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010155",
+      "descmaquina": "AK-211",
+      "desclarmaquina": "MAQUINA PERFORADORA ATLAS COPCO FLEXIROC D65 -10LF- AK-211",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010156",
+      "descmaquina": "AK-P01",
+      "desclarmaquina": "MAQUINA PERFORADORA PRAKLA RB50 FM AK-P01 (REVERSE CIRCULATION RIG)",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010157",
+      "descmaquina": "AK-D30",
+      "desclarmaquina": "MAQUINA PERFORADORA MARCA DURALITE MODELO T800N SERIE DL201701 AÃ‘O 2017",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010158",
+      "descmaquina": "AK-108",
+      "desclarmaquina": "MAQUINA LF 90, MARCA BOART LONGYEAR AK-108",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010160",
+      "descmaquina": "AK-D31",
+      "desclarmaquina": "MAQUINA PERF. DE-740 SANDVIK DE740-044-013 AK-D31",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010161",
+      "descmaquina": "AK-D32",
+      "desclarmaquina": "MAQUINA PERF. DE-710 SANDVIK DE710-450-012 AK-D32",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010163",
+      "descmaquina": "R008",
+      "desclarmaquina": "MAQUINA SUBTERRANEA R008",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010169",
+      "descmaquina": "AK-D33",
+      "desclarmaquina": "DURALITE T800N DRILL RIG",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010170",
+      "descmaquina": "AK-D28",
+      "desclarmaquina": "MAQUINA PERFORAD AK-D28 SERIE EDM 2000-HC-14-074",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010171",
+      "descmaquina": "AK-D34",
+      "desclarmaquina": "MAQUINA PERFOR. AK-D34 MARCA EDM MOD 2000 SERIE EDM2000-12-069",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010172",
+      "descmaquina": "AK-D35",
+      "desclarmaquina": "MAQUINA DE PERFORACION T800N201503 SERIAL DL201503 , MOTOR JOHN DEERE SERIAL PE4",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010173",
+      "descmaquina": "AK-D36",
+      "desclarmaquina": "MAQUINA DE PERFORACION MARCA DURALITE T800N SERIAL #DL202003 AK-D36",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010176",
+      "descmaquina": "AK-D37",
+      "desclarmaquina": "MAQUINA DURALITE MODELO T800N SERIE DL2020004 AÃ‘O 2020 AK-D37",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010179",
+      "descmaquina": "AK-U11",
+      "desclarmaquina": "MAQUINA PERF. SUBTERRANEA MOD.LM 90 DCI/RH SERIE LM90-2021-082 AK-U11",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010180",
+      "descmaquina": "AK-U12",
+      "desclarmaquina": "MAQUINA PERFORADORA BOART LONGYEAR LM90 + DCI SONDA BOART",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010181",
+      "descmaquina": "AK-U13",
+      "desclarmaquina": "MAQUINA PERF. LONGYEAR LM90-2021-091 AK-U13",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29010182",
+      "descmaquina": "AK-U14",
+      "desclarmaquina": "MAQUINA PERFORADORA INT MINA MOD LM 90 SERIE LM902021-092",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29060014",
+      "descmaquina": "UB-002",
+      "desclarmaquina": "UNIDAD DE BOMBEO LISTER PETTER UB-002 100023805TR3A01 TR3",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29100022",
+      "descmaquina": "AT-114",
+      "desclarmaquina": "CAMION INTERNATIONAL MODELO 7600SBA 8X4 SERIE 1HTWYAHT1CJ116025",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29100023",
+      "descmaquina": "AK-124",
+      "desclarmaquina": "CAMION PLATAFORMA INTERNATIONAL 4400 SBA 6X4 D6R-820",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29100024",
+      "descmaquina": "AK-125",
+      "desclarmaquina": "CAMION PLATAFORMA INTERNATIONAL 4400 SBA 6X4 B3Y-797",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29150209",
+      "descmaquina": "AK-RENTALS",
+      "desclarmaquina": "ALQUILERES QUE EL CLIENTE PIDE FACTURAR POR SEPARADO A LA PERFORACION",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29150210",
+      "descmaquina": "AK-SERVICES",
+      "desclarmaquina": "SERVICIOS QUE EL CLIENTE PIDE FACTURAR POR SEPARADO A LA PERFORACION",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29150211",
+      "descmaquina": "AK-SALES",
+      "desclarmaquina": "COTIZACIONES Y VENTAS DE MATERIALES A CLIENTE",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29150288",
+      "descmaquina": "AK-MOVILIZA",
+      "desclarmaquina": "MOVILIZACIONES",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29150289",
+      "descmaquina": "AK-HERR PERDI",
+      "desclarmaquina": "HERRAMIENTAS PERDIDAS",
+      "indmaq": 1,
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "idmaquina": "29150299",
+      "descmaquina": "AK-MAT CARGABLE",
+      "desclarmaquina": "MAT CARGABLE",
+      "indmaq": 1,
+      "indest": "1"
+    }
+  ]
+}
+}

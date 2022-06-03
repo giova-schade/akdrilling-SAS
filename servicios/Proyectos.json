@@ -1,0 +1,57 @@
+{
+    "proyectos":{
+  "status": "ok",
+  "datos": [
+    {
+      "idcia": "18",
+      "idproyecto": "00001",
+      "nomproyecto": "Pueblo Viejo",
+      "idcliente": "00101886714",
+      "nomcliente": "PUEBLO VIEJO DOMINICANA CORPORATION"
+    },
+    {
+      "idcia": "18",
+      "idproyecto": "00012",
+      "nomproyecto": "Cerro MaimÃ³n",
+      "idcliente": "101530286",
+      "nomcliente": "CORPORACION MINERA DOMINICANA SAS"
+    },
+    {
+      "idcia": "18",
+      "idproyecto": "00013",
+      "nomproyecto": "MÃ¡quina Inoperativas",
+      "idcliente": "22856791787",
+      "nomcliente": "INTERNATIONAL DRILL MANAGEMENT CORP"
+    },
+    {
+      "idcia": "18",
+      "idproyecto": "00014",
+      "nomproyecto": "Pueblo Grande",
+      "idcliente": "00101886714",
+      "nomcliente": "PUEBLO VIEJO DOMINICANA CORPORATION"
+    },
+    {
+      "idcia": "18",
+      "idproyecto": "00015",
+      "nomproyecto": "Pueblo Grande",
+      "idcliente": "131950426",
+      "nomcliente": "BARRICK INTERNATIONAL"
+    },
+    {
+      "idcia": "21",
+      "idproyecto": "00002",
+      "nomproyecto": "Cobre",
+      "idcliente": "46505963038",
+      "nomcliente": "MINERA PANAMA S A"
+    },
+    {
+      "idcia": "21",
+      "idproyecto": "00003",
+      "nomproyecto": "MÃ¡quina Inoperativas",
+      "idcliente": "22856791787",
+      "nomcliente": "INTERNATIONAL DRILL MANAGEMENT CORP"
+    }
+  ]
+}
+    
+}

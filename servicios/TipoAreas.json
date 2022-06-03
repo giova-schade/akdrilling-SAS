@@ -1,0 +1,68 @@
+{
+    "areas":{
+  "status": "ok",
+  "datos": [
+    {
+      "idarea": "01",
+      "desclararea": "RECURSOS HUMANOS",
+      "desccorarea": "RRHH",
+      "indest": "1"
+    },
+    {
+      "idarea": "02",
+      "desclararea": "ABASTECIMIENTO Y SERVICIOS",
+      "desccorarea": "ABASTECIMIENTO",
+      "indest": "1"
+    },
+    {
+      "idarea": "03",
+      "desclararea": "FINANZAS",
+      "desccorarea": "FINANZAS",
+      "indest": "1"
+    },
+    {
+      "idarea": "04",
+      "desclararea": "DESARROLLO DE NEGOCIOS",
+      "desccorarea": "NEGOCIOS",
+      "indest": "1"
+    },
+    {
+      "idarea": "05",
+      "desclararea": "TECNOLOGIAS DE INFORMACION",
+      "desccorarea": "INFORMATICA",
+      "indest": "1"
+    },
+    {
+      "idarea": "06",
+      "desclararea": "OPERACIONES",
+      "desccorarea": "OPERACIONES",
+      "indest": "1"
+    },
+    {
+      "idarea": "07",
+      "desclararea": "GERENCIA",
+      "desccorarea": "GERENCIA",
+      "indest": "1"
+    },
+    {
+      "idarea": "08",
+      "desclararea": "MANTENIMIENTO",
+      "desccorarea": "MANTTO",
+      "indest": "1"
+    },
+    {
+      "idarea": "09",
+      "desclararea": "DESARROLLO EMPRESARIAL",
+      "desccorarea": "EMPRESA",
+      "indest": "1"
+    },
+    {
+      "idarea": "10",
+      "desclararea": "SSOMAC",
+      "desccorarea": "SSOMAC",
+      "indest": "1"
+    }
+  ]
+}
+        
+}

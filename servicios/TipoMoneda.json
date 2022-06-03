@@ -1,0 +1,82 @@
+{
+    "monedas":{
+  "status": "ok",
+  "datos": [
+    {
+        "IdMoneda": "SO",
+        "DescLarMoneda": "SOLES",
+        "DescCorMoneda": "SOLES",
+        "CodIsoMoneda": "PEN",
+        "IndEst": "1"
+    },
+    {
+        "IdMoneda": "DO",
+        "DescLarMoneda": "DOLARES AMERICANOS",
+        "DescCorMoneda": "DOLAR",
+        "CodIsoMoneda": "USD",
+        "IndEst": "1"
+    },
+    {
+        "IdMoneda": "EU",
+        "DescLarMoneda": "EUROS",
+        "DescCorMoneda": "EURO",
+        "CodIsoMoneda": "EUR",
+        "IndEst": "1"
+    },
+    {
+        "IdMoneda": "DA",
+        "DescLarMoneda": "DOLARES AUSTRALIANOS",
+        "DescCorMoneda": "DOLAR AUSTRALIA",
+        "CodIsoMoneda": "AUD",
+        "IndEst": "1"
+    },
+    {
+        "IdMoneda": "DS",
+        "DescLarMoneda": "DOLAR SURINAMES",
+        "DescCorMoneda": "DOL SUR.",
+        "CodIsoMoneda": "SRD",
+        "IndEst": "1"
+    },
+    {
+        "IdMoneda": "PD",
+        "DescLarMoneda": "PESO DOMINICANO",
+        "DescCorMoneda": "PESO DOMINICANO",
+        "CodIsoMoneda": "DOP",
+        "IndEst": "1"
+    },
+    {
+        "IdMoneda": "GY",
+        "DescLarMoneda": "DOLAR GUYANES",
+        "DescCorMoneda": "DOLAR",
+        "CodIsoMoneda": "GYD",
+        "IndEst": "1"
+    },
+    {
+        "IdMoneda": "PC",
+        "DescLarMoneda": "PESOS CHILENO",
+        "DescCorMoneda": "PESOS",
+        "CodIsoMoneda": "CLP",
+        "IndEst": "1"
+    },
+    {
+        "IdMoneda": "CO",
+        "DescLarMoneda": "PESOS COLOMBIANOS",
+        "DescCorMoneda": "PESOS",
+        "CodIsoMoneda": "COP",
+        "IndEst": "1"
+    },
+    {
+        "IdMoneda": "PB",
+        "DescLarMoneda": "BALBOA PANAMEÑO",
+        "DescCorMoneda": "BALBOA",
+        "CodIsoMoneda": "PAB",
+        "IndEst": "1"
+    },
+    {
+        "IdMoneda": "GR",
+        "DescLarMoneda": "GUARANI",
+        "DescCorMoneda": "GUARANI",
+        "CodIsoMoneda": "PYG",
+        "IndEst": "1"
+    }
+  ]}}

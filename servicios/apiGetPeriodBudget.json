@@ -1,0 +1,10 @@
+{
+    "apiGetPeriodBudget":{
+  "status": "ok",
+  "datos": [
+     {"periodo": "Enero", "date":"01/01/2022"},
+     {"periodo": "Febrero", "date":"01/02/2022"},
+     {"periodo": "Marzo", "date":"01/03/2022"}
+  ]
+}
+}

@@ -1,0 +1,29 @@
+{
+    "sedes":{
+  "status": "ok",
+  "datos": [
+    {
+      "idcia": "18",
+      "nomsede": "TYCHE GLOBAL CORP.",
+      "siglasede": "TYCHE G.C.",
+      "idcoddid": "008",
+      "idnrodoc": "130969035",
+      "idpais": "DO",
+      "monmn": "PD",
+      "monext": "DO",
+      "indest": "1"
+    },
+    {
+      "idcia": "21",
+      "nomsede": "AKD INTERNATIONAL PANAMA CORP.",
+      "siglasede": "AKD CORP",
+      "idcoddid": "001",
+      "idnrodoc": "155632937-2",
+      "idpais": "PA",
+      "monmn": "PB",
+      "monext": "DO",
+      "indest": "1"
+    }
+  ]
+}
+}

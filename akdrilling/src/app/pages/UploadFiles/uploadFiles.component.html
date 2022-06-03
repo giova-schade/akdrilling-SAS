@@ -1,0 +1,724 @@
+
+<div class=" content">
+
+  <div class=" row">
+
+    <div class=" col-12">
+      <div class=" card card-chart">
+        <div class=" card-header">
+          <div class=" row">
+            <p-progressBar *ngIf="loadingPage" mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
+            <p-blockUI [blocked]="loadingPage" [style]="{'z-index': '2'}" ></p-blockUI>
+
+            <div class=" col-sm-12">
+
+              <p-tabView styleClass="tabview-custom-loadMaster" (onChange)="handleChangeMaster($event)">
+                
+                <p-tabPanel header="Carga de maestros">
+                  <div class=" row">
+                    <div class=" col-lg-8 ">
+                      <div class=" row">
+                        <div class=" col-md-8">
+                          <button  pButton pRipple type="button" class="btnload"  label="Cargar maestro sede "   (click)="LoadMaestro('SEDE')">
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class=" row">
+                    <div class=" col-lg-8 ">
+                      <div class=" row">
+                        <div class=" col-md-8">
+                          <button pButton pRipple type="button" class="btnload"  label="Cargar maestro flujo caja" (click)="LoadMaestro('FLUJOCAJACORPORATIVO')">                            
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class=" row">
+                    <div class=" col-lg-8 ">
+                      <div class=" row">
+                        <div class=" col-md-8">
+                          <button pButton pRipple type="button" class="btnload"  label="Cargar maestro tipo de servicio" (click)="LoadMaestro('TIPOSERVICIO')">
+                            
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class=" row">
+                    <div class=" col-lg-8 ">
+                      <div class=" row">
+                        <div class=" col-md-8">
+                          <button pButton pRipple type="button" class="btnload"  label="Cargar maestro proyectos" (click)="LoadMaestro('PROYECTO')">
+                            
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class=" row">
+                    <div class=" col-lg-8 ">
+                      <div class=" row">
+                        <div class=" col-md-8">
+                          <button pButton pRipple type="button" class="btnload"  label="Cargar maestro maquinas"  (click)="LoadMaestro('MAQUINAS')">
+                            
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class=" row">
+                    <div class=" col-lg-8 ">
+                      <div class=" row">
+                        <div class=" col-md-8">
+                          <button pButton pRipple type="button" class="btnload"  label="Cargar maestro auxiliares"  (click)="LoadMaestro('AUXILIARES')">
+                            
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class=" row">
+                    <div class=" col-lg-8 ">
+                      <div class=" row">
+                        <div class=" col-md-8"> 
+                          <button pButton pRipple type="button" class="btnload" label="Cargar maestro unidad de negocio "   (click)="LoadMaestro('UNIDADNEGOCIO')"></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class=" row">
+                    <div class=" col-lg-8 ">
+                      <div class=" row">
+                        <div class=" col-md-8">
+                          <button pButton pRipple type="button" class="btnload" label="Cargar maestro tipo de moneda"   (click)="LoadMaestro('TIPOMONEDA')">
+                            
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class=" row">
+                    <div class=" col-lg-8 ">
+                      <div class=" row">
+                        <div class=" col-md-8">
+                          <button pButton pRipple type="button" class="btnload" label="Cargar maestro tipo de areas" (click)="LoadMaestro('AREAS')">                            
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class=" row">
+                    <div class=" col-lg-8 ">
+                      <div class=" row">
+                        <div class=" col-md-8">
+                          <button pButton pRipple type="button" class="btnload" label="Cargar maestro centro de costo" (click)="LoadMaestro('CENTROCOSTO')">                           
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <p-dialog [(visible)]="displayPosition" [modal]="true" [style]="{width: '50vw'}" [draggable]="true"
+                    [resizable]="true">
+
+                    <p-header>
+                      {{dialogTitulo}}
+                    </p-header>
+                    <p>{{dialogMensaje}}</p>
+                    <ng-template pTemplate="footer">
+                      <p-button (click)="displayPosition=false" label="Ok" styleClass="p-button-text"></p-button>
+                    </ng-template>
+                  </p-dialog>
+                </p-tabPanel>
+
+                <p-tabPanel header="Ver datos cargados">
+
+                  <p-tabView styleClass="tabview-custom-mastertable" [scrollable]=true
+                    (onChange)="handleChangeViewMaster($event)">
+                    <p-tabPanel header="Maestro flujo caja" [style]="{'padding': 0}">
+
+                      <p-table #dtfc 
+                                     [columns]="fcCampos"
+                                     [value]="datasourceFC"  
+                                     [rowHover]="true"
+                                     [rows]="10" 
+                                     [showCurrentPageReport]="true" 
+                                     [loading]="loading" 
+                                     [paginator]="true"
+                                     currentPageReportTemplate="Mostrar {first} hasta  {last} de {totalRecords} datos"
+                                     [filterDelay]="0" 
+                                     [resizableColumns]="true" 
+                                     [responsive]="true"
+                                     [autoLayout]="true"
+                                     [globalFilterFields]="fcCampos.field" 
+                                     styleClass="tabla"
+                                     *ngIf="fcview"
+                                     sortMode="multiple" [multiSortMeta]="multiSortMetaFC"
+                                     >
+                                     
+                        <ng-template pTemplate="caption" >
+                          <div class="p-d-flex" >
+                               
+                            <button pButton label="Limpiar" class="p-button-outlined" icon="pi pi-filter-slash"
+                              (click)="clear(dtfc)"></button>
+                                <span class="p-input-icon-left p-ml-auto">
+                                  <i class="pi pi-search"></i>
+                                  <input pInputText type="text" 
+                                        (input)="applyFilterGlobalFC($event, 'contains')"
+                                        placeholder="Filtrar" />
+                                </span>
+
+                          </div>
+                        </ng-template>
+                        <ng-template pTemplate="header" let-columns>
+                          <tr>
+                            <th *ngFor="let col of columns"> 
+                              <p-columnFilter type="text"  [field]="col.field" ></p-columnFilter>
+                            </th>                            
+                          </tr>
+                          <tr >
+                            <th *ngFor="let col of columns" pSortableColumn="{{col.field}}" >{{col.field}}
+                              <p-sortIcon field="{{col.field}}" >
+                              </p-sortIcon>
+                            </th>
+                            
+                          </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-rowData let-columns="columns">
+                          <tr >
+                            <td *ngFor="let col of columns" >{{rowData[col.field]}}</td>
+
+                          </tr>
+                        </ng-template>
+                      </p-table>
+
+                    </p-tabPanel>
+                    <p-tabPanel header="Maestro tipo de servicio">
+                      <p-table #dtts 
+                                     [columns]="tsCampos"
+                                     [value]="datasourceTS"  
+                                     [rowHover]="true"
+                                     [rows]="10" 
+                                     [showCurrentPageReport]="true" 
+                                     [loading]="loading" 
+                                     [paginator]="true"
+                                     currentPageReportTemplate="Mostrar {first} hasta  {last} de {totalRecords} datos"
+                                     [filterDelay]="0" 
+                                     [resizableColumns]="true" 
+                                     [responsive]="true"
+                                     [autoLayout]="true"
+                                     [globalFilterFields]="tsCampos.field" 
+                                     styleClass="tabla"
+                                     *ngIf="tsview"
+                                     sortMode="multiple" [multiSortMeta]="multiSortMetaTS"
+                                     >
+                                     
+                        <ng-template pTemplate="caption" >
+                          <div class="p-d-flex" >
+                               
+                            <button pButton label="Limpiar" class="p-button-outlined" icon="pi pi-filter-slash"
+                              (click)="clear(dtts)"></button>
+                                <span class="p-input-icon-left p-ml-auto">
+                                  <i class="pi pi-search"></i>
+                                  <input pInputText type="text" (input)="applyFilterGlobalTS($event, 'contains')"
+                                    placeholder="Filtrar" />
+                                </span>
+
+                          </div>
+                        </ng-template>
+                        <ng-template pTemplate="header" let-columns>
+                          <tr>
+                            <th *ngFor="let col of columns"> 
+                              <p-columnFilter type="text"  [field]="col.field" ></p-columnFilter>
+                            </th>                            
+                          </tr>
+                          <tr >
+                            <th *ngFor="let col of columns" pSortableColumn="{{col.field}}" >{{col.field}}
+                              <p-sortIcon field="{{col.field}}">
+                              </p-sortIcon>
+                            </th>
+                            
+                          </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-rowData let-columns="columns">
+                          <tr >
+                            <td *ngFor="let col of columns" >{{rowData[col.field]}}</td>
+
+                          </tr>
+                        </ng-template>
+                      </p-table>
+
+
+                    </p-tabPanel>
+                    <p-tabPanel header="Maestro proyectos">
+
+                      <p-table #dtp 
+                                     [columns]="pCampos"
+                                     [value]="datasourceP"  
+                                     [rowHover]="true"
+                                     [rows]="10" 
+                                     [showCurrentPageReport]="true" 
+                                     [loading]="loading" 
+                                     [paginator]="true"
+                                     currentPageReportTemplate="Mostrar {first} hasta  {last} de {totalRecords} datos"
+                                     [filterDelay]="0" 
+                                     [resizableColumns]="true" 
+                                     [responsive]="true"
+                                     [autoLayout]="true"
+                                     [globalFilterFields]="pCampos.field" 
+                                     styleClass="tabla"
+                                     *ngIf="pview"
+                                     sortMode="multiple" [multiSortMeta]="multiSortMetaP"
+                                     >
+                                     
+                        <ng-template pTemplate="caption" >
+                          <div class="p-d-flex" >
+                               
+                            <button pButton label="Limpiar" class="p-button-outlined" icon="pi pi-filter-slash"
+                              (click)="clear(dtp)"></button>
+                                <span class="p-input-icon-left p-ml-auto">
+                                  <i class="pi pi-search"></i>
+                                  <input pInputText type="text" (input)="applyFilterGlobalP($event, 'contains')"
+                                    placeholder="Filtrar" />
+                                </span>
+
+                          </div>
+                        </ng-template>
+                        <ng-template pTemplate="header" let-columns>
+                          <tr>
+                            <th *ngFor="let col of columns"> 
+                              <p-columnFilter type="text"  [field]="col.field" ></p-columnFilter>
+                            </th>                            
+                          </tr>
+                          <tr >
+                            <th *ngFor="let col of columns" pSortableColumn="{{col.field}}" >{{col.field}}
+                              <p-sortIcon field="{{col.field}}">
+                              </p-sortIcon>
+                            </th>
+                            
+                          </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-rowData let-columns="columns">
+                          <tr >
+                            <td *ngFor="let col of columns" >{{rowData[col.field]}}</td>
+
+                          </tr>
+                        </ng-template>
+                      </p-table>
+
+                    </p-tabPanel>
+                    <p-tabPanel header="Maestro maquinas">
+
+                      <p-table #dtm 
+                                     [columns]="mCampos"
+                                     [value]="datasourceM"  
+                                     [rowHover]="true"
+                                     [rows]="10" 
+                                     [showCurrentPageReport]="true" 
+                                     [loading]="loading" 
+                                     [paginator]="true"
+                                     currentPageReportTemplate="Mostrar {first} hasta  {last} de {totalRecords} datos"
+                                     [filterDelay]="0" 
+                                     [resizableColumns]="true" 
+                                     [responsive]="true"
+                                     [autoLayout]="true"
+                                     [globalFilterFields]="mCampos.field" 
+                                     styleClass="tabla"
+                                     *ngIf="mview"
+                                     sortMode="multiple" [multiSortMeta]="multiSortMetaM"
+                                     >
+                                     
+                        <ng-template pTemplate="caption" >
+                          <div class="p-d-flex" >
+                               
+                            <button pButton label="Limpiar" class="p-button-outlined" icon="pi pi-filter-slash"
+                              (click)="clear(dtm)"></button>
+                                <span class="p-input-icon-left p-ml-auto">
+                                  <i class="pi pi-search"></i>
+                                  <input pInputText type="text" (input)="applyFilterGlobalM($event, 'contains')"
+                                    placeholder="Filtrar" />
+                                </span>
+
+                          </div>
+                        </ng-template>
+                        <ng-template pTemplate="header" let-columns>
+                          <tr>
+                            <th *ngFor="let col of columns"> 
+                              <p-columnFilter type="text"  [field]="col.field" ></p-columnFilter>
+                            </th>                            
+                          </tr>
+                          <tr >
+                            <th *ngFor="let col of columns" pSortableColumn="{{col.field}}" >{{col.field}}
+                              <p-sortIcon field="{{col.field}}">
+                              </p-sortIcon>
+                            </th>
+                            
+                          </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-rowData let-columns="columns">
+                          <tr >
+                            <td *ngFor="let col of columns" >{{rowData[col.field]}}</td>
+
+                          </tr>
+                        </ng-template>
+                      </p-table>
+                      
+                    </p-tabPanel>
+                    <p-tabPanel header="Maestro sedes">
+
+                      <p-table #dts 
+                                     [columns]="sCampos"
+                                     [value]="datasourceS"  
+                                     [rowHover]="true"
+                                     [rows]="10" 
+                                     [showCurrentPageReport]="true" 
+                                     [loading]="loading" 
+                                     [paginator]="true"
+                                     currentPageReportTemplate="Mostrar {first} hasta  {last} de {totalRecords} datos"
+                                     [filterDelay]="0" 
+                                     [resizableColumns]="true" 
+                                     [responsive]="true"
+                                     [autoLayout]="true"
+                                     [globalFilterFields]="sCampos.field" 
+                                     styleClass="tabla"
+                                     *ngIf="sview"
+                                     sortMode="multiple" [multiSortMeta]="multiSortMetaS"
+                                     >
+                                     
+                        <ng-template pTemplate="caption" >
+                          <div class="p-d-flex" >
+                               
+                            <button pButton label="Limpiar" class="p-button-outlined" icon="pi pi-filter-slash"
+                              (click)="clear(dts)"></button>
+                                <span class="p-input-icon-left p-ml-auto">
+                                  <i class="pi pi-search"></i>
+                                  <input pInputText type="text" (input)="applyFilterGlobalS($event, 'contains')"
+                                    placeholder="Filtrar" />
+                                </span>
+
+                          </div>
+                        </ng-template>
+                        <ng-template pTemplate="header" let-columns>
+                          <tr>
+                            <th *ngFor="let col of columns"> 
+                              <p-columnFilter type="text"  [field]="col.field" ></p-columnFilter>
+                            </th>                            
+                          </tr>
+                          <tr >
+                            <th *ngFor="let col of columns" pSortableColumn="{{col.field}}" >{{col.field}}
+                              <p-sortIcon field="{{col.field}}">
+                              </p-sortIcon>
+                            </th>
+                            
+                          </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-rowData let-columns="columns">
+                          <tr >
+                            <td *ngFor="let col of columns" >{{rowData[col.field]}}</td>
+
+                          </tr>
+                        </ng-template>
+                      </p-table>
+                      
+                      
+                    </p-tabPanel>
+                    <p-tabPanel header="Maestro auxiliares">
+                      <p-table #dta 
+                                     [columns]="aCampos"
+                                     [value]="datasourceAUX"  
+                                     [rowHover]="true"
+                                     [rows]="10" 
+                                     [showCurrentPageReport]="true" 
+                                     [loading]="loading" 
+                                     [paginator]="true"
+                                     currentPageReportTemplate="Mostrar {first} hasta  {last} de {totalRecords} datos"
+                                     [filterDelay]="0" 
+                                     [resizableColumns]="true" 
+                                     [responsive]="true"
+                                     [autoLayout]="true"
+                                     [globalFilterFields]="aCampos.field" 
+                                     styleClass="tabla"
+                                     *ngIf="auxview"
+                                     sortMode="multiple" [multiSortMeta]="multiSortMetaA"
+                                     >
+                                     
+                        <ng-template pTemplate="caption" >
+                          <div class="p-d-flex" >
+                               
+                            <button pButton label="Limpiar" class="p-button-outlined" icon="pi pi-filter-slash"
+                              (click)="clear(dta)"></button>
+                                <span class="p-input-icon-left p-ml-auto">
+                                  <i class="pi pi-search"></i>
+                                  <input pInputText type="text" (input)="applyFilterGlobalAux($event, 'contains')"
+                                    placeholder="Filtrar" />
+                                </span>
+
+                          </div>
+                        </ng-template>
+                        <ng-template pTemplate="header" let-columns>
+                          <tr>
+                            <th *ngFor="let col of columns"> 
+                              <p-columnFilter type="text"  [field]="col.field" ></p-columnFilter>
+                            </th>                            
+                          </tr>
+                          <tr >
+                            <th *ngFor="let col of columns" pSortableColumn="{{col.field}}" >{{col.field}}
+                              <p-sortIcon field="{{col.field}}">
+                              </p-sortIcon>
+                            </th>
+                            
+                          </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-rowData let-columns="columns">
+                          <tr >
+                            <td *ngFor="let col of columns" >{{rowData[col.field]}}</td>
+
+                          </tr>
+                        </ng-template>
+                      </p-table>
+                    </p-tabPanel>
+                    <p-tabPanel header="Maestro unidad de negocio">
+                        <p-table #dtun 
+                                     [columns]="unCampos"
+                                     [value]="datasourceU"  
+                                     [rowHover]="true"
+                                     [rows]="10" 
+                                     [showCurrentPageReport]="true" 
+                                     [loading]="loading" 
+                                     [paginator]="true"
+                                     currentPageReportTemplate="Mostrar {first} hasta  {last} de {totalRecords} datos"
+                                     [filterDelay]="0" 
+                                     [resizableColumns]="true" 
+                                     [responsive]="true"
+                                     [autoLayout]="true"
+                                     [globalFilterFields]="unCampos.field" 
+                                     styleClass="tabla"
+                                     *ngIf="unview"
+                                     sortMode="multiple" 
+                                     >
+                                     
+                        <ng-template pTemplate="caption" >
+                          <div class="p-d-flex" >
+                               
+                            <button pButton label="Limpiar" class="p-button-outlined" icon="pi pi-filter-slash"
+                              (click)="clear(dtun)"></button>
+                                <span class="p-input-icon-left p-ml-auto">
+                                  <i class="pi pi-search"></i>
+                                  <input pInputText type="text" (input)="applyFilterGlobalM($event, 'contains')"
+                                    placeholder="Filtrar" />
+                                </span>
+
+                          </div>
+                        </ng-template>
+                        <ng-template pTemplate="header" let-columns>
+                          <tr>
+                            <th *ngFor="let col of columns"> 
+                              <p-columnFilter type="text"  [field]="col.field" ></p-columnFilter>
+                            </th>                            
+                          </tr>
+                          <tr >
+                            <th *ngFor="let col of columns" pSortableColumn="{{col.field}}" >{{col.field}}
+                              <p-sortIcon field="{{col.field}}">
+                              </p-sortIcon>
+                            </th>
+                            
+                          </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-rowData let-columns="columns">
+                          <tr >
+                            <td *ngFor="let col of columns" >{{rowData[col.field]}}</td>
+
+                          </tr>
+                        </ng-template>
+                      </p-table>
+                      
+
+                    </p-tabPanel>
+                    <p-tabPanel header="Maestro tipo de moneda">
+                      <p-table #dttm 
+                                     [columns]="tmCampos"
+                                     [value]="datasourceMon"  
+                                     [rowHover]="true"
+                                     [rows]="10" 
+                                     [showCurrentPageReport]="true" 
+                                     [loading]="loading" 
+                                     [paginator]="true"
+                                     currentPageReportTemplate="Mostrar {first} hasta  {last} de {totalRecords} datos"
+                                     [filterDelay]="0" 
+                                     [resizableColumns]="true" 
+                                     [responsive]="true"
+                                     [autoLayout]="true"
+                                     [globalFilterFields]="tmCampos.field" 
+                                     styleClass="tabla"
+                                     *ngIf="monview"
+                                     sortMode="multiple" [multiSortMeta]="multiSortMetaTM"
+                                     >
+                                     
+                        <ng-template pTemplate="caption" >
+                          <div class="p-d-flex" >
+                               
+                            <button pButton label="Limpiar" class="p-button-outlined" icon="pi pi-filter-slash"
+                              (click)="clear(dttm)"></button>
+                                <span class="p-input-icon-left p-ml-auto">
+                                  <i class="pi pi-search"></i>
+                                  <input pInputText type="text" (input)="applyFilterGlobalTM($event, 'contains')"
+                                    placeholder="Filtrar" />
+                                </span>
+
+                          </div>
+                        </ng-template>
+                        <ng-template pTemplate="header" let-columns>
+                          <tr>
+                            <th *ngFor="let col of columns"> 
+                              <p-columnFilter type="text"  [field]="col.field" ></p-columnFilter>
+                            </th>                            
+                          </tr>
+                          <tr >
+                            <th *ngFor="let col of columns" pSortableColumn="{{col.field}}" >{{col.field}}
+                              <p-sortIcon field="{{col.field}}">
+                              </p-sortIcon>
+                            </th>
+                            
+                          </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-rowData let-columns="columns">
+                          <tr >
+                            <td *ngFor="let col of columns" >{{rowData[col.field]}}</td>
+
+                          </tr>
+                        </ng-template>
+                      </p-table>
+                      
+                      
+                    </p-tabPanel>
+                    <p-tabPanel header="Maestro tipo de area">
+
+                      <p-table #dtta 
+                                     [columns]="taCampos"
+                                     [value]="datasourceA"  
+                                     [rowHover]="true"
+                                     [rows]="10" 
+                                     [showCurrentPageReport]="true" 
+                                     [loading]="loading" 
+                                     [paginator]="true"
+                                     currentPageReportTemplate="Mostrar {first} hasta  {last} de {totalRecords} datos"
+                                     [filterDelay]="0" 
+                                     [resizableColumns]="true" 
+                                     [responsive]="true"
+                                     [autoLayout]="true"
+                                     [globalFilterFields]="taCampos.field" 
+                                     styleClass="tabla"                                     
+                                     *ngIf="aview"
+                                     sortMode="multiple" 
+                                     >
+                                     
+                        <ng-template pTemplate="caption" >
+                          <div class="p-d-flex" >
+                               
+                            <button pButton label="Limpiar" class="p-button-outlined" icon="pi pi-filter-slash"
+                              (click)="clear(dtta)"></button>
+                                <span class="p-input-icon-left p-ml-auto">
+                                  <i class="pi pi-search"></i>
+                                  <input pInputText type="text" (input)="applyFilterGlobalTA($event, 'contains')"
+                                    placeholder="Filtrar" />
+                                </span>
+
+                          </div>
+                        </ng-template>
+                        <ng-template pTemplate="header" let-columns>
+                          <tr>
+                            <th *ngFor="let col of columns"> 
+                              <p-columnFilter type="text"  [field]="col.field" ></p-columnFilter>
+                            </th>                            
+                          </tr>
+                          <tr >
+                            <th *ngFor="let col of columns" pSortableColumn="{{col.field}}" >{{col.field}}
+                              <p-sortIcon field="{{col.field}}">
+                              </p-sortIcon>
+                            </th>
+                            
+                          </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-rowData let-columns="columns">
+                          <tr >
+                            <td *ngFor="let col of columns" >{{rowData[col.field]}}</td>
+
+                          </tr>
+                        </ng-template>
+                      </p-table>
+
+                     
+                    </p-tabPanel>
+                    <p-tabPanel header="Maestro centro de costos">
+                      <p-table #dtcc 
+                                [columns]="ccCampos"
+                                [value]="datasourceCC"  
+                                [rowHover]="true"
+                                [rows]="10" 
+                                [showCurrentPageReport]="true" 
+                                [loading]="loading" 
+                                [paginator]="true"
+                                currentPageReportTemplate="Mostrar {first} hasta  {last} de {totalRecords} datos"
+                                [filterDelay]="0" 
+                                [resizableColumns]="true" 
+                                [responsive]="true"
+                                [autoLayout]="true"
+                                [globalFilterFields]="ccCampos.field" 
+                                styleClass="tabla"
+                                *ngIf="ccview"
+                                sortMode="multiple" [multiSortMeta]="multiSortMetaCC"
+                                >
+                                
+                  <ng-template pTemplate="caption" >
+                    <div class="p-d-flex" >
+                          
+                      <button pButton label="Limpiar" class="p-button-outlined" icon="pi pi-filter-slash"
+                        (click)="clear(dtcc)"></button>
+                          <span class="p-input-icon-left p-ml-auto">
+                            <i class="pi pi-search"></i>
+                            <input pInputText type="text" (input)="applyFilterGlobalCC($event, 'contains')"
+                              placeholder="Filtrar" />
+                          </span>
+
+                    </div>
+                  </ng-template>
+                  <ng-template pTemplate="header" let-columns>
+                    <tr>
+                      <th *ngFor="let col of columns"> 
+                        <p-columnFilter type="text"  [field]="col.field" ></p-columnFilter>
+                      </th>                            
+                    </tr>
+                    <tr >
+                      <th *ngFor="let col of columns" pSortableColumn="{{col.field}}" >{{col.field}}
+                        <p-sortIcon field="{{col.field}}">
+                        </p-sortIcon>
+                      </th>
+                      
+                    </tr>
+                  </ng-template>
+                  <ng-template pTemplate="body" let-rowData let-columns="columns">
+                    <tr >
+                      <td *ngFor="let col of columns" >{{rowData[col.field]}}</td>
+
+                    </tr>
+                  </ng-template>
+                </p-table> 
+                    
+                    </p-tabPanel>
+
+                  </p-tabView>
+                </p-tabPanel>
+              </p-tabView>
+            </div>
+          </div>
+        </div>
+
+        <div class=" card-body">
+          <div class=" chart-area"><canvas id="chartBig1"> </canvas></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,17 @@
+json-server --watch -p 3000 Auxiliares.json
+json-server --watch -p 3001 CentroCostos.json 4001
+json-server --watch -p 3002  flujocaja.json 4002
+json-server --watch -p 3003 Login.json 4003
+json-server --watch -p 3004 Maquinas.json 4004
+json-server --watch -p 3005  Proyectos.json 4005
+json-server --watch -p 3006  Sedes.json 4006
+json-server --watch -p 3007 TipoAreas.json 4007
+json-server --watch -p 3008 TipoMoneda.json 4008
+json-server --watch -p 3009  tipoServicio.json 4009
+json-server --watch -p 3010 UnidadNegocio.json 4010
+json-server --watch -p 3010 getPeriod.json 4011
+json-server --watch -p 3011 postCreatePeriod.json 
+json-server --watch -p 3012 apiGetPeriodClose.json 
+json-server --watch -p 3013 postClosePeriod.json 
+json-server --watch -p 3014 apiGetPeriodBudget.json 
+json-server --watch -p 3015 apiPostCreaBudget.json 

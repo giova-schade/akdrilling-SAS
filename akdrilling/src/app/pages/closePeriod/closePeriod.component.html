@@ -1,0 +1,48 @@
+<div class=" content">
+    <div class=" row">
+        <div class=" col-12">
+            <div class=" card">
+                <p-progressBar *ngIf="loadingPage" mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
+                <p-blockUI [blocked]="loadingPage" [style]="{'z-index': '2'}"></p-blockUI>
+                <div class=" card-header">
+                    <div class=" col-sm-8 text-left">
+                    </div>
+                    
+                    <div class=" card-body">
+                        <form class="p-grid" [formGroup]="closePeriod" accept-charset="utf-8">
+                            <div class=" row">
+                                <div class=" col-md-10">
+                                    <div class="form-group">
+                                        <h6>
+                                            Periodos disponibles a cerrar
+                                        </h6>
+                                        <div class=" card-body">
+                                            <p-dropdown [options]="periodos" formControlName="PERIODO"
+                                                placeholder="Seleccione un periodo" optionLabel="periodo" [showClear]="true">
+                                            </p-dropdown>
+                                        </div>
+            
+                                    </div>
+                                </div>
+                                <div class=" col-md-7">
+                                    <div class=" form-group">
+                                        <button pButton type="submit" label="Cerrar periodo "
+                                        (click)="CerrarPeriodo()"></button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        
+
+
+                        </form>
+                    </div>
+                    
+                    <p-confirmDialog [style]="{width: '50vw'}" key="positionDialog" [position]="'bottom'"
+                    [baseZIndex]="10000"></p-confirmDialog>
+                  <p-messages [value]="msgs"></p-messages>
+
+                </div>
+            </div>
+        </div>
+    </div>

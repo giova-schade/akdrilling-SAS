@@ -1,0 +1,89 @@
+
+ // Core
+
+@import "akdrilling/custom/functions";
+@import "akdrilling/bootstrap/functions";
+
+@import "akdrilling/custom/variables";
+@import "akdrilling/bootstrap/variables";
+
+@import "akdrilling/custom/mixins";
+@import "akdrilling/bootstrap/mixins";
+
+ // Bootstrap components
+
+@import "akdrilling/bootstrap/root";
+@import "akdrilling/bootstrap/reboot";
+@import "akdrilling/bootstrap/type";
+@import "akdrilling/bootstrap/images";
+@import "akdrilling/bootstrap/code";
+@import "akdrilling/bootstrap/grid";
+@import "akdrilling/bootstrap/tables";
+@import "akdrilling/bootstrap/forms";
+@import "akdrilling/bootstrap/buttons";
+@import "akdrilling/bootstrap/transitions";
+@import "akdrilling/bootstrap/dropdown";
+@import "akdrilling/bootstrap/button-group";
+@import "akdrilling/bootstrap/input-group";
+@import "akdrilling/bootstrap/custom-forms";
+@import "akdrilling/bootstrap/nav";
+@import "akdrilling/bootstrap/navbar";
+@import "akdrilling/bootstrap/card";
+@import "akdrilling/bootstrap/breadcrumb";
+@import "akdrilling/bootstrap/pagination";
+@import "akdrilling/bootstrap/badge";
+@import "akdrilling/bootstrap/jumbotron";
+@import "akdrilling/bootstrap/alert";
+@import "akdrilling/bootstrap/progress";
+@import "akdrilling/bootstrap/media";
+@import "akdrilling/bootstrap/list-group";
+@import "akdrilling/bootstrap/close";
+@import "akdrilling/bootstrap/modal";
+@import "akdrilling/bootstrap/tooltip";
+@import "akdrilling/bootstrap/popover";
+@import "akdrilling/bootstrap/carousel";
+@import "akdrilling/bootstrap/utilities";
+@import "akdrilling/bootstrap/print";
+
+ // Custom components
+
+ @import "akdrilling/custom/alerts.scss";
+ @import "akdrilling/custom/buttons.scss";
+ @import "akdrilling/custom/dropdown.scss";
+ @import "akdrilling/custom/footer.scss";
+ @import "akdrilling/custom/forms.scss";
+ @import "akdrilling/custom/images.scss";
+ @import "akdrilling/custom/modal.scss";
+ @import "akdrilling/custom/navbar.scss";
+ @import "akdrilling/custom/type.scss";
+ @import "akdrilling/custom/tables";
+ @import "akdrilling/custom/checkboxes-radio";
+ @import "akdrilling/custom/fixed-plugin";
+ @import "akdrilling/custom/sidebar-and-main-panel.scss";
+ @import "akdrilling/custom/misc.scss";
+ @import "akdrilling/custom/rtl.scss";
+ @import "akdrilling/custom/input-group.scss";
+ @import "akdrilling/custom/sidebarconfig.scss";
+
+
+ // Vendor / Plugins
+
+@import "akdrilling/custom/vendor/plugin-perfect-scrollbar.scss";
+@import "akdrilling/custom/vendor/plugin-animate-bootstrap-notify.scss";
+
+// light mode
+
+@import "akdrilling/custom/white-content.scss";
+
+// Cards
+
+@import 'akdrilling/custom/card';
+@import "akdrilling/custom/cards/card-chart";
+@import "akdrilling/custom/cards/card-map";
+@import "akdrilling/custom/cards/card-user";
+@import "akdrilling/custom/cards/card-task";
+@import "akdrilling/custom/cards/card-plain";
+
+// Angular Differences
+
+@import "akdrilling/angular-differences/angular-differences";

@@ -1,0 +1,86 @@
+{
+    "unidadnegocio":{
+"status": "ok",
+    "datos": [
+    {
+        "IdUnegocio": "01",
+        "DescEspUnegocio": "CIRCULACION REVERSO",
+        "DescIngUNegocio": "REVERSE CIRCULATION",
+        "DescCorUNegocio": "RC",
+        "IndEst": "1"
+    },
+    {
+        "IdUnegocio": "02",
+        "DescEspUnegocio": "DIAMANTINA",
+        "DescIngUNegocio": "DIAMOND DRILLING",
+        "DescCorUNegocio": "DD",
+        "IndEst": "1"
+    },
+    {
+        "IdUnegocio": "03",
+        "DescEspUnegocio": "POZO AGUA",
+        "DescIngUNegocio": "WATER WELLS",
+        "DescCorUNegocio": "WW",
+        "IndEst": "1"
+    },
+    {
+        "IdUnegocio": "09",
+        "DescEspUnegocio": "SUBTERRANEA",
+        "DescIngUNegocio": "UNDERGROUND",
+        "DescCorUNegocio": "UG",
+        "IndEst": "1"
+    },
+    {
+        "IdUnegocio": "11",
+        "DescEspUnegocio": "PUMP WORK",
+        "DescIngUNegocio": "PUMP WORK",
+        "DescCorUNegocio": "PW",
+        "IndEst": "1"
+    },
+    {
+        "IdUnegocio": "12",
+        "DescEspUnegocio": "MULTIPROPOSITO",
+        "DescIngUNegocio": "MULTIPURPOSE",
+        "DescCorUNegocio": "MP",
+        "IndEst": "1"
+    },
+    {
+        "IdUnegocio": "13",
+        "DescEspUnegocio": "PERFORACION DE PRODUCCION",
+        "DescIngUNegocio": "PRODUCTION DRILLING",
+        "DescCorUNegocio": "PD",
+        "IndEst": "1"
+    },
+    {
+        "IdUnegocio": "14",
+        "DescEspUnegocio": "PERFORACION HORIZONTAL",
+        "DescIngUNegocio": "HORIZONTAL DRILLING",
+        "DescCorUNegocio": "HD",
+        "IndEst": "1"
+    },
+    {
+        "IdUnegocio": "16",
+        "DescEspUnegocio": "OTHER REVENUE",
+        "DescIngUNegocio": "OTHER REVENUE",
+        "DescCorUNegocio": "OR",
+        "IndEst": "1"
+    },
+    {
+        "IdUnegocio": "17",
+        "DescEspUnegocio": "SIN SERVICIO",
+        "DescIngUNegocio": "NOT SERVICE",
+        "DescCorUNegocio": "ND",
+        "IndEst": "1"
+    },
+    {
+        "IdUnegocio": "20",
+        "DescEspUnegocio": "COMODATO",
+        "DescIngUNegocio": "CLIENT RIG OPERATION",
+        "DescCorUNegocio": "CRO",
+        "IndEst": "1"
+    }
+]
+
+    }
+    
+}

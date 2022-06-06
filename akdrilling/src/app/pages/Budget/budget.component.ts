@@ -18,6 +18,10 @@ interface Periodos {
   date: string
 }
 
+interface Departamentos {
+  codigo: string,
+  name: string
+}
 interface OptionBudget {
   Code: string,
   name: string
@@ -35,6 +39,7 @@ export class BudgetComponent implements OnInit {
   loadingPage: boolean;
   usuario!: any;
   msgs: Message[] = [];
+  departamentos: Departamentos[] = []
   periodos!: Periodos[];
   optionsBudget!: OptionBudget[];
   PERIODO_REQ: boolean;
@@ -76,6 +81,7 @@ export class BudgetComponent implements OnInit {
   ) {
     this.loadingPage = false;
     this.periodos = [];
+    this.departamentos = [];
     this.optionsBudget = [];
     this.PERIODO_REQ = false;
     this.camposBd = [];
@@ -87,6 +93,7 @@ export class BudgetComponent implements OnInit {
     this.CargaBudget = false;
   }
   ngOnInit() {
+
     this.optionsBudget.push({
       Code: '01',
       name: 'Ver budget'
@@ -98,8 +105,21 @@ export class BudgetComponent implements OnInit {
     if (this.usuario.role == 'AKDABRRHH' || this.usuario.role == 'AKDABOP' || this.usuario.role == 'AKDABDF' || this.usuario.role == 'AKDADM') {
       this.CargaBudget = true;
     }
-    this.budget.controls['IdCia'].setValue(this.usuario.info.sede.IdCia);
-    this.budget.controls['NomSede'].setValue(this.usuario.info.sede.NomSede);
+    if (this.usuario.role == 'AKDADM') {
+      this.departamentos.push({
+        codigo: 'AKDABRRHH',
+        name: 'Departamento de Recursos Humanos'
+      }, {
+        codigo: 'AKDABOP',
+        name: 'Departamento de Operaciones'
+      }, {
+        codigo: 'AKDABDF',
+        name: 'Departamento de Finanzas'
+      })
+    }
+
+    this.budget.controls['IdCia'].setValue(this.usuario.ciaSelected.IdCia);
+    this.budget.controls['NomSede'].setValue(this.usuario.ciaSelected.NomSede);
     this.budget.controls['Role'].setValue(this.usuario.role);
     this.budget.statusChanges.subscribe(result => {
       if (this.budget.controls['PERIODO'].value != null && this.budget.controls['PERIODO'].value != '') {
@@ -182,7 +202,9 @@ export class BudgetComponent implements OnInit {
 
 
 
-
+  setDepto(event: any) {
+    this.budget.controls['Role'].setValue(event.value.codigo);
+  }
 
   clearFormArray(formArray: FormArray) {
     while (formArray.length !== 0) {
@@ -231,7 +253,7 @@ export class BudgetComponent implements OnInit {
     })
   }
   setIdBdg(event: any) {
-    this.budget.controls['IdBg'].setValue(event.value.date);
+    this.budget.controls['idBudget'].setValue(event.value.date);
   }
   startBudget() {
     this.budget.controls['Option'].setValue({
@@ -240,8 +262,8 @@ export class BudgetComponent implements OnInit {
     });
   }
 
-  onRowDblClick(event : Event , datos: any){    
-    this.router.navigate(['/' + this.usuario.role + '/budget/view'], { queryParams: { idBudget: datos.idBudget, Option: '01' } })  
+  onRowDblClick(event: Event, datos: any) {
+    this.router.navigate(['/' + this.usuario.role + '/budget/view'], { queryParams: { idBudget: datos.idBudget, Option: '01' } })
   }
 
   cargarBudget() {
@@ -252,22 +274,45 @@ export class BudgetComponent implements OnInit {
       this.notify.showNotification('top', 'right', 3, 'Debe seleccionar un archivo para crear un budget');
     }
 
-    this.budget.controls['file'].setValue(this.files[0]);
-    if (this.PERIODO_REQ && this.files.length > 0) {
-      this.confirmationService.confirm({
-        message: 'Se cargara el Budget con el archivo ' + this.files[0].name,
-        header: 'Crear budget ',
-        icon: 'pi pi-info-circle',
-        accept: () => {
-          this.loadingPage = true;
-          this.acceptCreateBudget();
-        },
-        reject: () => {
-          this.msgs = [{ severity: 'info', summary: 'Rejected', detail: 'You have rejected' }];
-        },
-        key: "positionDialog"
-      });
+    if (this.usuario.role == 'AKDADM') {
+      this.budget.controls['file'].setValue(this.files[0]);
+      if (this.PERIODO_REQ && this.files.length > 0 && this.budget.controls['Role'].value != 'AKDADM') {
+        this.confirmationService.confirm({
+          message: 'Se cargara el Budget con el archivo ' + this.files[0].name,
+          header: 'Crear budget ',
+          icon: 'pi pi-info-circle',
+          accept: () => {
+            this.loadingPage = true;
+            this.acceptCreateBudget();
+          },
+          reject: () => {
+            this.msgs = [{ severity: 'info', summary: 'Rejected', detail: 'You have rejected' }];
+          },
+          key: "positionDialog"
+        });
+      } else {
+        this.notify.showNotification('top', 'right', 3, 'Debe seleccionar un departamento');
+
+      }
+    } else {
+      this.budget.controls['file'].setValue(this.files[0]);
+      if (this.PERIODO_REQ && this.files.length > 0) {
+        this.confirmationService.confirm({
+          message: 'Se cargara el Budget con el archivo ' + this.files[0].name,
+          header: 'Crear budget ',
+          icon: 'pi pi-info-circle',
+          accept: () => {
+            this.loadingPage = true;
+            this.acceptCreateBudget();
+          },
+          reject: () => {
+            this.msgs = [{ severity: 'info', summary: 'Rejected', detail: 'You have rejected' }];
+          },
+          key: "positionDialog"
+        });
+      }
     }
+
   }
   onFileDropped($event: any) {
     this.prepareFilesList($event);

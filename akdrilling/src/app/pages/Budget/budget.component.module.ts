@@ -26,10 +26,10 @@ import {BlockUIModule} from 'primeng/blockui';
 import {PanelMenuModule} from 'primeng/panelmenu';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 
-
 @NgModule({
 
     imports:[
+        FormsModule,
         ConfirmDialogModule,
         ReactiveFormsModule, 
         CommonModule,

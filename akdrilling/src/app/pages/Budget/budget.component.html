@@ -24,8 +24,8 @@
                         <div class=" row">
                             <div class=" col-md-12">
                                 <div class="card-body">
-                                    <p-table #bdgs [columns]="BudgtsCampos" [paginator]="true" [value]="datasourceBdgs" [rowHover]="true"
-                                        [rows]="10" [showCurrentPageReport]="true" [loading]="loading"
+                                    <p-table #bdgs [columns]="BudgtsCampos" [paginator]="true" [value]="datasourceBdgs"
+                                        [rowHover]="true" [rows]="10" [showCurrentPageReport]="true" [loading]="loading"
                                         [paginator]="true"
                                         currentPageReportTemplate="Mostrar {first} hasta  {last} de {totalRecords} datos"
                                         [filterDelay]="0" [resizableColumns]="true" [responsive]="true"
@@ -63,7 +63,7 @@
                                         <ng-template pTemplate="body" let-rowData let-columns="columns">
                                             <tr [pSelectableRow]="rowData" (dblclick)="onRowDblClick($event, rowData)">
                                                 <td *ngFor="let col of columns">{{rowData[col.field]}}</td>
-                                                
+
                                             </tr>
                                         </ng-template>
                                         <ng-template pTemplate="emptymessage" let-columns>
@@ -86,7 +86,8 @@
                     <div class=" card-body" *ngIf="budget.controls['Option'].value['Code'] == '02'">
                         <form class="p-grid" [formGroup]="budget" accept-charset="utf-8">
                             <div class=" row">
-                                <div class=" col-md-10">
+
+                                <div class=" col-md-4">
                                     <div class="form-group">
                                         <div class=" card-body" *ngIf="DatosBudget.length ==  0">
                                             <p-dropdown [options]="periodos" formControlName="PERIODO"
@@ -95,39 +96,53 @@
                                             </p-dropdown>
                                         </div>
 
+
+
                                     </div>
                                 </div>
-                                <div class="container" *ngIf="DatosBudget.length ==  0" appDnd
-                                    (fileDropped)="onFileDropped($event)">
-                                    <input type="file" #fileDropRef id="fileDropRef" multiple
-                                        (change)="fileBrowseHandler($event)" />
-                                    <img src="/akdrilling/assets/img/dnd/ic-upload-file.svg" alt="">
-                                    <h3>Arrastra y suelta el archivo aquí</h3>
-                                    <h3>o</h3>
-                                    <label for="fileDropRef">Selecciona el archivo</label>
+                                <div class="col-md-6">
+                                    <div class=" card-body" *ngIf="DatosBudget.length ==  0 && usuario.role == 'AKDADM'">
+                                        <p-dropdown [options]="departamentos" 
+                                            placeholder="Seleccione un departamento" optionLabel="name"
+                                            [showClear]="true" (onChange)="setDepto($event)">
+                                        </p-dropdown>
+                                    </div>
                                 </div>
-                                <div class="files-list" *ngIf="DatosBudget.length ==  0">
-                                    <div class="single-file" *ngFor="let file of files; let i = index">
-                                        <img src="/akdrilling/assets/img/dnd/ic-file-excel.svg" width="45px" alt="file">
-                                        <div class="info">
-                                            <h4 class="name">
-                                                {{ file?.name }}
-                                            </h4>
-                                            <p class="size">
-                                                {{ formatBytes(file?.size) }}
-                                            </p>
-                                            <app-progress [progress]="file?.progress"></app-progress>
+                                <div class="col-md-12">
+                                    <div class="container" *ngIf="DatosBudget.length ==  0" appDnd
+                                        (fileDropped)="onFileDropped($event)">
+                                        <input type="file" #fileDropRef id="fileDropRef" multiple
+                                            (change)="fileBrowseHandler($event)" />
+                                        <img src="/akdrilling/assets/img/dnd/ic-upload-file.svg" alt="">
+                                        <h3>Arrastra y suelta el archivo aquí</h3>
+                                        <h3>o</h3>
+                                        <label for="fileDropRef">Selecciona el archivo</label>
+                                    </div>
+                                    <div class="files-list" *ngIf="DatosBudget.length ==  0">
+                                        <div class="single-file" *ngFor="let file of files; let i = index">
+                                            <img src="/akdrilling/assets/img/dnd/ic-file-excel.svg" width="45px"
+                                                alt="file">
+                                            <div class="info">
+                                                <h4 class="name">
+                                                    {{ file?.name }}
+                                                </h4>
+                                                <p class="size">
+                                                    {{ formatBytes(file?.size) }}
+                                                </p>
+                                                <app-progress [progress]="file?.progress"></app-progress>
+                                            </div>
+                                            <img src="/akdrilling/assets/img/dnd/ic-delete-file.svg" class="delete"
+                                                width="20px" alt="file" (click)="deleteFile(i)">
                                         </div>
-                                        <img src="/akdrilling/assets/img/dnd/ic-delete-file.svg" class="delete"
-                                            width="20px" alt="file" (click)="deleteFile(i)">
+                                    </div>
+                                    <div class=" col-md-12" *ngIf="DatosBudget.length ==  0">
+                                        <div class=" form-group">
+                                            <button pButton type="submit" label="Crear Budget "
+                                                (click)="cargarBudget()"></button>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class=" col-md-12" *ngIf="DatosBudget.length ==  0">
-                                    <div class=" form-group">
-                                        <button pButton type="submit" label="Crear Budget "
-                                            (click)="cargarBudget()"></button>
-                                    </div>
-                                </div>
+
 
                             </div>
 

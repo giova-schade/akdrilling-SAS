@@ -13,7 +13,9 @@ import { ReopenPeriodComponent } from "src/app/pages/reopenPeriod/reopenPeriod.c
 import { UploadFilesComponent } from "src/app/pages/UploadFiles/uploadFiles.component";
 
 import { BudgetComponent } from "../../pages/Budget/budget.component";
+import { HomeComponent } from "src/app/pages/home/home.component";
 export const AkdaafpRoutes: Routes = [
+  { path: "Home", component: HomeComponent },
   { path: "dashboard", component: DashboardComponent },
   { path: "uploadFiles", component: UploadFilesComponent },
   { path: "openPeriod", component: OpenPeriodComponent },

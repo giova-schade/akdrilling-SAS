@@ -5,6 +5,7 @@ import { ClosePeriodComponent } from "src/app/pages/closePeriod/closePeriod.comp
 import { DashboardComponent } from "src/app/pages/dashboard/dashboard.component";
 import { FloatInActionComponent } from "src/app/pages/floatInAction/floatInAction.component";
 import { FloatPlannedComponent } from "src/app/pages/floatPlanned/floatPlanned.component";
+import { HomeComponent } from "src/app/pages/home/home.component";
 import { MeetComponent } from "src/app/pages/meet/meet.component";
 import { OpenPeriodComponent } from "src/app/pages/openPeriod/openPeriod.component";
 import { PaymentsComponent } from "src/app/pages/pagos/payments.component";
@@ -13,6 +14,7 @@ import { UploadFilesComponent } from "src/app/pages/UploadFiles/uploadFiles.comp
 
 import { BudgetComponent } from "../../pages/Budget/budget.component";
 export const AkdarfeRoutes: Routes = [
+  { path: "Home", component: HomeComponent },
   { path: "dashboard", component: DashboardComponent },
   { path: "uploadFiles", component: UploadFilesComponent },
   { path: "openPeriod", component: OpenPeriodComponent },

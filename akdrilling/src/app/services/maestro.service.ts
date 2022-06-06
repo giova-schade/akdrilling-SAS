@@ -64,13 +64,13 @@ export class MaestrosService {
         var formData: any = new FormData();
         for (let i in form.controls) {
             if (i == 'PERIODO') {
-                formData.append(i, form.controls[i].date);
+                formData.append(i, form.controls[i].value.date);
 
             } else {
                 formData.append(i, form.controls[i].value);
             }
         }
-        return this.http.get(CONFIG.postClosePeriod, formData)
+        return this.http.post(CONFIG.postClosePeriod, formData)
     }
     getPeriodBudget() {
         return this.http.get(CONFIG.apiGetPeriodBudget);

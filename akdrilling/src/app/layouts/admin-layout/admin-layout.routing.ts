@@ -10,10 +10,12 @@ import { FloatPlannedComponent } from "../../pages/floatPlanned/floatPlanned.com
 import { FloatInActionComponent } from "../../pages/floatInAction/floatInAction.component";
 import { AdAndRedComponent } from "../../pages/adAndRed/adAndRed.component";
 import { MeetComponent } from "../../pages/meet/meet.component";
+import { HomeComponent } from "../../pages/home/home.component";
 import { PaymentsComponent } from "../../pages/pagos/payments.component";
 import { ViewBudgetComponent } from "../../pages/Budget/ViewBudget/Viewbudget.component";
 import { ViewFloatpComponent } from "src/app/pages/floatPlanned/ViewFloatP/ViewFloatp.component";
 export const AdminLayoutRoutes: Routes = [
+  { path: "Home", component: HomeComponent },
   { path: "dashboard", component: DashboardComponent },
   { path: "uploadFiles", component: UploadFilesComponent },
   { path: "openPeriod", component: OpenPeriodComponent },
@@ -26,7 +28,5 @@ export const AdminLayoutRoutes: Routes = [
   { path: "floatInAction", component:  FloatInActionComponent},
   { path: "floatInAction/adAndRed", component:  AdAndRedComponent},
   { path: "floatInAction/meet", component:  MeetComponent},
-  { path: "floatInAction/payments", component:  PaymentsComponent}
-
-  
+  { path: "floatInAction/payments", component:  PaymentsComponent}  
 ];

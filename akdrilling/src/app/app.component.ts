@@ -22,7 +22,7 @@ export class AppComponent {
     this.primengConfig.ripple = true;
     this.authService.getUser().subscribe(
       result => {
-        this.login(result.role,result.Nombre , result.info , result.roleDescription );
+        this.login(result.role,result.Nombre , result.info , result.roleDescription , {}  );
       },
       error => {
         this.notify.showNotification('top', 'right', 4, 'Error al obtener los datos del usuario  ')
@@ -32,8 +32,8 @@ export class AppComponent {
   }
   
 
-  login(role: any, name: string , info: any, roleDescription:any ) {
-    this.authService.login(role, name, info , roleDescription );
+  login(role: any, name: string , info: any, roleDescription:any , ciaSelected:any) {
+    this.authService.login(role,  name, info , roleDescription, ciaSelected);
     this.router.navigate(['/'+role]);
   }
 

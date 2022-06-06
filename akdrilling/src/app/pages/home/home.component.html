@@ -1,0 +1,20 @@
+<p-dialog  *ngIf="usurio.info.sede.length > 1" 
+    [(visible)]="displayPosition" 
+    [modal]="true" 
+    [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [style]="{width: '50vw' , height: '50%'}"
+    [draggable]="true" 
+    [resizable]="false"
+    [closable]="false">
+    <ng-template pTemplate="header" >
+    </ng-template>
+    <p-dropdown  [options]="sedes" 
+                [(ngModel)]="sedesSelected" 
+                optionLabel="NomSede"
+                [filter]="true" 
+                filterBy="NomSede"
+                (onChange)="onChange($event)" placeholder="Seleccione una sede">
+    </p-dropdown>
+    
+    
+    </p-dialog>
+    

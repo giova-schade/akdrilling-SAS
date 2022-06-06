@@ -80,12 +80,14 @@ export class ClosePeriodComponent implements OnInit {
   }
 
   acceptClosePeriod(periodo : string) {
-    this.master.postClosePeriod(this.closePeriod.controls['PERIODO'].value.date).subscribe({
+    this.master.postClosePeriod(this.closePeriod).subscribe({
       next: (result) => {
         console.log(result)
         if(result.status == "ok"){
-          this.notify.showNotification('top', 'right', 1, 'Periodo de '+periodo+' cerrado');
 
+          this.notify.showNotification('top', 'right', 1, 'Periodo de '+periodo+' cerrado');
+          // elimino el float cerrado
+          this.periodos = this.periodos.filter(x => x.periodo != periodo);
         }else{
           
           this.notify.showNotification('top', 'right', 4, result.datos[0].detail);

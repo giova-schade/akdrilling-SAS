@@ -10,13 +10,17 @@ def Login():
     if(request.method == 'GET'):
         data = {
     "role": "AKDABRRHH",
-    "roleDescription": "Analista creador de Budget",
     "Nombre": "sasdemo",
+    "roleDescription": "Analista Budget RRHH",
     "info": {
         "sede": [
             {
                 "IdCia": "AKDSEDE21",
                 "NomSede": "AKD INTERNATIONAL PANAMA CORP."
+            },
+            {
+                "IdCia": "AKDSEDE18",
+                "NomSede": "TYCHE GLOBAL CORP."
             }
         ]
     }
@@ -82,9 +86,9 @@ def DownloadBG():
         return send_file('Copy of GAPS AKD_v2.7.xlsx', as_attachment=True)
 
 
-@app.route('/postClosePeriod', methods=['GET'])
+@app.route('/postClosePeriod', methods=['POST'])
 def postClosePeriod():
-    if(request.method == 'GET'):
+    if(request.method == 'POST'):
         data = {
             "status": "ok"
         }

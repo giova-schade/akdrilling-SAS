@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { User } from '../models/user';
+import { User , Cias} from '../models/user';
 import { Role, AKDABRRHH, AKDADM, AKDABOP, AKDABDF, AKDAFP, AKDAAFP, AKDAFE, AKDAAFE, AKDARFE  } from '../models/role';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -12,7 +12,7 @@ import { UrlSerializer } from '@angular/router';
 
 export const alllinks: MenuItem[] = [
     {
-        routerLink: "/",
+        routerLink: "Home",
         label: "Inicio",
         icon: "pi pi-home"
     },
@@ -78,6 +78,7 @@ export const links: MenuItem[] = []
 
 export class AuthService {
     private user: User = new User;
+    private cias: Cias = new Cias;
     constructor(private http: HttpClient) {
 
     }
@@ -89,11 +90,15 @@ export class AuthService {
         return this.isAuthorized() && this.user.role === role;
     }
 
-    login(role: Role, name: any, info: any , roleDescription:any) {
-        this.user = { role: role, name: name, info: info , roleDescription: roleDescription};
+    login(role: Role, name: any, info: any , roleDescription:any , ciaSelected:any) {
+        this.user = { role: role,name: name, info: info , roleDescription: roleDescription , ciaSelected };
+        this.cias = {info: info }
     }
     GetuserInfo() {
         return this.user;
+    }
+    GetCias(){
+            return this.cias;
     }
     GetUserOptions(role: any) {
         alllinks.forEach((link) => {

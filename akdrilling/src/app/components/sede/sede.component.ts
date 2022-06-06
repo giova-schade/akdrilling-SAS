@@ -23,6 +23,7 @@ interface Sedes {
     }
 
     ngOnInit() {
+        this.usurio.info.sede
         this.usurio = this.authService.GetuserInfo();
         if(this.usurio.info.sede.length > 1 ){
             this.sedes = this.usurio.info.sede;

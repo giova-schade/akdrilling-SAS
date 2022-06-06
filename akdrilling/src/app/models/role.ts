@@ -12,7 +12,7 @@ export enum Role {
   }
 
   export enum AKDABRRHH {
-    '/' = 'Yes',
+    Home = 'Yes',
     uploadFiles = 'No',
     openPeriod = 'No',
     closePeriod = 'No',
@@ -27,7 +27,7 @@ export enum Role {
   }
 
   export enum AKDADM {
-    '/' = 'Yes',
+    Home = 'Yes',
     uploadFiles = 'Yes',
     openPeriod = 'Yes',
     closePeriod = 'Yes',
@@ -41,7 +41,7 @@ export enum Role {
 
   }
   export enum AKDABOP {
-    '/' = 'Yes',
+    Home = 'Yes',
     uploadFiles = 'No',
     openPeriod = 'No',
     closePeriod = 'No',
@@ -54,7 +54,7 @@ export enum Role {
     adAndRed = 'No'
   }
   export enum AKDABDF {
-    '/' = 'Yes',
+    Home = 'Yes',
     uploadFiles = 'No',
     openPeriod = 'No',
     closePeriod = 'No',
@@ -67,7 +67,7 @@ export enum Role {
     adAndRed = 'No'
   }
   export enum AKDAFP {
-    '/' = 'Yes',
+    Home = 'Yes',
     uploadFiles = 'No',
     openPeriod = 'No',
     closePeriod = 'No',
@@ -80,7 +80,7 @@ export enum Role {
     adAndRed = 'Yes'
   }
   export enum AKDAAFP {
-    '/' = 'Yes',
+    Home = 'Yes',
     uploadFiles = 'No',
     openPeriod = 'No',
     closePeriod = 'No',
@@ -93,7 +93,7 @@ export enum Role {
     adAndRed = 'Yes'
   }
   export enum AKDAFE {
-    '/' = 'Yes',
+    Home = 'Yes',
     uploadFiles = 'No',
     openPeriod = 'No',
     closePeriod = 'No',
@@ -106,7 +106,7 @@ export enum Role {
     adAndRed = 'Yes'
   }
   export enum AKDAAFE {
-    '/' = 'Yes',
+    Home = 'Yes',
     uploadFiles = 'No',
     openPeriod = 'No',
     closePeriod = 'No',
@@ -119,7 +119,7 @@ export enum Role {
     adAndRed = 'Yes'
   }
   export enum AKDARFE {
-    '/' = 'Yes',
+    Home = 'Yes',
     uploadFiles = 'No',
     openPeriod = 'No',
     closePeriod = 'No',

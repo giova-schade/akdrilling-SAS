@@ -93,8 +93,8 @@ export class ViewBudgetComponent implements OnInit {
   }
   ngOnInit() {
     this.usuario = this.authService.GetuserInfo();
-    this.budget.controls['IdCia'].setValue(this.usuario.info.sede.IdCia);
-    this.budget.controls['NomSede'].setValue(this.usuario.info.sede.NomSede);
+    this.budget.controls['IdCia'].setValue(this.usuario.ciaSelected.IdCia);
+    this.budget.controls['NomSede'].setValue(this.usuario.ciaSelected.NomSede);
     this.budget.controls['Role'].setValue(this.usuario.role);
     this.route.queryParams
       .subscribe((params: any) => {

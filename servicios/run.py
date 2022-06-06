@@ -9305,7 +9305,7 @@ def apiGetBudget():
 def apiPostCreaBudget():
     if(request.method == 'POST'):
         data = {
-            "status": "error",
+            "status": "ok",
             "idBudget": "123",
             "urlResutlado": "http://192.168.68.71:5000/DownloadBG",
             "datos": [

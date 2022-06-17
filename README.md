@@ -1,5 +1,40 @@
-#####instalacion de dependecias
+##dependencias
+Your global Angular CLI version (13.0.4) is greater than your local version (12.2.12). The local Angular CLI version is used.
 
+To disable this warning use "ng config -g cli.warnings.versionMismatch false".
+
+     _                      _                 ____ _     ___
+    / \   _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|
+   / △ \ | '_ \ / _` | | | | |/ _` | '__|   | |   | |    | |
+  / ___ \| | | | (_| | |_| | | (_| | |      | |___| |___ | |
+ /_/   \_\_| |_|\__, |\__,_|_|\__,_|_|       \____|_____|___|
+                |___/
+    
+
+Angular CLI: 12.2.12
+Node: 14.18.1
+Package Manager: npm 6.14.15
+OS: win32 x64
+
+Angular: 12.2.12
+... animations, cli, common, compiler, compiler-cli, core, forms
+... localize, platform-browser, platform-browser-dynamic, router
+
+Package                         Version
+---------------------------------------------------------
+@angular-devkit/architect       0.1202.12
+@angular-devkit/build-angular   12.2.12
+@angular-devkit/core            12.2.12
+@angular-devkit/schematics      12.2.12
+@angular/cdk                    13.0.0
+@schematics/angular             12.2.12
+rxjs                            6.6.7
+typescript                      4.3.5
+
+#node https://nodejs.org/download/release/v14.18.1/node-v14.18.1-x64.msi
+#angualr
+npm install -g angular-cli
+##### angular-devkit
 npm i @angular-devkit/build-angular
 
 

@@ -11,6 +11,7 @@ import { OpenPeriodComponent } from "src/app/pages/openPeriod/openPeriod.compone
 import { PaymentsComponent } from "src/app/pages/pagos/payments.component";
 import { ReopenPeriodComponent } from "src/app/pages/reopenPeriod/reopenPeriod.component";
 import { UploadFilesComponent } from "src/app/pages/UploadFiles/uploadFiles.component";
+import { ReportComponent } from "src/app/pages/report/report.component";
 
 import { BudgetComponent } from "../../pages/Budget/budget.component";
 export const AkdarfeRoutes: Routes = [
@@ -26,5 +27,6 @@ export const AkdarfeRoutes: Routes = [
   { path: "floatInAction", component:  FloatInActionComponent},
   { path: "floatInAction/adAndRed", component:  AdAndRedComponent},
   { path: "floatInAction/meet", component:  MeetComponent},
-  { path: "floatInAction/payments", component:  PaymentsComponent}
+  { path: "floatInAction/payments", component:  PaymentsComponent},
+  { path: "reportes", component:  ReportComponent} 
 ];

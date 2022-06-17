@@ -33,6 +33,7 @@ import {PanelMenuModule} from 'primeng/panelmenu';
 //modulos
 import {  Budget } from "../../pages/Budget/budget.component.module";
 import {  FloatFPV  } from "../../pages/floatPlanned/ViewFloatP/ViewFloatp.component.module";
+import { Report } from "src/app/pages/report/report.component.module";
 
 
 
@@ -64,7 +65,8 @@ import {  FloatFPV  } from "../../pages/floatPlanned/ViewFloatP/ViewFloatp.compo
     BlockUIModule,
     PanelMenuModule,
     Budget,
-    FloatFPV
+    FloatFPV,
+    Report
 
   ],
   declarations: [

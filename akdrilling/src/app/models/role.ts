@@ -22,7 +22,8 @@ export enum Role {
     floatInAction = 'No',
     payments = 'No',
     meet = 'No',
-    adAndRed = 'No'
+    adAndRed = 'No',
+    reports = 'Yes'
     
   }
 
@@ -37,7 +38,9 @@ export enum Role {
     floatInAction = 'Yes',
     payments = 'Yes',
     meet = 'Yes',
-    adAndRed = 'Yes'
+    adAndRed = 'Yes',
+    reports = 'Yes'
+
 
   }
   export enum AKDABOP {
@@ -51,7 +54,9 @@ export enum Role {
     floatInAction = 'No',
     payments = 'No',
     meet = 'No',
-    adAndRed = 'No'
+    adAndRed = 'No',
+    reports = 'Yes'
+
   }
   export enum AKDABDF {
     Home = 'Yes',
@@ -64,7 +69,9 @@ export enum Role {
     floatInAction = 'No',
     payments = 'No',
     meet = 'No',
-    adAndRed = 'No'
+    adAndRed = 'No',
+    reports = 'Yes'
+
   }
   export enum AKDAFP {
     Home = 'Yes',
@@ -77,7 +84,9 @@ export enum Role {
     floatInAction = 'Yes',
     payments = 'Yes',
     meet = 'Yes',
-    adAndRed = 'Yes'
+    adAndRed = 'Yes',
+    reports = 'Yes'
+
   }
   export enum AKDAAFP {
     Home = 'Yes',
@@ -90,7 +99,9 @@ export enum Role {
     floatInAction = 'Yes',
     payments = 'Yes',
     meet = 'Yes',
-    adAndRed = 'Yes'
+    adAndRed = 'Yes',
+    reports = 'Yes'
+
   }
   export enum AKDAFE {
     Home = 'Yes',
@@ -103,7 +114,9 @@ export enum Role {
     floatInAction = 'Yes',
     payments = 'Yes',
     meet = 'Yes',
-    adAndRed = 'Yes'
+    adAndRed = 'Yes',
+    reports = 'Yes'
+
   }
   export enum AKDAAFE {
     Home = 'Yes',
@@ -116,7 +129,9 @@ export enum Role {
     floatInAction = 'Yes',
     payments = 'Yes',
     meet = 'Yes',
-    adAndRed = 'Yes'
+    adAndRed = 'Yes',
+    reports = 'Yes'
+
   }
   export enum AKDARFE {
     Home = 'Yes',
@@ -129,5 +144,7 @@ export enum Role {
     floatInAction = 'Yes',
     payments = 'Yes',
     meet = 'Yes',
-    adAndRed = 'Yes'
+    adAndRed = 'Yes',
+    reports = 'Yes'
+
   }

@@ -32,6 +32,7 @@ import {PanelMenuModule} from 'primeng/panelmenu';
 
 //modulos
 import {  Budget } from "../../pages/Budget/budget.component.module";
+import { Report } from "src/app/pages/report/report.component.module";
 
 
 @NgModule({
@@ -61,7 +62,8 @@ import {  Budget } from "../../pages/Budget/budget.component.module";
     ProgressSpinnerModule,
     BlockUIModule,
     PanelMenuModule,
-    Budget
+    Budget,
+    Report
 
   ],
   declarations: [

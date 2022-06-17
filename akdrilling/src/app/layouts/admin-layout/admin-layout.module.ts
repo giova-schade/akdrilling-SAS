@@ -18,6 +18,7 @@ import {  Meet } from "../../pages/meet/meet.component.module";
 import {  ReopenPeriod } from "../../pages/reopenPeriod/reopenPeriod.component.module";
 import {  Payments } from "../../pages/pagos/payments.component.module";
 import {  home } from "../../pages/home/home.component.module";
+import {   Report } from "../../pages/report/report.component.module";
 
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 // primeng
@@ -78,7 +79,8 @@ import {PanelMenuModule} from 'primeng/panelmenu';
     Meet,
     ReopenPeriod,
     Payments,
-    home
+    home,
+    Report
     
 
   ],

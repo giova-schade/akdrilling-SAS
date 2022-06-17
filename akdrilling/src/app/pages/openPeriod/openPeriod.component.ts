@@ -45,8 +45,8 @@ export class OpenPeriodComponent implements OnInit {
   }
   ngOnInit() {
     this.usuario = this.authService.GetuserInfo();
-    this.openPeriod.controls['IdCia'].setValue(this.usuario.info.sede.IdCia);
-    this.openPeriod.controls['NomSede'].setValue(this.usuario.info.sede.NomSede);
+    this.openPeriod.controls['IdCia'].setValue(this.usuario.ciaSelected.IdCia);
+    this.openPeriod.controls['NomSede'].setValue(this.usuario.ciaSelected.NomSede);
     this.openPeriod.statusChanges.subscribe(result => {
       if (this.openPeriod.controls['PERIODO'].value != null) {
         this.PERIODO_REQ = true;
@@ -57,7 +57,7 @@ export class OpenPeriodComponent implements OnInit {
 
     })
     this.loadingPage = true;
-    this.master.getPeriod().subscribe({
+    this.master.getPeriod(this.openPeriod).subscribe({
       next: (result) => {
         if (result.status == "ok") {
           result.datos.forEach((x: any) => {

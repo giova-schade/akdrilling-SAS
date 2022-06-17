@@ -13,6 +13,8 @@ import { ReopenPeriodComponent } from "src/app/pages/reopenPeriod/reopenPeriod.c
 import { UploadFilesComponent } from "src/app/pages/UploadFiles/uploadFiles.component";
 
 import { BudgetComponent } from "../../pages/Budget/budget.component";
+import { ReportComponent } from "src/app/pages/report/report.component";
+
 export const AkdafeRoutes: Routes = [
   { path: "Home", component: HomeComponent },
   { path: "dashboard", component: DashboardComponent },
@@ -26,5 +28,7 @@ export const AkdafeRoutes: Routes = [
   { path: "floatInAction", component:  FloatInActionComponent},
   { path: "floatInAction/adAndRed", component:  AdAndRedComponent},
   { path: "floatInAction/meet", component:  MeetComponent},
-  { path: "floatInAction/payments", component:  PaymentsComponent}
+  { path: "floatInAction/payments", component:  PaymentsComponent},
+  { path: "reports", component:  ReportComponent} 
+  
 ];

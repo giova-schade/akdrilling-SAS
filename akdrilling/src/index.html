@@ -6,7 +6,56 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script type="text/javascript" src="../SASStoredProcess/scripts/sas_Common.js"></script>
 </head>
+<script type="text/javascript">
+  var sas_framework_timeout;
+  function sas_framework_onTimeout() {
+     var url = window.origin+'/SASLogon/TimedOut.do?_locale=es_419&_sasapp=Stored+Process+Web+App+9.4';
+     if(window.top){
+      window.top.location.href = url;
+     }
+     else {
+      window.location.href = url;
+     }
+  }
+  function sas_framework_updateTimeout() {
+     sas_framework_extendOtherSessions(window.top);
+     sas_framework_updateFrameTimeout();
+  }
+  function sas_framework_extendOtherSessions(parentWindow) {
+    if (parentWindow.frames.length > 0) {
+      for (var i=0; i < parentWindow.frames.length; i++) {
+        try {
+  var f = parentWindow.frames[i];
+  if (f != self) {
+            if (f.frames.length > 0) {
+                sas_framework_extendOtherSessions(f);
+              }
+              if (typeof f.sas_framework_extendSession != 'undefined') {
+                f.sas_framework_extendSession();
+              }
+            }
+        }
+        catch (err) {}
+      }
+    }
+  }
+  function sas_framework_updateFrameTimeout() {
+    self.clearTimeout(sas_framework_timeout);
+    sas_framework_timeout = self.setTimeout('sas_framework_onTimeout()', 1800000);
+  }
+  function sas_framework_extendSession() {
+    var timestamp = new Date();
+     var url = '/SASStoredProcess/Director?_sessionTouch=true&tstamp=' + timestamp.getTime();
+     var xmlhttp = sas_createXMLHttpRequest();
+     xmlhttp.open('POST', url, true);
+     xmlhttp.send('');
+    window.top.warningShown = null;
+    sas_framework_updateFrameTimeout();
+  }
+  sas_framework_updateTimeout();
+  </script>
 <body>
   <app-root></app-root>
 </body>

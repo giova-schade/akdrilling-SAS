@@ -46,8 +46,8 @@ export class ClosePeriodComponent implements OnInit {
   }
   ngOnInit() {
     this.usuario = this.authService.GetuserInfo();
-    this.closePeriod.controls['IdCia'].setValue(this.usuario.info.sede.IdCia);
-    this.closePeriod.controls['NomSede'].setValue(this.usuario.info.sede.NomSede);
+    this.closePeriod.controls['IdCia'].setValue(this.usuario.ciaSelected.IdCia);
+    this.closePeriod.controls['NomSede'].setValue(this.usuario.ciaSelected.NomSede);
     this.closePeriod.statusChanges.subscribe(result => {
       if (this.closePeriod.controls['PERIODO'].value != null) {
         this.PERIODO_REQ = true;
@@ -57,7 +57,7 @@ export class ClosePeriodComponent implements OnInit {
       }
 
     })
-    this.master.GetPeriodClose().subscribe({
+    this.master.GetPeriodClose(this.closePeriod).subscribe({
       next: (result) => {
         if (result.status == "ok") {
           result.datos.forEach((x: any) => {

@@ -79,8 +79,8 @@ export class FloatPlannedComponent implements OnInit {
       this.CargaFloatFP = true;
     }
 
-    this.floatFP.controls['IdCia'].setValue(this.usuario.info.sede.IdCia);
-    this.floatFP.controls['NomSede'].setValue(this.usuario.info.sede.NomSede);
+    this.floatFP.controls['IdCia'].setValue(this.usuario.ciaSelected.IdCia);
+    this.floatFP.controls['NomSede'].setValue(this.usuario.ciaSelected.NomSede);
     this.floatFP.controls['Role'].setValue(this.usuario.role);
     this.floatFP.statusChanges.subscribe(result => {
       if (this.floatFP.controls['PERIODO'].value != null && this.floatFP.controls['PERIODO'].value != '') {
@@ -91,11 +91,43 @@ export class FloatPlannedComponent implements OnInit {
       }
 
     })
-    this.master.apiGetPeriodFP().subscribe({
+    this.master.apiGetPeriodFP(this.floatFP).subscribe({
       next: (result: any) => {
+        /*Cargo float planificado si hay creados*/
+        this.master.apiGetFPAll(this.floatFP).subscribe({
+          next: (result: any) => {
+            if (result.status == "ok") {
+              this.datasourceFPS = result.datos;
+              for (let campo in this.datasourceFPS[0]) {
+                this.FpsCampos.push({ field: campo, header: campo });
+                if (campo == 'idFloatP') {
+                  this.multiSortFPS.push({ field: 'idFloatP', order: -1 });
+                }
+              }
 
+              this.loadingFps = true;
+            } else if (result.status == 'warning') {
+              this.notify.showNotification('top', 'right', 3, result.datos[0].detail);
+            } else {
+              this.notify.showNotification('top', 'right', 4, result.datos[0].detail);
+
+            }
+
+            this.loadingPage = false;
+          },
+          error: (result: any) => {
+            this.notify.showNotification('top', 'right', 4, 'Error al obtener los float planificados');
+            this.loadingPage = false;
+          },
+          complete: () => {
+
+          },
+        })
         if (result.status == "ok") {
           if (result.datos.length) {
+
+
+
             if (result.status == "ok") {
               result.datos.forEach((x: any) => {
                 this.periodos.push({ periodo: x.periodo, date: x.date });
@@ -106,37 +138,7 @@ export class FloatPlannedComponent implements OnInit {
               this.notify.showNotification('top', 'right', 4, result.datos[0].detail);
 
             }
-            
-            /*Cargo float planificado si hay creados*/
-            this.master.apiGetFPAll(this.floatFP).subscribe({
-              next: (result: any) => {
-                if (result.status == "ok") {
-                  this.datasourceFPS = result.datos;
-                  for (let campo in this.datasourceFPS[0]) {
-                    this.FpsCampos.push({ field: campo, header: campo });
-                    if (campo == 'idFloatP') {
-                      this.multiSortFPS.push({ field: 'idFloatP', order: -1 });
-                    }
-                  }
 
-                  this.loadingFps = true;
-                } else if (result.status == 'warning') {
-                  this.notify.showNotification('top', 'right', 3, result.datos[0].detail);
-                } else {
-                  this.notify.showNotification('top', 'right', 4, result.datos[0].detail);
-
-                }
-
-                this.loadingPage = false;
-              },
-              error: (result: any) => {
-                this.notify.showNotification('top', 'right', 4, 'Error al obtener los float planificados');
-                this.loadingPage = false;
-              },
-              complete: () => {
-
-              },
-            })
           }
         } else if (result.status == 'warning') {
           this.notify.showNotification('top', 'right', 3, result.datos[0].detail);
@@ -197,7 +199,7 @@ export class FloatPlannedComponent implements OnInit {
         this.loadingPage = false;
       },
       error: (result) => {
-        this.notify.showNotification('top', 'right', 4, 'Error al crear o actualizar el Budget de ' + this.floatFP.controls['PERIODO'].value.periodo);
+        this.notify.showNotification('top', 'right', 4, 'Error al crear Float planificado de ' + this.floatFP.controls['PERIODO'].value.periodo);
         this.loadingPage = false;
 
       },
@@ -207,8 +209,8 @@ export class FloatPlannedComponent implements OnInit {
     })
   }
 
-  onRowDblClick(event : Event , datos: any){    
-    this.router.navigate(['/' + this.usuario.role + '/floatPlanned/view'], { queryParams: { idFloatP: datos.idFloatP, Option: '01' } })  
+  onRowDblClick(event: Event, datos: any) {
+    this.router.navigate(['/' + this.usuario.role + '/floatPlanned/view'], { queryParams: { idFloatP: datos.idFloatP, Option: '01' } })
   }
   crearFloatFP() {
     if (!this.PERIODO_REQ) {

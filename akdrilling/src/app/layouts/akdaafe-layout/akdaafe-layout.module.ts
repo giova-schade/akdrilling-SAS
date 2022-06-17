@@ -33,6 +33,7 @@ import {PanelMenuModule} from 'primeng/panelmenu';
 //modulos
 import {  Budget } from "../../pages/Budget/budget.component.module";
 import {  BudgetV } from "../../pages/Budget/ViewBudget/Viewbudget.component.module";
+import { Report } from "src/app/pages/report/report.component.module";
 
 
 @NgModule({
@@ -63,7 +64,8 @@ import {  BudgetV } from "../../pages/Budget/ViewBudget/Viewbudget.component.mod
     BlockUIModule,
     PanelMenuModule,
     Budget,
-    BudgetV
+    BudgetV,
+    Report
 
   ],
   declarations: [

@@ -148,6 +148,24 @@ const routes: Routes = [
   },
   {
     path: "",
+    component: AkdafeLayoutComponent,
+    canLoad: [AuthGuard],
+    canActivate: [AuthGuard],
+    data: {
+      roles: [
+        Role.AKDAFE,
+      ]
+    },
+    children: [
+      {
+        path: "AccessDenied",
+        loadChildren: () => import("./layouts/access-denied/access-denied.module").then(m => m.AccessDeniedLayoutModule)
+          
+      }
+    ]
+  },
+  {
+    path: "",
     component: AkdaafeLayoutComponent,
     canLoad: [AuthGuard],
     canActivate: [AuthGuard],

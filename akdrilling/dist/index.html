@@ -4,9 +4,11 @@
 <head>
   <meta charset="utf-8">
   <title>Akdrilling</title>
-  <base href="/sasbin/config/Lev1/Web/WebServer/htdocs/akdrilling/bkp">
+  <base
+    href="/SASStoredProcess/do?_action=form,properties,execute,newwindow&_program=&_program=%2FAKD+International%2FSTP%2FakdrillingU">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="/akdrilling/favicon.ico">
+  <script type="text/javascript" src="../SASStoredProcess/scripts/sas_Common.js"></script>
   <style>
     @charset "UTF-8";
 
@@ -325,14 +327,62 @@
   <link rel="stylesheet" href="/akdrilling/styles.156835ed4512ae7b1048.css" media="print" onload="this.media='all'"><noscript>
     <link rel="stylesheet" href="/akdrilling/styles.156835ed4512ae7b1048.css">
   </noscript>
+  <script type="text/javascript">
+    var sas_framework_timeout;
+    function sas_framework_onTimeout() {
+      var url = window.origin + '/SASLogon/TimedOut.do?_locale=es_419&_sasapp=Stored+Process+Web+App+9.4';
+      if (window.top) {
+        window.top.location.href = url;
+      }
+      else {
+        window.location.href = url;
+      }
+    }
+    function sas_framework_updateTimeout() {
+      sas_framework_extendOtherSessions(window.top);
+      sas_framework_updateFrameTimeout();
+    }
+    function sas_framework_extendOtherSessions(parentWindow) {
+      if (parentWindow.frames.length > 0) {
+        for (var i = 0; i < parentWindow.frames.length; i++) {
+          try {
+            var f = parentWindow.frames[i];
+            if (f != self) {
+              if (f.frames.length > 0) {
+                sas_framework_extendOtherSessions(f);
+              }
+              if (typeof f.sas_framework_extendSession != 'undefined') {
+                f.sas_framework_extendSession();
+              }
+            }
+          }
+          catch (err) { }
+        }
+      }
+    }
+    function sas_framework_updateFrameTimeout() {
+      self.clearTimeout(sas_framework_timeout);
+      sas_framework_timeout = self.setTimeout('sas_framework_onTimeout()', 1800000);
+    }
+    function sas_framework_extendSession() {
+      var timestamp = new Date();
+      var url = '/SASStoredProcess/Director?_sessionTouch=true&tstamp=' + timestamp.getTime();
+      var xmlhttp = sas_createXMLHttpRequest();
+      xmlhttp.open('POST', url, true);
+      xmlhttp.send('');
+      window.top.warningShown = null;
+      sas_framework_updateFrameTimeout();
+    }
+    sas_framework_updateTimeout();
+  </script>
 </head>
 
 <body>
   <app-root></app-root>
-  <script src="/akdrilling/runtime.795d871652f5d421c026.js" defer></script>
+  <script src="/akdrilling/runtime.f713547debce43449c46.js" defer></script>
   <script src="/akdrilling/polyfills.e17ac4faa66348c5f0fd.js" defer></script>
   <script src="/akdrilling/scripts.e9377bcb9b349cc088ea.js" defer></script>
-  <script src="/akdrilling/main.b8f1f1131740636e61da.js" defer></script>
+  <script src="/akdrilling/main.29661f5f494d9ce2ac39.js" defer></script>
 
 </body>
 

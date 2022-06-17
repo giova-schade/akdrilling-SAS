@@ -68,7 +68,7 @@ export const alllinks: MenuItem[] = [
         ]
     },
     {
-        routerLink: "dashboard",
+        routerLink: "reports",
         label: "Reportes",
         icon: "pi pi-chart-line"
     }

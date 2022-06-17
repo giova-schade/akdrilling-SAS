@@ -3,8 +3,10 @@ import { ViewBudgetComponent } from "src/app/pages/Budget/ViewBudget/Viewbudget.
 import { HomeComponent } from "src/app/pages/home/home.component";
 
 import { BudgetComponent } from "../../pages/Budget/budget.component";
+import { ReportComponent } from "src/app/pages/report/report.component";
 export const AkdabrrhhRoutes: Routes = [
   { path: "Home", component: HomeComponent },
   { path: "budget", component:  BudgetComponent},
   { path: "budget/view", component:  ViewBudgetComponent},
+  { path: "reports", component:  ReportComponent} 
 ];

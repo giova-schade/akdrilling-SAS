@@ -126,8 +126,8 @@ export class ViewFloatpComponent implements OnInit {
 
 
     this.usuario = this.authService.GetuserInfo();
-    this.floatFP.controls['idFloatP'].setValue(this.usuario.info.sede.IdCia);
-    this.floatFP.controls['NomSede'].setValue(this.usuario.info.sede.NomSede);
+    this.floatFP.controls['IdCia'].setValue(this.usuario.ciaSelected.IdCia);
+    this.floatFP.controls['NomSede'].setValue(this.usuario.ciaSelected.NomSede);
     this.floatFP.controls['Role'].setValue(this.usuario.role);
     this.route.queryParams
       .subscribe((params: any) => {
@@ -169,6 +169,7 @@ export class ViewFloatpComponent implements OnInit {
                   { field: 'bdgt3', header: 'bdgt3' },
                   { field: 'bdgt4', header: 'bdgt4' },
                   { field: 'bdgt5', header: 'bdgt5' },
+                  { field: 'budgV1', header: 'budgV1' },
                 ]
                 for (let i in this.mainForm.controls) {
                   if (i.indexOf('Week') == 0) {
@@ -180,7 +181,7 @@ export class ViewFloatpComponent implements OnInit {
                   }
                 }
                 for (let i in this.mainForm.controls) {
-                  if (i.indexOf('Remainig') == 0) {
+                  if (i.indexOf('Remaning') == 0) {
                     this.camposFp.push({ field: i, header: i })
                   }
                 }
@@ -483,6 +484,7 @@ export class ViewFloatpComponent implements OnInit {
       this.notify.showNotification('top', 'right', 3, 'Debe seleccionar un archivo para cargar el float planificado');
     }
     if (this.files.length > 0) {
+      this.floatFP.controls['file'].setValue(this.files[0]);
       this.confirmationService.confirm({
         message: 'Se cargara el archivo ' + this.files[0].name,
         header: 'Crear budget ',
@@ -521,30 +523,34 @@ export class ViewFloatpComponent implements OnInit {
   }
 
   onRowDblClick(event: Event, datos: any) {
-    this.displeyFloatDetail = true;
+
     this.datosDetailFloat = datos;
     this.loadingPage = true;
 
-    this.master.apigetDetailFloat(this.floatFP).subscribe({
+    this.master.apigetDetailFloat(this.floatFP, datos.idbgdt5).subscribe({
       next: (response: any) => {
 
         if (response.status == "ok") {
 
           /*Cargo detalles del float*/
+          this.displeyFloatDetail = true;
           this.datasourceFPD = response.datos;
           this.camposFpD = [
-            { field: 'IdBudgetV5', header: 'IdBudgetV5' },
-            { field: 'Descripcion', header: 'Descripcion' },
-            { field: 'MontoUsd', header: 'MontoUsd' },
-            { field: 'Fecha_Solicitud_pago', header: 'week' },
+            { field: 'Razon Social', header: 'Razon Social' },
+            { field: 'Categoria 5: Descripción', header: 'Categoria 5: Descripción' },
+            { field: 'Monto Total USD(Mes)', header: 'Monto Total USD(Mes)' },
+            { field: 'week', header: 'week' },
             { field: 'Estado', header: 'Estado' },
           ]
 
 
           this.loadingPage = false;
         } else if (response.status == 'warning') {
+          this.displeyFloatDetail = false;
           this.notify.showNotification('top', 'right', 3, response.datos[0].detail);
         } else {
+          this.displeyFloatDetail = false;
+
           this.notify.showNotification('top', 'right', 4, response.datos[0].detail);
 
         }
@@ -552,7 +558,9 @@ export class ViewFloatpComponent implements OnInit {
       error: (response: any) => {
 
       },
-      complete: () => { }
+      complete: () => { 
+        this.loadingPage = false;
+      }
 
     })
 

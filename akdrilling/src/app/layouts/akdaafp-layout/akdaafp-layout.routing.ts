@@ -14,6 +14,8 @@ import { UploadFilesComponent } from "src/app/pages/UploadFiles/uploadFiles.comp
 
 import { BudgetComponent } from "../../pages/Budget/budget.component";
 import { HomeComponent } from "src/app/pages/home/home.component";
+import { ReportComponent } from "src/app/pages/report/report.component";
+
 export const AkdaafpRoutes: Routes = [
   { path: "Home", component: HomeComponent },
   { path: "dashboard", component: DashboardComponent },
@@ -28,5 +30,6 @@ export const AkdaafpRoutes: Routes = [
   { path: "floatInAction", component:  FloatInActionComponent},
   { path: "floatInAction/adAndRed", component:  AdAndRedComponent},
   { path: "floatInAction/meet", component:  MeetComponent},
-  { path: "floatInAction/payments", component:  PaymentsComponent}
+  { path: "floatInAction/payments", component:  PaymentsComponent},
+  { path: "reports", component:  ReportComponent}  
 ];

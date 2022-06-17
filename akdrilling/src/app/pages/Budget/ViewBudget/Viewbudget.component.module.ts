@@ -28,10 +28,15 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import {CardModule} from 'primeng/card';
 import { NgxGraphModule } from '@swimlane/ngx-graph';
 
+import {StepsModule} from 'primeng/steps';
+import {MenubarModule} from 'primeng/menubar';
+
 
 @NgModule({
 
     imports:[
+        MenubarModule,
+        StepsModule,
         NgxGraphModule,
         NgxFlowchartModule,
         CardModule,

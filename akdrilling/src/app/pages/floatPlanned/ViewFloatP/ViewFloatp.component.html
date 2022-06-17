@@ -11,15 +11,31 @@
                     <div class="col-12">
                         <div class=" card">
                             <p-menubar>
-                                <button *ngIf="floatFP.controls['estado'].value == 'Creado'" type="button" pButton
+                                <div *ngIf="usuario.role == 'AKDADM' ">
+                                    <button *ngIf="floatFP.controls['estado'].value == 'Creado' " type="button" pButton
                                     label="Enviar a aprobar" icon="pi pi-send" style="margin-left:.25em"
                                     (click)="SendToApprove()"></button>
-                                <button *ngIf="floatFP.controls['estado'].value == 'En aprobación'" type="button" pButton
-                                    label="Aprobar" icon="pi pi-check-circle" style="margin-left:.25em"
+                                <button *ngIf="floatFP.controls['estado'].value == 'En aprobación' " type="button"
+                                    pButton label="Aprobar" icon="pi pi-check-circle" style="margin-left:.25em"
                                     (click)="flowAceptar()"></button>
-                                <button *ngIf="floatFP.controls['estado'].value == 'En aprobación'" class="p-button-danger" type="button" pButton
-                                    label="Rechazar" icon="pi pi-times-circle" style="margin-left:.25em"
+                                <button *ngIf="floatFP.controls['estado'].value == 'En aprobación'"
+                                    class="p-button-danger" type="button" pButton label="Rechazar"
+                                    icon="pi pi-times-circle" style="margin-left:.25em"
                                     (click)="flowRechazar()"></button>
+                                </div>
+                                <div *ngIf="usuario.role != 'AKDADM' ">
+                                    <button *ngIf="floatFP.controls['estado'].value == 'Creado' && usuario.role =='AKDAFP' " type="button" pButton
+                                    label="Enviar a aprobar" icon="pi pi-send" style="margin-left:.25em"
+                                    (click)="SendToApprove()"></button>
+                                <button *ngIf="floatFP.controls['estado'].value == 'En aprobación' && usuario.role == 'AKDAAFP' " type="button"
+                                    pButton label="Aprobar" icon="pi pi-check-circle" style="margin-left:.25em"
+                                    (click)="flowAceptar()"></button>
+                                <button *ngIf="floatFP.controls['estado'].value == 'En aprobación' && usuario.role =='AKDAAFP'"
+                                    class="p-button-danger" type="button" pButton label="Rechazar"
+                                    icon="pi pi-times-circle" style="margin-left:.25em"
+                                    (click)="flowRechazar()"></button>
+                                </div>
+
                             </p-menubar>
                         </div>
                     </div>
@@ -54,7 +70,7 @@
                                             <!-- fin botones del flujo-->
                                             <div class="col-md-12">
                                                 <div class=" row" style="text-align: right;">
-                                                    <div >
+                                                    <div>
                                                         <button pButton pRipple type="button" (click)="downloadFP()"
                                                             class="p-button-rounded p-button-text ">
                                                             <img src="/akdrilling/assets/img/dnd/ic-file-excel.svg"
@@ -69,8 +85,9 @@
 
                                     <div class="card-body">
                                         <div class=" col-sm-12">
-                                            <p-table #fp [columns]="camposFp"  [paginator]="true" [value]="datasourceFP" [rowHover]="true"
-                                                [rows]="10" [showCurrentPageReport]="true" [loading]="loading"
+                                            <p-table #fp [columns]="camposFp" [paginator]="true" [value]="datasourceFP"
+                                                [rowHover]="true" [rows]="10" [showCurrentPageReport]="true"
+                                                [loading]="loading"
                                                 currentPageReportTemplate="Mostrar {first} hasta  {last} de {totalRecords} datos"
                                                 [filterDelay]="0" [resizableColumns]="true" [responsive]="true"
                                                 [autoLayout]="true" [globalFilterFields]="camposFp.field"
@@ -132,12 +149,13 @@
                                 </div>
                             </div>
 
-                            <p-card class=" card-body" *ngIf="DatosFloatP.length !=  0 && floatFP.controls['estado'].value == 'Creado'">
+                            <p-card class=" card-body"
+                                *ngIf="DatosFloatP.length !=  0 && floatFP.controls['estado'].value == 'Creado'">
                                 <ng-template pTemplate="header">
                                     Actualización de float planificado
                                 </ng-template>
                                 <div class=" row PanelInformacion">
-                                    <div class="col-sm-12" >
+                                    <div class="col-sm-12">
                                         <div class="row">
                                             <div class="col-md-2 ">
                                                 <div class="container" *ngIf="DatosFloatP.length !=  0" appDnd
@@ -167,9 +185,8 @@
                                                             (click)="deleteFile(i)">
                                                     </div>
                                                 </div>
-                                                <button  pButton
-                                                    pRipple type="button" label="Cargar" class="p-button-outlined"
-                                                    (click)="Procesar()"></button>
+                                                <button pButton pRipple type="button" label="Cargar"
+                                                    class="p-button-outlined" (click)="Procesar()"></button>
                                             </div>
                                             <div class="col-md-8" style="text-align: right;">
 
@@ -190,7 +207,7 @@
                         [baseZIndex]="10000"></p-confirmDialog>
                     <p-messages [value]="msgs"></p-messages>
 
-                    <p-dialog header="Detalle Budget {{datosDetailFloat?.Codigo}} " [(visible)]="displeyFloatDetail"
+                    <p-dialog header="Detalle Budget {{datosDetailFloat?.idbgdt5}} " [(visible)]="displeyFloatDetail"
                         [style]="{width: '70vw', height: '50vw'}" [baseZIndex]="10000">
 
                         <div class="card-body">

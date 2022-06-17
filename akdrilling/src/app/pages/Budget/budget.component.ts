@@ -2,7 +2,7 @@ import { Component, OnInit, ViewEncapsulation, ViewChild, ElementRef } from "@an
 import { NotificationsComponent } from './../../pages/notifications/notifications.component';
 import { MaestrosService } from '../../services/maestro.service';
 import { FormControl, Validators, FormGroup, FormBuilder, FormArray } from '@angular/forms';
-import { Message, SortEvent } from 'primeng/api';
+import { MenuItem, Message, SortEvent } from 'primeng/api';
 import { ConfirmationService } from 'primeng/api';
 import { LazyLoadEvent } from 'primeng/api';
 import { PrimeNGConfig } from 'primeng/api';
@@ -53,6 +53,7 @@ export class BudgetComponent implements OnInit {
   BudgtsCampos: any;
   multiSortBDGS: any;
   CargaBudget: boolean;
+  items!: MenuItem[];
   @ViewChild('bds') bds: any;
   @ViewChild('bdgs') bdgs: any;
   loadingBdgs!: boolean;
@@ -130,62 +131,66 @@ export class BudgetComponent implements OnInit {
       }
 
     })
-    this.master.getPeriodBudget().subscribe({
+    /*Cargo Budget si hay creados*/
+    this.master.getGetBudgets(this.budget).subscribe({
       next: (result: any) => {
+
         if (result.status == "ok") {
-          result.datos.forEach((x: any) => {
-            this.periodos.push({ periodo: x.periodo, date: x.date });
-          })
-        } else if (result.status == "warning") {
+          if (result.datos.length) {
+            this.datasourceBdgs = result.datos;
+            for (let campo in this.datasourceBdgs[0]) {
+              this.BudgtsCampos.push({ field: campo, header: campo });
+              if (campo == 'idBudget') {
+                this.multiSortBDGS.push({ field: 'idBudget', order: -1 });
+              }
+            }
+
+            this.loadingBdgs = true;
+          }
+        } else if (result.status == 'warning') {
           this.notify.showNotification('top', 'right', 3, result.datos[0].detail);
         } else {
           this.notify.showNotification('top', 'right', 4, result.datos[0].detail);
 
         }
-        /*Cargo Budget si hay creados*/
-        this.master.getGetBudgets(this.budget).subscribe({
-          next: (result: any) => {
 
-            if (result.status == "ok") {
-              if (result.datos.length) {
-                this.datasourceBdgs = result.datos;
-                for (let campo in this.datasourceBdgs[0]) {
-                  this.BudgtsCampos.push({ field: campo, header: campo });
-                  if (campo == 'idBudget') {
-                    this.multiSortBDGS.push({ field: 'idBudget', order: -1 });
-                  }
-                }
-
-                this.loadingBdgs = true;
-              }
-            } else if (result.status == 'warning') {
-              this.notify.showNotification('top', 'right', 3, result.datos[0].detail);
-            } else {
-              this.notify.showNotification('top', 'right', 4, result.datos[0].detail);
-
-            }
-
-            this.loadingPage = false;
-          },
-          error: (result: any) => {
-            this.notify.showNotification('top', 'right', 4, 'Error al obtener los budgets');
-            this.loadingPage = false;
-          },
-          complete: () => {
-
-          }
-
-        })
+        this.loadingPage = false;
       },
-      error: (result) => {
-
-        this.notify.showNotification('top', 'right', 4, 'Error al obtener los periodos');
+      error: (result: any) => {
+        this.notify.showNotification('top', 'right', 4, 'Error al obtener los budgets');
         this.loadingPage = false;
       },
       complete: () => {
 
       }
+
     })
+    if (this.usuario.role == "AKDABRRHH" || this.usuario.role == "AKDABOP" || this.usuario.role == "AKDABDF" || this.usuario.role == "AKDADM") {
+      this.master.getPeriodBudget(this.budget).subscribe({
+        next: (result: any) => {
+          if (result.status == "ok") {
+            result.datos.forEach((x: any) => {
+              this.periodos.push({ periodo: x.periodo, date: x.date });
+            })
+          } else if (result.status == "warning") {
+            this.notify.showNotification('top', 'right', 3, result.datos[0].detail);
+          } else {
+            this.notify.showNotification('top', 'right', 4, result.datos[0].detail);
+
+          }
+
+        },
+        error: (result) => {
+
+          this.notify.showNotification('top', 'right', 4, 'Error al obtener los periodos');
+          this.loadingPage = false;
+        },
+        complete: () => {
+
+        }
+      })
+    }
+
 
 
 
@@ -346,6 +351,8 @@ export class BudgetComponent implements OnInit {
   viewBudget() {
 
   }
+
+
   prepareFilesList(files: Array<any>) {
     for (const item of files) {
       if (item.type == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" || item.type == ".csv" || item.type == "application/vnd.ms-excel") {

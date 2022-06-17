@@ -13,6 +13,8 @@ import { ReopenPeriodComponent } from "src/app/pages/reopenPeriod/reopenPeriod.c
 import { UploadFilesComponent } from "src/app/pages/UploadFiles/uploadFiles.component";
 
 import { BudgetComponent } from "../../pages/Budget/budget.component";
+import { ReportComponent } from "src/app/pages/report/report.component";
+import { ViewFloatpComponent } from "src/app/pages/floatPlanned/ViewFloatP/ViewFloatp.component";
 export const AkdafpRoutes: Routes = [
   { path: "Home", component: HomeComponent },
   { path: "dashboard", component: DashboardComponent },
@@ -23,8 +25,10 @@ export const AkdafpRoutes: Routes = [
   { path: "budget", component:  BudgetComponent},
   { path: "budget/view", component:  ViewBudgetComponent},
   { path: "floatPlanned", component:  FloatPlannedComponent},
+  { path: "floatPlanned/view", component:  ViewFloatpComponent},
   { path: "floatInAction", component:  FloatInActionComponent},
   { path: "floatInAction/adAndRed", component:  AdAndRedComponent},
   { path: "floatInAction/meet", component:  MeetComponent},
-  { path: "floatInAction/payments", component:  PaymentsComponent}
+  { path: "floatInAction/payments", component:  PaymentsComponent},
+  { path: "reports", component:  ReportComponent} 
 ];

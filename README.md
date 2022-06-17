@@ -1,3 +1,8 @@
+#####instalacion de dependecias
+
+npm i @angular-devkit/build-angular
+
+
 # akdrilling-SAS
 mantenedor proceso akdrilling
 Compilar

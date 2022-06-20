@@ -90,6 +90,17 @@ buscar u=e=>e
 cambiarla por 
   u=e=>"../../akdrilling/"+e+
   
+instalar las fuentes en la ruta:
+     /sasbin/config/Lev1/Web/WebServer/htdocs/akdrilling
+     antes respaldar 
+     rm -rf bkp
+     mkdir bkp 
+     mv * bkp
+
+y el archivo index.html
+     /sasdata/akdrilling
+     
+    
   
   
   

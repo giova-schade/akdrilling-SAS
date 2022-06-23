@@ -14,6 +14,7 @@ import { HomeComponent } from "../../pages/home/home.component";
 import { PaymentsComponent } from "../../pages/pagos/payments.component";
 import { ViewBudgetComponent } from "../../pages/Budget/ViewBudget/Viewbudget.component";
 import { ViewFloatpComponent } from "src/app/pages/floatPlanned/ViewFloatP/ViewFloatp.component";
+import { ViewFloateComponent } from "src/app/pages/floatInAction/ViewFloatAction/ViewFloatAction.component";
 import { ReportComponent } from "src/app/pages/report/report.component";
 export const AdminLayoutRoutes: Routes = [
   { path: "Home", component: HomeComponent },
@@ -27,6 +28,7 @@ export const AdminLayoutRoutes: Routes = [
   { path: "floatPlanned", component:  FloatPlannedComponent},
   { path: "floatPlanned/view", component:  ViewFloatpComponent},
   { path: "floatInAction", component:  FloatInActionComponent},
+  { path: "floatInAction/view", component:  ViewFloateComponent},
   { path: "floatInAction/adAndRed", component:  AdAndRedComponent},
   { path: "floatInAction/meet", component:  MeetComponent},
   { path: "floatInAction/payments", component:  PaymentsComponent},  

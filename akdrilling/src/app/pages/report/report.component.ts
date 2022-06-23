@@ -61,13 +61,17 @@ export class ReportComponent implements OnInit {
       }
 
     })
-
+    this.datosReporteInicial();
     this.loadingPage = true;
+
+  }
+  datosReporteInicial() {
+    this.periodos = [];
     this.master.apiPostPeriodReportFI(this.reports).subscribe({
       next: (result: any) => {
         if (result.status == "ok") {
           result.datos.forEach((x: any) => {
-            this.periodos.push({ periodo: x.periodo, date: x.date });
+            this.periodos.push({ periodo: x.periodo + ' ' + x.date.split('/')[2], date: x.date });
           })
           this.reports.controls['urlDownload'].setValue(result.downloadFI);
           console.log(this.reports)
@@ -88,13 +92,39 @@ export class ReportComponent implements OnInit {
 
     })
   }
+  datosReporteFloatEjecucion() {
+    this.periodos = [];
+    this.master.apiPostPeriodReportFE(this.reports).subscribe({
+      next: (result: any) => {
+        if (result.status == "ok") {
+          result.datos.forEach((x: any) => {
+            this.periodos.push({ periodo: x.periodo + ' ' + x.date.split('/')[2], date: x.date });
+          })
+          this.reports.controls['urlDownload'].setValue(result.downloadFI);
+          console.log(this.reports)
 
+        } else if (result.status == 'warning') {
+          this.notify.showNotification('top', 'right', 3, result.datos[0].detail);
+        } else {
+          this.notify.showNotification('top', 'right', 4, result.datos[0].detail);
+
+        }
+      },
+      error: (result: any) => {
+        this.notify.showNotification('top', 'right', 4, result.datos[0].detail);
+      },
+      complete: () => {
+        this.loadingPage = false;
+      },
+
+    })
+  }
   DownloadFI() {
 
     if (!this.PERIODO_REQ) {
       this.notify.showNotification('top', 'right', 3, 'Debe seleccionar un periodo para descargar el Reporte de Float Inicial');
     } else {
-      this.master.download(this.reports.controls['urlDownload'].value + '&PERIODO=' + this.reports.controls['PERIODO'].value.date+ '&IdCia=' +this.reports.controls['IdCia'].value).subscribe(blob => {
+      this.master.download(this.reports.controls['urlDownload'].value + '&PERIODO=' + this.reports.controls['PERIODO'].value.date + '&IdCia=' + this.reports.controls['IdCia'].value).subscribe(blob => {
         const a = document.createElement('a')
         const objectUrl = URL.createObjectURL(blob)
         a.href = objectUrl
@@ -106,6 +136,28 @@ export class ReportComponent implements OnInit {
 
 
   }
+  DownloadFE() {
+
+    if (!this.PERIODO_REQ) {
+      this.notify.showNotification('top', 'right', 3, 'Debe seleccionar un periodo para descargar el Reporte de Float en ejecucion');
+    } else {
+      this.master.download(this.reports.controls['urlDownload'].value + '&PERIODO=' + this.reports.controls['PERIODO'].value.date + '&IdCia=' + this.reports.controls['IdCia'].value).subscribe(blob => {
+        const a = document.createElement('a')
+        const objectUrl = URL.createObjectURL(blob)
+        a.href = objectUrl
+        a.download = 'Float en ejecucion' + this.reports.controls['PERIODO'].value['periodo'] + '.xlsx';
+        a.click();
+        URL.revokeObjectURL(objectUrl);
+      })
+    }
 
 
+  }
+  reporte(event: any) {
+    if (event.index == 0) {
+      this.datosReporteInicial();
+    } else if (event.index == 1) {
+      this.datosReporteFloatEjecucion();
+    }
+  }
 }

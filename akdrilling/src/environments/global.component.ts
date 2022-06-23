@@ -30,7 +30,17 @@ export const CONFIG = {
   apiPostLoadFloatP : 'http://192.168.68.63:5000/apiPostLoadFloatP',
   apigetDetailFloat : 'http://192.168.68.63:5000/apigetDetailFloat',
   apipostCloseBudget : 'http://192.168.68.63:5000/CloseBudget',
-  apiPostPeriodReportFI : 'http://192.168.68.63:5000/apiPostPeriodReportFI'
+  apiPostPeriodReportFI : 'http://192.168.68.63:5000/apiPostPeriodReportFI',
+  apiGetPeriodFE : 'http://192.168.68.63:5000/apiGetPeriodFE',
+  apiGetFEAll : 'http://192.168.68.63:5000/apiGetFEAll',
+  apiPostFEByID : 'http://192.168.68.63:5000/apiPostFEByID',
+  apiPostCreateFE : 'http://192.168.68.63:5000/apiPostCreateFE',
+  apiPostSendApproveFE : 'http://192.168.68.63:5000/apiPostSendApproveFE',
+  apiPostRejectFE : 'http://192.168.68.63:5000/apiPostRejectFE',
+  apiPostApproveFE : 'http://192.168.68.63:5000/apiPostApproveFE',
+  apiPostLoadFloatE : 'http://192.168.68.63:5000/apiPostLoadFloatE',
+  apigetDetailFloatE : 'http://192.168.68.63:5000/apigetDetailFloatE',
+  apiPostPeriodReportFE : 'http://192.168.68.63:5000/apiPostPeriodReportFE'
 };
 */
 export const CONFIG = {
@@ -54,6 +64,7 @@ export const CONFIG = {
   apiPostCreaBudget : 'http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FAKADMAPI&action=CreaBudget',
   apiGetBudget : 'http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FAKADMAPI&action=GetBudget',
   apiGetBudgets : 'http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FAKADMAPI&action=GetBudgets',
+  apipostCloseBudget : 'http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FAKADMAPI&action=CloseBudget',
   apiGetPeriodFP : 'http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FAKADMAPI&action=apiGetPeriodFP',
   apiGetFPAll : 'http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FAKADMAPI&action=apiGetFPAll',
   apiPostFPByID : 'http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FAKADMAPI&action=apiPostFPByID',
@@ -65,4 +76,14 @@ export const CONFIG = {
   apigetDetailFloat : 'http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FAKADMAPI&action=apigetDetailFloat',
   deleteAll : 'http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FAKADMAPI&action=deleteAll',
   apiPostPeriodReportFI : 'http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FAKADMAPI&action=PeriodReportFI',
+  apiGetPeriodFE : 'http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FAKADMAPI&action=apiGetPeriodFE',
+  apiGetFEAll : 'http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FAKADMAPI&action=apiGetFEAll',
+  apiPostFEByID : 'http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FAKADMAPI&action=apiPostFEByID',
+  apiPostCreateFE : 'http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FAKADMAPI&action=apiPostCreateFE',
+  apiPostSendApproveFE : 'http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FAKADMAPI&action=apiPostSendApproveFE',
+  apiPostRejectFE : 'http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FAKADMAPI&action=apiPostRejectFE',
+  apiPostApproveFE : 'http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FAKADMAPI&action=apiPostApproveFE',
+  apiPostLoadFloatE : 'http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FAKADMAPI&action=apiPostLoadFloatE',
+  apigetDetailFloatE : 'http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FAKADMAPI&action=apigetDetailFloatE',
+  apiPostPeriodReportFE : 'http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FAKADMAPI&action=PeriodReportFE'
 };

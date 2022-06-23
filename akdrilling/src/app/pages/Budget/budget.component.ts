@@ -139,10 +139,14 @@ export class BudgetComponent implements OnInit {
           if (result.datos.length) {
             this.datasourceBdgs = result.datos;
             for (let campo in this.datasourceBdgs[0]) {
-              this.BudgtsCampos.push({ field: campo, header: campo });
+              if(campo != 'rol'){
+                this.BudgtsCampos.push({ field: campo, header: campo });
+              }
+
               if (campo == 'idBudget') {
                 this.multiSortBDGS.push({ field: 'idBudget', order: -1 });
               }
+
             }
 
             this.loadingBdgs = true;
@@ -168,9 +172,10 @@ export class BudgetComponent implements OnInit {
     if (this.usuario.role == "AKDABRRHH" || this.usuario.role == "AKDABOP" || this.usuario.role == "AKDABDF" || this.usuario.role == "AKDADM") {
       this.master.getPeriodBudget(this.budget).subscribe({
         next: (result: any) => {
+
           if (result.status == "ok") {
             result.datos.forEach((x: any) => {
-              this.periodos.push({ periodo: x.periodo, date: x.date });
+              this.periodos.push({ periodo: x.periodo + ' ' + x.date.split('/')[2] , date: x.date });
             })
           } else if (result.status == "warning") {
             this.notify.showNotification('top', 'right', 3, result.datos[0].detail);
@@ -224,7 +229,7 @@ export class BudgetComponent implements OnInit {
           this.notify.showNotification('top', 'right', 1, 'Budget Creado y actualizado!');
           this.budget.controls['idBudget'].setValue(result.idBudget);
           this.loadingPage = true;
-          this.router.navigate(['/' + this.usuario.role + '/budget/view'], { queryParams: { idBudget: result.idBudget, Option: '01' } })
+          this.router.navigate(['/' + this.usuario.role + '/budget/view'], { queryParams: { idBudget: result.idBudget, Option: '01' , rol : result.rol} })
         } else if (result.status == "warning") {
           this.notify.showNotification('top', 'right', 3, result.datos[0].detail);
         } else {
@@ -268,7 +273,7 @@ export class BudgetComponent implements OnInit {
   }
 
   onRowDblClick(event: Event, datos: any) {
-    this.router.navigate(['/' + this.usuario.role + '/budget/view'], { queryParams: { idBudget: datos.idBudget, Option: '01' } })
+    this.router.navigate(['/' + this.usuario.role + '/budget/view'], { queryParams: { idBudget: datos.idBudget, Option: '01' , rol: datos.rol } })
   }
 
   cargarBudget() {

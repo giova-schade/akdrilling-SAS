@@ -130,7 +130,7 @@ export class FloatPlannedComponent implements OnInit {
 
             if (result.status == "ok") {
               result.datos.forEach((x: any) => {
-                this.periodos.push({ periodo: x.periodo, date: x.date });
+                this.periodos.push({ periodo: x.periodo + ' ' + x.date.split('/')[2] , date: x.date });
               })
             } else if (result.status == "warning") {
               this.notify.showNotification('top', 'right', 3, result.datos[0].detail);

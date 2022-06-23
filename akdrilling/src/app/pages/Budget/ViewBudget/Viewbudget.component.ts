@@ -2,7 +2,7 @@ import { Component, OnInit, ViewEncapsulation, ViewChild, ElementRef } from "@an
 import { NotificationsComponent } from './../../../pages/notifications/notifications.component';
 import { MaestrosService } from '../../../services/maestro.service';
 import { FormControl, Validators, FormGroup, FormBuilder, FormArray } from '@angular/forms';
-import { Message, SortEvent } from 'primeng/api';
+import { MenuItem, Message, SortEvent } from 'primeng/api';
 import { ConfirmationService } from 'primeng/api';
 import { LazyLoadEvent } from 'primeng/api';
 import { PrimeNGConfig } from 'primeng/api';
@@ -11,7 +11,7 @@ import { THIS_EXPR } from "@angular/compiler/src/output/output_ast";
 import { BlockLike, collapseTextChangeRangesAcrossMultipleVersions } from "typescript";
 import { AuthService } from '../../../services/auth.services';
 import { arrow } from "@popperjs/core";
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { param } from "jquery";
 interface Periodos {
   periodo: string,
@@ -49,6 +49,8 @@ export class ViewBudgetComponent implements OnInit {
   urlDounload: string;
   datasourceBdgs: any;
   BudgtsCampos: any;
+  items!: MenuItem[];
+  activeIndex: number;
   multiSortBDGS: any;
   @ViewChild('bds') bds: any;
   @ViewChild('bdgs') bdgs: any;
@@ -64,8 +66,9 @@ export class ViewBudgetComponent implements OnInit {
     date: new FormControl('', Validators.required),
     estado: new FormControl('', Validators.required),
     montoTotalBudget: new FormControl('', Validators.required),
-    Role: new FormControl('', Validators.required)
-    
+    Role: new FormControl('', Validators.required),
+    Rol: new FormControl('', Validators.required)
+
   })
 
   mainForm = new FormGroup({});
@@ -77,7 +80,8 @@ export class ViewBudgetComponent implements OnInit {
     private confirmationService: ConfirmationService,
     private authService: AuthService,
     private formBuilder: FormBuilder,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {
     this.loadingPage = true;
     this.loading = true;
@@ -90,8 +94,26 @@ export class ViewBudgetComponent implements OnInit {
     this.urlDounload = '';
     this.BudgtsCampos = [];
     this.multiSortBDGS = [];
+    this.activeIndex = 0;
   }
   ngOnInit() {
+    /*cargo flujo*/
+    this.items = [{
+      label: 'Creado',
+      id: '0',
+      command: (event: any) => {
+        this.activeIndex = 0;
+      }
+    },
+    {
+      label: 'Cerrado',
+      id: '1',
+      command: (event: any) => {
+        this.activeIndex = 1;
+      }
+    }
+    ];
+
     this.usuario = this.authService.GetuserInfo();
     this.budget.controls['IdCia'].setValue(this.usuario.ciaSelected.IdCia);
     this.budget.controls['NomSede'].setValue(this.usuario.ciaSelected.NomSede);
@@ -100,6 +122,7 @@ export class ViewBudgetComponent implements OnInit {
       .subscribe((params: any) => {
         console.log(params)
         this.budget.controls['idBudget'].setValue(params.idBudget);
+        this.budget.controls['Rol'].setValue(params.rol);
         this.budget.controls['Option'].setValue({
           Code: params.Option,
           name: 'Ver Budget'
@@ -109,7 +132,7 @@ export class ViewBudgetComponent implements OnInit {
         /*obtengo los datos del budget a partir del id del budget*/
         this.master.GetBudget(this.budget).subscribe({
           next: (response: any) => {
-
+            this.items.forEach((x: any, y) => { if (x.label == response.estado) { this.activeIndex = parseInt(x.id) } })
             this.budget.controls['PERIODO'].setValue({
               periodo: response.periodo,
               date: response.date
@@ -119,12 +142,12 @@ export class ViewBudgetComponent implements OnInit {
             this.budget.controls['montoTotalBudget'].setValue(response.montoTotalBudget);
             this.budget.controls['date'].setValue(response.date);
 
-            
+
 
             this.datasourceBD = response.datos;
             this.clearFormArray(this.DatosBudget);
             this.multiSortMetaBD = [];
-            this.loading=false;
+            this.loading = false;
             if (response.status == "ok") {
               if (response.datos.length > 0) {
                 for (let i in response.datos[0]) {
@@ -143,8 +166,8 @@ export class ViewBudgetComponent implements OnInit {
                 this.notify.showNotification('top', 'right', 3, 'No hay archivo para descargar');
 
               }
-              this.loadingPage=false;
-              
+              this.loadingPage = false;
+
               response.datos.forEach((x: any, y: any) => {
 
                 this.DatosBudget.push(new FormGroup({}))
@@ -161,14 +184,14 @@ export class ViewBudgetComponent implements OnInit {
 
             } else {
               this.notify.showNotification('top', 'right', 4, response.datos[0].detail);
-              this.loadingPage=false;
+              this.loadingPage = false;
 
             }
           },
           error: (result: any) => {
 
             this.notify.showNotification('top', 'right', 4, 'Error al obtener el budget ' + this.budget.controls['idBudget'].value);
-            this.loadingPage=false;
+            this.loadingPage = false;
 
           },
           complete: () => {
@@ -181,7 +204,7 @@ export class ViewBudgetComponent implements OnInit {
 
   }
 
-  
+
   get bdts() { return this.budget.controls; }
   //get bd() { return this.bdts.DatosBudget as FormArray; }
 
@@ -216,7 +239,7 @@ export class ViewBudgetComponent implements OnInit {
 
   }
 
-  snakeChart(data:any, chartContainer:any){
+  snakeChart(data: any, chartContainer: any) {
   }
 
 
@@ -233,6 +256,46 @@ export class ViewBudgetComponent implements OnInit {
   }
   clear(table: Table) {
     table.clear();
+  }
+  closeBudget() {
+    this.master.postCloseBudget(this.budget).subscribe({
+      next: (result: any) => {
+        if (result.status == "ok") {
+          this.notify.showNotification('top', 'right', 1, 'Budget Cerrado');
+          this.router.navigate(['/' + this.usuario.role + '/budget/'], { queryParams: {} })
+
+        } else if (result.status == 'warning') {
+          this.notify.showNotification('top', 'right', 3, result.datos[0].detail);
+        } else {
+          this.notify.showNotification('top', 'right', 4, result.datos[0].detail);
+
+        }
+
+      },
+      error: (result: any) => {
+
+      },
+      complete: () => {
+        this.loadingPage = false;
+
+      }
+    })
+  }
+  CerrarBudget() {
+    this.loadingPage = false;
+    this.confirmationService.confirm({
+      message: 'Se cerrara el Budget ' + this.budget.controls['idBudget'].value,
+      header: 'Crear budget ',
+      icon: 'pi pi-info-circle',
+      accept: () => {
+        this.loadingPage = true;
+        this.closeBudget();
+      },
+      reject: () => {
+        this.msgs = [{ severity: 'info', summary: 'Rejected', detail: 'You have rejected' }];
+      },
+      key: "positionDialog"
+    });
   }
 
 }

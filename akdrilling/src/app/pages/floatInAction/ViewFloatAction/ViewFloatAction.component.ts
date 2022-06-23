@@ -24,17 +24,17 @@ interface OptionFloat {
 }
 
 @Component({
-  selector: "app-viewFloatfp",
-  templateUrl: "ViewFloatp.component.html",
-  styleUrls: ["ViewFloatp.component.scss"],
+  selector: "app-viewFloatfe",
+  templateUrl: "ViewFloatAction.component.html",
+  styleUrls: ["ViewFloatAction.component.scss"],
   providers: [NotificationsComponent, ConfirmationService, MessageService]
 })
-export class ViewFloatpComponent implements OnInit {
+export class ViewFloateComponent implements OnInit {
   @ViewChild("fileDropRef", { static: false }) fileDropEl: ElementRef | any;
 
 
   displeyFloatDetail: boolean;
-  datosDetailFloat: any;
+  datosDetailFloatE: any;
   files: any[] = [];
   loadingPage: boolean;
   usuario!: any;
@@ -43,24 +43,24 @@ export class ViewFloatpComponent implements OnInit {
   optionsFloat!: OptionFloat[];
   PERIODO_REQ: boolean;
   testForm!: any;
-  camposFp: any;
-  camposFpD: any;
-  multiSortMetaFP: any;
-  multiSortMetaFPD: any;
+  camposFe: any;
+  camposFeD: any;
+  multiSortMetaFE: any;
+  multiSortMetaFED: any;
   loading!: boolean;
   loadingDetail!: boolean;
-  datasourceFP: any;
-  datasourceFPD: any;
+  datasourceFE: any;
+  datasourceFED: any;
   urlDounload: string;
-  datasourceFps: any;
-  multiSortfps: any;
+  datasourceFes: any;
+  multiSortfes: any;
   items!: MenuItem[];
   activeIndex: number = 0;
-  @ViewChild('fp') bds: any;
-  @ViewChild('fpd') bdsd: any;
-  loadingfps!: boolean;
-  floatFP = new FormGroup({
-    idFloatP: new FormControl('', Validators.required),
+  @ViewChild('fe') bds: any;
+  @ViewChild('fed') bdsd: any;
+  loadingfes!: boolean;
+  floatFE = new FormGroup({
+    idFloatE: new FormControl('', Validators.required),
     PERIODO: new FormControl('', Validators.required),
     IdCia: new FormControl('', Validators.required),
     NomSede: new FormControl('', Validators.required),
@@ -91,11 +91,11 @@ export class ViewFloatpComponent implements OnInit {
     this.periodos = [];
     this.optionsFloat = [];
     this.PERIODO_REQ = false;
-    this.camposFp = [];
-    this.multiSortMetaFP = [];
-    this.datasourceFP = [];
+    this.camposFe = [];
+    this.multiSortMetaFE = [];
+    this.datasourceFE = [];
     this.urlDounload = '';
-    this.multiSortfps = [];
+    this.multiSortfes = [];
     this.displeyFloatDetail = false;
   }
   ngOnInit() {
@@ -126,36 +126,36 @@ export class ViewFloatpComponent implements OnInit {
 
 
     this.usuario = this.authService.GetuserInfo();
-    this.floatFP.controls['IdCia'].setValue(this.usuario.ciaSelected.IdCia);
-    this.floatFP.controls['NomSede'].setValue(this.usuario.ciaSelected.NomSede);
-    this.floatFP.controls['Role'].setValue(this.usuario.role);
+    this.floatFE.controls['IdCia'].setValue(this.usuario.ciaSelected.IdCia);
+    this.floatFE.controls['NomSede'].setValue(this.usuario.ciaSelected.NomSede);
+    this.floatFE.controls['Role'].setValue(this.usuario.role);
     this.route.queryParams
       .subscribe((params: any) => {
-        this.floatFP.controls['idFloatP'].setValue(params.idFloatP);
-        this.floatFP.controls['Option'].setValue({
+        this.floatFE.controls['idFloatE'].setValue(params.idFloatE);
+        this.floatFE.controls['Option'].setValue({
           Code: params.Option,
-          name: 'Ver Float planificado'
+          name: 'Ver Float en ejecución'
         });
 
 
-        /*obtengo los datos del float a partir del id del float planificado*/
-        this.master.apiPostFPByID(this.floatFP).subscribe({
+        /*obtengo los datos del float a partir del id del float en ejecución*/
+        this.master.apiPostFEByID(this.floatFE).subscribe({
           next: (response: any) => {
             if (response.status == "ok") {
-              this.floatFP.controls['PERIODO'].setValue({
+              this.floatFE.controls['PERIODO'].setValue({
                 periodo: response.periodo,
                 date: response.date
               });
 
               this.items.forEach((x: any, y) => { if (x.label == response.estado) { this.activeIndex = parseInt(x.id) } })
-              this.floatFP.controls['estado'].setValue(response.estado);
-              this.floatFP.controls['date'].setValue(response.date);
+              this.floatFE.controls['estado'].setValue(response.estado);
+              this.floatFE.controls['date'].setValue(response.date);
 
 
 
-              this.datasourceFP = response.datos;
-              this.clearFormArray(this.DatosFloatP);
-              this.multiSortMetaFP = [];
+              this.datasourceFE = response.datos;
+              this.clearFormArray(this.DatosFloatE);
+              this.multiSortMetaFE = [];
               this.loading = false;
               if (response.status == "ok") {
                 if (response.datos.length > 0) {
@@ -163,7 +163,7 @@ export class ViewFloatpComponent implements OnInit {
                     this.mainForm.addControl([i].toString(), new FormControl('', Validators.required));
                   }
                 }
-                this.camposFp = [
+                this.camposFe = [
                   { field: 'bdgt1', header: 'bdgt1' },
                   { field: 'bdgt2', header: 'bdgt2' },
                   { field: 'bdgt3', header: 'bdgt3' },
@@ -172,26 +172,26 @@ export class ViewFloatpComponent implements OnInit {
                 ]
                 for (let i in this.mainForm.controls) {
                   if (i.indexOf('Week') == 0) {
-                    this.camposFp.push({ field: i, header: i })
+                    this.camposFe.push({ field: i, header: i })
                   }
-                  // this.camposFp.push({ field: i, header: i })
+                  // this.camposFe.push({ field: i, header: i })
                   if (i == 'bdgt1') {
-                    this.multiSortMetaFP.push({ field: i, order: -1 });
+                    this.multiSortMetaFE.push({ field: i, order: -1 });
                   }
                 }
                 for (let i in this.mainForm.controls) {
                   if (i.indexOf('Remaning') == 0) {
-                    this.camposFp.push({ field: i, header: i })
+                    this.camposFe.push({ field: i, header: i })
                   }
                 }
                 for (let i in this.mainForm.controls) {
                   if (i.indexOf('description') == 0) {
-                    this.camposFp.push({ field: i, header: i })
+                    this.camposFe.push({ field: i, header: i })
                   }
                 }
 
-                if (response.downloadFloatP.length > 0) {
-                  this.urlDounload = response.downloadFloatP;
+                if (response.downloadFloatE.length > 0) {
+                  this.urlDounload = response.downloadFloatE;
                 } else {
                   this.notify.showNotification('top', 'right', 3, 'No hay archivo para descargar');
 
@@ -200,7 +200,7 @@ export class ViewFloatpComponent implements OnInit {
 
                 response.datos.forEach((x: any, y: any) => {
 
-                  this.DatosFloatP.push(new FormGroup({}))
+                  this.DatosFloatE.push(new FormGroup({}))
 
 
                   /*
@@ -228,7 +228,7 @@ export class ViewFloatpComponent implements OnInit {
           },
           error: (result: any) => {
 
-            this.notify.showNotification('top', 'right', 4, 'Error al obtener el Float planificado ' + this.floatFP.controls['idFloatP'].value);
+            this.notify.showNotification('top', 'right', 4, 'Error al obtener el Float en ejecución ' + this.floatFE.controls['idFloatE'].value);
             this.loadingPage = false;
 
           },
@@ -243,14 +243,14 @@ export class ViewFloatpComponent implements OnInit {
   }
 
 
-  get fps() { return this.floatFP.controls; }
+  get fes() { return this.floatFE.controls; }
   //get bd() { return this.bdts.DatosFloatP as FormArray; }
 
-  get DatosFloatP(): FormArray {
-    return this.floatFP.get("DatosFloatP") as FormArray;
+  get DatosFloatE(): FormArray {
+    return this.floatFE.get("DatosFloatP") as FormArray;
   }
 
-  get tControls() { return this.DatosFloatP.controls as FormGroup[]; }
+  get tControls() { return this.DatosFloatE.controls as FormGroup[]; }
 
 
 
@@ -263,13 +263,13 @@ export class ViewFloatpComponent implements OnInit {
       formArray.removeAt(0)
     }
   }
-  downloadFP() {
+  downloadFE() {
     if (this.urlDounload.length > 0) {
       this.master.download(this.urlDounload).subscribe(blob => {
         const a = document.createElement('a')
         const objectUrl = URL.createObjectURL(blob)
         a.href = objectUrl
-        a.download = 'FloatP' + this.floatFP.controls['PERIODO'].value['periodo'] + '.xlsx';
+        a.download = 'FloatP' + this.floatFE.controls['PERIODO'].value['periodo'] + '.xlsx';
         a.click();
         URL.revokeObjectURL(objectUrl);
       })
@@ -281,11 +281,11 @@ export class ViewFloatpComponent implements OnInit {
     console.log(event)
   }
   SendToApprove() {
-    this.master.apiPostSendApproveFP(this.floatFP).subscribe({
+    this.master.apiPostSendApproveFE(this.floatFE).subscribe({
       next: (response: any) => {
         if (response.status == "ok") {
-          this.notify.showNotification('top', 'right', 1, 'Float planificado ' + response.idFloatP + ' enviado a aprobar!');
-          this.router.navigate(['/' + this.usuario.role + '/floatPlanned/'], { queryParams: {} })
+          this.notify.showNotification('top', 'right', 1, 'Float en ejecución ' + response.idFloatE + ' enviado a aprobar!');
+          this.router.navigate(['/' + this.usuario.role + '/floatInAction/'], { queryParams: {} })
         } else if (response.status == 'warning') {
           this.notify.showNotification('top', 'right', 3, response.datos[0].detail);
         } else {
@@ -297,18 +297,18 @@ export class ViewFloatpComponent implements OnInit {
 
       },
       error: (response: any) => {
-        this.notify.showNotification('top', 'right', 4, 'Error al enviar a aprobar el float planificado');
+        this.notify.showNotification('top', 'right', 4, 'Error al enviar a aprobar el float en ejecución');
         this.loadingPage = false;
       },
       complete: () => { }
     })
   }
   flowAceptar() {
-    this.master.apiPostApproveFP(this.floatFP).subscribe({
+    this.master.apiPostApproveFE(this.floatFE).subscribe({
       next: (response: any) => {
         if (response.status == "ok") {
-          this.notify.showNotification('top', 'right', 1, 'Float planificado ' + response.idFloatP + ' aprobado!');
-          this.router.navigate(['/' + this.usuario.role + '/floatPlanned/'], { queryParams: {} })
+          this.notify.showNotification('top', 'right', 1, 'Float en ejecución ' + response.idFloatE + ' aprobado!');
+          this.router.navigate(['/' + this.usuario.role + '/floatInAction/'], { queryParams: {} })
         } else if (response.status == 'warning') {
           this.notify.showNotification('top', 'right', 3, response.datos[0].detail);
         } else {
@@ -319,7 +319,7 @@ export class ViewFloatpComponent implements OnInit {
 
       },
       error: (response: any) => {
-        this.notify.showNotification('top', 'right', 4, 'Error al aceptar el Float Planificado');
+        this.notify.showNotification('top', 'right', 4, 'Error al aceptar el Float en ejecución');
         this.loadingPage = false;
       },
       complete: () => { }
@@ -327,11 +327,11 @@ export class ViewFloatpComponent implements OnInit {
   }
 
   rechazar() {
-    this.master.apiPostRejectFP(this.floatFP).subscribe({
+    this.master.apiPostRejectFE(this.floatFE).subscribe({
       next: (response: any) => {
         if (response.status == "ok") {
-          this.notify.showNotification('top', 'right', 1, 'Float planificado ' + response.idFloatP + ' rechazado!');
-          this.router.navigate(['/' + this.usuario.role + '/floatPlanned/'], { queryParams: {} })
+          this.notify.showNotification('top', 'right', 1, 'Float en ejecución ' + response.idFloatE + ' rechazado!');
+          this.router.navigate(['/' + this.usuario.role + '/floatInAction/'], { queryParams: {} })
         } else if (response.status == 'warning') {
           this.notify.showNotification('top', 'right', 3, response.datos[0].detail);
         } else {
@@ -342,7 +342,7 @@ export class ViewFloatpComponent implements OnInit {
 
       },
       error: (response: any) => {
-        this.notify.showNotification('top', 'right', 4, 'Error al rechazar el Float Planificado');
+        this.notify.showNotification('top', 'right', 4, 'Error al rechazar el Float en ejecución');
         this.loadingPage = false;
       },
       complete: () => { }
@@ -350,7 +350,7 @@ export class ViewFloatpComponent implements OnInit {
   }
   flowRechazar() {
     this.confirmationService.confirm({
-      message: 'Seguro de rechazar el Float planificado?',
+      message: 'Seguro de rechazar el Float en ejecución?',
       header: 'Flujo ',
       icon: 'pi pi-info-circle',
       accept: () => {
@@ -363,26 +363,26 @@ export class ViewFloatpComponent implements OnInit {
       key: "positionDialog"
     });
   }
-  loadFloatFp() {
-    this.master.apiPostLoadFloatP(this.floatFP).subscribe({
+  loadFloatFe() {
+    this.master.apiPostLoadFloatP(this.floatFE).subscribe({
       next: (response: any) => {
         if (response.status == "ok") {
-          this.master.apiPostFPByID(this.floatFP).subscribe({
+          this.master.apiPostFEByID(this.floatFE).subscribe({
             next: (response: any) => {
               if (response.status == "ok") {
-                this.floatFP.controls['PERIODO'].setValue({
+                this.floatFE.controls['PERIODO'].setValue({
                   periodo: response.periodo,
                   date: response.date
                 });
 
-                this.floatFP.controls['estado'].setValue(response.estado);
-                this.floatFP.controls['date'].setValue(response.date);
+                this.floatFE.controls['estado'].setValue(response.estado);
+                this.floatFE.controls['date'].setValue(response.date);
 
 
 
-                this.datasourceFP = response.datos;
-                this.clearFormArray(this.DatosFloatP);
-                this.multiSortMetaFP = [];
+                this.datasourceFE = response.datos;
+                this.clearFormArray(this.DatosFloatE);
+                this.multiSortMetaFE = [];
                 this.loading = false;
                 if (response.status == "ok") {
                   if (response.datos.length > 0) {
@@ -393,9 +393,9 @@ export class ViewFloatpComponent implements OnInit {
 
 
                   for (let i in this.mainForm.controls) {
-                    this.camposFp.push({ field: i, header: i })
-                    if (i == 'idFloatP') {
-                      this.multiSortMetaFP.push({ field: i, order: -1 });
+                    this.camposFe.push({ field: i, header: i })
+                    if (i == 'idFloatE') {
+                      this.multiSortMetaFE.push({ field: i, order: -1 });
                     }
                   }
                   if (response.downloadFloatP.length > 0) {
@@ -408,7 +408,7 @@ export class ViewFloatpComponent implements OnInit {
 
                   response.datos.forEach((x: any, y: any) => {
 
-                    this.DatosFloatP.push(new FormGroup({}))
+                    this.DatosFloatE.push(new FormGroup({}))
 
 
                     /*
@@ -436,7 +436,7 @@ export class ViewFloatpComponent implements OnInit {
             },
             error: (result: any) => {
 
-              this.notify.showNotification('top', 'right', 4, 'Error al obtener el Float planificado ' + this.floatFP.controls['idFloatP'].value);
+              this.notify.showNotification('top', 'right', 4, 'Error al obtener el Float en ejecución ' + this.floatFE.controls['idFloatE'].value);
               this.loadingPage = false;
 
             },
@@ -444,7 +444,7 @@ export class ViewFloatpComponent implements OnInit {
 
             }
           })
-          this.notify.showNotification('top', 'right', 1, 'Float planificado cargado correctamente!');
+          this.notify.showNotification('top', 'right', 1, 'Float en ejecución cargado correctamente!');
           this.loadingPage = false;
         } else if (response.status == 'warning') {
           this.notify.showNotification('top', 'right', 3, response.datos[0].detail);
@@ -456,7 +456,7 @@ export class ViewFloatpComponent implements OnInit {
               const a = document.createElement('a')
               const objectUrl = URL.createObjectURL(blob)
               a.href = objectUrl
-              a.download = 'ErrorFloat' + this.floatFP.controls['PERIODO'].value['periodo'] + '.xlsx';
+              a.download = 'ErrorFloat' + this.floatFE.controls['PERIODO'].value['periodo'] + '.xlsx';
               a.click();
               URL.revokeObjectURL(objectUrl);
             })
@@ -480,17 +480,17 @@ export class ViewFloatpComponent implements OnInit {
   }
   Procesar() {
     if (this.files.length == 0) {
-      this.notify.showNotification('top', 'right', 3, 'Debe seleccionar un archivo para cargar el float planificado');
+      this.notify.showNotification('top', 'right', 3, 'Debe seleccionar un archivo para cargar el float en ejecución');
     }
     if (this.files.length > 0) {
-      this.floatFP.controls['file'].setValue(this.files[0]);
+      this.floatFE.controls['file'].setValue(this.files[0]);
       this.confirmationService.confirm({
         message: 'Se cargara el archivo ' + this.files[0].name,
         header: 'Crear budget ',
         icon: 'pi pi-info-circle',
         accept: () => {
           this.loadingPage = true;
-          this.loadFloatFp();
+          this.loadFloatFe();
         },
         reject: () => {
           this.msgs = [{ severity: 'info', summary: 'Rejected', detail: 'You have rejected' }];
@@ -509,7 +509,7 @@ export class ViewFloatpComponent implements OnInit {
           item.progress = 0;
           this.files.push(item);
         } else {
-          this.notify.showNotification('top', 'right', 3, 'Solo puede subir un archivo para crear un Float Planificado');
+          this.notify.showNotification('top', 'right', 3, 'Solo puede subir un archivo para crear un Float en ejecución');
         }
 
       } else {
@@ -523,18 +523,18 @@ export class ViewFloatpComponent implements OnInit {
 
   onRowDblClick(event: Event, datos: any) {
 
-    this.datosDetailFloat = datos;
+    this.datosDetailFloatE = datos;
     this.loadingPage = true;
 
-    this.master.apigetDetailFloat(this.floatFP, datos.idbgdt5).subscribe({
+    this.master.apigetDetailFloat(this.floatFE, datos.idbgdt5).subscribe({
       next: (response: any) => {
 
         if (response.status == "ok") {
 
           /*Cargo detalles del float*/
           this.displeyFloatDetail = true;
-          this.datasourceFPD = response.datos;
-          this.camposFpD = [
+          this.datasourceFED = response.datos;
+          this.camposFeD = [
             { field: 'Razon Social', header: 'Razon Social' },
             { field: 'Categoria 5: Descripción', header: 'Categoria 5: Descripción' },
             { field: 'Monto Total USD(Mes)', header: 'Monto Total USD(Mes)' },

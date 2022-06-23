@@ -119,7 +119,17 @@ export class MaestrosService {
         }
         return this.http.post(CONFIG.apiGetBudgets, formData);
     }
-
+    postCloseBudget(form: any ){
+        var formData: any = new FormData();
+        for (let i in form.controls) {
+            if (i == 'idBudget') {
+                formData.append(i, form.controls[i].value);
+            } else {
+                formData.append(i, form.controls[i].value);
+            }
+        }
+        return this.http.post(CONFIG.apipostCloseBudget, formData)
+    }
     postCreaBudget(form: any): Observable<any> {
         var formData: any = new FormData();
         for (let i in form.controls) {
@@ -155,6 +165,8 @@ export class MaestrosService {
         for (let i in form.controls) {
             if (i == 'idBudget') {
                 formData.append(i, form.controls[i].value);
+            } else {
+                formData.append(i, form.controls[i].value);
             }
         }
         return this.http.post(CONFIG.apiGetBudget, formData)
@@ -183,6 +195,7 @@ export class MaestrosService {
             responseType: 'blob'
         })
     }
+
     apiGetPeriodFP(form: any) {
         var formData: any = new FormData();
         for (let i in form.controls) {
@@ -290,6 +303,129 @@ export class MaestrosService {
             }
         }
         return this.http.post(CONFIG.apiPostPeriodReportFI, formData)
+
+    }
+    apiPostCreateFE(form: any): Observable<any> {
+        var formData: any = new FormData();
+        for (let i in form.controls) {
+            if (i == 'PERIODO') {
+                formData.append(i, form.controls[i].value.date);
+
+            } else if (i == 'Option') {
+                formData.append(i, form.controls[i].value.Code);
+            } else {
+                formData.append(i, form.controls[i].value);
+            }
+        }
+        return this.http.post(CONFIG.apiPostCreateFE, formData)
+    }
+    apiGetPeriodFE(form: any) {
+        var formData: any = new FormData();
+        for (let i in form.controls) {
+            if (i == 'PERIODO') {
+                formData.append(i, form.controls[i].value.date);
+
+            } else {
+                formData.append(i, form.controls[i].value);
+            }
+        }
+        return this.http.post(CONFIG.apiGetPeriodFE, formData)
+
+
+    }
+
+    apiPostRejectFE(form: any): Observable<any> {
+        var formData: any = new FormData();
+        for (let i in form.controls) {
+            if (i == 'idFloatE') {
+                formData.append(i, form.controls[i].value);
+            }
+        }
+        return this.http.post(CONFIG.apiPostRejectFE, formData)
+    }
+    apiPostLoadFloatE(form: any): Observable<any> {
+        var formData: any = new FormData();
+        for (let i in form.controls) {
+            if (i != 'DatosFloatP') {
+                if (i == 'PERIODO') {
+                    formData.append(i, form.controls[i].value.date);
+
+                } else if (i == 'Option') {
+                    formData.append(i, form.controls[i].value.Code);
+                } else {
+                    formData.append(i, form.controls[i].value);
+                }
+            }
+
+        }
+        return this.http.post(CONFIG.apiPostLoadFloatE, formData)
+    }
+
+    apiPostApproveFE(form: any): Observable<any> {
+        var formData: any = new FormData();
+        for (let i in form.controls) {
+            if (i == 'idFloatE') {
+                formData.append(i, form.controls[i].value);
+            }
+        }
+        return this.http.post(CONFIG.apiPostApproveFE, formData)
+    }
+
+    apiPostSendApproveFE(form: any): Observable<any> {
+        var formData: any = new FormData();
+        for (let i in form.controls) {
+            if (i == 'idFloatE') {
+                formData.append(i, form.controls[i].value);
+            }
+        }
+        return this.http.post(CONFIG.apiPostSendApproveFE, formData)
+    }
+
+    apiPostFEByID(form: any): Observable<any> {
+        var formData: any = new FormData();
+        for (let i in form.controls) {
+            if (i == 'idFloatE') {
+                formData.append(i, form.controls[i].value);
+            }
+        }
+        return this.http.post(CONFIG.apiPostFEByID, formData)
+    }
+    apiGetFEAll(form: any) {
+        var formData: any = new FormData();
+        for (let i in form.controls) {
+            if (i == 'PERIODO') {
+                formData.append(i, form.controls[i].value.date);
+
+            } else if (i == 'Option') {
+                formData.append(i, form.controls[i].value.Code);
+            } else {
+                formData.append(i, form.controls[i].value);
+            }
+        }
+        return this.http.post(CONFIG.apiGetFEAll, formData);
+    }
+
+    apigetDetailFloatE(form: any, IdBudgetV5: any): Observable<any> {
+        var formData: any = new FormData();
+        formData.append('IdBudgetV5', IdBudgetV5);
+        for (let i in form.controls) {
+            if (i == 'idFloatE') {
+                formData.append(i, form.controls[i].value);
+            }
+        }
+        return this.http.post(CONFIG.apigetDetailFloatE, formData)
+    }
+    apiPostPeriodReportFE(form: any) {
+        var formData: any = new FormData();
+        for (let i in form.controls) {
+            if (i == 'PERIODO') {
+                formData.append(i, form.controls[i].value.date);
+
+            } else {
+                formData.append(i, form.controls[i].value);
+            }
+        }
+        return this.http.post(CONFIG.apiPostPeriodReportFE, formData)
 
     }
 

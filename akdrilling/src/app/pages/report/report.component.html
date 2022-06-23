@@ -7,8 +7,8 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
-                            <p-tabView styleClass="tabview-custom">
-                                <p-tabPanel>
+                            <p-tabView styleClass="tabview-custom" (onChange)="reporte($event)"> 
+                                <p-tabPanel >
                                     <ng-template pTemplate="header">
                                         <span>Reporte Float Inicial</span>
                                     </ng-template>
@@ -39,11 +39,30 @@
 
 
                                 </p-tabPanel>
-                                <p-tabPanel>
+                                <p-tabPanel >
                                     <ng-template pTemplate="header">
                                         <span>Reporte Float en ejecución</span>
                                     </ng-template>
+                                    <form class="p-grid" [formGroup]="reports" accept-charset="utf-8">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div style="height: 100px;">
+                                                    <p-dropdown [options]="periodos" formControlName="PERIODO"
+                                                        placeholder="Seleccione un periodo" optionLabel="periodo"
+                                                        [showClear]="true">
+                                                    </p-dropdown>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <button pButton pRipple type="button" (click)="DownloadFE()"
+                                                    class="p-button-rounded p-button-text ">
+                                                    <img src="/akdrilling/assets/img/dnd/ic-file-excel.svg" width="45px"
+                                                        style="text-align: center;" alt="file">
+                                                </button>
+                                            </div>
+                                        </div>
 
+                                    </form>
 
                                 </p-tabPanel>
                             </p-tabView>

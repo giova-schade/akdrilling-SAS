@@ -9,7 +9,7 @@ CORS(app)
 def Login():
     if(request.method == 'GET'):
         data = {
-    "role": "AKDAFP",
+    "role": "AKDADM",
     "Nombre": "epalomino",
     "roleDescription": "Analista creador de Float ejecución",
     "info": {
@@ -114,24 +114,25 @@ def postClosePeriod():
 def GetBudgets():
     if(request.method == 'POST'):
         data = {
-            "status": "ok",
-            "datos": [
-                {"idBudget": "05202221AKDADM",
-                 "periodo": "marzo",
-                 "fechaCreacion": "01/03/2022",
-                 "Estado": "Creado"
-                 },
-                {"idBudget": "05202221AKDADM",
-                 "periodo": "marzo",
-                 "fechaCreacion": "01/03/2022",
-                 "Estado": "Enviado"
-                 },
-                {"idBudget": "05202221AKDADM",
-                 "periodo": "marzo",
-                 "fechaCreacion": "01/03/2022",
-                 "Estado": "Cerrado"
-                 }
-            ]}
+  "status": "ok",
+  "datos": [
+    {
+      "idBudget": "85a6e709-5630-a640-a244-36dbedda311e",
+      "periodo": "Mayo",
+      "estado": "Creado",
+      "Departamento": "Departamento Finanzas",
+      "rol": "AKDABDF"
+    },
+    {
+      "idBudget": "85a6e709-5630-a640-a244-36dbedda311e",
+      "periodo": "Mayo",
+      "estado": "Creado",
+      "Departamento": "Departamento Operaciones",
+      "rol": "AKDABOP"
+    }
+  ]
+}
+
         return jsonify(data)
 
 
@@ -1028,7 +1029,7 @@ def apiGetBudget():
             "periodo": "Enero",
             "date": "01/01/2022",
             "idBudget": "123",
-            "estado": "Creado",
+            "estado": "Cerrado",
             "datos": [
                 {
                     "Item": 1,
@@ -9322,6 +9323,7 @@ def apiPostCreaBudget():
         data = {
             "status": "ok",
             "idBudget": "123",
+            "rol": "AKDABOP",
             "urlResutlado": "http://192.168.68.71:5000/DownloadBG",
             "datos": [
                 {
@@ -9347,7 +9349,7 @@ def apiPostLoadFloatP():
     if(request.method == 'POST'):
         data = {
             "status": "ok",
-            "idBudget": "123",
+            "idFloatP": "123",
             "urlResutlado": "http://192.168.68.71:5000/DownloadBG",
             "datos": [
                 {
@@ -9572,6 +9574,255 @@ def DownloadFI():
     if(request.method == 'GET'):
         return send_file('Copy of GAPS AKD_v2.7.xlsx', as_attachment=True)
 
+
+
+
+
+## api de float en ejecucion
+#crear una api para traer todos los float en ejecucion a partir de una cia 
+#CREAR UNA API PARA RETORNAR LOS PERIODOS CON EL CUAL SE PUEDE CREAR UN FLOAT EN EJECUCION
+#CREAR UNA API QUE PERMITA CREAR UN FLOAT EN EJECUCION A PARTIR DE UN PERIODO SELECCIONADO
+#CREAR UNA API PARA RETIRNAR UN FLOAT EN EJECUCION APARTIR DE UN ID CREADO
+#CREAR UNA API PARA ENVIAR A APROBAR UN FE
+#CREAR UNA API QUE PERMITA ACTUALIZAR EL FE 
+#CREAR UNA API QUE PERMITA APROBAR UN FE
+#CREAR UNA API QUE PERMITA RECHAZAR UNA FE 
+
+
+## api para poder crear el reporte de float en ejecucion
+## obtener el periodo del float en ejecucion para el reporte
+# obetenr el reporte  
+
+
+@app.route('/apiPostLoadFloatE', methods=['POST'])
+def apiPostLoadFloatE():
+    if(request.method == 'POST'):
+        data = {
+            "status": "ok",
+            "idFloatE": "123",
+            "urlResutlado": "http://192.168.68.71:5000/DownloadBG",
+            "datos": [
+                {
+                    "detail": "Carga Correcta!"
+                }
+            ]
+        }
+        return jsonify(data)
+
+
+@app.route('/apiGetPeriodFE', methods=['POST'])
+def apiGetPeriodFE():
+    if(request.method == 'POST'):
+        data = {
+            "status": "ok",
+            "datos": [
+                {"periodo": "Mayo", "date": "01/05/2022"},
+            ]
+        }
+        return jsonify(data)
+
+
+@app.route('/apiPostSendApproveFE', methods=['POST'])
+def apiPostSendApproveFE():
+    if(request.method == 'POST'):
+        data = {
+            "status": "ok",
+            "idFloatE": "123",
+            "datos": [
+                {
+                    "detail": "el float  en ejecución se envio  correctamente"
+                }
+            ]
+        }
+        return jsonify(data)
+
+
+@app.route('/apiPostRejectFE', methods=['POST'])
+def apiPostRejectFE():
+    if(request.method == 'POST'):
+        data = {
+            "status": "ok",
+            "idFloatE": "123",
+            "datos": [
+                {
+                    "detail": "el float en ejecución se rechazo  correctamente"
+                }
+            ]
+        }
+        return jsonify(data)
+
+
+@app.route('/apiPostApproveFE', methods=['POST'])
+def apiPostApproveFE():
+    if(request.method == 'POST'):
+        data = {
+            "status": "ok",
+            "idFloatE": "123",
+            "datos": [
+                {
+                    "detail": "el float en ejecución se aprobo  correctamente"
+                }
+            ]
+        }
+        return jsonify(data)
+
+
+@app.route('/apiPostCreateFE', methods=['POST'])
+def apiPostCreateFE():
+    if(request.method == 'POST'):
+        data = {
+            "status": "ok",
+            "idFloatE": "123",
+            "urlResutlado": "http://192.168.68.71:5000/DownloadBG",
+            "datos": [
+                {
+                    "detail": "el float en ejecución se creo correctamente"
+                }
+            ]
+        }
+        return jsonify(data)
+
+
+@app.route('/apiGetFEAll', methods=['POST'])
+def apiGetFEAll():
+    if(request.method == 'POST'):
+        data = {
+            "status": "ok",
+            "datos": [
+                {"idFloatE": "05202221AKDADM",
+                 "periodo": "marzo",
+                 "fechaCreacion": "01/03/2022",
+                 "Estado": "Creado"
+                 },
+                {"idFloatE": "05202221AKDADM",
+                 "periodo": "marzo",
+                 "fechaCreacion": "01/03/2022",
+                 "Estado": "Enviado"
+                 },
+                {"idFloatE": "05202221AKDADM",
+                 "periodo": "marzo",
+                 "fechaCreacion": "01/03/2022",
+                 "Estado": "Cerrado"
+                 }
+            ]}
+        return jsonify(data)
+
+
+@app.route('/apigetDetailFloatE', methods=['POST'])
+def apigetDetailFloatE():
+    if(request.method == 'POST'):
+        data = {
+            "status": "ok",
+            "idFloatFEDetalle": "0201020102",
+            "datos": [
+                {
+                    "Razon Social": "VARIOS",
+                    "Categoria 5: Descripción": "Maintenance Lubricants",
+                    "Monto Total USD(Mes)": 2866.62333333,
+                    "week": "12MAY2022",
+                    "Estado": "Cerrado"
+                },
+                {
+                    "Razon Social": "VARIOS",
+                    "Categoria 5: Descripción": "Maintenance Lubricants",
+                    "Monto Total USD(Mes)": 2866.62333333,
+                    "week": "19MAY2022",
+                    "Estado": "Cerrado"
+                }
+            ]
+        }
+        return jsonify(data)
+
+
+@app.route('/apiPostFEByID', methods=['POST'])
+def apiPostFEByID():
+    if(request.method == 'POST'):
+        data = {
+            "status": "ok",
+            "downloadFloatE": "http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FDownloadFloatP&idFloatP=be0679f6-203a-f741-9d34-b56bfae63a34",
+            "periodo": "Mayo",
+            "date": "13/05/2022",
+            "idFloatE": "",
+            "estado": "Creado",
+            "datos": [
+                {
+                    "idbgdt5": "0201010101",
+                    "bdgt1": "OPERATING COST",
+                    "bdgt2": "TOTAL OPERATIONAL SUPPLY Cash Egress",
+                    "bdgt3": "Operative Supplies",
+                    "bdgt4": "Operative Supplies",
+                    "bdgt5": "SOMACC Operations",
+                    "description": "SOMACC Operations",
+                    "budgV1": 2936.33188507,
+                    "Week 18 01MAY2022": 'null',
+                    "Week 18 03MAY2022": 'null',
+                    "Week 18 05MAY2022": 'null',
+                    "Week 19 08MAY2022": 'null',
+                    "Week 19 09MAY2022": 'null',
+                    "Week 19 11MAY2022": 'null',
+                    "Week 19 12MAY2022": 2936.33188507,
+                    "Week 19 14MAY2022": 'null',
+                    "Week 20 15MAY2022": 'null',
+                    "Week 20 19MAY2022": 'null',
+                    "Week 20 20MAY2022": 'null',
+                    "Week 21 22MAY2022": 'null',
+                    "Week 21 25MAY2022": 'null',
+                    "Week 21 26MAY2022": 'null',
+                    "Week 21 27MAY2022": 'null',
+                    "Week 21 28MAY2022": 'null',
+                    "Remaning": 0
+                },
+                {
+                    "idbgdt5": "0201010102",
+                    "bdgt1": "OPERATING COST",
+                    "bdgt2": "TOTAL OPERATIONAL SUPPLY Cash Egress",
+                    "bdgt3": "Operative Supplies",
+                    "bdgt4": "Operative Supplies",
+                    "bdgt5": "Drill Bits",
+                    "description": "Drill Bits",
+                    "budgV1": 15871.05,
+                    "Week 18 01MAY2022": 'null',
+                    "Week 18 03MAY2022": 'null',
+                    "Week 18 05MAY2022": 'null',
+                    "Week 19 08MAY2022": 'null',
+                    "Week 19 09MAY2022": 'null',
+                    "Week 19 11MAY2022": 'null',
+                    "Week 19 12MAY2022": 10580.7,
+                    "Week 19 14MAY2022": 'null',
+                    "Week 20 15MAY2022": 'null',
+                    "Week 20 19MAY2022": 5290.35,
+                    "Week 20 20MAY2022": 'null',
+                    "Week 21 22MAY2022": 'null',
+                    "Week 21 25MAY2022": 'null',
+                    "Week 21 26MAY2022": 'null',
+                    "Week 21 27MAY2022": 'null',
+                    "Week 21 28MAY2022": 'null',
+                    "Remaning": 0
+                }
+            ]
+        }
+        return jsonify(data)
+
+
+###api de reportes
+
+
+@app.route('/apiPostPeriodReportFE', methods=['POST'])
+def apiPostPeriodReportFE():
+    if(request.method == 'POST'):
+        data = {
+            "status": "ok",
+            "downloadFE": "http://192.168.68.71:5000/DownloadFE*",
+            "datos": [
+                {"periodo": "Mayo", "date": "01/05/2022"},
+            ]
+        }
+        return jsonify(data)
+
+@app.route('/DownloadFE', methods=['GET'])
+def DownloadFE():
+    if(request.method == 'GET'):
+        return send_file('Copy of GAPS AKD_v2.7.xlsx', as_attachment=True)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)

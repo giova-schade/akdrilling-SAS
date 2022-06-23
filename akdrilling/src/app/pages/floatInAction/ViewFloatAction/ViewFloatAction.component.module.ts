@@ -2,7 +2,9 @@ import { CommonModule , } from '@angular/common';
 import { NgModule , CUSTOM_ELEMENTS_SCHEMA } from '@angular/core' ;
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { FloatInActionComponent } from './floatInAction.component';
+import { ViewFloateComponent } from './ViewFloatAction.component';
+
+import { NgxFlowchartModule } from 'ngx-flowchart';
 //ngprime
 import { TableModule } from 'primeng/table';
 import { DialogModule } from 'primeng/dialog';
@@ -23,9 +25,20 @@ import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import {BlockUIModule} from 'primeng/blockui';
 import {PanelMenuModule} from 'primeng/panelmenu';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import {CardModule} from 'primeng/card';
+import { NgxGraphModule } from '@swimlane/ngx-graph';
+import {ToolbarModule} from 'primeng/toolbar';
+import {StepsModule} from 'primeng/steps';
+import {MenubarModule} from 'primeng/menubar';
 @NgModule({
 
     imports:[
+        MenubarModule,
+        StepsModule,
+        ToolbarModule,
+        NgxGraphModule,
+        NgxFlowchartModule,
+        CardModule,
         ConfirmDialogModule,
         ReactiveFormsModule, 
         CommonModule,
@@ -48,12 +61,12 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
         BlockUIModule,
         PanelMenuModule
     ],
-    declarations:[FloatInActionComponent],
+    declarations:[ViewFloateComponent],
     exports:[
-        FloatInActionComponent,
+        ViewFloateComponent,
         CommonModule,
         FormsModule
     ],
     schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
-export class FloatInAction {}
+export class FloatFEV {}

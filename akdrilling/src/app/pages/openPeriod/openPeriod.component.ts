@@ -61,7 +61,7 @@ export class OpenPeriodComponent implements OnInit {
       next: (result) => {
         if (result.status == "ok") {
           result.datos.forEach((x: any) => {
-            this.periodos.push({ periodo: x.periodo, date: x.date });
+            this.periodos.push({ periodo: x.periodo + ' ' + x.date.split('/')[2], date: x.date });
           })
         } else {
           this.notify.showNotification('top', 'right', 4, result.datos[0].detail);

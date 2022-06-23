@@ -1,9 +1,35 @@
 <div class="content">
+
+    
     <div class=" row">
         <div class=" col-12">
             <div class=" card">
                 <p-progressBar *ngIf="loadingPage" mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
                 <p-blockUI [blocked]="loadingPage" [style]="{'z-index': '2'}"></p-blockUI>
+                
+                <div class="row">
+                    <div class="col-12">
+                        <div class=" card">
+                            <p-menubar>
+                                <div *ngIf="usuario.role == 'AKDADM' ">
+                                    <button *ngIf="budget.controls['estado'].value == 'Creado' " type="button" pButton
+                                    label="Cerrar Budget" icon="pi pi-check-circle" style="margin-left:.25em"
+                                    (click)="CerrarBudget()"></button>
+                                </div>
+                                <div *ngIf="usuario.role != 'AKDADM' ">
+                                    <button *ngIf="budget.controls['estado'].value == 'Creado' && usuario.role == budget.controls['Rol'].value" type="button" pButton
+                                    label="Cerrar Budget" icon="pi pi-check-circle" style="margin-left:.25em"
+                                    (click)="CerrarBudget()"></button>
+                                </div>
+
+                            </p-menubar>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <p-steps [model]="items" [(activeIndex)]="activeIndex" [readonly]="true"></p-steps>
+                    </div>
+                </div>
+
                 <div class=" card-header">
                     <!-- Inicio codigo ver Budget-->
 

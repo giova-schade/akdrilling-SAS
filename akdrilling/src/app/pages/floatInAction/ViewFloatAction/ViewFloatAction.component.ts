@@ -65,7 +65,7 @@ export class ViewFloateComponent implements OnInit {
     IdCia: new FormControl('', Validators.required),
     NomSede: new FormControl('', Validators.required),
     file: new FormControl(Blob, Validators.required),
-    DatosFloatP: new FormArray([]),
+    DatosFloatE: new FormArray([]),
     Option: new FormControl('', Validators.required),
     date: new FormControl('', Validators.required),
     estado: new FormControl('', Validators.required),
@@ -244,10 +244,10 @@ export class ViewFloateComponent implements OnInit {
 
 
   get fes() { return this.floatFE.controls; }
-  //get bd() { return this.bdts.DatosFloatP as FormArray; }
+  //get bd() { return this.bdts.DatosFloatE as FormArray; }
 
   get DatosFloatE(): FormArray {
-    return this.floatFE.get("DatosFloatP") as FormArray;
+    return this.floatFE.get("DatosFloatE") as FormArray;
   }
 
   get tControls() { return this.DatosFloatE.controls as FormGroup[]; }
@@ -269,7 +269,7 @@ export class ViewFloateComponent implements OnInit {
         const a = document.createElement('a')
         const objectUrl = URL.createObjectURL(blob)
         a.href = objectUrl
-        a.download = 'FloatP' + this.floatFE.controls['PERIODO'].value['periodo'] + '.xlsx';
+        a.download = 'FloatE' + this.floatFE.controls['PERIODO'].value['periodo'] + '.xlsx';
         a.click();
         URL.revokeObjectURL(objectUrl);
       })
@@ -364,7 +364,7 @@ export class ViewFloateComponent implements OnInit {
     });
   }
   loadFloatFe() {
-    this.master.apiPostLoadFloatP(this.floatFE).subscribe({
+    this.master.apiPostLoadFloatE(this.floatFE).subscribe({
       next: (response: any) => {
         if (response.status == "ok") {
           this.master.apiPostFEByID(this.floatFE).subscribe({
@@ -398,8 +398,8 @@ export class ViewFloateComponent implements OnInit {
                       this.multiSortMetaFE.push({ field: i, order: -1 });
                     }
                   }
-                  if (response.downloadFloatP.length > 0) {
-                    this.urlDounload = response.downloadFloatP;
+                  if (response.downloadFloatE.length > 0) {
+                    this.urlDounload = response.downloadFloatE;
                   } else {
                     this.notify.showNotification('top', 'right', 3, 'No hay archivo para descargar');
 
@@ -526,7 +526,7 @@ export class ViewFloateComponent implements OnInit {
     this.datosDetailFloatE = datos;
     this.loadingPage = true;
 
-    this.master.apigetDetailFloat(this.floatFE, datos.idbgdt5).subscribe({
+    this.master.apigetDetailFloatE(this.floatFE, datos.idbgdt5).subscribe({
       next: (response: any) => {
 
         if (response.status == "ok") {

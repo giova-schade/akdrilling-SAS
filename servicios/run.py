@@ -9811,12 +9811,16 @@ def apiPostFEByID():
 def apiPostPeriodReportFE():
     if(request.method == 'POST'):
         data = {
-            "status": "ok",
-            "downloadFE": "http://192.168.68.71:5000/DownloadFE*",
-            "datos": [
-                {"periodo": "Mayo", "date": "01/05/2022"},
-            ]
-        }
+  "status": "ok",
+  "downloadFE": "http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FDownloadFE",
+  "datos": [
+    {
+      "date": "23/05/2022",
+      "periodo": "Mayo"
+    }
+  ]
+}
+
         return jsonify(data)
 
 @app.route('/DownloadFE', methods=['GET'])

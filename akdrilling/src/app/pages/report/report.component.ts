@@ -100,7 +100,7 @@ export class ReportComponent implements OnInit {
           result.datos.forEach((x: any) => {
             this.periodos.push({ periodo: x.periodo + ' ' + x.date.split('/')[2], date: x.date });
           })
-          this.reports.controls['urlDownload'].setValue(result.downloadFI);
+          this.reports.controls['urlDownload'].setValue(result.downloadFE);
           console.log(this.reports)
 
         } else if (result.status == 'warning') {

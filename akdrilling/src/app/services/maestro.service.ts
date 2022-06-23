@@ -119,7 +119,7 @@ export class MaestrosService {
         }
         return this.http.post(CONFIG.apiGetBudgets, formData);
     }
-    postCloseBudget(form: any ){
+    postCloseBudget(form: any) {
         var formData: any = new FormData();
         for (let i in form.controls) {
             if (i == 'idBudget') {
@@ -297,7 +297,6 @@ export class MaestrosService {
         for (let i in form.controls) {
             if (i == 'PERIODO') {
                 formData.append(i, form.controls[i].value.date);
-
             } else {
                 formData.append(i, form.controls[i].value);
             }

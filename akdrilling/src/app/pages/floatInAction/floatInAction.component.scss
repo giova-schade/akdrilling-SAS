@@ -1,0 +1,29 @@
+:host ::ng-deep .tabla {
+   
+    tr > td {
+        font-size: 12px;
+        padding: 0.5rem 0.5rem;
+    }
+    .p-column-filter-row{
+        display: grid;
+    }
+    .p-column-filter-row p-columnfilterformelement{
+        width: 100%;
+    }
+    button.p-column-filter-menu-button.p-link{
+        margin-top: 5px;
+    }
+    button.p-column-filter-clear-button.p-link {
+        position: relative;
+        top: -32px;
+        left: 36px;
+        margin-bottom: -31px;
+    }
+    span.pi.pi-arrow-down.p-datatable-reorder-indicator-up.ng-star-inserted {
+        color: black;
+    }
+    span.pi.pi-arrow-up.p-datatable-reorder-indicator-down.ng-star-inserted  {
+        color: black;
+    }
+
+}

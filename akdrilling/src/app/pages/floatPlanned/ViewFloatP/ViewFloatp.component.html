@@ -85,14 +85,25 @@
 
                                     <div class="card-body">
                                         <div class=" col-sm-12">
-                                            <p-table #fp [columns]="camposFp" [paginator]="true" [value]="datasourceFP"
-                                                [rowHover]="true" [rows]="10" [showCurrentPageReport]="true"
+                                            <p-table #fp 
+                                                [columns]="camposFp" 
+                                                [paginator]="true" 
+                                                [value]="datasourceFP"
+                                                [rowHover]="true" 
+                                                [rows]="10" 
+                                                [showCurrentPageReport]="true"
                                                 [loading]="loading"
                                                 currentPageReportTemplate="Mostrar {first} hasta  {last} de {totalRecords} datos"
-                                                [filterDelay]="0" [resizableColumns]="true" [responsive]="true"
-                                                [autoLayout]="true" [globalFilterFields]="camposFp.field"
-                                                styleClass="tabla" *ngIf="DatosFloatP.length >  0" [scrollable]="true"
-                                                [reorderableColumns]="true" scrollHeight="500px" [autoLayout]="true"
+                                                [filterDelay]="0" 
+                                                [responsive]="true"
+                                                [autoLayout]="true" 
+                                                [globalFilterFields]="camposFp.field"
+                                                styleClass="tabla" 
+                                                *ngIf="DatosFloatP.length >  0" 
+                                                [scrollable]="true"
+                                                [reorderableColumns]="true" 
+                                                scrollHeight="500px" 
+                                                [autoLayout]="true"
                                                 [multiSortMeta]="multiSortMetaFP"
                                                 [tableStyle]="{ width: 'max-content'}">
 
@@ -213,13 +224,23 @@
                         <div class="card-body">
                             <div class=" col-sm-12">
 
-                                <p-table #fpd [columns]="camposFpD" [value]="datasourceFPD" [rowHover]="true"
-                                    [rows]="10" [showCurrentPageReport]="true" [loading]="loadingDetail"
+                                <p-table #fpd 
+                                    [columns]="camposFpD" 
+                                    [value]="datasourceFPD" 
+                                    [rowHover]="true"
+                                    [rows]="10" 
+                                    [showCurrentPageReport]="true" 
+                                    [loading]="loadingDetail"
                                     currentPageReportTemplate="Mostrar {first} hasta  {last} de {totalRecords} datos"
-                                    [filterDelay]="0" [resizableColumns]="true" [responsive]="true" [autoLayout]="true"
-                                    [globalFilterFields]="camposFpD?.field" styleClass="tabla" [scrollable]="true"
-                                    [reorderableColumns]="true" scrollHeight="500px" [autoLayout]="true"
-                                    [multiSortMeta]="multiSortMetaFPD" [tableStyle]="{ width: 'max-content'}">
+                                    [filterDelay]="0" 
+                                    [responsive]="true" 
+                                    [autoLayout]="true"
+                                    [globalFilterFields]="camposFpD?.field" 
+                                    styleClass="tabla" [scrollable]="true"
+                                    [reorderableColumns]="true" 
+                                    scrollHeight="500px" 
+                                    [multiSortMeta]="multiSortMetaFPD" 
+                                    [tableStyle]="{ width: 'max-content'}">
                                     <ng-template pTemplate="caption">
                                         <div class="p-d-flex">
                                             <button pButton label="Limpiar" class="p-button-outlined"

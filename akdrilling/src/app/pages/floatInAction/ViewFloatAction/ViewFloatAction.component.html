@@ -85,14 +85,22 @@
 
                                     <div class="card-body">
                                         <div class=" col-sm-12">
-                                            <p-table #fe [columns]="camposFe" [paginator]="true" [value]="datasourceFE"
-                                                [rowHover]="true" [rows]="10" [showCurrentPageReport]="true"
+                                            <p-table #fe 
+                                                [columns]="camposFe" 
+                                                [paginator]="true" 
+                                                [value]="datasourceFE"
+                                                [rowHover]="true" 
+                                                [rows]="10" 
+                                                [showCurrentPageReport]="true"
                                                 [loading]="loading"
                                                 currentPageReportTemplate="Mostrar {first} hasta  {last} de {totalRecords} datos"
-                                                [filterDelay]="0" [resizableColumns]="true" [responsive]="true"
-                                                [autoLayout]="true" [globalFilterFields]="camposFe.field"
+                                                [filterDelay]="0" 
+                                                [responsive]="true"
+                                                [autoLayout]="true" 
+                                                [globalFilterFields]="camposFe.field"
                                                 styleClass="tabla" *ngIf="DatosFloatE.length >  0" [scrollable]="true"
-                                                [reorderableColumns]="true" scrollHeight="500px" [autoLayout]="true"
+                                                [reorderableColumns]="true" 
+                                                scrollHeight="500px" 
                                                 [multiSortMeta]="multiSortMetaFE"
                                                 [tableStyle]="{ width: 'max-content'}">
 

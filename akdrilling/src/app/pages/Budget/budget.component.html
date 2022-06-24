@@ -24,13 +24,24 @@
                         <div class=" row">
                             <div class=" col-md-12">
                                 <div class="card-body">
-                                    <p-table #bdgs [columns]="BudgtsCampos" [paginator]="true" [value]="datasourceBdgs"
-                                        [rowHover]="true" [rows]="10" [showCurrentPageReport]="true" [loading]="loading"
+                                    <p-table #bdgs 
+                                        [columns]="BudgtsCampos" 
+                                        [paginator]="true" 
+                                        [value]="datasourceBdgs"
+                                        [rowHover]="true" 
+                                        [rows]="10" 
+                                        [showCurrentPageReport]="true" 
+                                        [loading]="loading"
                                         [paginator]="true"
                                         currentPageReportTemplate="Mostrar {first} hasta  {last} de {totalRecords} datos"
-                                        [filterDelay]="0" [resizableColumns]="true" [responsive]="true"
-                                        [autoLayout]="true" [globalFilterFields]="BudgtsCampos.field" styleClass="tabla"
-                                        sortMode="multiple" [multiSortMeta]="multiSortBDGS">
+                                        [filterDelay]="0" 
+                                        [responsive]="true"
+                                        [autoLayout]="true" 
+                                        [globalFilterFields]="BudgtsCampos.field" 
+                                        styleClass="tabla"
+                                        sortMode="multiple" 
+                                        [multiSortMeta]="multiSortBDGS"
+                                        [tableStyle]="{ width: 'max-content'}">
                                         <ng-template pTemplate="caption">
                                             <div class="p-d-flex">
                                                 <button pButton label="Limpiar" class="p-button-outlined"

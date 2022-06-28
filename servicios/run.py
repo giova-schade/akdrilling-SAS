@@ -9,7 +9,7 @@ CORS(app)
 def Login():
     if(request.method == 'GET'):
         data = {
-    "role": "AKDABRRHH",
+    "role": "AKDADM",
     "Nombre": "janicama",
     "roleDescription": "Analista Budget RRHH",
     "info": {

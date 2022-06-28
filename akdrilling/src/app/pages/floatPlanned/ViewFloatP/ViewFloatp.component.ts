@@ -393,13 +393,13 @@ export class ViewFloatpComponent implements OnInit {
                     }
                   }
 
-
+                  /*this.camposFp = [];
                   for (let i in this.mainForm.controls) {
                     this.camposFp.push({ field: i, header: i })
                     if (i == 'idFloatP') {
                       this.multiSortMetaFP.push({ field: i, order: -1 });
                     }
-                  }
+                  }*/
                   if (response.downloadFloatP.length > 0) {
                     this.urlDounload = response.downloadFloatP;
                   } else {

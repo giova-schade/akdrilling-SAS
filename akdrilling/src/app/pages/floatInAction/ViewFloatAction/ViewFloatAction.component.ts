@@ -172,6 +172,7 @@ export class ViewFloateComponent implements OnInit {
                   { field: 'bdgt5', header: 'bdgt5' },
                   { field: 'budgV1', header: 'budgV1' }
                 ]
+                /*
                 for (let i in this.mainForm.controls) {
                   if (i.indexOf('Week') == 0) {
                     this.camposFe.push({ field: i, header: i })
@@ -180,7 +181,7 @@ export class ViewFloateComponent implements OnInit {
                   if (i == 'bdgt1') {
                     this.multiSortMetaFE.push({ field: i, order: -1 });
                   }
-                }
+                }*/
                 for (let i in this.mainForm.controls) {
                   if (i.indexOf('Remaning') == 0) {
                     this.camposFe.push({ field: i, header: i })

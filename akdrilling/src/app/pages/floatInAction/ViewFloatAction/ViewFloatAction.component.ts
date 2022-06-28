@@ -164,11 +164,13 @@ export class ViewFloateComponent implements OnInit {
                   }
                 }
                 this.camposFe = [
+                  { field: 'idbgdt5', header: 'idbgdt5' },
                   { field: 'bdgt1', header: 'bdgt1' },
                   { field: 'bdgt2', header: 'bdgt2' },
                   { field: 'bdgt3', header: 'bdgt3' },
                   { field: 'bdgt4', header: 'bdgt4' },
-                  { field: 'bdgt5', header: 'bdgt5' }
+                  { field: 'bdgt5', header: 'bdgt5' },
+                  { field: 'budgV1', header: 'budgV1' }
                 ]
                 for (let i in this.mainForm.controls) {
                   if (i.indexOf('Week') == 0) {

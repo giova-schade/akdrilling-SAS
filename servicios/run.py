@@ -9,7 +9,7 @@ CORS(app)
 def Login():
     if(request.method == 'GET'):
         data = {
-    "role": "AKDAAFP",
+    "role": "AKDADM",
     "Nombre": "janicama",
     "roleDescription": "Analista Budget RRHH",
     "info": {
@@ -13645,14 +13645,16 @@ def apigetDetailFloat():
                     "Categoria 5: Descripción": "Maintenance Lubricants",
                     "Monto Total USD(Mes)": 2866.62333333,
                     "week": "12MAY2022",
-                    "Estado": "Cerrado"
+                    "Estado": "Cerrado",
+                    "description": "SOMACC Operations"
                 },
                 {
                     "Razon Social": "VARIOS",
                     "Categoria 5: Descripción": "Maintenance Lubricants",
                     "Monto Total USD(Mes)": 2866.62333333,
                     "week": "19MAY2022",
-                    "Estado": "Cerrado"
+                    "Estado": "Cerrado",
+                    "description": "SOMACC Operations"
                 }
             ]
         }
@@ -13895,14 +13897,16 @@ def apigetDetailFloatE():
                     "Categoria 5: Descripción": "Maintenance Lubricants",
                     "Monto Total USD(Mes)": 2866.62333333,
                     "week": "12MAY2022",
-                    "Estado": "Cerrado"
+                    "Estado": "Cerrado",
+                    "description": "Drill Bits"
                 },
                 {
                     "Razon Social": "VARIOS",
                     "Categoria 5: Descripción": "Maintenance Lubricants",
                     "Monto Total USD(Mes)": 2866.62333333,
                     "week": "19MAY2022",
-                    "Estado": "Cerrado"
+                    "Estado": "Cerrado",
+                    "description": "Drill Bits"
                 }
             ]
         }

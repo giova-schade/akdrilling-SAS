@@ -542,6 +542,7 @@ export class ViewFloatpComponent implements OnInit {
             { field: 'Monto Total USD(Mes)', header: 'Monto Total USD(Mes)' },
             { field: 'week', header: 'week' },
             { field: 'Estado', header: 'Estado' },
+            { field: 'description', header: 'description'}
           ]
 
 

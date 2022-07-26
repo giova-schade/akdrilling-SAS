@@ -197,7 +197,7 @@ export class ViewFloateComponent implements OnInit {
                 if (response.downloadFloatE.length > 0) {
                   this.urlDounload = response.downloadFloatE;
                 } else {
-                  this.notify.showNotification('top', 'right', 3, 'No hay archivo para descargar test');
+                  this.notify.showNotification('top', 'right', 3, 'No hay archivo para descargar');
 
                 }
                 this.loadingPage = false;

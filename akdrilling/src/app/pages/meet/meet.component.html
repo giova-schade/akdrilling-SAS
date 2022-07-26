@@ -1,15 +1,128 @@
-<div class=" content">
-
+<div class="content">
     <div class=" row">
-
         <div class=" col-12">
-            <div class=" card card-chart">
-                <div class=" card-header">
-                    <div class=" row">
-                        <p>Budget</p>
+            <div class=" card">
+                <p-progressBar *ngIf="loadingPage" mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
+                <p-blockUI [blocked]="loadingPage" [style]="{'z-index': '2'}"></p-blockUI>
+                <div class=" card-header"  >
+                    <div *ngIf="meet.controls['Option'].value.length == 0">
+                        <form class="p-grid" [formGroup]="meet" accept-charset="utf-8">
+                            <div class=" row" *ngIf="CargaMeet">
+                                <div class=" col-md-12">
+                                    <div class="form-group">
+                                        <div class=" card-body">
+                                            <p-button label="Crear Meet" icon="pi pi-users" iconPos="right"
+                                                (click)="startCargaMeet()"></p-button>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                        </form>
+
+                        <div class=" row">
+                            <div class=" col-md-12">
+                                <div class="card-body">
+                                        <p-table #mts [columns]="MtsCampos"
+                                            [paginator]="true"
+                                            [value]="datasourceMTS"
+                                            [rowHover]="true" 
+                                            [rows]="10" 
+                                            [showCurrentPageReport]="true"
+                                            [loading]="loading" 
+                                            [paginator]="true"
+                                            currentPageReportTemplate="Mostrar {first} hasta  {last} de {totalRecords} datos"
+                                            [filterDelay]="0" 
+                                            [responsive]="true"
+                                            [autoLayout]="true" 
+                                            [globalFilterFields]="MtsCampos.field"
+                                            styleClass="tabla" 
+                                            sortMode="multiple"  
+                                            [tableStyle]="{ width: 'max-content'}"
+                                            [multiSortMeta]="datasourceMTS">
+                                            <ng-template pTemplate="caption">
+                                                <div class="p-d-flex">
+                                                    <button pButton label="Limpiar" class="p-button-outlined"
+                                                        icon="pi pi-filter-slash" (click)="clear(mts)"></button>
+                                                    <span class="p-input-icon-left p-ml-auto">
+                                                        <i class="pi pi-search"></i>
+                                                        <input pInputText type="text"
+                                                            (input)="applyFilterGlobalMTS($event, 'contains')"
+                                                            placeholder="Filtrar" />
+                                                    </span>
+                                                </div>
+                                            </ng-template>
+                                            <ng-template pTemplate="header" let-columns>
+                                                <tr>
+                                                    <th *ngFor="let col of columns">
+                                                        <p-columnFilter type="text" [field]="col.field"  *ngIf="col.field != '' " >
+                                                        </p-columnFilter>
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <th *ngFor="let col of columns" pSortableColumn="{{col.field}}">
+                                                        {{col.field}}
+                                                        <p-sortIcon field="{{col.field}}"  *ngIf="col.field != '' " >
+                                                        </p-sortIcon>
+                                                    </th>
+
+                                                </tr>
+                                            </ng-template>
+                                            <ng-template pTemplate="body" let-rowData let-columns="columns">
+                                                <tr  [pSelectableRow]="rowData" (dblclick)="onRowDblClick($event, rowData)">
+                                                    <td *ngFor="let col of columns">{{rowData[col.field]}}</td>
+                                                </tr>
+                                            </ng-template>
+                                            <ng-template pTemplate="emptymessage" let-columns>
+                                                <tr>
+                                                  <td [attr.colspan]="columns.length">
+                                                    No hay Meet creados
+                                                  </td>
+                                                </tr>
+                                              </ng-template>
+                                        </p-table>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
+
+
+                    <!-- inicio codigo crear meet-->
+                    <div class=" card-body" *ngIf="meet.controls['Option'].value['Code'] == '02'">
+                        <form class="p-grid" [formGroup]="meet" accept-charset="utf-8">
+                            <div class=" row">
+                                <div class=" col-md-10">
+                                    <div class="form-group">
+                                        <div class=" card-body" *ngIf="DatosMeet.length ==  0">
+                                            <p-dropdown [options]="periodos" formControlName="PERIODO"
+                                                placeholder="Seleccione un periodo" optionLabel="periodo"
+                                                [showClear]="true" (onChange)="setIdMts($event)">
+                                            </p-dropdown>
+                                        </div>
+
+                                    </div>
+                                </div> 
+                                <div class=" col-md-12" *ngIf="DatosMeet.length ==  0">
+                                    <div class=" form-group">
+                                        <button pButton type="submit" label="Crear Meet "
+                                            (click)="crearMeet()"></button>
+                                    </div>
+                                </div>                               
+                            </div>
+                            
+
+
+                        </form>
+                    </div>
+                    <!-- Fin codigo crear Meet-->
+                    <p-confirmDialog [style]="{width: '50vw'}" key="positionDialog" [position]="'bottom'"
+                        [baseZIndex]="10000"></p-confirmDialog>
+                    <p-messages [value]="msgs"></p-messages>
+
                 </div>
             </div>
         </div>
     </div>
-</div>

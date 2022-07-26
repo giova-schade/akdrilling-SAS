@@ -11,10 +11,10 @@ import { OpenPeriodComponent } from "src/app/pages/openPeriod/openPeriod.compone
 import { PaymentsComponent } from "src/app/pages/pagos/payments.component";
 import { ReopenPeriodComponent } from "src/app/pages/reopenPeriod/reopenPeriod.component";
 import { UploadFilesComponent } from "src/app/pages/UploadFiles/uploadFiles.component";
-
 import { BudgetComponent } from "../../pages/Budget/budget.component";
 import { ReportComponent } from "src/app/pages/report/report.component";
 import { ViewFloatpComponent } from "src/app/pages/floatPlanned/ViewFloatP/ViewFloatp.component";
+import { ViewFloateComponent } from "src/app/pages/floatInAction/ViewFloatAction/ViewFloatAction.component";
 export const AkdafpRoutes: Routes = [
   { path: "Home", component: HomeComponent },
   { path: "dashboard", component: DashboardComponent },
@@ -27,6 +27,7 @@ export const AkdafpRoutes: Routes = [
   { path: "floatPlanned", component:  FloatPlannedComponent},
   { path: "floatPlanned/view", component:  ViewFloatpComponent},
   { path: "floatInAction", component:  FloatInActionComponent},
+  { path: "floatInAction/view", component:  ViewFloateComponent},
   { path: "floatInAction/adAndRed", component:  AdAndRedComponent},
   { path: "floatInAction/meet", component:  MeetComponent},
   { path: "floatInAction/payments", component:  PaymentsComponent},

@@ -428,4 +428,131 @@ export class MaestrosService {
 
     }
 
+
+
+
+    apiPostCreateMT(form: any): Observable<any> {
+        var formData: any = new FormData();
+        for (let i in form.controls) {
+            if (i == 'PERIODO') {
+                formData.append(i, form.controls[i].value.date);
+
+            } else if (i == 'Option') {
+                formData.append(i, form.controls[i].value.Code);
+            } else {
+                formData.append(i, form.controls[i].value);
+            }
+        }
+        return this.http.post(CONFIG.apiPostCreateMT, formData)
+    }
+    apiGetPeriodMT(form: any) {
+        var formData: any = new FormData();
+        for (let i in form.controls) {
+            if (i == 'PERIODO') {
+                formData.append(i, form.controls[i].value.date);
+
+            } else {
+                formData.append(i, form.controls[i].value);
+            }
+        }
+        return this.http.post(CONFIG.apiGetPeriodMT, formData)
+
+
+    }
+
+    apiPostRejectMT(form: any): Observable<any> {
+        var formData: any = new FormData();
+        for (let i in form.controls) {
+            if (i == 'idMeet') {
+                formData.append(i, form.controls[i].value);
+            }
+        }
+        return this.http.post(CONFIG.apiPostRejectMT, formData)
+    }
+    apiPostLoadMeet(form: any): Observable<any> {
+        var formData: any = new FormData();
+        for (let i in form.controls) {
+            if (i != 'DatosMeet') {
+                if (i == 'PERIODO') {
+                    formData.append(i, form.controls[i].value.date);
+
+                } else if (i == 'Option') {
+                    formData.append(i, form.controls[i].value.Code);
+                } else {
+                    formData.append(i, form.controls[i].value);
+                }
+            }
+
+        }
+        return this.http.post(CONFIG.apiPostLoadMeet, formData)
+    }
+
+    apiPostApproveMT(form: any): Observable<any> {
+        var formData: any = new FormData();
+        for (let i in form.controls) {
+            if (i == 'idMeet') {
+                formData.append(i, form.controls[i].value);
+            }
+        }
+        return this.http.post(CONFIG.apiPostApproveMT, formData)
+    }
+
+    apiPostSendApproveMT(form: any): Observable<any> {
+        var formData: any = new FormData();
+        for (let i in form.controls) {
+            if (i == 'idMeet') {
+                formData.append(i, form.controls[i].value);
+            }
+        }
+        return this.http.post(CONFIG.apiPostSendApproveMT, formData)
+    }
+
+    apiPostMTByID(form: any): Observable<any> {
+        var formData: any = new FormData();
+        for (let i in form.controls) {
+            if (i == 'idMeet') {
+                formData.append(i, form.controls[i].value);
+            }
+        }
+        return this.http.post(CONFIG.apiPostMTByID, formData)
+    }
+    apiGetMTAll(form: any) {
+        var formData: any = new FormData();
+        for (let i in form.controls) {
+            if (i == 'PERIODO') {
+                formData.append(i, form.controls[i].value.date);
+
+            } else if (i == 'Option') {
+                formData.append(i, form.controls[i].value.Code);
+            } else {
+                formData.append(i, form.controls[i].value);
+            }
+        }
+        return this.http.post(CONFIG.apiGetMTAll, formData);
+    }
+
+    apigetDetailMeet(form: any, IdBudgetV5: any): Observable<any> {
+        var formData: any = new FormData();
+        formData.append('IdBudgetV5', IdBudgetV5);
+        for (let i in form.controls) {
+            if (i == 'idMeet') {
+                formData.append(i, form.controls[i].value);
+            }
+        }
+        return this.http.post(CONFIG.apigetDetailMeet, formData)
+    }
+    apiPostPeriodReportMT(form: any) {
+        var formData: any = new FormData();
+        for (let i in form.controls) {
+            if (i == 'PERIODO') {
+                formData.append(i, form.controls[i].value.date);
+
+            } else {
+                formData.append(i, form.controls[i].value);
+            }
+        }
+        return this.http.post(CONFIG.apiPostPeriodReportMT, formData)
+
+    }
+
 }

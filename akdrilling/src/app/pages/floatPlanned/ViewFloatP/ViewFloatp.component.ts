@@ -186,11 +186,11 @@ export class ViewFloatpComponent implements OnInit {
                     this.camposFp.push({ field: i, header: i })
                   }
                 }
-                for (let i in this.mainForm.controls) {
+                /*for (let i in this.mainForm.controls) {
                   if (i.indexOf('description') == 0) {
                     this.camposFp.push({ field: i, header: i })
                   }
-                }
+                }*/
 
                 if (response.downloadFloatP.length > 0) {
                   this.urlDounload = response.downloadFloatP;
@@ -488,7 +488,7 @@ export class ViewFloatpComponent implements OnInit {
       this.floatFP.controls['file'].setValue(this.files[0]);
       this.confirmationService.confirm({
         message: 'Se cargara el archivo ' + this.files[0].name,
-        header: 'Crear budget ',
+        header: 'Crear Float Planificado ',
         icon: 'pi pi-info-circle',
         accept: () => {
           this.loadingPage = true;

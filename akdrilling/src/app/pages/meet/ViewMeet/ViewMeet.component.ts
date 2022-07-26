@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation, ViewChild, ElementRef } from "@angular/core";
-import { NotificationsComponent } from './../../../pages/notifications/notifications.component';
+import { NotificationsComponent } from '../../notifications/notifications.component';
 import { MaestrosService } from '../../../services/maestro.service';
 import { FormControl, Validators, FormGroup, FormBuilder, FormArray } from '@angular/forms';
 import { MenuItem, Message, MessageService, SortEvent } from 'primeng/api';
@@ -19,54 +19,54 @@ interface Periodos {
   date: string
 }
 
-interface OptionFloat {
+interface OptionMeet {
   Code: string,
   name: string
 }
 
 @Component({
-  selector: "app-viewFloatfe",
-  templateUrl: "ViewFloatAction.component.html",
-  styleUrls: ["ViewFloatAction.component.scss"],
+  selector: "app-viewMeet",
+  templateUrl: "ViewMeet.component.html",
+  styleUrls: ["ViewMeet.component.scss"],
   providers: [NotificationsComponent, ConfirmationService, MessageService]
 })
-export class ViewFloateComponent implements OnInit {
+export class ViewMeetComponent implements OnInit {
   @ViewChild("fileDropRef", { static: false }) fileDropEl: ElementRef | any;
 
 
-  displeyFloatDetail: boolean;
-  datosDetailFloatE: any;
+  displeyMeetDetail: boolean;
+  datosDetailMeet: any;
   files: any[] = [];
   loadingPage: boolean;
   usuario!: any;
   msgs: Message[] = [];
   periodos!: Periodos[];
-  optionsFloat!: OptionFloat[];
+  optionsMeet!: OptionMeet[];
   PERIODO_REQ: boolean;
   testForm!: any;
-  camposFe: any;
-  camposFeD: any;
-  multiSortMetaFE: any;
-  multiSortMetaFED: any;
+  camposMt: any;
+  camposMtD: any;
+  multiSortMetaMt: any;
+  multiSortMetaMtD: any;
   loading!: boolean;
   loadingDetail!: boolean;
-  datasourceFE: any;
-  datasourceFED: any;
+  datasourceMT: any;
+  datasourceMTD: any;
   urlDounload: string;
-  datasourceFes: any;
-  multiSortfes: any;
+  datasourceMts: any;
+  multiSortmts: any;
   items!: MenuItem[];
   activeIndex: number = 0;
-  @ViewChild('fe') bds: any;
-  @ViewChild('fed') bdsd: any;
-  loadingfes!: boolean;
-  floatFE = new FormGroup({
-    idFloatE: new FormControl('', Validators.required),
+  @ViewChild('mt') bds: any;
+  @ViewChild('mtd') bdsd: any;
+  loadingmts!: boolean;
+  meet = new FormGroup({
+    idMeet: new FormControl('', Validators.required),
     PERIODO: new FormControl('', Validators.required),
     IdCia: new FormControl('', Validators.required),
     NomSede: new FormControl('', Validators.required),
     file: new FormControl(Blob, Validators.required),
-    DatosFloatE: new FormArray([]),
+    DatosMeet: new FormArray([]),
     Option: new FormControl('', Validators.required),
     date: new FormControl('', Validators.required),
     estado: new FormControl('', Validators.required),
@@ -90,14 +90,14 @@ export class ViewFloateComponent implements OnInit {
     this.loadingPage = true;
     this.loading = true;
     this.periodos = [];
-    this.optionsFloat = [];
+    this.optionsMeet = [];
     this.PERIODO_REQ = false;
-    this.camposFe = [];
-    this.multiSortMetaFE = [];
-    this.datasourceFE = [];
+    this.camposMt = [];
+    this.multiSortMetaMt = [];
+    this.datasourceMT = [];
     this.urlDounload = '';
-    this.multiSortfes = [];
-    this.displeyFloatDetail = false;
+    this.multiSortmts = [];
+    this.displeyMeetDetail = false;
   }
   ngOnInit() {
     /*cargo flujo*/
@@ -127,36 +127,36 @@ export class ViewFloateComponent implements OnInit {
 
 
     this.usuario = this.authService.GetuserInfo();
-    this.floatFE.controls['IdCia'].setValue(this.usuario.ciaSelected.IdCia);
-    this.floatFE.controls['NomSede'].setValue(this.usuario.ciaSelected.NomSede);
-    this.floatFE.controls['Role'].setValue(this.usuario.role);
+    this.meet.controls['IdCia'].setValue(this.usuario.ciaSelected.IdCia);
+    this.meet.controls['NomSede'].setValue(this.usuario.ciaSelected.NomSede);
+    this.meet.controls['Role'].setValue(this.usuario.role);
     this.route.queryParams
       .subscribe((params: any) => {
-        this.floatFE.controls['idFloatE'].setValue(params.idFloatE);
-        this.floatFE.controls['Option'].setValue({
+        this.meet.controls['idMeet'].setValue(params.idMeet);
+        this.meet.controls['Option'].setValue({
           Code: params.Option,
-          name: 'Ver Float en ejecución'
+          name: 'Ver Meet'
         });
 
 
-        /*obtengo los datos del float a partir del id del float en ejecución*/
-        this.master.apiPostFEByID(this.floatFE).subscribe({
+        /*obtengo los datos del meet a partir del id del meet*/
+        this.master.apiPostMTByID(this.meet).subscribe({
           next: (response: any) => {
             if (response.status == "ok") {
-              this.floatFE.controls['PERIODO'].setValue({
+              this.meet.controls['PERIODO'].setValue({
                 periodo: response.periodo,
                 date: response.date
               });
 
               this.items.forEach((x: any, y) => { if (x.label == response.estado) { this.activeIndex = parseInt(x.id) } })
-              this.floatFE.controls['estado'].setValue(response.estado);
-              this.floatFE.controls['date'].setValue(response.date);
+              this.meet.controls['estado'].setValue(response.estado);
+              this.meet.controls['date'].setValue(response.date);
 
 
 
-              this.datasourceFE = response.datos;
-              this.clearFormArray(this.DatosFloatE);
-              this.multiSortMetaFE = [];
+              this.datasourceMT = response.datos;
+              this.clearFormArray(this.DatosMeet);
+              this.multiSortMetaMt = [];
               this.loading = false;
               if (response.status == "ok") {
                 if (response.datos.length > 0) {
@@ -164,7 +164,7 @@ export class ViewFloateComponent implements OnInit {
                     this.mainForm.addControl([i].toString(), new FormControl('', Validators.required));
                   }
                 }
-                this.camposFe = [
+                this.camposMt = [
                   { field: 'idbgdt5', header: 'idbgdt5' },
                   { field: 'bdgt1', header: 'bdgt1' },
                   { field: 'bdgt2', header: 'bdgt2' },
@@ -176,26 +176,26 @@ export class ViewFloateComponent implements OnInit {
                 
                 for (let i in this.mainForm.controls) {
                   if (i.indexOf('Week') == 0) {
-                    this.camposFe.push({ field: i, header: i })
+                    this.camposMt.push({ field: i, header: i })
                   }
-                  // this.camposFe.push({ field: i, header: i })
+                  // this.camposMt.push({ field: i, header: i })
                   if (i == 'bdgt1') {
-                    this.multiSortMetaFE.push({ field: i, order: -1 });
+                    this.multiSortMetaMt.push({ field: i, order: -1 });
                   }
                 }
                 for (let i in this.mainForm.controls) {
                   if (i.indexOf('Remaning') == 0) {
-                    this.camposFe.push({ field: i, header: i })
+                    this.camposMt.push({ field: i, header: i })
                   }
                 }
-                /*for (let i in this.mainForm.controls) {
+                for (let i in this.mainForm.controls) {
                   if (i.indexOf('description') == 0) {
-                    this.camposFe.push({ field: i, header: i })
+                    this.camposMt.push({ field: i, header: i })
                   }
-                }*/
+                }
 
-                if (response.downloadFloatE.length > 0) {
-                  this.urlDounload = response.downloadFloatE;
+                if (response.downloadMeet.length > 0) {
+                  this.urlDounload = response.downloadMeet;
                 } else {
                   this.notify.showNotification('top', 'right', 3, 'No hay archivo para descargar');
 
@@ -204,7 +204,7 @@ export class ViewFloateComponent implements OnInit {
 
                 response.datos.forEach((x: any, y: any) => {
 
-                  this.DatosFloatE.push(new FormGroup({}))
+                  this.DatosMeet.push(new FormGroup({}))
 
 
                   /*
@@ -232,7 +232,7 @@ export class ViewFloateComponent implements OnInit {
           },
           error: (result: any) => {
 
-            this.notify.showNotification('top', 'right', 4, 'Error al obtener el Float en ejecución ' + this.floatFE.controls['idFloatE'].value);
+            this.notify.showNotification('top', 'right', 4, 'Error al obtener el Meet ' + this.meet.controls['idMeet'].value);
             this.loadingPage = false;
 
           },
@@ -247,14 +247,14 @@ export class ViewFloateComponent implements OnInit {
   }
 
 
-  get fes() { return this.floatFE.controls; }
-  //get bd() { return this.bdts.DatosFloatE as FormArray; }
+  get mts() { return this.meet.controls; }
+  //get bd() { return this.bdts.DatosMeet as FormArray; }
 
-  get DatosFloatE(): FormArray {
-    return this.floatFE.get("DatosFloatE") as FormArray;
+  get DatosMeet(): FormArray {
+    return this.meet.get("DatosMeet") as FormArray;
   }
 
-  get tControls() { return this.DatosFloatE.controls as FormGroup[]; }
+  get tControls() { return this.DatosMeet.controls as FormGroup[]; }
 
 
 
@@ -267,13 +267,13 @@ export class ViewFloateComponent implements OnInit {
       formArray.removeAt(0)
     }
   }
-  downloadFE() {
+  downloadMT() {
     if (this.urlDounload.length > 0) {
       this.master.download(this.urlDounload).subscribe(blob => {
         const a = document.createElement('a')
         const objectUrl = URL.createObjectURL(blob)
         a.href = objectUrl
-        a.download = 'FloatE' + this.floatFE.controls['PERIODO'].value['periodo'] + '.xlsx';
+        a.download = 'Meet' + this.meet.controls['PERIODO'].value['periodo'] + '.xlsx';
         a.click();
         URL.revokeObjectURL(objectUrl);
       })
@@ -285,11 +285,11 @@ export class ViewFloateComponent implements OnInit {
     console.log(event)
   }
   SendToApprove() {
-    this.master.apiPostSendApproveFE(this.floatFE).subscribe({
+    this.master.apiPostSendApproveMT(this.meet).subscribe({
       next: (response: any) => {
         if (response.status == "ok") {
-          this.notify.showNotification('top', 'right', 1, 'Float en ejecución ' + response.idFloatE + ' enviado a aprobar!');
-          this.router.navigate(['/' + this.usuario.role + '/floatInAction/'], { queryParams: {} })
+          this.notify.showNotification('top', 'right', 1, 'Meet ' + response.idMeet + ' enviado a aprobar!');
+          this.router.navigate(['/' + this.usuario.role + '/floatInAction/meet/'], { queryParams: {} })
         } else if (response.status == 'warning') {
           this.notify.showNotification('top', 'right', 3, response.datos[0].detail);
         } else {
@@ -301,18 +301,18 @@ export class ViewFloateComponent implements OnInit {
 
       },
       error: (response: any) => {
-        this.notify.showNotification('top', 'right', 4, 'Error al enviar a aprobar el float en ejecución');
+        this.notify.showNotification('top', 'right', 4, 'Error al enviar a aprobar el Meet');
         this.loadingPage = false;
       },
       complete: () => { }
     })
   }
   flowAceptar() {
-    this.master.apiPostApproveFE(this.floatFE).subscribe({
+    this.master.apiPostApproveMT(this.meet).subscribe({
       next: (response: any) => {
         if (response.status == "ok") {
-          this.notify.showNotification('top', 'right', 1, 'Float en ejecución ' + response.idFloatE + ' aprobado!');
-          this.router.navigate(['/' + this.usuario.role + '/floatInAction/'], { queryParams: {} })
+          this.notify.showNotification('top', 'right', 1, 'Meet ' + response.idMeet + ' aprobado!');
+          this.router.navigate(['/' + this.usuario.role + '/floatInAction/meet/'], { queryParams: {} })
         } else if (response.status == 'warning') {
           this.notify.showNotification('top', 'right', 3, response.datos[0].detail);
         } else {
@@ -323,7 +323,7 @@ export class ViewFloateComponent implements OnInit {
 
       },
       error: (response: any) => {
-        this.notify.showNotification('top', 'right', 4, 'Error al aceptar el Float en ejecución');
+        this.notify.showNotification('top', 'right', 4, 'Error al aceptar el Meet');
         this.loadingPage = false;
       },
       complete: () => { }
@@ -331,11 +331,11 @@ export class ViewFloateComponent implements OnInit {
   }
 
   rechazar() {
-    this.master.apiPostRejectFE(this.floatFE).subscribe({
+    this.master.apiPostRejectMT(this.meet).subscribe({
       next: (response: any) => {
         if (response.status == "ok") {
-          this.notify.showNotification('top', 'right', 1, 'Float en ejecución ' + response.idFloatE + ' rechazado!');
-          this.router.navigate(['/' + this.usuario.role + '/floatInAction/'], { queryParams: {} })
+          this.notify.showNotification('top', 'right', 1, 'Meet ' + response.idMeet + ' rechazado!');
+          this.router.navigate(['/' + this.usuario.role + '/floatInAction/meet/'], { queryParams: {} })
         } else if (response.status == 'warning') {
           this.notify.showNotification('top', 'right', 3, response.datos[0].detail);
         } else {
@@ -346,7 +346,7 @@ export class ViewFloateComponent implements OnInit {
 
       },
       error: (response: any) => {
-        this.notify.showNotification('top', 'right', 4, 'Error al rechazar el Float en ejecución');
+        this.notify.showNotification('top', 'right', 4, 'Error al rechazar el Meet');
         this.loadingPage = false;
       },
       complete: () => { }
@@ -354,7 +354,7 @@ export class ViewFloateComponent implements OnInit {
   }
   flowRechazar() {
     this.confirmationService.confirm({
-      message: 'Seguro de rechazar el Float en ejecución?',
+      message: 'Seguro de rechazar el Meet?',
       header: 'Flujo ',
       icon: 'pi pi-info-circle',
       accept: () => {
@@ -367,26 +367,26 @@ export class ViewFloateComponent implements OnInit {
       key: "positionDialog"
     });
   }
-  loadFloatFe() {
-    this.master.apiPostLoadFloatE(this.floatFE).subscribe({
+  loadMeet() {
+    this.master.apiPostLoadMeet(this.meet).subscribe({
       next: (response: any) => {
         if (response.status == "ok") {
-          this.master.apiPostFEByID(this.floatFE).subscribe({
+          this.master.apiPostMTByID(this.meet).subscribe({
             next: (response: any) => {
               if (response.status == "ok") {
-                this.floatFE.controls['PERIODO'].setValue({
+                this.meet.controls['PERIODO'].setValue({
                   periodo: response.periodo,
                   date: response.date
                 });
 
-                this.floatFE.controls['estado'].setValue(response.estado);
-                this.floatFE.controls['date'].setValue(response.date);
+                this.meet.controls['estado'].setValue(response.estado);
+                this.meet.controls['date'].setValue(response.date);
 
 
 
-                this.datasourceFE = response.datos;
-                this.clearFormArray(this.DatosFloatE);
-                this.multiSortMetaFE = [];
+                this.datasourceMT = response.datos;
+                this.clearFormArray(this.DatosMeet);
+                this.multiSortMetaMt = [];
                 this.loading = false;
                 if (response.status == "ok") {
                   if (response.datos.length > 0) {
@@ -397,13 +397,13 @@ export class ViewFloateComponent implements OnInit {
 
 
                   for (let i in this.mainForm.controls) {
-                    this.camposFe.push({ field: i, header: i })
-                    if (i == 'idFloatE') {
-                      this.multiSortMetaFE.push({ field: i, order: -1 });
+                    this.camposMt.push({ field: i, header: i })
+                    if (i == 'idMeet') {
+                      this.multiSortMetaMt.push({ field: i, order: -1 });
                     }
                   }
-                  if (response.downloadFloatE.length > 0) {
-                    this.urlDounload = response.downloadFloatE;
+                  if (response.downloadMeet.length > 0) {
+                    this.urlDounload = response.downloadMeet;
                   } else {
                     this.notify.showNotification('top', 'right', 3, 'No hay archivo para descargar');
 
@@ -412,7 +412,7 @@ export class ViewFloateComponent implements OnInit {
 
                   response.datos.forEach((x: any, y: any) => {
 
-                    this.DatosFloatE.push(new FormGroup({}))
+                    this.DatosMeet.push(new FormGroup({}))
 
 
                     /*
@@ -440,7 +440,7 @@ export class ViewFloateComponent implements OnInit {
             },
             error: (result: any) => {
 
-              this.notify.showNotification('top', 'right', 4, 'Error al obtener el Float en ejecución ' + this.floatFE.controls['idFloatE'].value);
+              this.notify.showNotification('top', 'right', 4, 'Error al obtener el Meet ' + this.meet.controls['idMeet'].value);
               this.loadingPage = false;
 
             },
@@ -448,7 +448,7 @@ export class ViewFloateComponent implements OnInit {
 
             }
           })
-          this.notify.showNotification('top', 'right', 1, 'Float en ejecución cargado correctamente!');
+          this.notify.showNotification('top', 'right', 1, 'Meet cargado correctamente!');
           this.loadingPage = false;
         } else if (response.status == 'warning') {
           this.notify.showNotification('top', 'right', 3, response.datos[0].detail);
@@ -460,7 +460,7 @@ export class ViewFloateComponent implements OnInit {
               const a = document.createElement('a')
               const objectUrl = URL.createObjectURL(blob)
               a.href = objectUrl
-              a.download = 'ErrorFloat' + this.floatFE.controls['PERIODO'].value['periodo'] + '.xlsx';
+              a.download = 'ErrorMeet' + this.meet.controls['PERIODO'].value['periodo'] + '.xlsx';
               a.click();
               URL.revokeObjectURL(objectUrl);
             })
@@ -484,17 +484,17 @@ export class ViewFloateComponent implements OnInit {
   }
   Procesar() {
     if (this.files.length == 0) {
-      this.notify.showNotification('top', 'right', 3, 'Debe seleccionar un archivo para cargar el float en ejecución');
+      this.notify.showNotification('top', 'right', 3, 'Debe seleccionar un archivo para cargar el Meet');
     }
     if (this.files.length > 0) {
-      this.floatFE.controls['file'].setValue(this.files[0]);
+      this.meet.controls['file'].setValue(this.files[0]);
       this.confirmationService.confirm({
         message: 'Se cargara el archivo ' + this.files[0].name,
-        header: 'Crear Float en Ejecución ',
+        header: 'Crear Meet ',
         icon: 'pi pi-info-circle',
         accept: () => {
           this.loadingPage = true;
-          this.loadFloatFe();
+          this.loadMeet();
         },
         reject: () => {
           this.msgs = [{ severity: 'info', summary: 'Rejected', detail: 'You have rejected' }];
@@ -513,7 +513,7 @@ export class ViewFloateComponent implements OnInit {
           item.progress = 0;
           this.files.push(item);
         } else {
-          this.notify.showNotification('top', 'right', 3, 'Solo puede subir un archivo para crear un Float en ejecución');
+          this.notify.showNotification('top', 'right', 3, 'Solo puede subir un archivo para crear un Meet');
         }
 
       } else {
@@ -527,18 +527,18 @@ export class ViewFloateComponent implements OnInit {
 
   onRowDblClick(event: Event, datos: any) {
 
-    this.datosDetailFloatE = datos;
+    this.datosDetailMeet = datos;
     this.loadingPage = true;
 
-    this.master.apigetDetailFloatE(this.floatFE, datos.idbgdt5).subscribe({
+    this.master.apigetDetailMeet(this.meet, datos.idbgdt5).subscribe({
       next: (response: any) => {
 
         if (response.status == "ok") {
 
-          /*Cargo detalles del float*/
-          this.displeyFloatDetail = true;
-          this.datasourceFED = response.datos;
-          this.camposFeD = [
+          /*Cargo detalles del Meet*/
+          this.displeyMeetDetail = true;
+          this.datasourceMTD = response.datos;
+          this.camposMtD = [
             { field: 'Razon Social', header: 'Razon Social' },
             { field: 'Categoria 5: Descripción', header: 'Categoria 5: Descripción' },
             { field: 'Monto Total USD(Mes)', header: 'Monto Total USD(Mes)' },
@@ -549,10 +549,10 @@ export class ViewFloateComponent implements OnInit {
 
           this.loadingPage = false;
         } else if (response.status == 'warning') {
-          this.displeyFloatDetail = false;
+          this.displeyMeetDetail = false;
           this.notify.showNotification('top', 'right', 3, response.datos[0].detail);
         } else {
-          this.displeyFloatDetail = false;
+          this.displeyMeetDetail = false;
 
           this.notify.showNotification('top', 'right', 4, response.datos[0].detail);
 

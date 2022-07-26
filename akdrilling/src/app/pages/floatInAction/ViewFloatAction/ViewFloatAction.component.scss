@@ -167,7 +167,10 @@
     }
 
 }
-
+.dollar-col {
+  display:flex;
+  justify-content: right;
+}
 .ui-card-title {
   text-align: center;
 }

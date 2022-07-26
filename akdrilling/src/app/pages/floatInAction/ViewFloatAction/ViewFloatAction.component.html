@@ -139,7 +139,10 @@
                                                 <ng-template pTemplate="body" let-rowData let-columns="columns">
                                                     <tr [pSelectableRow]="rowData"
                                                         (dblclick)="onRowDblClick($event, rowData)">
-                                                        <td *ngFor="let col of columns">{{rowData[col.field]}}</td>
+                                                        <td *ngFor="let col of columns" [ngClass]="col.field.indexOf('Week') != -1 ? 'dollar-col' :
+                                                                                                col.field.indexOf('budgV1') != -1 ? 'dollar-col' :
+                                                                                                col.field.indexOf('Reman') != -1 ? 'dollar-col' : ''">
+                                                            {{rowData[col.field]}}</td>
                                                     </tr>
 
                                                 </ng-template>
@@ -157,15 +160,15 @@
                                 </div>
                             </div>
 
-                            <p-card class=" card-body"
-                                *ngIf="DatosFloatE.length !=  0 && floatFE.controls['estado'].value == 'Creado'">
+                            <p-card class=" card-body" style="text-align: center;"
+                                *ngIf="DatosFloatE.length !=  0 && floatFE.controls['estado'].value == 'Creado' && usuario.role =='AKDAFE' || usuario.role =='AKDADM'">
                                 <ng-template pTemplate="header">
                                     Actualización de float en ejecución
                                 </ng-template>
                                 <div class=" row PanelInformacion">
-                                    <div class="col-sm-12">
-                                        <div class="row">
-                                            <div class="col-md-2 ">
+                                    <div class="col">
+                                        <div class="row justify-content-md-center">
+                                            <div class="col">
                                                 <div class="container" *ngIf="DatosFloatE.length !=  0" appDnd
                                                     (fileDropped)="onFileDropped($event)">
                                                     <input type="file" #fileDropRef id="fileDropRef" multiple
@@ -196,13 +199,13 @@
                                                 <button pButton pRipple type="button" label="Cargar"
                                                     class="p-button-outlined" (click)="Procesar()"></button>
                                             </div>
-                                            <div class="col-md-8" style="text-align: right;">
+
 
                                             </div>
                                         </div>
                                     </div>
 
-                                </div>
+                                
 
                             </p-card>
 
@@ -261,7 +264,8 @@
                                     </ng-template>
                                     <ng-template pTemplate="body" let-rowData let-columns="columns">
                                         <tr>
-                                            <td *ngFor="let col of columns">{{rowData[col?.field]}}</td>
+                                            <td *ngFor="let col of columns" [ngClass]="col.field.indexOf('USD') != -1 ? 'dollar-col' : ''">
+                                                {{rowData[col.field]}}</td>
                                         </tr>
 
                                     </ng-template>

@@ -74,7 +74,7 @@ export class FloatInActionComponent implements OnInit {
       name: 'Crear Float en ejecución'
     })
     this.usuario = this.authService.GetuserInfo();
-    if (this.usuario.role == 'AKDAFE' || this.usuario.role == 'AKDAAFE' || this.usuario.role == 'AKDADM') {
+    if (this.usuario.role == 'AKDAFE' || this.usuario.role == 'AKDAAFE' || this.usuario.role == 'AKDADM' ) {
       this.CargaFloatFE = true;
     }
 

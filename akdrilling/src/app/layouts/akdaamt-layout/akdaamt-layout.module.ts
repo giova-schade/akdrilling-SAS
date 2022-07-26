@@ -3,7 +3,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { RouterModule } from "@angular/router";
 import { CommonModule } from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { AkdaafpRoutes } from "./akdaafp-layout.routing";
+import { AkdaamtRoutes } from "./akdaamt-layout.routing";
 import { DashboardComponent } from "../../pages/dashboard/dashboard.component";
 import {  OpenPeriodComponent } from "../../pages/openPeriod/openPeriod.component";
 
@@ -32,17 +32,14 @@ import {PanelMenuModule} from 'primeng/panelmenu';
 
 //modulos
 import {  Budget } from "../../pages/Budget/budget.component.module";
-import {  FloatFPV  } from "../../pages/floatPlanned/ViewFloatP/ViewFloatp.component.module";
-import {  FloatFEV  } from "../../pages/floatInAction/ViewFloatAction/ViewFloatAction.component.module";
-import {  MeetV  } from "../../pages/meet/ViewMeet/ViewMeet.component.module";
+import {  BudgetV } from "../../pages/Budget/ViewBudget/Viewbudget.component.module";
 import { Report } from "src/app/pages/report/report.component.module";
-
 
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(AkdaafpRoutes),
+    RouterModule.forChild(AkdaamtRoutes),
     FormsModule,
     HttpClientModule,
     NgbModule,
@@ -67,13 +64,11 @@ import { Report } from "src/app/pages/report/report.component.module";
     BlockUIModule,
     PanelMenuModule,
     Budget,
-    FloatFPV,
-    FloatFEV,
-    MeetV,
+    BudgetV,
     Report
 
   ],
   declarations: [
   ]
 })
-export class akdaafpLayoutModule {}
+export class AkdaamtLayoutModule {}

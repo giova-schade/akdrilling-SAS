@@ -4,6 +4,8 @@ import { ClosePeriodComponent } from "src/app/pages/closePeriod/closePeriod.comp
 import { DashboardComponent } from "src/app/pages/dashboard/dashboard.component";
 import { FloatInActionComponent } from "src/app/pages/floatInAction/floatInAction.component";
 import { FloatPlannedComponent } from "src/app/pages/floatPlanned/floatPlanned.component";
+import { ViewFloatpComponent } from "src/app/pages/floatPlanned/ViewFloatP/ViewFloatp.component";
+import { ViewFloateComponent } from "src/app/pages/floatInAction/ViewFloatAction/ViewFloatAction.component";
 import { HomeComponent } from "src/app/pages/home/home.component";
 import { MeetComponent } from "src/app/pages/meet/meet.component";
 import { OpenPeriodComponent } from "src/app/pages/openPeriod/openPeriod.component";
@@ -25,7 +27,9 @@ export const AkdaafeRoutes: Routes = [
   { path: "budget", component:  BudgetComponent},
   { path: "budget/view", component:  ViewBudgetComponent},
   { path: "floatPlanned", component:  FloatPlannedComponent},
+  { path: "floatPlanned/view", component:  ViewFloatpComponent},
   { path: "floatInAction", component:  FloatInActionComponent},
+  { path: "floatInAction/view", component:  ViewFloateComponent},
   { path: "floatInAction/adAndRed", component:  AdAndRedComponent},
   { path: "floatInAction/meet", component:  MeetComponent},
   { path: "floatInAction/payments", component:  PaymentsComponent},

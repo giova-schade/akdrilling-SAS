@@ -9,7 +9,7 @@ CORS(app)
 def Login():
     if(request.method == 'GET'):
         data = {
-    "role": "AKDADM",
+    "role": "AKDAAFP",
     "Nombre": "janicama",
     "roleDescription": "Analista Budget RRHH",
     "info": {
@@ -13615,19 +13615,19 @@ def apiGetFPAll():
             "status": "ok",
             "datos": [
                 {"idFloatP": "05202221AKDADM",
-                 "periodo": "marzo",
-                 "fechaCreacion": "01/03/2022",
-                 "Estado": "Creado"
-                 },
-                {"idFloatP": "05202221AKDADM",
-                 "periodo": "marzo",
+                 "periodo": "mayo",
                  "fechaCreacion": "01/03/2022",
                  "Estado": "Enviado"
                  },
                 {"idFloatP": "05202221AKDADM",
-                 "periodo": "marzo",
+                 "periodo": "mayo",
                  "fechaCreacion": "01/03/2022",
-                 "Estado": "Cerrado"
+                 "Estado": "Enviado"
+                 },
+                {"idFloatP": "05202221AKDADM",
+                 "periodo": "mayo",
+                 "fechaCreacion": "01/03/2022",
+                 "Estado": "Enviado"
                  }
             ]}
         return jsonify(data)
@@ -13705,7 +13705,7 @@ def apiPostFPByID():
                     "bdgt4": "Operative Supplies",
                     "bdgt5": "Drill Bits",
                     "description": "Drill Bitsasaaaaaaaaaaaaaaaa0Drill Bitsasaaaaaaaaaaaaaaaa0Drill Bitsasaaaaaaaaaaaaaaaa0Drill Bitsasaaaaaaaaaaaaaaaa0",
-                    "budgV1": 15871.05,
+                    "budgV1": "$15871.05",
                     "Week 18 01MAY2022": 'null',
                     "Week 18 03MAY2022": 'null',
                     "Week 18 05MAY2022": 'null',
@@ -14003,216 +14003,12 @@ def DownloadFE():
     if(request.method == 'GET'):
         return send_file('Copy of GAPS AKD_v2.7.xlsx', as_attachment=True)
 
-## Pagos        
-
-@app.route('/apiPostLoadPagos', methods=['POST'])
-def apiPostLoadPagos():
-    if(request.method == 'POST'):
-        data = {
-            "status": "ok",
-            "idPagos": "123",
-            "urlResutlado": "http://192.168.68.71:5000/DownloadBG",
-            "datos": [
-                {
-                    "detail": "Carga Correcta!"
-                }
-            ]
-        }
-        return jsonify(data)
 
 
-@app.route('/apiGetPeriodPagos', methods=['POST'])
-def apiGetPeriodPagos():
-    if(request.method == 'POST'):
-        data = {
-            "status": "ok",
-            "datos": [
-                {"periodo": "Mayo", "date": "01/05/2022"},
-            ]
-        }
-        return jsonify(data)
 
 
-@app.route('/apiPostSendApprovePagos', methods=['POST'])
-def apiPostSendApprovePagos():
-    if(request.method == 'POST'):
-        data = {
-            "status": "ok",
-            "idpagos": "123",
-            "datos": [
-                {
-                    "detail": "el Pago se envio  correctamente"
-                }
-            ]
-        }
-        return jsonify(data)
 
 
-@app.route('/apiPostRejectPagos', methods=['POST'])
-def apiPostRejectPagos():
-    if(request.method == 'POST'):
-        data = {
-            "status": "ok",
-            "idPagos": "123",
-            "datos": [
-                {
-                    "detail": "el Pago se rechazo  correctamente"
-                }
-            ]
-        }
-        return jsonify(data)
-
-
-@app.route('/apiPostApprovePagos', methods=['POST'])
-def apiPostApprovePagos():
-    if(request.method == 'POST'):
-        data = {
-            "status": "ok",
-            "idPagos": "123",
-            "datos": [
-                {
-                    "detail": "el pago se aprobo  correctamente"
-                }
-            ]
-        }
-        return jsonify(data)
-
-
-@app.route('/apiPostCreatePagos', methods=['POST'])
-def apiPostCreatePagos():
-    if(request.method == 'POST'):
-        data = {
-            "status": "ok",
-            "idPago": "123",
-            "urlResutlado": "http://192.168.68.71:5000/DownloadBG",
-            "datos": [
-                {
-                    "detail": "el pago se creo correctamente"
-                }
-            ]
-        }
-        return jsonify(data)
-
-
-@app.route('/apiGetPagosAll', methods=['POST'])
-def apiGetPagosAll():
-    if(request.method == 'POST'):
-        data = {
-            "status": "ok",
-            "datos": [
-                {"idPagos": "05202221AKDADM",
-                 "periodo": "marzo",
-                 "fechaCreacion": "01/03/2022",
-                 "Estado": "Creado"
-                 },
-                {"idPagos": "05202221AKDADM",
-                 "periodo": "marzo",
-                 "fechaCreacion": "01/03/2022",
-                 "Estado": "Enviado"
-                 },
-                {"idPagos": "05202221AKDADM",
-                 "periodo": "marzo",
-                 "fechaCreacion": "01/03/2022",
-                 "Estado": "Cerrado"
-                 }
-            ]}
-        return jsonify(data)
-
-
-@app.route('/apigetDetailPagos', methods=['POST'])
-def apigetDetailPagos():
-    if(request.method == 'POST'):
-        data = {
-            "status": "ok",
-            "idPagosDetalle": "0201020102",
-            "datos": [
-                {
-                    "Razon Social": "VARIOS",
-                    "Categoria 5: Descripción": "Maintenance Lubricants",
-                    "Monto Total USD(Mes)": 2866.62333333,
-                    "week": "12MAY2022",
-                    "Estado": "Cerrado"
-                },
-                {
-                    "Razon Social": "VARIOS",
-                    "Categoria 5: Descripción": "Maintenance Lubricants",
-                    "Monto Total USD(Mes)": 2866.62333333,
-                    "week": "19MAY2022",
-                    "Estado": "Cerrado"
-                }
-            ]
-        }
-        return jsonify(data)
-
-
-@app.route('/apiPostPagosByID', methods=['POST'])
-def apiPostPagosByID():
-    if(request.method == 'POST'):
-        data = {
-            "status": "ok",
-            "downloadPagos": "http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FDownloadFloatP&idFloatP=be0679f6-203a-f741-9d34-b56bfae63a34",
-            "periodo": "Mayo",
-            "date": "13/05/2022",
-            "idPagos": "",
-            "estado": "Creado",
-            "datos": [
-                {
-                    "idbgdt5": "0201010101",
-                    "bdgt1": "OPERATING COST",
-                    "bdgt2": "TOTAL OPERATIONAL SUPPLY Cash Egress",
-                    "bdgt3": "Operative Supplies",
-                    "bdgt4": "Operative Supplies",
-                    "bdgt5": "SOMACC Operations",
-                    "description": "Drill Bitsasaaaaaaaaaaaaaaaa0Drill Bitsasaaaaaaaaaaaaaaaa0Drill Bitsasaaaaaaaaaaaaaaaa0Drill Bitsasaaaaaaaaaaaaaaaa0",
-                    "budgV1": 2936.33188507,
-                    "Week 18 01MAY2022": 'null',
-                    "Week 18 03MAY2022": 'null',
-                    "Week 18 05MAY2022": 'null',
-                    "Week 19 08MAY2022": 'null',
-                    "Week 19 09MAY2022": 'null',
-                    "Week 19 11MAY2022": 'null',
-                    "Week 19 12MAY2022": 2936.33188507,
-                    "Week 19 14MAY2022": 'null',
-                    "Week 20 15MAY2022": 'null',
-                    "Week 20 19MAY2022": 'null',
-                    "Week 20 20MAY2022": 'null',
-                    "Week 21 22MAY2022": 'null',
-                    "Week 21 25MAY2022": 'null',
-                    "Week 21 26MAY2022": 'null',
-                    "Week 21 27MAY2022": 'null',
-                    "Week 21 28MAY2022": 'null',
-                    "Remaning": 0
-                },
-                {
-                    "idbgdt5": "0201010102",
-                    "bdgt1": "OPERATING COST",
-                    "bdgt2": "TOTAL OPERATIONAL SUPPLY Cash Egress",
-                    "bdgt3": "Operative Supplies",
-                    "bdgt4": "Operative Supplies",
-                    "bdgt5": "Drill Bits",
-                    "description": "Drill Bits",
-                    "budgV1": 15871.05,
-                    "Week 18 01MAY2022": 'null',
-                    "Week 18 03MAY2022": 'null',
-                    "Week 18 05MAY2022": 'null',
-                    "Week 19 08MAY2022": 'null',
-                    "Week 19 09MAY2022": 'null',
-                    "Week 19 11MAY2022": 'null',
-                    "Week 19 12MAY2022": 10580.7,
-                    "Week 19 14MAY2022": 'null',
-                    "Week 20 15MAY2022": 'null',
-                    "Week 20 19MAY2022": 5290.35,
-                    "Week 20 20MAY2022": 'null',
-                    "Week 21 22MAY2022": 'null',
-                    "Week 21 25MAY2022": 'null',
-                    "Week 21 26MAY2022": 'null',
-                    "Week 21 27MAY2022": 'null',
-                    "Week 21 28MAY2022": 'null',
-                    "Remaning": 0
-                }
-            ]
-        }
-        return jsonify(data)
 
 #meet 
 
@@ -14233,8 +14029,8 @@ def apiPostLoadMeet():
         return jsonify(data)
 
 
-@app.route('/apiGetPeriodMeet', methods=['POST'])
-def apiGetPeriodMeet():
+@app.route('/apiGetPeriodMT', methods=['POST'])
+def apiGetPeriodMT():
     if(request.method == 'POST'):
         data = {
             "status": "ok",
@@ -14245,8 +14041,8 @@ def apiGetPeriodMeet():
         return jsonify(data)
 
 
-@app.route('/apiPostSendApproveMeet', methods=['POST'])
-def apiPostSendApproveMeet():
+@app.route('/apiPostSendApproveMT', methods=['POST'])
+def apiPostSendApproveMT():
     if(request.method == 'POST'):
         data = {
             "status": "ok",
@@ -14260,8 +14056,8 @@ def apiPostSendApproveMeet():
         return jsonify(data)
 
 
-@app.route('/apiPostRejectMeet', methods=['POST'])
-def apiPostRejectMeet():
+@app.route('/apiPostRejectMT', methods=['POST'])
+def apiPostRejectMT():
     if(request.method == 'POST'):
         data = {
             "status": "ok",
@@ -14275,8 +14071,8 @@ def apiPostRejectMeet():
         return jsonify(data)
 
 
-@app.route('/apiPostApproveMeet', methods=['POST'])
-def apiPostApproveMeet():
+@app.route('/apiPostApproveMT', methods=['POST'])
+def apiPostApproveMT():
     if(request.method == 'POST'):
         data = {
             "status": "ok",
@@ -14290,8 +14086,8 @@ def apiPostApproveMeet():
         return jsonify(data)
 
 
-@app.route('/apiPostCreateMeet', methods=['POST'])
-def apiPostCreateMeet():
+@app.route('/apiPostCreateMT', methods=['POST'])
+def apiPostCreateMT():
     if(request.method == 'POST'):
         data = {
             "status": "ok",
@@ -14306,8 +14102,8 @@ def apiPostCreateMeet():
         return jsonify(data)
 
 
-@app.route('/apiGetMeetAll', methods=['POST'])
-def apiGetMeetAll():
+@app.route('/apiGetMTAll', methods=['POST'])
+def apiGetMTAll():
     if(request.method == 'POST'):
         data = {
             "status": "ok",
@@ -14357,8 +14153,8 @@ def apigetDetailMeet():
         return jsonify(data)
 
 
-@app.route('/apiPostMeetByID', methods=['POST'])
-def apiPostMeetByID():
+@app.route('/apiPostMTByID', methods=['POST'])
+def apiPostMTByID():
     if(request.method == 'POST'):
         data = {
             "status": "ok",
@@ -14642,3 +14438,223 @@ def apiPostAdAndRedByID():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
+
+
+
+
+
+
+
+
+## Pagos        
+
+@app.route('/apiPostLoadPagos', methods=['POST'])
+def apiPostLoadPagos():
+    if(request.method == 'POST'):
+        data = {
+            "status": "ok",
+            "idPagos": "123",
+            "urlResutlado": "http://192.168.68.71:5000/DownloadBG",
+            "datos": [
+                {
+                    "detail": "Carga Correcta!"
+                }
+            ]
+        }
+        return jsonify(data)
+
+
+@app.route('/apiGetPeriodPagos', methods=['POST'])
+def apiGetPeriodPagos():
+    if(request.method == 'POST'):
+        data = {
+            "status": "ok",
+            "datos": [
+                {"periodo": "Mayo", "date": "01/05/2022"},
+            ]
+        }
+        return jsonify(data)
+
+
+@app.route('/apiPostSendApprovePagos', methods=['POST'])
+def apiPostSendApprovePagos():
+    if(request.method == 'POST'):
+        data = {
+            "status": "ok",
+            "idpagos": "123",
+            "datos": [
+                {
+                    "detail": "el Pago se envio  correctamente"
+                }
+            ]
+        }
+        return jsonify(data)
+
+
+@app.route('/apiPostRejectPagos', methods=['POST'])
+def apiPostRejectPagos():
+    if(request.method == 'POST'):
+        data = {
+            "status": "ok",
+            "idPagos": "123",
+            "datos": [
+                {
+                    "detail": "el Pago se rechazo  correctamente"
+                }
+            ]
+        }
+        return jsonify(data)
+
+
+@app.route('/apiPostApprovePagos', methods=['POST'])
+def apiPostApprovePagos():
+    if(request.method == 'POST'):
+        data = {
+            "status": "ok",
+            "idPagos": "123",
+            "datos": [
+                {
+                    "detail": "el pago se aprobo  correctamente"
+                }
+            ]
+        }
+        return jsonify(data)
+
+
+@app.route('/apiPostCreatePagos', methods=['POST'])
+def apiPostCreatePagos():
+    if(request.method == 'POST'):
+        data = {
+            "status": "ok",
+            "idPago": "123",
+            "urlResutlado": "http://192.168.68.71:5000/DownloadBG",
+            "datos": [
+                {
+                    "detail": "el pago se creo correctamente"
+                }
+            ]
+        }
+        return jsonify(data)
+
+
+@app.route('/apiGetPagosAll', methods=['POST'])
+def apiGetPagosAll():
+    if(request.method == 'POST'):
+        data = {
+            "status": "ok",
+            "datos": [
+                {"idPagos": "05202221AKDADM",
+                 "periodo": "marzo",
+                 "fechaCreacion": "01/03/2022",
+                 "Estado": "Creado"
+                 },
+                {"idPagos": "05202221AKDADM",
+                 "periodo": "marzo",
+                 "fechaCreacion": "01/03/2022",
+                 "Estado": "Enviado"
+                 },
+                {"idPagos": "05202221AKDADM",
+                 "periodo": "marzo",
+                 "fechaCreacion": "01/03/2022",
+                 "Estado": "Cerrado"
+                 }
+            ]}
+        return jsonify(data)
+
+
+@app.route('/apigetDetailPagos', methods=['POST'])
+def apigetDetailPagos():
+    if(request.method == 'POST'):
+        data = {
+            "status": "ok",
+            "idPagosDetalle": "0201020102",
+            "datos": [
+                {
+                    "Razon Social": "VARIOS",
+                    "Categoria 5: Descripción": "Maintenance Lubricants",
+                    "Monto Total USD(Mes)": 2866.62333333,
+                    "week": "12MAY2022",
+                    "Estado": "Cerrado"
+                },
+                {
+                    "Razon Social": "VARIOS",
+                    "Categoria 5: Descripción": "Maintenance Lubricants",
+                    "Monto Total USD(Mes)": 2866.62333333,
+                    "week": "19MAY2022",
+                    "Estado": "Cerrado"
+                }
+            ]
+        }
+        return jsonify(data)
+
+
+@app.route('/apiPostPagosByID', methods=['POST'])
+def apiPostPagosByID():
+    if(request.method == 'POST'):
+        data = {
+            "status": "ok",
+            "downloadPagos": "http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FDownloadFloatP&idFloatP=be0679f6-203a-f741-9d34-b56bfae63a34",
+            "periodo": "Mayo",
+            "date": "13/05/2022",
+            "idPagos": "",
+            "estado": "Creado",
+            "datos": [
+                {
+                    "idbgdt5": "0201010101",
+                    "bdgt1": "OPERATING COST",
+                    "bdgt2": "TOTAL OPERATIONAL SUPPLY Cash Egress",
+                    "bdgt3": "Operative Supplies",
+                    "bdgt4": "Operative Supplies",
+                    "bdgt5": "SOMACC Operations",
+                    "description": "Drill Bitsasaaaaaaaaaaaaaaaa0Drill Bitsasaaaaaaaaaaaaaaaa0Drill Bitsasaaaaaaaaaaaaaaaa0Drill Bitsasaaaaaaaaaaaaaaaa0",
+                    "budgV1": 2936.33188507,
+                    "Week 18 01MAY2022": 'null',
+                    "Week 18 03MAY2022": 'null',
+                    "Week 18 05MAY2022": 'null',
+                    "Week 19 08MAY2022": 'null',
+                    "Week 19 09MAY2022": 'null',
+                    "Week 19 11MAY2022": 'null',
+                    "Week 19 12MAY2022": 2936.33188507,
+                    "Week 19 14MAY2022": 'null',
+                    "Week 20 15MAY2022": 'null',
+                    "Week 20 19MAY2022": 'null',
+                    "Week 20 20MAY2022": 'null',
+                    "Week 21 22MAY2022": 'null',
+                    "Week 21 25MAY2022": 'null',
+                    "Week 21 26MAY2022": 'null',
+                    "Week 21 27MAY2022": 'null',
+                    "Week 21 28MAY2022": 'null',
+                    "Remaning": 0
+                },
+                {
+                    "idbgdt5": "0201010102",
+                    "bdgt1": "OPERATING COST",
+                    "bdgt2": "TOTAL OPERATIONAL SUPPLY Cash Egress",
+                    "bdgt3": "Operative Supplies",
+                    "bdgt4": "Operative Supplies",
+                    "bdgt5": "Drill Bits",
+                    "description": "Drill Bits",
+                    "budgV1": 15871.05,
+                    "Week 18 01MAY2022": 'null',
+                    "Week 18 03MAY2022": 'null',
+                    "Week 18 05MAY2022": 'null',
+                    "Week 19 08MAY2022": 'null',
+                    "Week 19 09MAY2022": 'null',
+                    "Week 19 11MAY2022": 'null',
+                    "Week 19 12MAY2022": 10580.7,
+                    "Week 19 14MAY2022": 'null',
+                    "Week 20 15MAY2022": 'null',
+                    "Week 20 19MAY2022": 5290.35,
+                    "Week 20 20MAY2022": 'null',
+                    "Week 21 22MAY2022": 'null',
+                    "Week 21 25MAY2022": 'null',
+                    "Week 21 26MAY2022": 'null',
+                    "Week 21 27MAY2022": 'null',
+                    "Week 21 28MAY2022": 'null',
+                    "Remaning": 0
+                }
+            ]
+        }
+        return jsonify(data)
+
+

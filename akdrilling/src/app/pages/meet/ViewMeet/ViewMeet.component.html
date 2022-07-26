@@ -12,25 +12,25 @@
                         <div class=" card">
                             <p-menubar>
                                 <div *ngIf="usuario.role == 'AKDADM' ">
-                                    <button *ngIf="floatFP.controls['estado'].value == 'Creado' " type="button" pButton
+                                    <button *ngIf="meet.controls['estado'].value == 'Creado' " type="button" pButton
                                     label="Enviar a aprobar" icon="pi pi-send" style="margin-left:.25em"
                                     (click)="SendToApprove()"></button>
-                                <button *ngIf="floatFP.controls['estado'].value == 'En aprobación' " type="button"
+                                <button *ngIf="meet.controls['estado'].value == 'En aprobación' " type="button"
                                     pButton label="Aprobar" icon="pi pi-check-circle" style="margin-left:.25em"
                                     (click)="flowAceptar()"></button>
-                                <button *ngIf="floatFP.controls['estado'].value == 'En aprobación'"
+                                <button *ngIf="meet.controls['estado'].value == 'En aprobación'"
                                     class="p-button-danger" type="button" pButton label="Rechazar"
                                     icon="pi pi-times-circle" style="margin-left:.25em"
                                     (click)="flowRechazar()"></button>
                                 </div>
                                 <div *ngIf="usuario.role != 'AKDADM' ">
-                                    <button *ngIf="floatFP.controls['estado'].value == 'Creado' && usuario.role =='AKDAFP' " type="button" pButton
+                                    <button *ngIf="meet.controls['estado'].value == 'Creado' && usuario.role =='AKDAMT' " type="button" pButton
                                     label="Enviar a aprobar" icon="pi pi-send" style="margin-left:.25em"
                                     (click)="SendToApprove()"></button>
-                                <button *ngIf="floatFP.controls['estado'].value == 'En aprobación' && usuario.role == 'AKDAAFP' " type="button"
+                                <button *ngIf="meet.controls['estado'].value == 'En aprobación' && usuario.role == 'AKDAAMT' " type="button"
                                     pButton label="Aprobar" icon="pi pi-check-circle" style="margin-left:.25em"
                                     (click)="flowAceptar()"></button>
-                                <button *ngIf="floatFP.controls['estado'].value == 'En aprobación' && usuario.role =='AKDAAFP'"
+                                <button *ngIf="meet.controls['estado'].value == 'En aprobación' && usuario.role =='AKDAAMT'"
                                     class="p-button-danger" type="button" pButton label="Rechazar"
                                     icon="pi pi-times-circle" style="margin-left:.25em"
                                     (click)="flowRechazar()"></button>
@@ -47,18 +47,18 @@
 
 
                 <div class=" card-header">
-                    <!-- Inicio codigo ver float planificado-->
+                    <!-- Inicio codigo ver Meet-->
 
-                    <div class=" card-body" *ngIf="floatFP.controls['Option'].value['Code'] == '01'">
-                        <form class="p-grid" [formGroup]="floatFP" accept-charset="utf-8">
+                    <div class=" card-body" *ngIf="meet.controls['Option'].value['Code'] == '01'">
+                        <form class="p-grid" [formGroup]="meet" accept-charset="utf-8">
 
-                            <div class=" card" *ngIf="DatosFloatP.length !=  0">
+                            <div class=" card" *ngIf="DatosMeet.length !=  0">
                                 <div class="card-header">
                                     <div class="download">
                                         <div class="row">
                                             <div class="col-md-3">
-                                                <h5>Float planificado de:
-                                                    {{floatFP.controls['PERIODO'].value['periodo']}}</h5>
+                                                <h5>Meet de:
+                                                    {{meet.controls['PERIODO'].value['periodo']}}</h5>
                                             </div>
 
                                             <!-- botones del flujo-->
@@ -71,7 +71,7 @@
                                             <div class="col-md-12">
                                                 <div class=" row" style="text-align: right;">
                                                     <div>
-                                                        <button pButton pRipple type="button" (click)="downloadFP()"
+                                                        <button pButton pRipple type="button" (click)="downloadMT()"
                                                             class="p-button-rounded p-button-text ">
                                                             <img src="/akdrilling/assets/img/dnd/ic-file-excel.svg"
                                                                 width="45px" alt="file">
@@ -85,10 +85,10 @@
 
                                     <div class="card-body">
                                         <div class=" col-sm-12">
-                                            <p-table #fp 
-                                                [columns]="camposFp" 
+                                            <p-table #mt 
+                                                [columns]="camposMt" 
                                                 [paginator]="true" 
-                                                [value]="datasourceFP"
+                                                [value]="datasourceMT"
                                                 [rowHover]="true" 
                                                 [rows]="10" 
                                                 [showCurrentPageReport]="true"
@@ -97,21 +97,18 @@
                                                 [filterDelay]="0" 
                                                 [responsive]="true"
                                                 [autoLayout]="true" 
-                                                [globalFilterFields]="camposFp.field"
-                                                styleClass="tabla" 
-                                                *ngIf="DatosFloatP.length >  0" 
-                                                [scrollable]="true"
+                                                [globalFilterFields]="camposMt.field"
+                                                styleClass="tabla" *ngIf="DatosMeet.length >  0" [scrollable]="true"
                                                 [reorderableColumns]="true" 
                                                 scrollHeight="500px" 
-                                                [autoLayout]="true"
-                                                [multiSortMeta]="multiSortMetaFP"
+                                                [multiSortMeta]="multiSortMetaMt"
                                                 [tableStyle]="{ width: 'max-content'}">
 
                                                 <ng-template pTemplate="caption">
                                                     <div class="p-d-flex">
 
                                                         <button pButton label="Limpiar" class="p-button-outlined"
-                                                            icon="pi pi-filter-slash" (click)="clear(fp)"></button>
+                                                            icon="pi pi-filter-slash" (click)="clear(mt)"></button>
                                                         <span class="p-input-icon-left p-ml-auto">
                                                             <i class="pi pi-search"></i>
                                                             <input pInputText type="text"
@@ -164,15 +161,15 @@
                             </div>
 
                             <p-card class=" card-body" style="text-align: center;"
-                                *ngIf="DatosFloatP.length !=  0 && floatFP.controls['estado'].value == 'Creado' && usuario.role =='AKDAFP' || usuario.role =='AKDADM' ">
+                                *ngIf="DatosMeet.length !=  0 && meet.controls['estado'].value == 'Creado'">
                                 <ng-template pTemplate="header">
-                                    Actualización de float planificado
+                                    Actualización de Meet
                                 </ng-template>
                                 <div class=" row PanelInformacion">
                                     <div class="col">
                                         <div class="row justify-content-md-center">
                                             <div class="col">
-                                                <div class="container" *ngIf="DatosFloatP.length !=  0" appDnd
+                                                <div class="container" *ngIf="DatosMeet.length !=  0" appDnd
                                                     (fileDropped)="onFileDropped($event)">
                                                     <input type="file" #fileDropRef id="fileDropRef" multiple
                                                         (change)="fileBrowseHandler($event)" />
@@ -181,7 +178,7 @@
                                                     <h3>o</h3>
                                                     <label for="fileDropRef">Selecciona el archivo</label>
                                                 </div>
-                                                <div class="files-list" *ngIf="DatosFloatP.length !=  0">
+                                                <div class="files-list" *ngIf="DatosMeet.length !=  0">
                                                     <div class="single-file" *ngFor="let file of files; let i = index">
                                                         <img src="/akdrilling/assets/img/dnd/ic-file-excel.svg"
                                                             width="45px" alt="file">
@@ -202,52 +199,42 @@
                                                 <button pButton pRipple type="button" label="Cargar"
                                                     class="p-button-outlined" (click)="Procesar()"></button>
                                             </div>
-                                       
+
 
                                             </div>
                                         </div>
                                     </div>
 
-                               
+                                
 
                             </p-card>
 
 
                         </form>
                     </div>
-                    <!-- Fin codigo ver Budget-->
+                    <!-- Fin codigo ver Meet-->
 
                     <p-confirmDialog [style]="{width: '50vw'}" key="positionDialog" [position]="'bottom'"
                         [baseZIndex]="10000"></p-confirmDialog>
                     <p-messages [value]="msgs"></p-messages>
 
-                    <p-dialog header="Detalle Budget {{datosDetailFloat?.idbgdt5}} " [(visible)]="displeyFloatDetail"
+                    <p-dialog header="Detalle Meet {{datosDetailMeet?.idbgdt5}} " [(visible)]="displeyMeetDetail"
                         [style]="{width: '70vw', height: '50vw'}" [baseZIndex]="10000">
 
                         <div class="card-body">
                             <div class=" col-sm-12">
 
-                                <p-table #fpd 
-                                    [columns]="camposFpD" 
-                                    [value]="datasourceFPD" 
-                                    [rowHover]="true"
-                                    [rows]="10" 
-                                    [showCurrentPageReport]="true" 
-                                    [loading]="loadingDetail"
+                                <p-table #mtd [columns]="camposMtD" [value]="datasourceMTD" [rowHover]="true"
+                                    [rows]="10" [showCurrentPageReport]="true" [loading]="loadingDetail"
                                     currentPageReportTemplate="Mostrar {first} hasta  {last} de {totalRecords} datos"
-                                    [filterDelay]="0" 
-                                    [responsive]="true" 
-                                    [autoLayout]="true"
-                                    [globalFilterFields]="camposFpD?.field" 
-                                    styleClass="tabla" [scrollable]="true"
-                                    [reorderableColumns]="true" 
-                                    scrollHeight="500px" 
-                                    [multiSortMeta]="multiSortMetaFPD" 
-                                    [tableStyle]="{ width: 'max-content'}">
+                                    [filterDelay]="0" [resizableColumns]="true" [responsive]="true" [autoLayout]="true"
+                                    [globalFilterFields]="camposMtD?.field" styleClass="tabla" [scrollable]="true"
+                                    [reorderableColumns]="true" scrollHeight="500px" [autoLayout]="true"
+                                    [multiSortMeta]="multiSortMetaMtD" [tableStyle]="{ width: 'max-content'}">
                                     <ng-template pTemplate="caption">
                                         <div class="p-d-flex">
                                             <button pButton label="Limpiar" class="p-button-outlined"
-                                                icon="pi pi-filter-slash" (click)="clear(fpd)"></button>
+                                                icon="pi pi-filter-slash" (click)="clear(mtd)"></button>
                                             <span class="p-input-icon-left p-ml-auto">
                                                 <i class="pi pi-search"></i>
                                                 <input pInputText type="text"

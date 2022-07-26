@@ -115,7 +115,9 @@
                                                 </ng-template>
                                                 <ng-template pTemplate="body" let-rowData let-columns="columns">
                                                     <tr >
-                                                        <td *ngFor="let col of columns" >{{rowData[col.field]}}</td>
+                                                        <td *ngFor="let col of columns" [ngClass]="col.field.indexOf('Mensual') != -1 ? 'dollar-col' :
+                                                                                                col.field.indexOf('Mes') != -1 ? 'dollar-col' : ''">
+                                                            {{rowData[col.field]}}</td>
                                                     </tr>
 
                                                 </ng-template>

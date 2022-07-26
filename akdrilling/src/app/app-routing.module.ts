@@ -16,6 +16,9 @@ import { AkdaafpLayoutComponent } from "./layouts/akdaafp-layout/akdaafp-layout.
 import { AkdarfeLayoutComponent } from "./layouts/akdarfe-layout/akdarfe-layout.component";
 import { AkdaafeLayoutComponent } from "./layouts/akdaafe-layout/akdaafe-layout.component";
 import { AkdafeLayoutComponent } from "./layouts/akdafe-layout/akdafe-layout.component";
+import { AkdamtLayoutComponent } from "./layouts/akdamt-layout/akdamt-layout.component";
+import { AkdaamtLayoutComponent } from "./layouts/akdaamt-layout/akdaamt-layout.component";
+import { AkdarmtLayoutComponent } from "./layouts/akdarmt-layout/akdarmt-layout.component";
 const routes: Routes = [
   
   {
@@ -199,7 +202,7 @@ const routes: Routes = [
           
       }
     ]
-  }
+      }
   
 ];
 

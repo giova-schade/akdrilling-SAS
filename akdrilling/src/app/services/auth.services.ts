@@ -23,14 +23,14 @@ export const alllinks: MenuItem[] = [
     }, {
         routerLink: "openPeriod",
         label: "Abrir periodo",
-        icon: "pi pi-play"
+        icon: "pi pi-lock-open"
     }, {
         routerLink: "closePeriod",
         label: "Cerrar periodo",
-        icon: "pi pi-exclamation-circle"
+        icon: "pi pi-lock"
     }, {
         routerLink: "reopenPeriod",
-        label: "reabrir periodo",
+        label: "Reabrir periodo",
         icon: "pi pi-refresh"
     }, {
         routerLink: "budget",
@@ -39,7 +39,7 @@ export const alllinks: MenuItem[] = [
     }, {
         routerLink: "floatPlanned",
         label: "Float planificado",
-        icon: "pi pi-money-bill"
+        icon: "pi pi-list"
     },
     {
         label: 'Float en ejecución',
@@ -48,22 +48,22 @@ export const alllinks: MenuItem[] = [
             {
                 routerLink: "floatInAction",
                 label: "Crear Float en ejecución",
-                icon: "pi pi-dollar"
-            },
-            {
-                routerLink: "floatInAction/payments",
-                label: "Pagos",
-                icon: "pi pi-bell"
+                icon: "pi pi-check-square"
             },
             {
                 routerLink: "floatInAction/meet",
-                label: "meet",
+                label: "Meet",
                 icon: "pi pi-users"
             },
             {
                 routerLink: "floatInAction/adAndRed",
-                label: "Adicciones y reducciones",
+                label: "Adiciones y reducciones",
                 icon: "pi pi-calendar-minus"
+            },
+            {
+                routerLink: "floatInAction/payments",
+                label: "Pagos",
+                icon: "pi pi-dollar"
             }
         ]
     },

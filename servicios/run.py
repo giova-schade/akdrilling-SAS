@@ -13867,19 +13867,29 @@ def apiGetFEAll():
             "status": "ok",
             "datos": [
                 {"idFloatE": "05202221AKDADM",
+
                  "periodo": "marzo",
                  "fechaCreacion": "01/03/2022",
-                 "Estado": "Creado"
+                 "Estado": "Creado",
+                 "Semana en curso": "1"
                  },
                 {"idFloatE": "05202221AKDADM",
                  "periodo": "marzo",
                  "fechaCreacion": "01/03/2022",
-                 "Estado": "Enviado"
+                 "Estado": "Enviado",
+                 "Semana en curso": "1"
                  },
                 {"idFloatE": "05202221AKDADM",
                  "periodo": "marzo",
                  "fechaCreacion": "01/03/2022",
-                 "Estado": "Cerrado"
+                 "Estado": "Cerrado",
+                 "Semana en curso": "1"
+                 },
+                {"idFloatE": "05202221AKDADM",
+                 "periodo": "marzo",
+                 "fechaCreacion": "01/03/2022",
+                 "Estado": "Meet",
+                 "Semana en curso": "1"
                  }
             ]}
         return jsonify(data)
@@ -13923,6 +13933,7 @@ def apiPostFEByID():
             "date": "13/05/2022",
             "idFloatE": "",
             "estado": "Creado",
+            "weekInProgress": "1",
             "datos": [
                 {
                     "idbgdt5": "0201010101",
@@ -14115,17 +14126,20 @@ def apiGetMTAll():
                 {"idMeet": "05202221AKDADM",
                  "periodo": "marzo",
                  "fechaCreacion": "01/03/2022",
-                 "Estado": "Creado"
+                 "Estado": "Meet",
+                 "Semana en curso": "1"
                  },
                 {"idMeet": "05202221AKDADM",
                  "periodo": "marzo",
                  "fechaCreacion": "01/03/2022",
-                 "Estado": "Enviado"
+                 "Estado": "Meet",
+                 "Semana en curso": "1"
                  },
                 {"idMeet": "05202221AKDADM",
                  "periodo": "marzo",
                  "fechaCreacion": "01/03/2022",
-                 "Estado": "Cerrado"
+                 "Estado": "Meet",
+                 "Semana en curso": "1"
                  }
             ]}
         return jsonify(data)
@@ -14166,7 +14180,8 @@ def apiPostMTByID():
             "periodo": "Mayo",
             "date": "13/05/2022",
             "idMeet": "",
-            "estado": "Creado",
+            "estado": "Meet",
+            "weekInProgress": "1",
             "datos": [
                 {
                     "idbgdt5": "0201010101",

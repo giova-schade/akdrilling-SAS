@@ -12,25 +12,19 @@
                         <div class=" card">
                             <p-menubar>
                                 <div *ngIf="usuario.role == 'AKDADM' ">
-                                    <button *ngIf="meet.controls['estado'].value == 'Creado' " type="button" pButton
-                                    label="Enviar a aprobar" icon="pi pi-send" style="margin-left:.25em"
-                                    (click)="SendToApprove()"></button>
-                                <button *ngIf="meet.controls['estado'].value == 'En aprobación' " type="button"
+                                <button *ngIf="meet.controls['estado'].value == 'Meet' " type="button"
                                     pButton label="Aprobar" icon="pi pi-check-circle" style="margin-left:.25em"
                                     (click)="flowAceptar()"></button>
-                                <button *ngIf="meet.controls['estado'].value == 'En aprobación'"
+                                <button *ngIf="meet.controls['estado'].value == 'Meet'"
                                     class="p-button-danger" type="button" pButton label="Rechazar"
                                     icon="pi pi-times-circle" style="margin-left:.25em"
                                     (click)="flowRechazar()"></button>
                                 </div>
                                 <div *ngIf="usuario.role != 'AKDADM' ">
-                                    <button *ngIf="meet.controls['estado'].value == 'Creado' && usuario.role =='AKDAMT' " type="button" pButton
-                                    label="Enviar a aprobar" icon="pi pi-send" style="margin-left:.25em"
-                                    (click)="SendToApprove()"></button>
-                                <button *ngIf="meet.controls['estado'].value == 'En aprobación' && usuario.role == 'AKDAAMT' " type="button"
+                                <button *ngIf="meet.controls['estado'].value == 'Meet' && usuario.role == 'AKDAAMT' " type="button"
                                     pButton label="Aprobar" icon="pi pi-check-circle" style="margin-left:.25em"
                                     (click)="flowAceptar()"></button>
-                                <button *ngIf="meet.controls['estado'].value == 'En aprobación' && usuario.role =='AKDAAMT'"
+                                <button *ngIf="meet.controls['estado'].value == 'Meet' && usuario.role =='AKDAAMT'"
                                     class="p-button-danger" type="button" pButton label="Rechazar"
                                     icon="pi pi-times-circle" style="margin-left:.25em"
                                     (click)="flowRechazar()"></button>
@@ -56,15 +50,16 @@
                                 <div class="card-header">
                                     <div class="download">
                                         <div class="row">
-                                            <div class="col-md-3">
+                                            <div class="col-md-5">
                                                 <h5>Meet de:
                                                     {{meet.controls['PERIODO'].value['periodo']}}</h5>
                                             </div>
 
                                             <!-- botones del flujo-->
 
-                                            <div class="col-md-8">
-
+                                            <div class="col-md-6">
+                                                <h5>Semana:
+                                                     {{meet.controls['weekInProgress'].value}}</h5>
 
                                             </div>
                                             <!-- fin botones del flujo-->

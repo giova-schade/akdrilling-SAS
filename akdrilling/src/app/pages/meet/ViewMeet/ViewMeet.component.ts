@@ -70,7 +70,8 @@ export class ViewMeetComponent implements OnInit {
     Option: new FormControl('', Validators.required),
     date: new FormControl('', Validators.required),
     estado: new FormControl('', Validators.required),
-    Role: new FormControl('', Validators.required)
+    Role: new FormControl('', Validators.required),
+    weekInProgress: new FormControl('', Validators.required),
 
   })
 
@@ -151,6 +152,7 @@ export class ViewMeetComponent implements OnInit {
               this.items.forEach((x: any, y) => { if (x.label == response.estado) { this.activeIndex = parseInt(x.id) } })
               this.meet.controls['estado'].setValue(response.estado);
               this.meet.controls['date'].setValue(response.date);
+              this.meet.controls['weekInProgress'].setValue(response.weekInProgress);
 
 
 

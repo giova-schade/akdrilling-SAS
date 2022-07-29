@@ -117,11 +117,23 @@ export class ViewFloateComponent implements OnInit {
       }
     },
     {
-      label: 'Cerrado',
+      label: 'Meet',
       id: '2',
       command: (event: any) => {
         this.activeIndex = 3;
-      }
+      },
+      
+      
+    }
+    ,
+    {
+      label: 'Cerrado',
+      id: '3',
+      command: (event: any) => {
+        this.activeIndex = 4;
+      },
+      
+      
     }
     ];
 

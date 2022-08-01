@@ -117,11 +117,25 @@ export class ViewMeetComponent implements OnInit {
       }
     },
     {
-      label: 'Cerrado',
+      label: 'Meet',
       id: '2',
       command: (event: any) => {
         this.activeIndex = 3;
-      }
+      }            
+    },
+    {
+      label: 'Adición / Reducción',
+      id: '3',
+      command: (event: any) => {
+        this.activeIndex = 3;
+      }            
+    },
+    {
+      label: 'Cerrado',
+      id: '4',
+      command: (event: any) => {
+        this.activeIndex = 4;
+      }      
     }
     ];
 

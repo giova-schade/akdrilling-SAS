@@ -90,55 +90,19 @@ export class MeetComponent implements OnInit {
       }
 
     })
-    this.master.apiGetPeriodMT(this.meet).subscribe({
+    
+    this.master.apiGetMTAll(this.meet).subscribe({
       next: (result: any) => {
-        /*Cargo meet si hay creados*/
-        this.master.apiGetMTAll(this.meet).subscribe({
-          next: (result: any) => {
-            if (result.status == "ok") {
-              this.datasourceMTS = result.datos;
-              for (let campo in this.datasourceMTS[0]) {
-                this.MtsCampos.push({ field: campo, header: campo });
-                if (campo == 'idMeet') {
-                  this.multiSortMTS.push({ field: 'idMeet', order: -1 });
-                }
-              }
-
-              this.loadingMts = true;
-            } else if (result.status == 'warning') {
-              this.notify.showNotification('top', 'right', 3, result.datos[0].detail);
-            } else {
-              this.notify.showNotification('top', 'right', 4, result.datos[0].detail);
-
-            }
-
-            this.loadingPage = false;
-          },
-          error: (result: any) => {
-            this.notify.showNotification('top', 'right', 4, 'Error al obtener los Meet');
-            this.loadingPage = false;
-          },
-          complete: () => {
-
-          },
-        })
         if (result.status == "ok") {
-          if (result.datos.length) {
-
-
-
-            if (result.status == "ok") {
-              result.datos.forEach((x: any) => {
-                this.periodos.push({ periodo: x.periodo + ' ' + x.date.split('/')[2], date: x.date });
-              })
-            } else if (result.status == "warning") {
-              this.notify.showNotification('top', 'right', 3, result.datos[0].detail);
-            } else {
-              this.notify.showNotification('top', 'right', 4, result.datos[0].detail);
-
+          this.datasourceMTS = result.datos;
+          for (let campo in this.datasourceMTS[0]) {
+            this.MtsCampos.push({ field: campo, header: campo });
+            if (campo == 'idMeet') {
+              this.multiSortMTS.push({ field: 'idMeet', order: -1 });
             }
-
           }
+
+          this.loadingMts = true;
         } else if (result.status == 'warning') {
           this.notify.showNotification('top', 'right', 3, result.datos[0].detail);
         } else {
@@ -146,12 +110,15 @@ export class MeetComponent implements OnInit {
 
         }
 
-      },
-      error: (result: any) => {
-        this.notify.showNotification('top', 'right', 4, 'Error al obtener los periodos');
         this.loadingPage = false;
       },
-      complete: () => { }
+      error: (result: any) => {
+        this.notify.showNotification('top', 'right', 4, 'Error al obtener los Meet');
+        this.loadingPage = false;
+      },
+      complete: () => {
+
+      },
     })
   }
 
@@ -169,7 +136,7 @@ export class MeetComponent implements OnInit {
   onRowDblClick(event: Event, datos: any) {
     this.router.navigate(['/' + this.usuario.role + '/floatInAction/meet/view'], { queryParams: { idMeet: datos.idMeet, Option: '01' } })
   }
-  
+
   startCargaMeet() {
     this.meet.controls['Option'].setValue({
       Code: '02',

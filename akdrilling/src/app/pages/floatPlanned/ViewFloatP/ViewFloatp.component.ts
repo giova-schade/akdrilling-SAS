@@ -114,6 +114,7 @@ export class ViewFloatpComponent implements OnInit {
         this.activeIndex = 2;
       }
     },
+    
     {
       label: 'Cerrado',
       id: '2',

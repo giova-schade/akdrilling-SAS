@@ -13932,7 +13932,7 @@ def apiPostFEByID():
             "periodo": "Mayo",
             "date": "13/05/2022",
             "idFloatE": "",
-            "estado": "Creado",
+            "estado": "Meet",
             "weekInProgress": "1",
             "datos": [
                 {
@@ -14023,11 +14023,7 @@ def DownloadFE():
 
 
 
-
-
 #meet 
-
-
 @app.route('/apiPostLoadMeet', methods=['POST'])
 def apiPostLoadMeet():
     if(request.method == 'POST'):

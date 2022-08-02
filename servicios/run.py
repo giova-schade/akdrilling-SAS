@@ -13867,12 +13867,9 @@ def apiGetFEAll():
             "status": "ok",
             "datos": [
                 {"idFloatE": "05202221AKDADM",
-<<<<<<< HEAD
                  "periodo": "julio",
-=======
 
                  "periodo": "marzo",
->>>>>>> db28fda257e4f010f030290b1da8cfc7bfc3ff9c
                  "fechaCreacion": "01/03/2022",
                  "Estado": "Creado",
                  "Semana en curso": "1"
@@ -14458,16 +14455,6 @@ def apiPostAdAndRedByID():
         return jsonify(data)
 
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True)
-
-
-
-
-
-
-
-
 ## Pagos        
 
 @app.route('/apiPostLoadPagos', methods=['POST'])
@@ -14680,4 +14667,15 @@ def apiPostPagosByID():
             ]
         }
         return jsonify(data)
+
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', debug=True)
+
+
+
+
+
+
+
 

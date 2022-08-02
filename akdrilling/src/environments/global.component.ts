@@ -50,7 +50,17 @@ export const CONFIG = {
   apiPostApproveMT : 'http://192.168.100.76:5000/apiPostApproveMT',
   apiPostLoadMeet : 'http://192.168.100.76:5000/apiPostLoadMeet',
   apigetDetailMeet : 'http://192.168.100.76:5000/apigetDetailMeet',
-  apiPostPeriodReportMT : 'http://192.168.100.76:5000/apiPostPeriodReportMT'
+  apiPostPeriodReportMT : 'http://192.168.100.76:5000/apiPostPeriodReportMT',
+  apiGetPeriodPagos : 'http://192.168.100.76:5000/apiGetPeriodPagos',
+  apiGetPagosAll : 'http://192.168.100.76:5000/apiGetPagosAll',
+  apiPostPagosByID : 'http://192.168.100.76:5000/apiPostPagosByID',
+  apiPostCreatePagos : 'http://192.168.100.76:5000/apiPostCreatePagos',
+  apiPostSendApprovePagos : 'http://192.168.100.76:5000/apiPostSendApprovePagos',
+  apiPostRejectPagos : 'http://192.168.100.76:5000/apiPostRejectPagos',
+  apiPostApprovePagos : 'http://192.168.100.76:5000/apiPostApprovePagos',
+  apiPostLoadPagos : 'http://192.168.100.76:5000/apiPostLoadPagos',
+  apigetDetailPagos : 'http://192.168.100.76:5000/apigetDetailPagos',
+  apiPostPeriodReportPagos : 'http://192.168.100.76:5000/apiPostPeriodReportPagos'
 };
 /*
 export const CONFIG = {
@@ -105,6 +115,16 @@ export const CONFIG = {
   apiPostApproveMT : 'http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FAKADMAPI&action=apiPostApproveMT',
   apiPostLoadMeet : 'http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FAKADMAPI&action=apiPostLoadMeet',
   apigetDetailMeet : 'http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FAKADMAPI&action=apigetDetailMeet',
-  apiPostPeriodReportMT : 'http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FAKADMAPI&action=PeriodReportMT'
+  apiPostPeriodReportMT : 'http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FAKADMAPI&action=PeriodReportMT',
+  apiGetPeriodPagos : 'http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FAKADMAPI&action=apiGetPeriodPagos',
+  apiGetPagosAll : 'http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FAKADMAPI&action=apiGetPagosAll',
+  apiPostPagosByID : 'http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FAKADMAPI&action=apiPostPagosByID',
+  apiPostCreatePagos : 'http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FAKADMAPI&action=apiPostCreatePagos',
+  apiPostSendApprovePagos : 'http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FAKADMAPI&action=apiPostSendApprovePagos',
+  apiPostRejectPagos : 'http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FAKADMAPI&action=apiPostRejectPagos',
+  apiPostApprovePagos : 'http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FAKADMAPI&action=apiPostApprovePagos',
+  apiPostLoadPagos : 'http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FAKADMAPI&action=apiPostLoadPagos',
+  apigetDetailPagos : 'http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FAKADMAPI&action=apigetDetailPagos',
+  apiPostPeriodReportPagos : 'http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FAKADMAPI&action=PeriodReportPagos'
 };
 */

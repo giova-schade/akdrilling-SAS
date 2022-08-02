@@ -13867,7 +13867,7 @@ def apiGetFEAll():
             "status": "ok",
             "datos": [
                 {"idFloatE": "05202221AKDADM",
-                 "periodo": "marzo",
+                 "periodo": "julio",
                  "fechaCreacion": "01/03/2022",
                  "Estado": "Creado"
                  },
@@ -14457,7 +14457,7 @@ def apiPostLoadPagos():
     if(request.method == 'POST'):
         data = {
             "status": "ok",
-            "idPagos": "123",
+            "idPay": "123",
             "urlResutlado": "http://192.168.68.71:5000/DownloadBG",
             "datos": [
                 {
@@ -14485,7 +14485,7 @@ def apiPostSendApprovePagos():
     if(request.method == 'POST'):
         data = {
             "status": "ok",
-            "idpagos": "123",
+            "idPay": "123",
             "datos": [
                 {
                     "detail": "el Pago se envio  correctamente"
@@ -14500,10 +14500,10 @@ def apiPostRejectPagos():
     if(request.method == 'POST'):
         data = {
             "status": "ok",
-            "idPagos": "123",
+            "idPay": "123",
             "datos": [
                 {
-                    "detail": "el Pago se rechazo  correctamente"
+                    "detail": "el float en ejecución se rechazo  correctamente"
                 }
             ]
         }
@@ -14515,10 +14515,10 @@ def apiPostApprovePagos():
     if(request.method == 'POST'):
         data = {
             "status": "ok",
-            "idPagos": "123",
+            "idPay": "123",
             "datos": [
                 {
-                    "detail": "el pago se aprobo  correctamente"
+                    "detail": "el float en ejecución se aprobo  correctamente"
                 }
             ]
         }
@@ -14530,11 +14530,11 @@ def apiPostCreatePagos():
     if(request.method == 'POST'):
         data = {
             "status": "ok",
-            "idPago": "123",
+            "idPay": "123",
             "urlResutlado": "http://192.168.68.71:5000/DownloadBG",
             "datos": [
                 {
-                    "detail": "el pago se creo correctamente"
+                    "detail": "el float en ejecución se creo correctamente"
                 }
             ]
         }
@@ -14547,17 +14547,17 @@ def apiGetPagosAll():
         data = {
             "status": "ok",
             "datos": [
-                {"idPagos": "05202221AKDADM",
-                 "periodo": "marzo",
+                {"idPay": "05202221AKDADM",
+                 "periodo": "julio",
                  "fechaCreacion": "01/03/2022",
                  "Estado": "Creado"
                  },
-                {"idPagos": "05202221AKDADM",
+                {"idPay": "05202221AKDADM",
                  "periodo": "marzo",
                  "fechaCreacion": "01/03/2022",
                  "Estado": "Enviado"
                  },
-                {"idPagos": "05202221AKDADM",
+                {"idPay": "05202221AKDADM",
                  "periodo": "marzo",
                  "fechaCreacion": "01/03/2022",
                  "Estado": "Cerrado"
@@ -14571,21 +14571,23 @@ def apigetDetailPagos():
     if(request.method == 'POST'):
         data = {
             "status": "ok",
-            "idPagosDetalle": "0201020102",
+            "idPayDetalle": "0201020102",
             "datos": [
                 {
                     "Razon Social": "VARIOS",
                     "Categoria 5: Descripción": "Maintenance Lubricants",
                     "Monto Total USD(Mes)": 2866.62333333,
                     "week": "12MAY2022",
-                    "Estado": "Cerrado"
+                    "Estado": "Cerrado",
+                    "description": "Drill Bits"
                 },
                 {
                     "Razon Social": "VARIOS",
                     "Categoria 5: Descripción": "Maintenance Lubricants",
                     "Monto Total USD(Mes)": 2866.62333333,
                     "week": "19MAY2022",
-                    "Estado": "Cerrado"
+                    "Estado": "Cerrado",
+                    "description": "Drill Bits"
                 }
             ]
         }
@@ -14660,5 +14662,4 @@ def apiPostPagosByID():
             ]
         }
         return jsonify(data)
-
 

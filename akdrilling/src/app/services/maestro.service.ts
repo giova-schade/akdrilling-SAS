@@ -556,12 +556,7 @@ export class MaestrosService {
     }
 
 
-<<<<<<< HEAD
-
-    apiPostCreatePagos(form: any): Observable<any> {
-=======
     apiGetAdAndRedAll(form: any) {
->>>>>>> db28fda257e4f010f030290b1da8cfc7bfc3ff9c
         var formData: any = new FormData();
         for (let i in form.controls) {
             if (i == 'PERIODO') {
@@ -573,122 +568,8 @@ export class MaestrosService {
                 formData.append(i, form.controls[i].value);
             }
         }
-<<<<<<< HEAD
-        return this.http.post(CONFIG.apiPostCreatePagos, formData)
-    }
-    apiGetPeriodPagos(form: any) {
-        var formData: any = new FormData();
-        for (let i in form.controls) {
-            if (i == 'PERIODO') {
-                formData.append(i, form.controls[i].value.date);
-
-            } else {
-                formData.append(i, form.controls[i].value);
-            }
-        }
-        return this.http.post(CONFIG.apiGetPeriodPagos, formData)
-
-
-    }
-
-    apiPostRejectPagos(form: any): Observable<any> {
-        var formData: any = new FormData();
-        for (let i in form.controls) {
-            if (i == 'idPay') {
-                formData.append(i, form.controls[i].value);
-            }
-        }
-        return this.http.post(CONFIG.apiPostRejectPagos, formData)
-    }
-    apiPostLoadPagos(form: any): Observable<any> {
-        var formData: any = new FormData();
-        for (let i in form.controls) {
-            if (i != 'DatosPayments') {
-                if (i == 'PERIODO') {
-                    formData.append(i, form.controls[i].value.date);
-
-                } else if (i == 'Option') {
-                    formData.append(i, form.controls[i].value.Code);
-                } else {
-                    formData.append(i, form.controls[i].value);
-                }
-            }
-
-        }
-        return this.http.post(CONFIG.apiPostLoadPagos, formData)
-    }
-
-    apiPostApprovePagos(form: any): Observable<any> {
-        var formData: any = new FormData();
-        for (let i in form.controls) {
-            if (i == 'idPay') {
-                formData.append(i, form.controls[i].value);
-            }
-        }
-        return this.http.post(CONFIG.apiPostApprovePagos, formData)
-    }
-
-    apiPostSendApprovePagos(form: any): Observable<any> {
-        var formData: any = new FormData();
-        for (let i in form.controls) {
-            if (i == 'idPay') {
-                formData.append(i, form.controls[i].value);
-            }
-        }
-        return this.http.post(CONFIG.apiPostSendApprovePagos, formData)
-    }
-
-    apiPostPagosByID(form: any): Observable<any> {
-        var formData: any = new FormData();
-        for (let i in form.controls) {
-            if (i == 'idPay') {
-                formData.append(i, form.controls[i].value);
-            }
-        }
-        return this.http.post(CONFIG.apiPostPagosByID, formData)
-    }
-    apiGetPagosAll(form: any) {
-        var formData: any = new FormData();
-        for (let i in form.controls) {
-            if (i == 'PERIODO') {
-                formData.append(i, form.controls[i].value.date);
-
-            } else if (i == 'Option') {
-                formData.append(i, form.controls[i].value.Code);
-            } else {
-                formData.append(i, form.controls[i].value);
-            }
-        }
-        return this.http.post(CONFIG.apiGetPagosAll, formData);
-    }
-
-    apigetDetailPagos(form: any, IdBudgetV5: any): Observable<any> {
-        var formData: any = new FormData();
-        formData.append('IdBudgetV5', IdBudgetV5);
-        for (let i in form.controls) {
-            if (i == 'idPay') {
-                formData.append(i, form.controls[i].value);
-            }
-        }
-        return this.http.post(CONFIG.apigetDetailPagos, formData)
-    }
-    apiPostPeriodReportPagos(form: any) {
-        var formData: any = new FormData();
-        for (let i in form.controls) {
-            if (i == 'PERIODO') {
-                formData.append(i, form.controls[i].value.date);
-
-            } else {
-                formData.append(i, form.controls[i].value);
-            }
-        }
-        return this.http.post(CONFIG.apiPostPeriodReportPagos, formData)
-
-    }
-=======
         return this.http.post(CONFIG.apiGetAdReAll, formData);
     }
 
 
->>>>>>> db28fda257e4f010f030290b1da8cfc7bfc3ff9c
 }

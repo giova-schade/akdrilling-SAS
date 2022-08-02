@@ -14330,26 +14330,29 @@ def apiPostCreateAdAndRed():
         return jsonify(data)
 
 
-@app.route('/apiGetAdAndRedAll', methods=['POST'])
-def apiGetAdAndRedAll():
+@app.route('/apiGetAdReAll', methods=['POST'])
+def apiGetAdReAll():
     if(request.method == 'POST'):
         data = {
             "status": "ok",
             "datos": [
-                {"idAdAndRed": "05202221AKDADM",
+                {"idMeet": "05202221AKDADM",
                  "periodo": "marzo",
                  "fechaCreacion": "01/03/2022",
-                 "Estado": "Creado"
+                 "Estado": "AdRe",
+                 "Semana en curso": "1"
                  },
-                {"idAdAndRed": "05202221AKDADM",
+                {"idMeet": "05202221AKDADM",
                  "periodo": "marzo",
                  "fechaCreacion": "01/03/2022",
-                 "Estado": "Enviado"
+                 "Estado": "AdRe",
+                 "Semana en curso": "1"
                  },
-                {"idAdAndRed": "05202221AKDADM",
+                {"idMeet": "05202221AKDADM",
                  "periodo": "marzo",
                  "fechaCreacion": "01/03/2022",
-                 "Estado": "Cerrado"
+                 "Estado": "AdRe",
+                 "Semana en curso": "1"
                  }
             ]}
         return jsonify(data)

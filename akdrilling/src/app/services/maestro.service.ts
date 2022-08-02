@@ -555,4 +555,21 @@ export class MaestrosService {
 
     }
 
+
+    apiGetAdAndRedAll(form: any) {
+        var formData: any = new FormData();
+        for (let i in form.controls) {
+            if (i == 'PERIODO') {
+                formData.append(i, form.controls[i].value.date);
+
+            } else if (i == 'Option') {
+                formData.append(i, form.controls[i].value.Code);
+            } else {
+                formData.append(i, form.controls[i].value);
+            }
+        }
+        return this.http.post(CONFIG.apiGetAdReAll, formData);
+    }
+
+
 }

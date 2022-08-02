@@ -66,6 +66,7 @@ export class ViewFloateComponent implements OnInit {
     IdCia: new FormControl('', Validators.required),
     NomSede: new FormControl('', Validators.required),
     file: new FormControl(Blob, Validators.required),
+    weekInProgress : new FormControl('', Validators.required),
     DatosFloatE: new FormArray([]),
     Option: new FormControl('', Validators.required),
     date: new FormControl('', Validators.required),
@@ -116,11 +117,26 @@ export class ViewFloateComponent implements OnInit {
       }
     },
     {
-      label: 'Cerrado',
+      label: 'Meet',
       id: '2',
       command: (event: any) => {
         this.activeIndex = 3;
-      }
+      }           
+    },    
+    {
+      label: 'Adición / Reducción',
+      id: '3',
+      command: (event: any) => {
+        this.activeIndex = 3;
+      }            
+    },
+    {
+      label: 'Cerrado',
+      id: '4',
+      command: (event: any) => {
+        this.activeIndex = 4;
+      },
+      
     }
     ];
 
@@ -151,6 +167,7 @@ export class ViewFloateComponent implements OnInit {
               this.items.forEach((x: any, y) => { if (x.label == response.estado) { this.activeIndex = parseInt(x.id) } })
               this.floatFE.controls['estado'].setValue(response.estado);
               this.floatFE.controls['date'].setValue(response.date);
+              this.floatFE.controls['weekInProgress'].setValue(response.weekInProgress);
 
 
 

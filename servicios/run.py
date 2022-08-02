@@ -13867,19 +13867,33 @@ def apiGetFEAll():
             "status": "ok",
             "datos": [
                 {"idFloatE": "05202221AKDADM",
+<<<<<<< HEAD
                  "periodo": "julio",
+=======
+
+                 "periodo": "marzo",
+>>>>>>> db28fda257e4f010f030290b1da8cfc7bfc3ff9c
                  "fechaCreacion": "01/03/2022",
-                 "Estado": "Creado"
+                 "Estado": "Creado",
+                 "Semana en curso": "1"
                  },
                 {"idFloatE": "05202221AKDADM",
                  "periodo": "marzo",
                  "fechaCreacion": "01/03/2022",
-                 "Estado": "Enviado"
+                 "Estado": "Enviado",
+                 "Semana en curso": "1"
                  },
                 {"idFloatE": "05202221AKDADM",
                  "periodo": "marzo",
                  "fechaCreacion": "01/03/2022",
-                 "Estado": "Cerrado"
+                 "Estado": "Cerrado",
+                 "Semana en curso": "1"
+                 },
+                {"idFloatE": "05202221AKDADM",
+                 "periodo": "marzo",
+                 "fechaCreacion": "01/03/2022",
+                 "Estado": "Meet",
+                 "Semana en curso": "1"
                  }
             ]}
         return jsonify(data)
@@ -13922,7 +13936,8 @@ def apiPostFEByID():
             "periodo": "Mayo",
             "date": "13/05/2022",
             "idFloatE": "",
-            "estado": "Creado",
+            "estado": "Meet",
+            "weekInProgress": "1",
             "datos": [
                 {
                     "idbgdt5": "0201010101",
@@ -14012,11 +14027,7 @@ def DownloadFE():
 
 
 
-
-
 #meet 
-
-
 @app.route('/apiPostLoadMeet', methods=['POST'])
 def apiPostLoadMeet():
     if(request.method == 'POST'):
@@ -14115,17 +14126,20 @@ def apiGetMTAll():
                 {"idMeet": "05202221AKDADM",
                  "periodo": "marzo",
                  "fechaCreacion": "01/03/2022",
-                 "Estado": "Creado"
+                 "Estado": "Meet",
+                 "Semana en curso": "1"
                  },
                 {"idMeet": "05202221AKDADM",
                  "periodo": "marzo",
                  "fechaCreacion": "01/03/2022",
-                 "Estado": "Enviado"
+                 "Estado": "Meet",
+                 "Semana en curso": "1"
                  },
                 {"idMeet": "05202221AKDADM",
                  "periodo": "marzo",
                  "fechaCreacion": "01/03/2022",
-                 "Estado": "Cerrado"
+                 "Estado": "Meet",
+                 "Semana en curso": "1"
                  }
             ]}
         return jsonify(data)
@@ -14166,7 +14180,8 @@ def apiPostMTByID():
             "periodo": "Mayo",
             "date": "13/05/2022",
             "idMeet": "",
-            "estado": "Creado",
+            "estado": "Meet",
+            "weekInProgress": "1",
             "datos": [
                 {
                     "idbgdt5": "0201010101",
@@ -14319,26 +14334,29 @@ def apiPostCreateAdAndRed():
         return jsonify(data)
 
 
-@app.route('/apiGetAdAndRedAll', methods=['POST'])
-def apiGetAdAndRedAll():
+@app.route('/apiGetAdReAll', methods=['POST'])
+def apiGetAdReAll():
     if(request.method == 'POST'):
         data = {
             "status": "ok",
             "datos": [
-                {"idAdAndRed": "05202221AKDADM",
+                {"idMeet": "05202221AKDADM",
                  "periodo": "marzo",
                  "fechaCreacion": "01/03/2022",
-                 "Estado": "Creado"
+                 "Estado": "AdRe",
+                 "Semana en curso": "1"
                  },
-                {"idAdAndRed": "05202221AKDADM",
+                {"idMeet": "05202221AKDADM",
                  "periodo": "marzo",
                  "fechaCreacion": "01/03/2022",
-                 "Estado": "Enviado"
+                 "Estado": "AdRe",
+                 "Semana en curso": "1"
                  },
-                {"idAdAndRed": "05202221AKDADM",
+                {"idMeet": "05202221AKDADM",
                  "periodo": "marzo",
                  "fechaCreacion": "01/03/2022",
-                 "Estado": "Cerrado"
+                 "Estado": "AdRe",
+                 "Semana en curso": "1"
                  }
             ]}
         return jsonify(data)

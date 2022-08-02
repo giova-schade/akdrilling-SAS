@@ -8,14 +8,7 @@
                     <div *ngIf="meet.controls['Option'].value.length == 0">
                         <form class="p-grid" [formGroup]="meet" accept-charset="utf-8">
                             <div class=" row" *ngIf="CargaMeet">
-                                <div class=" col-md-12">
-                                    <div class="form-group">
-                                        <div class=" card-body">
-                                            <p-button label="Crear Meet" icon="pi pi-users" iconPos="right"
-                                                (click)="startCargaMeet()"></p-button>
-                                        </div>
-                                    </div>
-                                </div>
+                                
 
 
                             </div>
@@ -90,33 +83,7 @@
 
 
 
-                    <!-- inicio codigo crear meet-->
-                    <div class=" card-body" *ngIf="meet.controls['Option'].value['Code'] == '02'">
-                        <form class="p-grid" [formGroup]="meet" accept-charset="utf-8">
-                            <div class=" row">
-                                <div class=" col-md-10">
-                                    <div class="form-group">
-                                        <div class=" card-body" *ngIf="DatosMeet.length ==  0">
-                                            <p-dropdown [options]="periodos" formControlName="PERIODO"
-                                                placeholder="Seleccione un periodo" optionLabel="periodo"
-                                                [showClear]="true" (onChange)="setIdMts($event)">
-                                            </p-dropdown>
-                                        </div>
-
-                                    </div>
-                                </div> 
-                                <div class=" col-md-12" *ngIf="DatosMeet.length ==  0">
-                                    <div class=" form-group">
-                                        <button pButton type="submit" label="Crear Meet "
-                                            (click)="crearMeet()"></button>
-                                    </div>
-                                </div>                               
-                            </div>
-                            
-
-
-                        </form>
-                    </div>
+                    
                     <!-- Fin codigo crear Meet-->
                     <p-confirmDialog [style]="{width: '50vw'}" key="positionDialog" [position]="'bottom'"
                         [baseZIndex]="10000"></p-confirmDialog>

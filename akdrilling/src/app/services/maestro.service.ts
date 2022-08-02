@@ -556,8 +556,12 @@ export class MaestrosService {
     }
 
 
+<<<<<<< HEAD
 
     apiPostCreatePagos(form: any): Observable<any> {
+=======
+    apiGetAdAndRedAll(form: any) {
+>>>>>>> db28fda257e4f010f030290b1da8cfc7bfc3ff9c
         var formData: any = new FormData();
         for (let i in form.controls) {
             if (i == 'PERIODO') {
@@ -569,6 +573,7 @@ export class MaestrosService {
                 formData.append(i, form.controls[i].value);
             }
         }
+<<<<<<< HEAD
         return this.http.post(CONFIG.apiPostCreatePagos, formData)
     }
     apiGetPeriodPagos(form: any) {
@@ -680,4 +685,10 @@ export class MaestrosService {
         return this.http.post(CONFIG.apiPostPeriodReportPagos, formData)
 
     }
+=======
+        return this.http.post(CONFIG.apiGetAdReAll, formData);
+    }
+
+
+>>>>>>> db28fda257e4f010f030290b1da8cfc7bfc3ff9c
 }

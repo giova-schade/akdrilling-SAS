@@ -92,7 +92,16 @@ export class PaymentsComponent implements OnInit {
 
     })
     
-
+    this.master.apiPostPagosByID(this.payments).subscribe({
+      next: (response: any) => {
+        if (response.status == "ok") {
+          this.payments.controls['PERIODO'].setValue({
+            periodo: response.periodo,
+            date: response.date
+          })
+        }
+      }
+    })
 
 
 

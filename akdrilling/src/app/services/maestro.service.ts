@@ -555,7 +555,6 @@ export class MaestrosService {
 
     }
 
-
     apiGetAdAndRedAll(form: any) {
         var formData: any = new FormData();
         for (let i in form.controls) {
@@ -571,30 +570,34 @@ export class MaestrosService {
         return this.http.post(CONFIG.apiGetAdReAll, formData);
     }
 
+
     apiPostCreatePagos(form: any): Observable<any> {
         var formData: any = new FormData();
         for (let i in form.controls) {
             if (i == 'PERIODO') {
                 formData.append(i, form.controls[i].value.date);
+
             } else if (i == 'Option') {
                 formData.append(i, form.controls[i].value.Code);
             } else {
                 formData.append(i, form.controls[i].value);
             }
         }
-        return this.http.post(CONFIG.apiPostCreatePagos, formData)
-
+        return this.http.post(CONFIG.apiPostCreateFE, formData)
     }
     apiGetPeriodPagos(form: any) {
         var formData: any = new FormData();
         for (let i in form.controls) {
             if (i == 'PERIODO') {
                 formData.append(i, form.controls[i].value.date);
+
             } else {
                 formData.append(i, form.controls[i].value);
             }
         }
-        return this.http.post(CONFIG.apiGetPeriodPagos, formData)
+        return this.http.post(CONFIG.apiGetPeriodFE, formData)
+
+
     }
 
     apiPostRejectPagos(form: any): Observable<any> {
@@ -604,25 +607,24 @@ export class MaestrosService {
                 formData.append(i, form.controls[i].value);
             }
         }
-        return this.http.post(CONFIG.apiPostRejectPagos, formData)
-
+        return this.http.post(CONFIG.apiPostRejectFE, formData)
     }
-
     apiPostLoadPagos(form: any): Observable<any> {
-
         var formData: any = new FormData();
         for (let i in form.controls) {
             if (i != 'DatosPayments') {
                 if (i == 'PERIODO') {
                     formData.append(i, form.controls[i].value.date);
+
                 } else if (i == 'Option') {
                     formData.append(i, form.controls[i].value.Code);
                 } else {
                     formData.append(i, form.controls[i].value);
                 }
             }
+
         }
-        return this.http.post(CONFIG.apiPostLoadPagos, formData)
+        return this.http.post(CONFIG.apiPostLoadFloatE, formData)
     }
 
     apiPostApprovePagos(form: any): Observable<any> {
@@ -632,8 +634,9 @@ export class MaestrosService {
                 formData.append(i, form.controls[i].value);
             }
         }
-        return this.http.post(CONFIG.apiPostApprovePagos, formData)
+        return this.http.post(CONFIG.apiPostApproveFE, formData)
     }
+
     apiPostSendApprovePagos(form: any): Observable<any> {
         var formData: any = new FormData();
         for (let i in form.controls) {
@@ -641,8 +644,9 @@ export class MaestrosService {
                 formData.append(i, form.controls[i].value);
             }
         }
-        return this.http.post(CONFIG.apiPostSendApprovePagos, formData)
+        return this.http.post(CONFIG.apiPostSendApproveFE, formData)
     }
+
     apiPostPagosByID(form: any): Observable<any> {
         var formData: any = new FormData();
         for (let i in form.controls) {
@@ -650,23 +654,24 @@ export class MaestrosService {
                 formData.append(i, form.controls[i].value);
             }
         }
-        return this.http.post(CONFIG.apiPostPagosByID, formData)
+        return this.http.post(CONFIG.apiPostFEByID, formData)
     }
     apiGetPagosAll(form: any) {
         var formData: any = new FormData();
         for (let i in form.controls) {
             if (i == 'PERIODO') {
                 formData.append(i, form.controls[i].value.date);
+
             } else if (i == 'Option') {
                 formData.append(i, form.controls[i].value.Code);
             } else {
                 formData.append(i, form.controls[i].value);
             }
         }
-        return this.http.post(CONFIG.apiGetPagosAll, formData);
+        return this.http.post(CONFIG.apiGetFEAll, formData);
     }
-    apigetDetailPagos(form: any, IdBudgetV5: any): Observable<any> {
 
+    apigetDetailPagos(form: any, IdBudgetV5: any): Observable<any> {
         var formData: any = new FormData();
         formData.append('IdBudgetV5', IdBudgetV5);
         for (let i in form.controls) {
@@ -674,17 +679,19 @@ export class MaestrosService {
                 formData.append(i, form.controls[i].value);
             }
         }
-        return this.http.post(CONFIG.apigetDetailPagos, formData)
+        return this.http.post(CONFIG.apigetDetailFloatE, formData)
     }
     apiPostPeriodReportPagos(form: any) {
         var formData: any = new FormData();
         for (let i in form.controls) {
             if (i == 'PERIODO') {
                 formData.append(i, form.controls[i].value.date);
+
             } else {
                 formData.append(i, form.controls[i].value);
             }
         }
-        return this.http.post(CONFIG.apiPostPeriodReportPagos, formData)
+        return this.http.post(CONFIG.apiPostPeriodReportFe, formData)
+
     }
 }

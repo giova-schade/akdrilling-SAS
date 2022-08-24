@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { User , Cias} from '../models/user';
-import { Role, AKDABRRHH, AKDADM, AKDABOP, AKDABDF, AKDAFP, AKDAAFP, AKDAFE, AKDAAFE, AKDARFE  } from '../models/role';
+import { Role, AKDABRRHH, AKDADM, AKDABOP, AKDABDF, AKDAFP, AKDAAFP, AKDAFE, AKDAAFE, AKDARFE, AKDAAERFE  } from '../models/role';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { CONFIG } from '../../environments/global.component';
@@ -87,7 +87,14 @@ export class AuthService {
     }
 
     hasRole(role: Role) {
-        return this.isAuthorized() && this.user.role === role;
+        const roles = Role;
+        var validate = false ;
+        for (const a in roles){
+            if(a == role){
+                validate = true;
+            }
+        }
+        return this.isAuthorized() && validate;
     }
 
     login(role: Role, name: any, info: any , roleDescription:any , ciaSelected:any) {
@@ -223,7 +230,20 @@ export class AuthService {
                     links.push(subrl);                    
                    } 
             };
+        }else if (role == "AKDAAERFE") {
+            let roleConfig = AKDAAERFE;
+            if (this.ValidaUrl(link, roleConfig)) {
+                link.routerLink=role+'/'+link.routerLink;
+                links.push(link);
+            }
+            let subrl = this.PushSuburl(link,roleConfig,role); 
+            if(subrl.hasOwnProperty('items')){                 
+                if(subrl.items.length){
+                    links.push(subrl);                    
+                   } 
+            };
         }
+
 
 
     }

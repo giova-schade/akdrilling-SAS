@@ -14179,61 +14179,72 @@ def apiPostMTByID():
             "idMeet": "",
             "estado": "Meet",
             "weekInProgress": "1",
-            "datos": [
-                {
-                    "idbgdt5": "0201010101",
-                    "bdgt1": "OPERATING COST",
-                    "bdgt2": "TOTAL OPERATIONAL SUPPLY Cash Egress",
-                    "bdgt3": "Operative Supplies",
-                    "bdgt4": "Operative Supplies",
-                    "bdgt5": "SOMACC Operations",
-                    "description": "Drill Bitsasaaaaaaaaaaaaaaaa0Drill Bitsasaaaaaaaaaaaaaaaa0Drill Bitsasaaaaaaaaaaaaaaaa0Drill Bitsasaaaaaaaaaaaaaaaa0",
-                    "budgV1": 2936.33188507,
-                    "Week 18 01MAY2022": 'null',
-                    "Week 18 03MAY2022": 'null',
-                    "Week 18 05MAY2022": 'null',
-                    "Week 19 08MAY2022": 'null',
-                    "Week 19 09MAY2022": 'null',
-                    "Week 19 11MAY2022": 'null',
-                    "Week 19 12MAY2022": 2936.33188507,
-                    "Week 19 14MAY2022": 'null',
-                    "Week 20 15MAY2022": 'null',
-                    "Week 20 19MAY2022": 'null',
-                    "Week 20 20MAY2022": 'null',
-                    "Week 21 22MAY2022": 'null',
-                    "Week 21 25MAY2022": 'null',
-                    "Week 21 26MAY2022": 'null',
-                    "Week 21 27MAY2022": 'null',
-                    "Week 21 28MAY2022": 'null',
-                    "Remaning": 0
-                },
-                {
-                    "idbgdt5": "0201010102",
-                    "bdgt1": "OPERATING COST",
-                    "bdgt2": "TOTAL OPERATIONAL SUPPLY Cash Egress",
-                    "bdgt3": "Operative Supplies",
-                    "bdgt4": "Operative Supplies",
-                    "bdgt5": "Drill Bits",
-                    "description": "Drill Bits",
-                    "budgV1": 15871.05,
-                    "Week 18 01MAY2022": 'null',
-                    "Week 18 03MAY2022": 'null',
-                    "Week 18 05MAY2022": 'null',
-                    "Week 19 08MAY2022": 'null',
-                    "Week 19 09MAY2022": 'null',
-                    "Week 19 11MAY2022": 'null',
-                    "Week 19 12MAY2022": 10580.7,
-                    "Week 19 14MAY2022": 'null',
-                    "Week 20 15MAY2022": 'null',
-                    "Week 20 19MAY2022": 5290.35,
-                    "Week 20 20MAY2022": 'null',
-                    "Week 21 22MAY2022": 'null',
-                    "Week 21 25MAY2022": 'null',
-                    "Week 21 26MAY2022": 'null',
-                    "Week 21 27MAY2022": 'null',
-                    "Week 21 28MAY2022": 'null',
-                    "Remaning": 0
-                }
+            "datos": [{"Nombre_Proveedor" : "test",
+                    "Monto_Total_USD_Mes" : "test",
+                    "Observaciones": "test",
+                    "Valor solicitado Part Dom": "test",
+                    "Valor solicitado Part IDM": "test",
+                    "Valor solicitado Part PTY" : "test",
+                    "Orden_Compra" : "test",
+                    "Nro Requerimiento": "test",
+                    "Codigo_Budgt_Nivel_5":"test",
+                    "DescripcionBudget_Nivel_1":"test",
+                    "DescripcionBudget_Nivel_2" : "test",
+                    "DescripcionBudget_Nivel_3" : "test",
+                    "DescripcionBudget_Nivel_5" : "test",
+                    "Fecha de aprobación" : "test",
+                    "idbgdt5" :  "123123123"
+                    },
+                    {"Nombre_Proveedor" : "test",
+                    "Monto_Total_USD_Mes" : "test",
+                    "Observaciones": "test",
+                    "Valor solicitado Part Dom": "test",
+                    "Valor solicitado Part IDM": "test",
+                    "Valor solicitado Part PTY" : "test",
+                    "Orden_Compra" : "test",
+                    "Nro Requerimiento": "test",
+                    "Codigo_Budgt_Nivel_5":"test",
+                    "DescripcionBudget_Nivel_1":"test",
+                    "DescripcionBudget_Nivel_2" : "test",
+                    "DescripcionBudget_Nivel_3" : "test",
+                    "DescripcionBudget_Nivel_5" : "test",
+                    "Fecha de aprobación" : "test",
+                    "idbgdt5" :  "123123123"
+
+                    },
+                    {"Nombre_Proveedor" : "test",
+                    "Monto_Total_USD_Mes" : "test",
+                    "Observaciones": "test",
+                    "Valor solicitado Part Dom": "test",
+                    "Valor solicitado Part IDM": "test",
+                    "Valor solicitado Part PTY" : "test",
+                    "Orden_Compra" : "test",
+                    "Nro Requerimiento": "test",
+                    "Codigo_Budgt_Nivel_5":"test",
+                    "DescripcionBudget_Nivel_1":"test",
+                    "DescripcionBudget_Nivel_2" : "test",
+                    "DescripcionBudget_Nivel_3" : "test",
+                    "DescripcionBudget_Nivel_5" : "test",
+                    "Fecha de aprobación" : "test",
+                    "idbgdt5" :  "123123123"
+
+                    },
+                    {"Nombre_Proveedor" : "test",
+                    "Monto_Total_USD_Mes" : "tests",
+                    "Observaciones": "test",
+                    "Valor solicitado Part Dom": "test",
+                    "Valor solicitado Part IDM": "test",
+                    "Valor solicitado Part PTY" : "test",
+                    "Orden_Compra" : "test",
+                    "Nro Requerimiento": "test",
+                    "Codigo_Budgt_Nivel_5":"test",
+                    "DescripcionBudget_Nivel_1":"test",
+                    "DescripcionBudget_Nivel_2" : "te1st",
+                    "DescripcionBudget_Nivel_3" : "tedst",
+                    "DescripcionBudget_Nivel_5" : "test",
+                    "Fecha de aprobación" : "test",
+                    "IdBudgetV5" :  "123123123"
+                    }
             ]
         }
         return jsonify(data)
@@ -14242,12 +14253,12 @@ def apiPostMTByID():
 
 
 
-@app.route('/apiPostLoadAdAndRed', methods=['POST'])
-def apiPostLoadAdAndRed():
+@app.route('/apiPostLoadAdicion', methods=['POST'])
+def apiPostLoadAdicion():
     if(request.method == 'POST'):
         data = {
             "status": "ok",
-            "idAdAndRed": "123",
+            "idAdRed": "123",
             "urlResutlado": "http://192.168.68.71:5000/DownloadBG",
             "datos": [
                 {
@@ -14256,6 +14267,21 @@ def apiPostLoadAdAndRed():
             ]
         }
         return jsonify(data)
+
+@app.route('/apiPostLoadReduccion', methods=['POST'])
+def apiPostLoadReduccion():
+    if(request.method == 'POST'):
+        data = {
+            "status": "ok",
+            "idAdRed": "123",
+            "urlResutlado": "http://192.168.68.71:5000/DownloadBG",
+            "datos": [
+                {
+                    "detail": "Carga Correcta!"
+                }
+            ]
+        }
+        return jsonify(data)        
 
 
 @app.route('/apiGetPeriodAdAndRed', methods=['POST'])
@@ -14285,12 +14311,12 @@ def apiPostSendApproveAdAndRed():
         return jsonify(data)
 
 
-@app.route('/apiPostRejectAdAndRed', methods=['POST'])
-def apiPostRejectAdAndRed():
+@app.route('/apiPostRejectAdRe', methods=['POST'])
+def apiPostRejectAdRe():
     if(request.method == 'POST'):
         data = {
             "status": "ok",
-            "idAdAndRed": "123",
+            "idAdRed": "123",
             "datos": [
                 {
                     "detail": "el AdAndRed se rechazo  correctamente"
@@ -14300,12 +14326,12 @@ def apiPostRejectAdAndRed():
         return jsonify(data)
 
 
-@app.route('/apiPostApproveAdAndRed', methods=['POST'])
-def apiPostApproveAdAndRed():
+@app.route('/apiPostApproveAdRe', methods=['POST'])
+def apiPostApproveAdRe():
     if(request.method == 'POST'):
         data = {
             "status": "ok",
-            "idAdAndRed": "123",
+            "idAdRed": "123",
             "datos": [
                 {
                     "detail": "el AdAndRed se aprobo  correctamente"
@@ -14320,7 +14346,7 @@ def apiPostCreateAdAndRed():
     if(request.method == 'POST'):
         data = {
             "status": "ok",
-            "idAdAndRedt": "123",
+            "idAdRed": "123",
             "urlResutlado": "http://192.168.68.71:5000/DownloadBG",
             "datos": [
                 {
@@ -14385,73 +14411,51 @@ def apigetDetailAdAndRed():
         return jsonify(data)
 
 
-@app.route('/apiPostAdAndRedByID', methods=['POST'])
-def apiPostAdAndRedByID():
+@app.route('/apiPostAdReByID', methods=['POST'])
+def apiPostAdReByID():
     if(request.method == 'POST'):
         data = {
-            "status": "ok",
-            "downloadAdAndRed": "http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FDownloadFloatP&idFloatP=be0679f6-203a-f741-9d34-b56bfae63a34",
-            "periodo": "Mayo",
-            "date": "13/05/2022",
-            "idAdAndRed": "",
-            "estado": "Creado",
-            "datos": [
-                {
-                    "idbgdt5": "0201010101",
-                    "bdgt1": "OPERATING COST",
-                    "bdgt2": "TOTAL OPERATIONAL SUPPLY Cash Egress",
-                    "bdgt3": "Operative Supplies",
-                    "bdgt4": "Operative Supplies",
-                    "bdgt5": "SOMACC Operations",
-                    "description": "Drill Bitsasaaaaaaaaaaaaaaaa0Drill Bitsasaaaaaaaaaaaaaaaa0Drill Bitsasaaaaaaaaaaaaaaaa0Drill Bitsasaaaaaaaaaaaaaaaa0",
-                    "budgV1": 2936.33188507,
-                    "Week 18 01MAY2022": 'null',
-                    "Week 18 03MAY2022": 'null',
-                    "Week 18 05MAY2022": 'null',
-                    "Week 19 08MAY2022": 'null',
-                    "Week 19 09MAY2022": 'null',
-                    "Week 19 11MAY2022": 'null',
-                    "Week 19 12MAY2022": 2936.33188507,
-                    "Week 19 14MAY2022": 'null',
-                    "Week 20 15MAY2022": 'null',
-                    "Week 20 19MAY2022": 'null',
-                    "Week 20 20MAY2022": 'null',
-                    "Week 21 22MAY2022": 'null',
-                    "Week 21 25MAY2022": 'null',
-                    "Week 21 26MAY2022": 'null',
-                    "Week 21 27MAY2022": 'null',
-                    "Week 21 28MAY2022": 'null',
-                    "Remaning": 0
-                },
-                {
-                    "idbgdt5": "0201010102",
-                    "bdgt1": "OPERATING COST",
-                    "bdgt2": "TOTAL OPERATIONAL SUPPLY Cash Egress",
-                    "bdgt3": "Operative Supplies",
-                    "bdgt4": "Operative Supplies",
-                    "bdgt5": "Drill Bits",
-                    "description": "Drill Bits",
-                    "budgV1": 15871.05,
-                    "Week 18 01MAY2022": 'null',
-                    "Week 18 03MAY2022": 'null',
-                    "Week 18 05MAY2022": 'null',
-                    "Week 19 08MAY2022": 'null',
-                    "Week 19 09MAY2022": 'null',
-                    "Week 19 11MAY2022": 'null',
-                    "Week 19 12MAY2022": 10580.7,
-                    "Week 19 14MAY2022": 'null',
-                    "Week 20 15MAY2022": 'null',
-                    "Week 20 19MAY2022": 5290.35,
-                    "Week 20 20MAY2022": 'null',
-                    "Week 21 22MAY2022": 'null',
-                    "Week 21 25MAY2022": 'null',
-                    "Week 21 26MAY2022": 'null',
-                    "Week 21 27MAY2022": 'null',
-                    "Week 21 28MAY2022": 'null',
-                    "Remaning": 0
-                }
-            ]
+    "status": "ok",
+    "downloadAd": "http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute/AKD International/API/AKADMAPI=%2FAKD+International%2FAPI%2FAKADMAPIapiPostAdReByID=apiPostAdReByID6aa93901-b9e0-b14f-b853-d83626c320ec",
+    "downloadRed": "http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute/AKD International/API/AKADMAPI=%2FAKD+International%2FAPI%2FAKADMAPIapiPostAdReByID=apiPostAdReByID6aa93901-b9e0-b14f-b853-d83626c320ec",
+    "periodo": "Mayo",
+    "date": "12/05/2022",
+    "idAdRed": "6aa93901-b9e0-b14f-b853-d83626c320ec",
+    "estado": "Adición / Reducción",
+    "weekInProgress": "21",
+    "datosAd": [
+        {
+            "estado": 'null',
+            "estadoChar": "",
+            "idbgdt5": "0201010103",
+            "bdgt1": "OPERATING COST",
+            "bdgt2": "TOTAL OPERATIONAL SUPPLY Cash Egress",
+            "bdgt3": "Operative Supplies",
+            "bdgt4": "Operative Supplies",
+            "bdgt5": "Drill Tooling",
+            "Week 19 12MAY2022": "$23,067.85",
+            "Week 20 19MAY2022": "$10,572.72",
+            "Week Remaning": "$0.00",
+            "budgV1": "$33,640.57"
         }
+    ],
+    "datosRe": [
+        {
+            "estado": 'null',
+            "estadoChar": "",
+            "idbgdt5": "0201010103",
+            "bdgt1": "OPERATING COST",
+            "bdgt2": "TOTAL OPERATIONAL SUPPLY Cash Egress",
+            "bdgt3": "Operative Supplies",
+            "bdgt4": "Operative Supplies",
+            "bdgt5": "Drill Tooling",
+            "Week 19 12MAY2022": "$23,067.85",
+            "Week 20 19MAY2022": "$10,572.72",
+            "Week Remaning": "$0.00",
+            "budgV1": "$33,640.57"
+        }
+    ]
+}
         return jsonify(data)
 
 
@@ -14552,20 +14556,17 @@ def apiGetPagosAll():
         data = {
             "status": "ok",
             "datos": [
-                {"idPay": "05202221AKDADM",
+                {"idPagos": "05202221AKDADM",
                  "periodo": "julio",
-                 "fechaCreacion": "01/03/2022",
-                 "Estado": "Creado"
+                 "fechaCreacion": "01/03/2022"
                  },
-                {"idPay": "05202221AKDADM",
+                {"idPagos": "05202221AKDADM",
                  "periodo": "marzo",
-                 "fechaCreacion": "01/03/2022",
-                 "Estado": "Enviado"
+                 "fechaCreacion": "01/03/2022"
                  },
-                {"idPay": "05202221AKDADM",
+                {"idPagos": "05202221AKDADM",
                  "periodo": "marzo",
-                 "fechaCreacion": "01/03/2022",
-                 "Estado": "Cerrado"
+                 "fechaCreacion": "01/03/2022"
                  }
             ]}
         return jsonify(data)
@@ -14603,71 +14604,611 @@ def apigetDetailPagos():
 def apiPostPagosByID():
     if(request.method == 'POST'):
         data = {
-            "status": "ok",
-            "downloadPagos": "http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FDownloadFloatP&idFloatP=be0679f6-203a-f741-9d34-b56bfae63a34",
-            "periodo": "Mayo",
-            "date": "13/05/2022",
-            "idPagos": "",
-            "estado": "Creado",
-            "datos": [
-                {
-                    "idbgdt5": "0201010101",
-                    "bdgt1": "OPERATING COST",
-                    "bdgt2": "TOTAL OPERATIONAL SUPPLY Cash Egress",
-                    "bdgt3": "Operative Supplies",
-                    "bdgt4": "Operative Supplies",
-                    "bdgt5": "SOMACC Operations",
-                    "description": "Drill Bitsasaaaaaaaaaaaaaaaa0Drill Bitsasaaaaaaaaaaaaaaaa0Drill Bitsasaaaaaaaaaaaaaaaa0Drill Bitsasaaaaaaaaaaaaaaaa0",
-                    "budgV1": 2936.33188507,
-                    "Week 18 01MAY2022": 'null',
-                    "Week 18 03MAY2022": 'null',
-                    "Week 18 05MAY2022": 'null',
-                    "Week 19 08MAY2022": 'null',
-                    "Week 19 09MAY2022": 'null',
-                    "Week 19 11MAY2022": 'null',
-                    "Week 19 12MAY2022": 2936.33188507,
-                    "Week 19 14MAY2022": 'null',
-                    "Week 20 15MAY2022": 'null',
-                    "Week 20 19MAY2022": 'null',
-                    "Week 20 20MAY2022": 'null',
-                    "Week 21 22MAY2022": 'null',
-                    "Week 21 25MAY2022": 'null',
-                    "Week 21 26MAY2022": 'null',
-                    "Week 21 27MAY2022": 'null',
-                    "Week 21 28MAY2022": 'null',
-                    "Remaning": 0
-                },
-                {
-                    "idbgdt5": "0201010102",
-                    "bdgt1": "OPERATING COST",
-                    "bdgt2": "TOTAL OPERATIONAL SUPPLY Cash Egress",
-                    "bdgt3": "Operative Supplies",
-                    "bdgt4": "Operative Supplies",
-                    "bdgt5": "Drill Bits",
-                    "description": "Drill Bits",
-                    "budgV1": 15871.05,
-                    "Week 18 01MAY2022": 'null',
-                    "Week 18 03MAY2022": 'null',
-                    "Week 18 05MAY2022": 'null',
-                    "Week 19 08MAY2022": 'null',
-                    "Week 19 09MAY2022": 'null',
-                    "Week 19 11MAY2022": 'null',
-                    "Week 19 12MAY2022": 10580.7,
-                    "Week 19 14MAY2022": 'null',
-                    "Week 20 15MAY2022": 'null',
-                    "Week 20 19MAY2022": 5290.35,
-                    "Week 20 20MAY2022": 'null',
-                    "Week 21 22MAY2022": 'null',
-                    "Week 21 25MAY2022": 'null',
-                    "Week 21 26MAY2022": 'null',
-                    "Week 21 27MAY2022": 'null',
-                    "Week 21 28MAY2022": 'null',
-                    "Remaning": 0
-                }
-            ]
+    "status": "ok",
+    "downloadDatosNR": "http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FdownloadDatosNR&IDPAGOS=ff5a610f-2c63-aa47-a826-289b7cb0908f",
+    "downloadDatos": "http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FdownloadDatos&IDPAGOS=ff5a610f-2c63-aa47-a826-289b7cb0908f",
+    "periodo": "Mayo",
+    "date": "01/05/2022",
+    "idPagos": "ff5a610f-2c63-aa47-a826-289b7cb0908f",
+    "estado": "Creado",
+    "weekInProgress": "19",
+    "datosNR": [
+        {
+            "Nombre_Proveedor": "VARIOS",
+            "Monto_Total_USD_Mes": 897,
+            "Observaciones": "Traslado de Tuberia RC PER - PTY (Compra Boyles)",
+            "Valor solicitado Part Dom": 0,
+            "Valor solicitado Part IDM": 0,
+            "Valor solicitado Part PTY": 0,
+            "Orden_Compra": "",
+            "Nro Requerimiento": "",
+            "Codigo_Budgt_Nivel_5": "0204010105",
+            "DescripcionBudget_Nivel_1": "OPERATING COST",
+            "DescripcionBudget_Nivel_2": "TOTAL OPERATING SERVICE COST",
+            "DescripcionBudget_Nivel_3": "TOTAL OPERATING SERVICE COST",
+            "DescripcionBudget_Nivel_5": "Customs Costs",
+            "Fecha de aprobación": "",
+            "idbgdt5": "0204010105"
+        },
+        {
+            "Nombre_Proveedor": "VARIOS",
+            "Monto_Total_USD_Mes": 4057.10719772,
+            "Observaciones": "",
+            "Valor solicitado Part Dom": 0,
+            "Valor solicitado Part IDM": 0,
+            "Valor solicitado Part PTY": 0,
+            "Orden_Compra": "",
+            "Nro Requerimiento": "",
+            "Codigo_Budgt_Nivel_5": "0204010108",
+            "DescripcionBudget_Nivel_1": "OPERATING COST",
+            "DescripcionBudget_Nivel_2": "TOTAL OPERATING SERVICE COST",
+            "DescripcionBudget_Nivel_3": "TOTAL OPERATING SERVICE COST",
+            "DescripcionBudget_Nivel_5": "International Frieght Costs",
+            "Fecha de aprobación": "",
+            "idbgdt5": "0204010108"
+        },
+        {
+            "Nombre_Proveedor": "VARIOS",
+            "Monto_Total_USD_Mes": 80,
+            "Observaciones": "Traslados Alonso Atarama",
+            "Valor solicitado Part Dom": 0,
+            "Valor solicitado Part IDM": 0,
+            "Valor solicitado Part PTY": 0,
+            "Orden_Compra": "",
+            "Nro Requerimiento": "",
+            "Codigo_Budgt_Nivel_5": "0301040106",
+            "DescripcionBudget_Nivel_1": "TOTAL OPEX",
+            "DescripcionBudget_Nivel_2": "PERSONNEL COST - Cash Egress",
+            "DescripcionBudget_Nivel_3": "In Direct HHRR Costs",
+            "DescripcionBudget_Nivel_5": "Transport National Travel",
+            "Fecha de aprobación": "",
+            "idbgdt5": "0301040106"
+        },
+        {
+            "Nombre_Proveedor": "VARIOS",
+            "Monto_Total_USD_Mes": 202.443733182,
+            "Observaciones": "",
+            "Valor solicitado Part Dom": 0,
+            "Valor solicitado Part IDM": 0,
+            "Valor solicitado Part PTY": 0,
+            "Orden_Compra": "",
+            "Nro Requerimiento": "",
+            "Codigo_Budgt_Nivel_5": "0204010105",
+            "DescripcionBudget_Nivel_1": "OPERATING COST",
+            "DescripcionBudget_Nivel_2": "TOTAL OPERATING SERVICE COST",
+            "DescripcionBudget_Nivel_3": "TOTAL OPERATING SERVICE COST",
+            "DescripcionBudget_Nivel_5": "Customs Costs",
+            "Fecha de aprobación": "",
+            "idbgdt5": "0204010105"
+        },
+        {
+            "Nombre_Proveedor": "PREDIQT S.A.C.",
+            "Monto_Total_USD_Mes": 280,
+            "Observaciones": "Licencias Qlik tipo Analyzer",
+            "Valor solicitado Part Dom": 0,
+            "Valor solicitado Part IDM": 0,
+            "Valor solicitado Part PTY": 0,
+            "Orden_Compra": "",
+            "Nro Requerimiento": "",
+            "Codigo_Budgt_Nivel_5": "0302010105",
+            "DescripcionBudget_Nivel_1": "TOTAL OPEX",
+            "DescripcionBudget_Nivel_2": "Total Opex Services Cash Egress",
+            "DescripcionBudget_Nivel_3": "Total Opex Services Cash Egress",
+            "DescripcionBudget_Nivel_5": "TIC - Communications & Hardware & Software",
+            "Fecha de aprobación": "",
+            "idbgdt5": "0302010105"
+        },
+        {
+            "Nombre_Proveedor": "AGENCIA DE VIAJES Y TURISMO EUROVIAJES S.A.C.",
+            "Monto_Total_USD_Mes": 1000,
+            "Observaciones": "Jorge Granda - Viaje a PTY (7 días)",
+            "Valor solicitado Part Dom": 0,
+            "Valor solicitado Part IDM": 0,
+            "Valor solicitado Part PTY": 0,
+            "Orden_Compra": "",
+            "Nro Requerimiento": "",
+            "Codigo_Budgt_Nivel_5": "0301040109",
+            "DescripcionBudget_Nivel_1": "TOTAL OPEX",
+            "DescripcionBudget_Nivel_2": "PERSONNEL COST - Cash Egress",
+            "DescripcionBudget_Nivel_3": "In Direct HHRR Costs",
+            "DescripcionBudget_Nivel_5": "Transport International Travel",
+            "Fecha de aprobación": "",
+            "idbgdt5": "0301040109"
+        },
+        {
+            "Nombre_Proveedor": "VARIOS",
+            "Monto_Total_USD_Mes": 245,
+            "Observaciones": "Viáticos A. Atarama PTY (7 días)",
+            "Valor solicitado Part Dom": 0,
+            "Valor solicitado Part IDM": 0,
+            "Valor solicitado Part PTY": 0,
+            "Orden_Compra": "",
+            "Nro Requerimiento": "",
+            "Codigo_Budgt_Nivel_5": "0301040108",
+            "DescripcionBudget_Nivel_1": "TOTAL OPEX",
+            "DescripcionBudget_Nivel_2": "PERSONNEL COST - Cash Egress",
+            "DescripcionBudget_Nivel_3": "In Direct HHRR Costs",
+            "DescripcionBudget_Nivel_5": "Meals International Travel",
+            "Fecha de aprobación": "",
+            "idbgdt5": "0301040108"
+        },
+        {
+            "Nombre_Proveedor": "VARIOS",
+            "Monto_Total_USD_Mes": 1499.58320875,
+            "Observaciones": "",
+            "Valor solicitado Part Dom": 0,
+            "Valor solicitado Part IDM": 0,
+            "Valor solicitado Part PTY": 0,
+            "Orden_Compra": "",
+            "Nro Requerimiento": "",
+            "Codigo_Budgt_Nivel_5": "0204010108",
+            "DescripcionBudget_Nivel_1": "OPERATING COST",
+            "DescripcionBudget_Nivel_2": "TOTAL OPERATING SERVICE COST",
+            "DescripcionBudget_Nivel_3": "TOTAL OPERATING SERVICE COST",
+            "DescripcionBudget_Nivel_5": "International Frieght Costs",
+            "Fecha de aprobación": "",
+            "idbgdt5": "0204010108"
+        },
+        {
+            "Nombre_Proveedor": "AGENCIA DE VIAJES Y TURISMO EUROVIAJES S.A.C.",
+            "Monto_Total_USD_Mes": 700,
+            "Observaciones": "Luis marino Bazan - 11 mayo de 2022",
+            "Valor solicitado Part Dom": 0,
+            "Valor solicitado Part IDM": 0,
+            "Valor solicitado Part PTY": 0,
+            "Orden_Compra": "",
+            "Nro Requerimiento": "",
+            "Codigo_Budgt_Nivel_5": "0203040109",
+            "DescripcionBudget_Nivel_1": "OPERATING COST",
+            "DescripcionBudget_Nivel_2": "TOTAL OPERATING HHRR Cash Egress",
+            "DescripcionBudget_Nivel_3": "TOTAL INDIRECT OPERATING HHRR Cash Egress",
+            "DescripcionBudget_Nivel_5": "Transport International Travel",
+            "Fecha de aprobación": "",
+            "idbgdt5": "0203040109"
+        },
+        {
+            "Nombre_Proveedor": "PETROVICH ., STEVEN CHAD",
+            "Monto_Total_USD_Mes": 12885,
+            "Observaciones": "Loan 13 _ Jul  / 89k",
+            "Valor solicitado Part Dom": 0,
+            "Valor solicitado Part IDM": 0,
+            "Valor solicitado Part PTY": 0,
+            "Orden_Compra": "",
+            "Nro Requerimiento": "",
+            "Codigo_Budgt_Nivel_5": "0401010103",
+            "DescripcionBudget_Nivel_1": "TOTAL NON OPEX CASH EGRESS",
+            "DescripcionBudget_Nivel_2": "Total Non Opex Financial Payments Cash Egress",
+            "DescripcionBudget_Nivel_3": "Financing Debt Payments Capitial & Interest",
+            "DescripcionBudget_Nivel_5": "Loan SP",
+            "Fecha de aprobación": "",
+            "idbgdt5": "0401010103"
+        },
+        {
+            "Nombre_Proveedor": "VARIOS",
+            "Monto_Total_USD_Mes": 245,
+            "Observaciones": "Viáticos J. Granda PTY (7 días)",
+            "Valor solicitado Part Dom": 0,
+            "Valor solicitado Part IDM": 0,
+            "Valor solicitado Part PTY": 0,
+            "Orden_Compra": "",
+            "Nro Requerimiento": "",
+            "Codigo_Budgt_Nivel_5": "0301040108",
+            "DescripcionBudget_Nivel_1": "TOTAL OPEX",
+            "DescripcionBudget_Nivel_2": "PERSONNEL COST - Cash Egress",
+            "DescripcionBudget_Nivel_3": "In Direct HHRR Costs",
+            "DescripcionBudget_Nivel_5": "Meals International Travel",
+            "Fecha de aprobación": "",
+            "idbgdt5": "0301040108"
+        },
+        {
+            "Nombre_Proveedor": "VARIOS",
+            "Monto_Total_USD_Mes": 80,
+            "Observaciones": "Traslados Jorge Granda",
+            "Valor solicitado Part Dom": 0,
+            "Valor solicitado Part IDM": 0,
+            "Valor solicitado Part PTY": 0,
+            "Orden_Compra": "",
+            "Nro Requerimiento": "",
+            "Codigo_Budgt_Nivel_5": "0301040106",
+            "DescripcionBudget_Nivel_1": "TOTAL OPEX",
+            "DescripcionBudget_Nivel_2": "PERSONNEL COST - Cash Egress",
+            "DescripcionBudget_Nivel_3": "In Direct HHRR Costs",
+            "DescripcionBudget_Nivel_5": "Transport National Travel",
+            "Fecha de aprobación": "",
+            "idbgdt5": "0301040106"
+        },
+        {
+            "Nombre_Proveedor": "VARIOS",
+            "Monto_Total_USD_Mes": 1039.5,
+            "Observaciones": "Alojamiento J. Granda (7 días)",
+            "Valor solicitado Part Dom": 0,
+            "Valor solicitado Part IDM": 0,
+            "Valor solicitado Part PTY": 0,
+            "Orden_Compra": "",
+            "Nro Requerimiento": "",
+            "Codigo_Budgt_Nivel_5": "0301040107",
+            "DescripcionBudget_Nivel_1": "TOTAL OPEX",
+            "DescripcionBudget_Nivel_2": "PERSONNEL COST - Cash Egress",
+            "DescripcionBudget_Nivel_3": "In Direct HHRR Costs",
+            "DescripcionBudget_Nivel_5": "Lodging International Travel",
+            "Fecha de aprobación": "",
+            "idbgdt5": "0301040107"
+        },
+        {
+            "Nombre_Proveedor": "VARIOS",
+            "Monto_Total_USD_Mes": 10582.83,
+            "Observaciones": "Traslado de Tuberia RC PER - PTY (Compra Boyles)",
+            "Valor solicitado Part Dom": 0,
+            "Valor solicitado Part IDM": 0,
+            "Valor solicitado Part PTY": 0,
+            "Orden_Compra": "",
+            "Nro Requerimiento": "",
+            "Codigo_Budgt_Nivel_5": "0204010108",
+            "DescripcionBudget_Nivel_1": "OPERATING COST",
+            "DescripcionBudget_Nivel_2": "TOTAL OPERATING SERVICE COST",
+            "DescripcionBudget_Nivel_3": "TOTAL OPERATING SERVICE COST",
+            "DescripcionBudget_Nivel_5": "International Frieght Costs",
+            "Fecha de aprobación": "",
+            "idbgdt5": "0204010108"
+        },
+        {
+            "Nombre_Proveedor": "VARIOS",
+            "Monto_Total_USD_Mes": 4304.42045039,
+            "Observaciones": "",
+            "Valor solicitado Part Dom": 0,
+            "Valor solicitado Part IDM": 0,
+            "Valor solicitado Part PTY": 0,
+            "Orden_Compra": "",
+            "Nro Requerimiento": "",
+            "Codigo_Budgt_Nivel_5": "0204010108",
+            "DescripcionBudget_Nivel_1": "OPERATING COST",
+            "DescripcionBudget_Nivel_2": "TOTAL OPERATING SERVICE COST",
+            "DescripcionBudget_Nivel_3": "TOTAL OPERATING SERVICE COST",
+            "DescripcionBudget_Nivel_5": "International Frieght Costs",
+            "Fecha de aprobación": "",
+            "idbgdt5": "0204010108"
+        },
+        {
+            "Nombre_Proveedor": "VARIOS",
+            "Monto_Total_USD_Mes": 507.5,
+            "Observaciones": "Vanessa Atoche y Esposo - RENOVACIÓN VISA SEM",
+            "Valor solicitado Part Dom": 0,
+            "Valor solicitado Part IDM": 0,
+            "Valor solicitado Part PTY": 0,
+            "Orden_Compra": "",
+            "Nro Requerimiento": "",
+            "Codigo_Budgt_Nivel_5": "0301040114",
+            "DescripcionBudget_Nivel_1": "TOTAL OPEX",
+            "DescripcionBudget_Nivel_2": "PERSONNEL COST - Cash Egress",
+            "DescripcionBudget_Nivel_3": "In Direct HHRR Costs",
+            "DescripcionBudget_Nivel_5": "Visa Documentation Costs",
+            "Fecha de aprobación": "",
+            "idbgdt5": "0301040114"
+        },
+        {
+            "Nombre_Proveedor": "VARIOS",
+            "Monto_Total_USD_Mes": 4610.91134629,
+            "Observaciones": "",
+            "Valor solicitado Part Dom": 0,
+            "Valor solicitado Part IDM": 0,
+            "Valor solicitado Part PTY": 0,
+            "Orden_Compra": "",
+            "Nro Requerimiento": "",
+            "Codigo_Budgt_Nivel_5": "0204010108",
+            "DescripcionBudget_Nivel_1": "OPERATING COST",
+            "DescripcionBudget_Nivel_2": "TOTAL OPERATING SERVICE COST",
+            "DescripcionBudget_Nivel_3": "TOTAL OPERATING SERVICE COST",
+            "DescripcionBudget_Nivel_5": "International Frieght Costs",
+            "Fecha de aprobación": "",
+            "idbgdt5": "0204010108"
+        },
+        {
+            "Nombre_Proveedor": "MEDINA FLORES, YURI",
+            "Monto_Total_USD_Mes": 1000,
+            "Observaciones": "Caja Chica",
+            "Valor solicitado Part Dom": 0,
+            "Valor solicitado Part IDM": 0,
+            "Valor solicitado Part PTY": 0,
+            "Orden_Compra": "",
+            "Nro Requerimiento": "",
+            "Codigo_Budgt_Nivel_5": "0204010119",
+            "DescripcionBudget_Nivel_1": "OPERATING COST",
+            "DescripcionBudget_Nivel_2": "TOTAL OPERATING SERVICE COST",
+            "DescripcionBudget_Nivel_3": "TOTAL OPERATING SERVICE COST",
+            "DescripcionBudget_Nivel_5": "Operational Caja Chica",
+            "Fecha de aprobación": "",
+            "idbgdt5": "0204010119"
+        },
+        {
+            "Nombre_Proveedor": "VARIOS",
+            "Monto_Total_USD_Mes": 581.096760802,
+            "Observaciones": "",
+            "Valor solicitado Part Dom": 0,
+            "Valor solicitado Part IDM": 0,
+            "Valor solicitado Part PTY": 0,
+            "Orden_Compra": "",
+            "Nro Requerimiento": "",
+            "Codigo_Budgt_Nivel_5": "0204010105",
+            "DescripcionBudget_Nivel_1": "OPERATING COST",
+            "DescripcionBudget_Nivel_2": "TOTAL OPERATING SERVICE COST",
+            "DescripcionBudget_Nivel_3": "TOTAL OPERATING SERVICE COST",
+            "DescripcionBudget_Nivel_5": "Customs Costs",
+            "Fecha de aprobación": "",
+            "idbgdt5": "0204010105"
+        },
+        {
+            "Nombre_Proveedor": "VARIOS",
+            "Monto_Total_USD_Mes": 547.709471692,
+            "Observaciones": "",
+            "Valor solicitado Part Dom": 0,
+            "Valor solicitado Part IDM": 0,
+            "Valor solicitado Part PTY": 0,
+            "Orden_Compra": "",
+            "Nro Requerimiento": "",
+            "Codigo_Budgt_Nivel_5": "0204010105",
+            "DescripcionBudget_Nivel_1": "OPERATING COST",
+            "DescripcionBudget_Nivel_2": "TOTAL OPERATING SERVICE COST",
+            "DescripcionBudget_Nivel_3": "TOTAL OPERATING SERVICE COST",
+            "DescripcionBudget_Nivel_5": "Customs Costs",
+            "Fecha de aprobación": "",
+            "idbgdt5": "0204010105"
+        },
+        {
+            "Nombre_Proveedor": "AGENCIA DE VIAJES Y TURISMO EUROVIAJES S.A.C.",
+            "Monto_Total_USD_Mes": 900,
+            "Observaciones": "Lizardo Monzalve - 11 mayo de 2022",
+            "Valor solicitado Part Dom": 0,
+            "Valor solicitado Part IDM": 0,
+            "Valor solicitado Part PTY": 0,
+            "Orden_Compra": "",
+            "Nro Requerimiento": "",
+            "Codigo_Budgt_Nivel_5": "0203040109",
+            "DescripcionBudget_Nivel_1": "OPERATING COST",
+            "DescripcionBudget_Nivel_2": "TOTAL OPERATING HHRR Cash Egress",
+            "DescripcionBudget_Nivel_3": "TOTAL INDIRECT OPERATING HHRR Cash Egress",
+            "DescripcionBudget_Nivel_5": "Transport International Travel",
+            "Fecha de aprobación": "",
+            "idbgdt5": "0203040109"
+        },
+        {
+            "Nombre_Proveedor": "MULTIBANK INC",
+            "Monto_Total_USD_Mes": 24046,
+            "Observaciones": "Cuota 18 de 36",
+            "Valor solicitado Part Dom": 0,
+            "Valor solicitado Part IDM": 0,
+            "Valor solicitado Part PTY": 0,
+            "Orden_Compra": "",
+            "Nro Requerimiento": "",
+            "Codigo_Budgt_Nivel_5": "0401010102",
+            "DescripcionBudget_Nivel_1": "TOTAL NON OPEX CASH EGRESS",
+            "DescripcionBudget_Nivel_2": "Total Non Opex Financial Payments Cash Egress",
+            "DescripcionBudget_Nivel_3": "Financing Debt Payments Capitial & Interest",
+            "DescripcionBudget_Nivel_5": "Multibank",
+            "Fecha de aprobación": "",
+            "idbgdt5": "0401010102"
+        },
+        {
+            "Nombre_Proveedor": "VARIOS",
+            "Monto_Total_USD_Mes": 400,
+            "Observaciones": "Suministros cafetería y limpieza",
+            "Valor solicitado Part Dom": 0,
+            "Valor solicitado Part IDM": 0,
+            "Valor solicitado Part PTY": 0,
+            "Orden_Compra": "",
+            "Nro Requerimiento": "",
+            "Codigo_Budgt_Nivel_5": "0302010108",
+            "DescripcionBudget_Nivel_1": "TOTAL OPEX",
+            "DescripcionBudget_Nivel_2": "Total Opex Services Cash Egress",
+            "DescripcionBudget_Nivel_3": "Total Opex Services Cash Egress",
+            "DescripcionBudget_Nivel_5": "Office Supplies",
+            "Fecha de aprobación": "",
+            "idbgdt5": "0302010108"
+        },
+        {
+            "Nombre_Proveedor": "MOVISTAR",
+            "Monto_Total_USD_Mes": 575,
+            "Observaciones": "Segun consumo de Marzo 2022",
+            "Valor solicitado Part Dom": 0,
+            "Valor solicitado Part IDM": 0,
+            "Valor solicitado Part PTY": 0,
+            "Orden_Compra": "",
+            "Nro Requerimiento": "",
+            "Codigo_Budgt_Nivel_5": "0204010111",
+            "DescripcionBudget_Nivel_1": "OPERATING COST",
+            "DescripcionBudget_Nivel_2": "TOTAL OPERATING SERVICE COST",
+            "DescripcionBudget_Nivel_3": "TOTAL OPERATING SERVICE COST",
+            "DescripcionBudget_Nivel_5": "Communication & Internet Costs - Hardware / Software",
+            "Fecha de aprobación": "",
+            "idbgdt5": "0204010111"
+        },
+        {
+            "Nombre_Proveedor": "VARIOS",
+            "Monto_Total_USD_Mes": 323.75,
+            "Observaciones": "Jorge Granda - RENOVACIÓN VISA SEM",
+            "Valor solicitado Part Dom": 0,
+            "Valor solicitado Part IDM": 0,
+            "Valor solicitado Part PTY": 0,
+            "Orden_Compra": "",
+            "Nro Requerimiento": "",
+            "Codigo_Budgt_Nivel_5": "0301040114",
+            "DescripcionBudget_Nivel_1": "TOTAL OPEX",
+            "DescripcionBudget_Nivel_2": "PERSONNEL COST - Cash Egress",
+            "DescripcionBudget_Nivel_3": "In Direct HHRR Costs",
+            "DescripcionBudget_Nivel_5": "Visa Documentation Costs",
+            "Fecha de aprobación": "",
+            "idbgdt5": "0301040114"
+        },
+        {
+            "Nombre_Proveedor": "VARIOS",
+            "Monto_Total_USD_Mes": 622.473031749,
+            "Observaciones": "",
+            "Valor solicitado Part Dom": 0,
+            "Valor solicitado Part IDM": 0,
+            "Valor solicitado Part PTY": 0,
+            "Orden_Compra": "",
+            "Nro Requerimiento": "",
+            "Codigo_Budgt_Nivel_5": "0204010105",
+            "DescripcionBudget_Nivel_1": "OPERATING COST",
+            "DescripcionBudget_Nivel_2": "TOTAL OPERATING SERVICE COST",
+            "DescripcionBudget_Nivel_3": "TOTAL OPERATING SERVICE COST",
+            "DescripcionBudget_Nivel_5": "Customs Costs",
+            "Fecha de aprobación": "",
+            "idbgdt5": "0204010105"
+        },
+        {
+            "Nombre_Proveedor": "VARIOS",
+            "Monto_Total_USD_Mes": 5710.38,
+            "Observaciones": "Liquidacion  - Jonathan Magallon (Cuota 3/3)",
+            "Valor solicitado Part Dom": 0,
+            "Valor solicitado Part IDM": 0,
+            "Valor solicitado Part PTY": 0,
+            "Orden_Compra": "",
+            "Nro Requerimiento": "",
+            "Codigo_Budgt_Nivel_5": "0203050103",
+            "DescripcionBudget_Nivel_1": "OPERATING COST",
+            "DescripcionBudget_Nivel_2": "TOTAL OPERATING HHRR Cash Egress",
+            "DescripcionBudget_Nivel_3": "TOTAL OPERATING LIQUIDATION HHRR Cash Egress",
+            "DescripcionBudget_Nivel_5": "Other Liquidations",
+            "Fecha de aprobación": "",
+            "idbgdt5": "0203050103"
+        },
+        {
+            "Nombre_Proveedor": "VARIOS",
+            "Monto_Total_USD_Mes": 1313.8,
+            "Observaciones": "MATERIALES PARA ADECUACIÓN DE FORD RANGER",
+            "Valor solicitado Part Dom": 0,
+            "Valor solicitado Part IDM": 0,
+            "Valor solicitado Part PTY": 0,
+            "Orden_Compra": "",
+            "Nro Requerimiento": "",
+            "Codigo_Budgt_Nivel_5": "0204010118",
+            "DescripcionBudget_Nivel_1": "OPERATING COST",
+            "DescripcionBudget_Nivel_2": "TOTAL OPERATING SERVICE COST",
+            "DescripcionBudget_Nivel_3": "TOTAL OPERATING SERVICE COST",
+            "DescripcionBudget_Nivel_5": "Operational Others",
+            "Fecha de aprobación": "",
+            "idbgdt5": "0204010118"
+        },
+        {
+            "Nombre_Proveedor": "RODRIGUEZ PINILLA, REBECA ELIZABET",
+            "Monto_Total_USD_Mes": 950,
+            "Observaciones": "Caja Chica Administrativa PTY",
+            "Valor solicitado Part Dom": 0,
+            "Valor solicitado Part IDM": 0,
+            "Valor solicitado Part PTY": 0,
+            "Orden_Compra": "",
+            "Nro Requerimiento": "",
+            "Codigo_Budgt_Nivel_5": "0302010114",
+            "DescripcionBudget_Nivel_1": "TOTAL OPEX",
+            "DescripcionBudget_Nivel_2": "Total Opex Services Cash Egress",
+            "DescripcionBudget_Nivel_3": "Total Opex Services Cash Egress",
+            "DescripcionBudget_Nivel_5": " Caja Chica Administrativa",
+            "Fecha de aprobación": "",
+            "idbgdt5": "0302010114"
+        },
+        {
+            "Nombre_Proveedor": "ALVAREZ, ERICKA",
+            "Monto_Total_USD_Mes": 440,
+            "Observaciones": "Asesoria Contable por 12 dias",
+            "Valor solicitado Part Dom": 0,
+            "Valor solicitado Part IDM": 0,
+            "Valor solicitado Part PTY": 0,
+            "Orden_Compra": "2022040031",
+            "Nro Requerimiento": "",
+            "Codigo_Budgt_Nivel_5": "0302010101",
+            "DescripcionBudget_Nivel_1": "TOTAL OPEX",
+            "DescripcionBudget_Nivel_2": "Total Opex Services Cash Egress",
+            "DescripcionBudget_Nivel_3": "Total Opex Services Cash Egress",
+            "DescripcionBudget_Nivel_5": " Opex Professional Fee's",
+            "Fecha de aprobación": "",
+            "idbgdt5": "0302010101"
+        },
+        {
+            "Nombre_Proveedor": "AGENCIA DE VIAJES Y TURISMO EUROVIAJES S.A.C.",
+            "Monto_Total_USD_Mes": 1000,
+            "Observaciones": "Alonso Atarama - Viaje a PTY (7 días)",
+            "Valor solicitado Part Dom": 0,
+            "Valor solicitado Part IDM": 0,
+            "Valor solicitado Part PTY": 0,
+            "Orden_Compra": "",
+            "Nro Requerimiento": "",
+            "Codigo_Budgt_Nivel_5": "0301040109",
+            "DescripcionBudget_Nivel_1": "TOTAL OPEX",
+            "DescripcionBudget_Nivel_2": "PERSONNEL COST - Cash Egress",
+            "DescripcionBudget_Nivel_3": "In Direct HHRR Costs",
+            "DescripcionBudget_Nivel_5": "Transport International Travel",
+            "Fecha de aprobación": "",
+            "idbgdt5": "0301040109"
+        },
+        {
+            "Nombre_Proveedor": "VARIOS",
+            "Monto_Total_USD_Mes": 550,
+            "Observaciones": "Provisión Exámenes Médicos",
+            "Valor solicitado Part Dom": 0,
+            "Valor solicitado Part IDM": 0,
+            "Valor solicitado Part PTY": 0,
+            "Orden_Compra": "",
+            "Nro Requerimiento": "",
+            "Codigo_Budgt_Nivel_5": "0203040112",
+            "DescripcionBudget_Nivel_1": "OPERATING COST",
+            "DescripcionBudget_Nivel_2": "TOTAL OPERATING HHRR Cash Egress",
+            "DescripcionBudget_Nivel_3": "TOTAL INDIRECT OPERATING HHRR Cash Egress",
+            "DescripcionBudget_Nivel_5": "Laboratory Costs",
+            "Fecha de aprobación": "",
+            "idbgdt5": "0203040112"
         }
+    ],
+    "datos": [{
+            "Nombre_Proveedor": "VARIOS",
+            "Monto_Total_USD_Mes": 897,
+            "Observaciones": "Traslado de Tuberia RC PER - PTY (Compra Boyles)",
+            "Valor solicitado Part Dom": 0,
+            "Valor solicitado Part IDM": 0,
+            "Valor solicitado Part PTY": 0,
+            "Orden_Compra": "",
+            "Nro Requerimiento": "",
+            "Codigo_Budgt_Nivel_5": "0204010105",
+            "DescripcionBudget_Nivel_1": "OPERATING COST",
+            "DescripcionBudget_Nivel_2": "TOTAL OPERATING SERVICE COST",
+            "DescripcionBudget_Nivel_3": "TOTAL OPERATING SERVICE COST",
+            "DescripcionBudget_Nivel_5": "Customs Costs",
+            "Fecha de aprobación": "",
+            "idbgdt5": "0204010105"
+        },
+        {
+            "Nombre_Proveedor": "VARIOS",
+            "Monto_Total_USD_Mes": 4057.10719772,
+            "Observaciones": "",
+            "Valor solicitado Part Dom": 0,
+            "Valor solicitado Part IDM": 0,
+            "Valor solicitado Part PTY": 0,
+            "Orden_Compra": "",
+            "Nro Requerimiento": "",
+            "Codigo_Budgt_Nivel_5": "0204010108",
+            "DescripcionBudget_Nivel_1": "OPERATING COST",
+            "DescripcionBudget_Nivel_2": "TOTAL OPERATING SERVICE COST",
+            "DescripcionBudget_Nivel_3": "TOTAL OPERATING SERVICE COST",
+            "DescripcionBudget_Nivel_5": "International Frieght Costs",
+            "Fecha de aprobación": "",
+            "idbgdt5": "0204010108"
+        }]
+}
         return jsonify(data)
 
+
+#apiGetRunPagos
+@app.route('/apiGetRunPagos', methods=['GET'])
+def apiGetRunPagos():
+    if(request.method == 'GET'):
+        data = {
+  "status": "warning",
+  "datos": [
+    {
+      "detail": "No hay pagos nuevos"
+    }
+  ]
+}
+        return jsonify(data)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)

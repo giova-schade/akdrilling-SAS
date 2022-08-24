@@ -1,0 +1,394 @@
+<div class="content">
+    <div class=" row">
+        <div class=" col-12">
+            <div class=" card">
+                <p-progressBar *ngIf="loadingPage" mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
+                <p-blockUI [blocked]="loadingPage" [style]="{'z-index': '2'}"></p-blockUI>
+
+
+
+
+                <p-tabView>
+                    <p-tabPanel header="Pagos registrados">
+                        <div class=" card-header">
+                            <!-- Inicio codigo ver pagos-->
+
+                            <div class=" card-body" *ngIf="pagos.controls['Option'].value['Code'] == '01'">
+                                <form class="p-grid" [formGroup]="pagos" accept-charset="utf-8">
+
+                                    <div class=" card">
+                                        <div class="card-header">
+                                            <div class="download">
+                                                <div class="row">
+                                                    <!-- botones del flujo-->
+                                                    <div class="col-md-6">
+                                                        <h5>Pago de:
+                                                            {{pagos.controls['PERIODO'].value['periodo']}}</h5>
+                                                    </div>
+                                                    <!-- fin botones del flujo-->
+                                                    <div class="col-md-12">
+                                                        <div class=" row" style="text-align: right;">
+                                                            <div>
+                                                                <button pButton pRipple type="button"
+                                                                    (click)="downloadPagos()"
+                                                                    class="p-button-rounded p-button-text ">
+                                                                    <img src="/akdrilling/assets/img/dnd/ic-file-excel.svg"
+                                                                        width="45px" alt="file">
+
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="card-body">
+                                                <div class=" col-sm-12">
+                                                    <p-table #pagosReg [columns]="camposPagos" [paginator]="true"
+                                                    [value]="datasourcePagos" [rowHover]="true" [rows]="10"
+                                                    [showCurrentPageReport]="true" [loading]="loading"
+                                                    currentPageReportTemplate="Mostrar {first} hasta  {last} de {totalRecords} datos"
+                                                    [filterDelay]="0" [responsive]="true" [autoLayout]="true"
+                                                    [globalFilterFields]="camposPagos.field" styleClass="tabla"
+                                                    [scrollable]="true"
+                                                    [reorderableColumns]="true" scrollHeight="500px"
+                                                    [multiSortMeta]="multiSortMetaPagos"
+                                                    [tableStyle]="{ width: 'max-content'}">
+
+                                                    <ng-template pTemplate="caption">
+                                                        <div class="p-d-flex">
+
+                                                            <button pButton label="Limpiar"
+                                                                class="p-button-outlined" icon="pi pi-filter-slash"
+                                                                (click)="clear(pagosReg)"></button>
+                                                            <span class="p-input-icon-left p-ml-auto">
+                                                                <i class="pi pi-search"></i>
+                                                                <input pInputText type="text"
+                                                                    (input)="applyFilterGlobalBD($event, 'contains')"
+                                                                    placeholder="Filtrar" />
+                                                            </span>
+
+                                                        </div>
+                                                    </ng-template>
+                                                    <ng-template pTemplate="header" let-columns>
+                                                        <tr>
+                                                            <th *ngFor="let col of columns" pReorderableColumn>
+                                                                <p-columnFilter type="text" [field]="col.field">
+
+                                                                </p-columnFilter>
+                                                            </th>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <th *ngFor="let col of columns"
+                                                                pSortableColumn="{{col.field}}">
+                                                                {{col.field}}
+                                                                <p-sortIcon field="{{col.field}}">
+                                                                </p-sortIcon>
+                                                            </th>
+
+                                                        </tr>
+                                                    </ng-template>
+                                                    <ng-template pTemplate="body" let-rowData let-columns="columns">
+                                                        <tr [pSelectableRow]="rowData"
+                                                            (dblclick)="onRowDblClick($event, rowData)">
+                                                            <td *ngFor="let col of columns"
+                                                                [ngClass]="col.field.indexOf('Valor solicitado Part Dom') != -1 ? 'dollar-col' :
+                                                                            col.field.indexOf('Valor solicitado Part IDM') != -1 ? 'dollar-col' :
+                                                                            col.field.indexOf('Valor solicitado Part PTY') != -1 ? 'dollar-col' : ''">
+                                                                {{rowData[col.field]}}</td>
+                                                        </tr>
+
+                                                    </ng-template>
+                                                    <ng-template pTemplate="emptymessage" let-columns>
+                                                        <tr>
+                                                            <td [attr.colspan]="columns.length">
+                                                                No records found
+                                                            </td>
+                                                        </tr>
+                                                    </ng-template>
+                                                </p-table>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+
+                                </form>
+                            </div>
+                            <!-- Fin codigo ver pago-->
+
+                            <p-confirmDialog [style]="{width: '50vw'}" key="positionDialog" [position]="'bottom'"
+                                [baseZIndex]="10000"></p-confirmDialog>
+                            <p-messages [value]="msgs"></p-messages>
+
+                            <p-dialog header="Detalle Pago {{datosDetailPagos?.idbgdt5}} "
+                                [(visible)]="displeyPagosDetail" [style]="{width: '70vw', height: '50vw'}"
+                                [baseZIndex]="10000">
+
+                                <div class="card-body">
+                                    <div class=" col-sm-12">
+
+                                        <p-table #pagosd [columns]="camposPagosD" [value]="datasourcePagosD"
+                                            [rowHover]="true" [rows]="10" [showCurrentPageReport]="true"
+                                            [loading]="loadingDetail"
+                                            currentPageReportTemplate="Mostrar {first} hasta  {last} de {totalRecords} datos"
+                                            [filterDelay]="0" [resizableColumns]="true" [responsive]="true"
+                                            [autoLayout]="true" [globalFilterFields]="camposPagosD?.field"
+                                            styleClass="tabla" [scrollable]="true" [reorderableColumns]="true"
+                                            scrollHeight="500px" [autoLayout]="true"
+                                            [multiSortMeta]="multiSortMetaPagosD"
+                                            [tableStyle]="{ width: 'max-content'}">
+                                            <ng-template pTemplate="caption">
+                                                <div class="p-d-flex">
+                                                    <button pButton label="Limpiar" class="p-button-outlined"
+                                                        icon="pi pi-filter-slash" (click)="clear(pagosd)"></button>
+                                                    <span class="p-input-icon-left p-ml-auto">
+                                                        <i class="pi pi-search"></i>
+                                                        <input pInputText type="text"
+                                                            (input)="applyFilterGlobalBD($event, 'contains')"
+                                                            placeholder="Filtrar" />
+                                                    </span>
+
+                                                </div>
+                                            </ng-template>
+                                            <ng-template pTemplate="header" let-columns>
+                                                <tr>
+                                                    <th *ngFor="let col of columns" pReorderableColumn>
+                                                        <p-columnFilter type="text" [field]="col?.field">
+
+                                                        </p-columnFilter>
+                                                    </th>
+                                                </tr>
+
+                                                <tr>
+                                                    <th *ngFor="let col of columns" pSortableColumn="{{col?.field}}">
+                                                        {{col?.field}}
+                                                        <p-sortIcon field="{{col?.field}}">
+                                                        </p-sortIcon>
+                                                    </th>
+
+                                                </tr>
+                                            </ng-template>
+                                            <ng-template pTemplate="body" let-rowData let-columns="columns">
+                                                <tr>
+                                                    <td *ngFor="let col of columns"
+                                                        [ngClass]="col.field.indexOf('USD') != -1 ? 'dollar-col' : ''">
+                                                        {{rowData[col.field]}}</td>
+                                                </tr>
+
+                                            </ng-template>
+                                            <ng-template pTemplate="emptymessage" let-columns>
+                                                <tr>
+                                                    <td [attr.colspan]="columns?.length">
+                                                        No hay datos para mostrar
+                                                    </td>
+                                                </tr>
+                                            </ng-template>
+                                        </p-table>
+                                    </div>
+                                </div>
+
+
+                                <ng-template pTemplate="footer">
+                                </ng-template>
+                            </p-dialog>
+
+
+                        </div>
+                    </p-tabPanel>
+                    <p-tabPanel header="Pagos no registrados">
+                        <div class=" card-header">
+                            <!-- Inicio codigo ver pagos-->
+
+                            <div class=" card-body" *ngIf="pagos.controls['Option'].value['Code'] == '01'">
+                                <form class="p-grid" [formGroup]="pagos" accept-charset="utf-8">
+
+                                    <div class=" card" >
+                                        <div class="card-header">
+                                            <div class="download">
+                                                <div class="row">
+                                                    <!-- botones del flujo-->
+                                                    <div class="col-md-6">
+                                                        <h5>Pago de:
+                                                            {{pagos.controls['PERIODO'].value['periodo']}}</h5>
+                                                    </div>
+                                                    <!-- fin botones del flujo-->
+                                                    <div class="col-md-12">
+                                                        <div class=" row" style="text-align: right;">
+                                                            <div>
+                                                                <button pButton pRipple type="button"
+                                                                    (click)="downloadPagosNR()"
+                                                                    class="p-button-rounded p-button-text ">
+                                                                    <img src="/akdrilling/assets/img/dnd/ic-file-excel.svg"
+                                                                        width="45px" alt="file">
+
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="card-body">
+                                                <div class=" col-sm-12">
+                                                    <p-table #pagosNoreg [columns]="camposPagosNR" [paginator]="true"
+                                                        [value]="datasourcePagosNR" [rowHover]="true" [rows]="10"
+                                                        [showCurrentPageReport]="true" [loading]="loading"
+                                                        currentPageReportTemplate="Mostrar {first} hasta  {last} de {totalRecords} datos"
+                                                        [filterDelay]="0" [responsive]="true" [autoLayout]="true"
+                                                        [globalFilterFields]="camposPagosNR.field" styleClass="tabla"
+                                                        [scrollable]="true"
+                                                        [reorderableColumns]="true" scrollHeight="500px"
+                                                        [multiSortMeta]="multiSortMetaPagosNR"
+                                                        [tableStyle]="{ width: 'max-content'}">
+
+                                                        <ng-template pTemplate="caption">
+                                                            <div class="p-d-flex">
+
+                                                                <button pButton label="Limpiar"
+                                                                    class="p-button-outlined" icon="pi pi-filter-slash"
+                                                                    (click)="clear(pagosNoreg)"></button>
+                                                                <span class="p-input-icon-left p-ml-auto">
+                                                                    <i class="pi pi-search"></i>
+                                                                    <input pInputText type="text"
+                                                                        (input)="applyFilterGlobalBDNP($event, 'contains')"
+                                                                        placeholder="Filtrar" />
+                                                                </span>
+
+                                                            </div>
+                                                        </ng-template>
+                                                        <ng-template pTemplate="header" let-columns>
+                                                            <tr>
+                                                                <th *ngFor="let col of columns" pReorderableColumn>
+                                                                    <p-columnFilter type="text" [field]="col.field">
+
+                                                                    </p-columnFilter>
+                                                                </th>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <th *ngFor="let col of columns"
+                                                                    pSortableColumn="{{col.field}}">
+                                                                    {{col.field}}
+                                                                    <p-sortIcon field="{{col.field}}">
+                                                                    </p-sortIcon>
+                                                                </th>
+
+                                                            </tr>
+                                                        </ng-template>
+                                                        <ng-template pTemplate="body" let-rowData let-columns="columns">
+                                                            <tr [pSelectableRow]="rowData"
+                                                                (dblclick)="onRowDblClick($event, rowData)">
+                                                                <td *ngFor="let col of columns"
+                                                                    [ngClass]="col.field.indexOf('Valor solicitado Part Dom') != -1 ? 'dollar-col' :
+                                                                    col.field.indexOf('Valor solicitado Part IDM') != -1 ? 'dollar-col' :
+                                                                    col.field.indexOf('Valor solicitado Part PTY') != -1 ? 'dollar-col' : ''">
+                                                                    {{rowData[col.field]}}</td>
+                                                            </tr>
+
+                                                        </ng-template>
+                                                        <ng-template pTemplate="emptymessage" let-columns>
+                                                            <tr>
+                                                                <td [attr.colspan]="columns.length">
+                                                                    No records found
+                                                                </td>
+                                                            </tr>
+                                                        </ng-template>
+                                                    </p-table>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                            <!-- Fin codigo ver pago-->
+
+                            <p-confirmDialog [style]="{width: '50vw'}" key="positionDialog" [position]="'bottom'"
+                                [baseZIndex]="10000"></p-confirmDialog>
+                            <p-messages [value]="msgs"></p-messages>
+
+                            <p-dialog header="Detalle Pago {{datosDetailPagos?.idbgdt5}} "
+                                [(visible)]="displeyPagosDetail" [style]="{width: '70vw', height: '50vw'}"
+                                [baseZIndex]="10000">
+
+                                <div class="card-body">
+                                    <div class=" col-sm-12">
+
+                                        <p-table #pagosd [columns]="camposPagosD" [value]="datasourcePagosD"
+                                            [rowHover]="true" [rows]="10" [showCurrentPageReport]="true"
+                                            [loading]="loadingDetail"
+                                            currentPageReportTemplate="Mostrar {first} hasta  {last} de {totalRecords} datos"
+                                            [filterDelay]="0" [resizableColumns]="true" [responsive]="true"
+                                            [autoLayout]="true" [globalFilterFields]="camposPagosD?.field"
+                                            styleClass="tabla" [scrollable]="true" [reorderableColumns]="true"
+                                            scrollHeight="500px" [autoLayout]="true"
+                                            [multiSortMeta]="multiSortMetaPagosD"
+                                            [tableStyle]="{ width: 'max-content'}">
+                                            <ng-template pTemplate="caption">
+                                                <div class="p-d-flex">
+                                                    <button pButton label="Limpiar" class="p-button-outlined"
+                                                        icon="pi pi-filter-slash" (click)="clear(pagosd)"></button>
+                                                    <span class="p-input-icon-left p-ml-auto">
+                                                        <i class="pi pi-search"></i>
+                                                        <input pInputText type="text"
+                                                            (input)="applyFilterGlobalBD($event, 'contains')"
+                                                            placeholder="Filtrar" />
+                                                    </span>
+
+                                                </div>
+                                            </ng-template>
+                                            <ng-template pTemplate="header" let-columns>
+                                                <tr>
+                                                    <th *ngFor="let col of columns" pReorderableColumn>
+                                                        <p-columnFilter type="text" [field]="col?.field">
+
+                                                        </p-columnFilter>
+                                                    </th>
+                                                </tr>
+
+                                                <tr>
+                                                    <th *ngFor="let col of columns" pSortableColumn="{{col?.field}}">
+                                                        {{col?.field}}
+                                                        <p-sortIcon field="{{col?.field}}">
+                                                        </p-sortIcon>
+                                                    </th>
+
+                                                </tr>
+                                            </ng-template>
+                                            <ng-template pTemplate="body" let-rowData let-columns="columns">
+                                                <tr>
+                                                    <td *ngFor="let col of columns"
+                                                        [ngClass]="col.field.indexOf('USD') != -1 ? 'dollar-col' : ''">
+                                                        {{rowData[col.field]}}</td>
+                                                </tr>
+
+                                            </ng-template>
+                                            <ng-template pTemplate="emptymessage" let-columns>
+                                                <tr>
+                                                    <td [attr.colspan]="columns?.length">
+                                                        No hay datos para mostrar
+                                                    </td>
+                                                </tr>
+                                            </ng-template>
+                                        </p-table>
+                                    </div>
+                                </div>
+
+
+                                <ng-template pTemplate="footer">
+                                </ng-template>
+                            </p-dialog>
+
+
+                        </div>
+                    </p-tabPanel>
+                </p-tabView>
+
+
+            </div>
+        </div>
+    </div>

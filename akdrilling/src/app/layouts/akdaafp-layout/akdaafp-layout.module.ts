@@ -35,6 +35,7 @@ import {  Budget } from "../../pages/Budget/budget.component.module";
 import {  FloatFPV  } from "../../pages/floatPlanned/ViewFloatP/ViewFloatp.component.module";
 import {  FloatFEV  } from "../../pages/floatInAction/ViewFloatAction/ViewFloatAction.component.module";
 import {  MeetV  } from "../../pages/meet/ViewMeet/ViewMeet.component.module";
+import {  PayV  } from "../../pages/pagos/ViewPagos/ViewPagos.component.module";
 import { Report } from "src/app/pages/report/report.component.module";
 
 
@@ -70,7 +71,8 @@ import { Report } from "src/app/pages/report/report.component.module";
     FloatFPV,
     FloatFEV,
     MeetV,
-    Report
+    Report,
+    PayV
 
   ],
   declarations: [

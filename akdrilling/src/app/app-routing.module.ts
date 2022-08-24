@@ -14,13 +14,14 @@ import { AkdabdfLayoutComponent } from "./layouts/akdabdf-layout/akdabdf-layout.
 import { AkdafpLayoutComponent } from "./layouts/akdafp-layout/akdafp-layout.component";
 import { AkdaafpLayoutComponent } from "./layouts/akdaafp-layout/akdaafp-layout.component";
 import { AkdarfeLayoutComponent } from "./layouts/akdarfe-layout/akdarfe-layout.component";
+import { AkdaaerfeLayoutComponent } from "./layouts/akdaaerfe-layout/akdaaerfe-layout.component";
 import { AkdaafeLayoutComponent } from "./layouts/akdaafe-layout/akdaafe-layout.component";
 import { AkdafeLayoutComponent } from "./layouts/akdafe-layout/akdafe-layout.component";
 import { AkdamtLayoutComponent } from "./layouts/akdamt-layout/akdamt-layout.component";
 import { AkdaamtLayoutComponent } from "./layouts/akdaamt-layout/akdaamt-layout.component";
 import { AkdarmtLayoutComponent } from "./layouts/akdarmt-layout/akdarmt-layout.component";
 const routes: Routes = [
-  
+
   {
     path: "",
     component: AdminLayoutComponent,
@@ -35,7 +36,7 @@ const routes: Routes = [
       {
         path: "AKDADM",
         loadChildren: () => import("./layouts/admin-layout/admin-layout.module").then(m => m.AdminLayoutModule)
-          
+
       }
     ]
   },
@@ -53,11 +54,11 @@ const routes: Routes = [
       {
         path: "AKDABRRHH",
         loadChildren: () => import("./layouts/akdabrrhh-layout/akdabrrhh-layout.module").then(m => m.AkdabrrhhLayoutModule)
-          
+
       }
     ]
   },
-  
+
   {
     path: "",
     component: AkdabopLayoutComponent,
@@ -72,11 +73,11 @@ const routes: Routes = [
       {
         path: "AKDABOP",
         loadChildren: () => import("./layouts/akdabop-layout/akdabop-layout.module").then(m => m.AkdabopLayoutModule)
-          
+
       }
     ]
   },
-  
+
   {
     path: "",
     component: AkdabdfLayoutComponent,
@@ -91,7 +92,7 @@ const routes: Routes = [
       {
         path: "AKDABDF",
         loadChildren: () => import("./layouts/akdabdf-layout/akdabdf-layout.module").then(m => m.akdabdfLayoutModule)
-          
+
       }
     ]
   },
@@ -109,7 +110,7 @@ const routes: Routes = [
       {
         path: "AKDAFP",
         loadChildren: () => import("./layouts/akdafp-layout/akdafp-layout.module").then(m => m.AkdafpLayoutModule)
-          
+
       }
     ]
   },
@@ -127,7 +128,7 @@ const routes: Routes = [
       {
         path: "AKDAAFP",
         loadChildren: () => import("./layouts/akdaafp-layout/akdaafp-layout.module").then(m => m.akdaafpLayoutModule)
-          
+
       }
     ]
   },
@@ -145,7 +146,7 @@ const routes: Routes = [
       {
         path: "AKDAFE",
         loadChildren: () => import("./layouts/akdafe-layout/akdafe-layout.module").then(m => m.AkdafeLayoutModule)
-          
+
       }
     ]
   },
@@ -161,9 +162,9 @@ const routes: Routes = [
     },
     children: [
       {
-        path: "AccessDenied",
-        loadChildren: () => import("./layouts/access-denied/access-denied.module").then(m => m.AccessDeniedLayoutModule)
-          
+        path: "AKDAFE",
+        loadChildren: () => import("./layouts/akdafe-layout/akdafe-layout.module").then(m => m.AkdafeLayoutModule)
+
       }
     ]
   },
@@ -181,7 +182,7 @@ const routes: Routes = [
       {
         path: "AKDAAFE",
         loadChildren: () => import("./layouts/akdaafe-layout/akdaafe-layout.module").then(m => m.AkdaafeLayoutModule)
-          
+
       }
     ]
   },
@@ -199,11 +200,40 @@ const routes: Routes = [
       {
         path: "AKDARFE",
         loadChildren: () => import("./layouts/akdarfe-layout/akdarfe-layout.module").then(m => m.AkdarfeLayoutModule)
-          
+
       }
     ]
+  },
+  {
+    path: "",
+    component: AkdaaerfeLayoutComponent,
+    canLoad: [AuthGuard],
+    canActivate: [AuthGuard],
+    data: {
+      roles: [
+        Role.AKDAAERFE,
+      ]
+    },
+    children: [
+      {
+        path: "AKDAAERFE",
+        loadChildren: () => import("./layouts/akdaaerfe-layout/akdaaerfe-layout.module").then(m => m.AkdaaerfeLayoutModule)
+
       }
-  
+    ]
+  },
+  {
+    path: "",
+    component: AccessDenied,
+    children: [
+      {
+        path: "access-denied",
+        loadChildren: () => import("./layouts/access-denied/access-denied.module").then(m => m.AccessDeniedLayoutModule)
+
+      }
+    ]
+  }
+
 ];
 
 @NgModule({
@@ -219,4 +249,4 @@ const routes: Routes = [
     MaestrosService
   ]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

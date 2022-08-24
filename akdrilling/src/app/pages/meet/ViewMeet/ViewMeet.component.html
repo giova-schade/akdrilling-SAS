@@ -21,10 +21,10 @@
                                     (click)="flowRechazar()"></button>
                                 </div>
                                 <div *ngIf="usuario.role != 'AKDADM' ">
-                                <button *ngIf="meet.controls['estado'].value == 'Meet' && usuario.role == 'AKDAAMT' " type="button"
+                                <button *ngIf="meet.controls['estado'].value == 'Meet' && usuario.role == 'AKDARFE' " type="button"
                                     pButton label="Aprobar" icon="pi pi-check-circle" style="margin-left:.25em"
                                     (click)="flowAceptar()"></button>
-                                <button *ngIf="meet.controls['estado'].value == 'Meet' && usuario.role =='AKDAAMT'"
+                                <button *ngIf="meet.controls['estado'].value == 'Meet' && usuario.role =='AKDARFE'"
                                     class="p-button-danger" type="button" pButton label="Rechazar"
                                     icon="pi pi-times-circle" style="margin-left:.25em"
                                     (click)="flowRechazar()"></button>
@@ -154,55 +154,6 @@
 
                                 </div>
                             </div>
-
-                            <p-card class=" card-body" style="text-align: center;"
-                                *ngIf="DatosMeet.length !=  0 && meet.controls['estado'].value == 'Creado'">
-                                <ng-template pTemplate="header">
-                                    Actualización de Meet
-                                </ng-template>
-                                <div class=" row PanelInformacion">
-                                    <div class="col">
-                                        <div class="row justify-content-md-center">
-                                            <div class="col">
-                                                <div class="container" *ngIf="DatosMeet.length !=  0" appDnd
-                                                    (fileDropped)="onFileDropped($event)">
-                                                    <input type="file" #fileDropRef id="fileDropRef" multiple
-                                                        (change)="fileBrowseHandler($event)" />
-                                                    <img src="/akdrilling/assets/img/dnd/ic-upload-file.svg" alt="">
-                                                    <h3>Arrastra y suelta el archivo aquí</h3>
-                                                    <h3>o</h3>
-                                                    <label for="fileDropRef">Selecciona el archivo</label>
-                                                </div>
-                                                <div class="files-list" *ngIf="DatosMeet.length !=  0">
-                                                    <div class="single-file" *ngFor="let file of files; let i = index">
-                                                        <img src="/akdrilling/assets/img/dnd/ic-file-excel.svg"
-                                                            width="45px" alt="file">
-                                                        <div class="info">
-                                                            <h4 class="name">
-                                                                {{ file?.name }}
-                                                            </h4>
-                                                            <p class="size">
-                                                                {{ formatBytes(file?.size) }}
-                                                            </p>
-                                                            <app-progress [progress]="file?.progress"></app-progress>
-                                                        </div>
-                                                        <img src="/akdrilling/assets/img/dnd/ic-delete-file.svg"
-                                                            class="delete" width="20px" alt="file"
-                                                            (click)="deleteFile(i)">
-                                                    </div>
-                                                </div>
-                                                <button pButton pRipple type="button" label="Cargar"
-                                                    class="p-button-outlined" (click)="Procesar()"></button>
-                                            </div>
-
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                
-
-                            </p-card>
 
 
                         </form>

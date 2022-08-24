@@ -12,18 +12,23 @@ export class AuthGuard implements CanActivate, CanLoad {
     ) { }
 
     canActivate(route: ActivatedRouteSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-        if (!this.authService.isAuthorized()) {
-            this.router.navigate(['login']);            
+        if (Object.keys(this.authService['user']).length > 0) {
+            if (!this.authService.isAuthorized()) {
+                this.router.navigate(['login']);
+                return false;
+            }
+
+            const roles = route.data.roles as Role[];
+            if (roles && !roles.some(r => this.authService.hasRole(r))) {
+                this.router.navigate(['access-denied']);
+                return false;
+            }
+
+            return true;
+        } else {
             return false;
         }
 
-        const roles = route.data.roles as Role[];
-        if (roles && !roles.some(r => this.authService.hasRole(r))) {
-            this.router.navigate(['error', 'access-denied']);
-            return false;
-        }
-
-        return true;
     }
 
     canLoad(route: Route): Observable<boolean> | Promise<boolean> | boolean {

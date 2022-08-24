@@ -46,7 +46,7 @@ export class PaymentsComponent implements OnInit {
     file: new FormControl(Blob, Validators.required),
     DatosPayments: new FormArray([]),
     Option: new FormControl('', Validators.required),
-    idPay: new FormControl('', Validators.required),
+    idPagos: new FormControl('', Validators.required),
     Role: new FormControl('', Validators.required),
   })
   constructor(
@@ -75,7 +75,7 @@ export class PaymentsComponent implements OnInit {
       name: 'Crear Float planificado'
     })
     this.usuario = this.authService.GetuserInfo();
-    if (this.usuario.role == 'AKDAFP' || this.usuario.role == 'AKDAAFP' || this.usuario.role == 'AKDADM' ) {
+    if (this.usuario.role == 'AKDAFE' || this.usuario.role == 'AKDAAFE' || this.usuario.role == 'AKDARFE' || this.usuario.role == 'AKDADM') {
       this.CargaPayments = true;
     }
 
@@ -91,70 +91,18 @@ export class PaymentsComponent implements OnInit {
       }
 
     })
-    
-    this.master.apiPostPagosByID(this.payments).subscribe({
-      next: (response: any) => {
-        if (response.status == "ok") {
-          this.payments.controls['PERIODO'].setValue({
-            periodo: response.periodo,
-            date: response.date
-          })
-        }
-      }
-    })
-
-
-
-
-    this.master.apiGetPeriodPagos(this.payments).subscribe({
+    this.master.apiGetPagosAll(this.payments).subscribe({
       next: (result: any) => {
-        /*Cargo float planificado si hay creados*/
-        this.master.apiGetPagosAll(this.payments).subscribe({
-          next: (result: any) => {
-            if (result.status == "ok") {
-              this.datasourcePAY = result.datos;
-              for (let campo in this.datasourcePAY[0]) {
-                this.PayCampos.push({ field: campo, header: campo });
-                if (campo == 'idPay') {
-                  this.multiSortPAY.push({ field: 'idPay', order: -1 });
-                }
-              }
-
-              this.loadingPay = true;
-            } else if (result.status == 'warning') {
-              this.notify.showNotification('top', 'right', 3, result.datos[0].detail);
-            } else {
-              this.notify.showNotification('top', 'right', 4, result.datos[0].detail);
-
-            }
-
-            this.loadingPage = false;
-          },
-          error: (result: any) => {
-            this.notify.showNotification('top', 'right', 4, 'Error al obtener los float planificados');
-            this.loadingPage = false;
-          },
-          complete: () => {
-
-          },
-        })
         if (result.status == "ok") {
-          if (result.datos.length) {
-
-
-
-            if (result.status == "ok") {
-              result.datos.forEach((x: any) => {
-                this.periodos.push({ periodo: x.periodo + ' ' + x.date.split('/')[2], date: x.date });
-              })
-            } else if (result.status == "warning") {
-              this.notify.showNotification('top', 'right', 3, result.datos[0].detail);
-            } else {
-              this.notify.showNotification('top', 'right', 4, result.datos[0].detail);
-
+          this.datasourcePAY = result.datos;
+          for (let campo in this.datasourcePAY[0]) {
+            this.PayCampos.push({ field: campo, header: campo });
+            if (campo == 'idPagos') {
+              this.multiSortPAY.push({ field: 'idPagos', order: -1 });
             }
-
           }
+
+          this.loadingPay = true;
         } else if (result.status == 'warning') {
           this.notify.showNotification('top', 'right', 3, result.datos[0].detail);
         } else {
@@ -162,12 +110,15 @@ export class PaymentsComponent implements OnInit {
 
         }
 
-      },
-      error: (result: any) => {
-        this.notify.showNotification('top', 'right', 4, 'Error al obtener los periodos');
         this.loadingPage = false;
       },
-      complete: () => { }
+      error: (result: any) => {
+        this.notify.showNotification('top', 'right', 4, 'Error al obtener los float planificados');
+        this.loadingPage = false;
+      },
+      complete: () => {
+
+      },
     })
   }
 
@@ -181,7 +132,7 @@ export class PaymentsComponent implements OnInit {
     this.pay.filterGlobal($event.target.value, 'contains');
   }
   setIdPay(event: any) {
-    this.payments.controls['idPay'].setValue(event.value.date);
+    this.payments.controls['idPagos'].setValue(event.value.date);
   }
   acceptCreatePagos() {
     this.master.apiPostCreatePagos(this.payments).subscribe({
@@ -189,9 +140,9 @@ export class PaymentsComponent implements OnInit {
 
         if (result.status == "ok") {
           this.notify.showNotification('top', 'right', 1, 'Float Planificado Creado!');
-          this.payments.controls['idPay'].setValue(result.idBudget);
+          this.payments.controls['idPagos'].setValue(result.idBudget);
           this.loadingPage = true;
-          this.router.navigate(['/' + this.usuario.role + '/payments/view'], { queryParams: { idPay: result.idPay, Option: '01' } })
+          this.router.navigate(['/' + this.usuario.role + '/floatInAction/payments/view'], { queryParams: { idPagos: result.idPagos, Option: '01' } })
         } else if (result.status == 'warning') {
           this.notify.showNotification('top', 'right', 3, result.datos[0].detail);
         } else {
@@ -227,7 +178,7 @@ export class PaymentsComponent implements OnInit {
   }
 
   onRowDblClick(event: Event, datos: any) {
-    this.router.navigate(['/' + this.usuario.role + '/payments/view'], { queryParams: { idPay: datos.idPay, Option: '01' } })
+    this.router.navigate(['/' + this.usuario.role + '/floatInAction/payments/view'], { queryParams: { idPagos: datos.idPagos, Option: '01' } })
   }
   crearPayments() {
     if (!this.PERIODO_REQ) {
@@ -262,6 +213,28 @@ export class PaymentsComponent implements OnInit {
 
   clear(table: Table) {
     table.clear();
+  }
+
+  ejecutaPagos(){
+    this.master.apiGetRunPagos().subscribe({
+      next: (result: any) => {
+        if (result.status == "ok") {          
+          this.notify.showNotification('top', 'right', 1, result.datos[0].detail);
+        }else if (result.status == 'warning') {
+          this.notify.showNotification('top', 'right', 3, result.datos[0].detail);
+        }else{
+          this.notify.showNotification('top', 'right', 4, result.datos[0].detail);
+        } 
+      },
+      error: (result: any) => {
+        this.notify.showNotification('top', 'right', 4, 'Error al ejecutar el proceso de pagos');
+        this.loadingPage = false;
+      },
+      complete: () => {
+
+      },
+
+    })
   }
 
 

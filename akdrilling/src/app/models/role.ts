@@ -7,6 +7,7 @@ export enum Role {
     AKDAFE = 'AKDAFE',
     AKDAAFE = 'AKDAAFE',
     AKDARFE = 'AKDARFE',
+    AKDAAERFE = 'AKDAAERFE',
     AKDADM = 'AKDADM',
     access_denied='access_denied'
   }
@@ -40,9 +41,23 @@ export enum Role {
     meet = 'Yes',
     adAndRed = 'Yes',
     reports = 'Yes'
-
-
   }
+
+  export enum AKDAAMT {
+    Home = 'Yes',
+    uploadFiles = 'Yes',
+    openPeriod = 'Yes',
+    closePeriod = 'Yes',
+    reopenPeriod = 'Yes',
+    budget = 'Yes',
+    floatPlanned = 'Yes',
+    floatInAction = 'Yes',
+    payments = 'Yes',
+    meet = 'Yes',
+    adAndRed = 'Yes',
+    reports = 'Yes'
+  }
+
   export enum AKDABOP {
     Home = 'Yes',
     uploadFiles = 'No',
@@ -82,7 +97,7 @@ export enum Role {
     budget = 'Yes',
     floatPlanned = 'Yes',
     floatInAction = 'Yes',
-    payments = 'Yes',
+    payments = 'No',
     meet = 'Yes',
     adAndRed = 'Yes',
     reports = 'Yes'
@@ -97,7 +112,7 @@ export enum Role {
     budget = 'Yes',
     floatPlanned = 'Yes',
     floatInAction = 'Yes',
-    payments = 'Yes',
+    payments = 'No',
     meet = 'Yes',
     adAndRed = 'Yes',
     reports = 'Yes'
@@ -134,6 +149,21 @@ export enum Role {
 
   }
   export enum AKDARFE {
+    Home = 'Yes',
+    uploadFiles = 'No',
+    openPeriod = 'No',
+    closePeriod = 'No',
+    reopenPeriod = 'No',
+    budget = 'Yes',
+    floatPlanned = 'Yes',
+    floatInAction = 'Yes',
+    payments = 'Yes',
+    meet = 'Yes',
+    adAndRed = 'Yes',
+    reports = 'Yes'
+
+  }
+  export enum AKDAAERFE {
     Home = 'Yes',
     uploadFiles = 'No',
     openPeriod = 'No',

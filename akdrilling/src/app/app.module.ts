@@ -13,7 +13,7 @@ import { AkdabdfLayoutComponent } from "./layouts/akdabdf-layout/akdabdf-layout.
 import { AkdafpLayoutComponent } from "./layouts/akdafp-layout/akdafp-layout.component";
 import { AkdaafpLayoutComponent } from "./layouts/akdaafp-layout/akdaafp-layout.component";
 import { AkdarfeLayoutComponent } from "./layouts/akdarfe-layout/akdarfe-layout.component";
-import { AkdaafeLayoutComponent } from "./layouts/akdaafe-layout/akdaafe-layout.component";
+import { AkdaaerfeLayoutComponent } from "./layouts/akdaaerfe-layout/akdaaerfe-layout.component";
 import { AkdafeLayoutComponent } from "./layouts/akdafe-layout/akdafe-layout.component";
 import { AkdarmtLayoutComponent } from "./layouts/akdarmt-layout/akdarmt-layout.component";
 import { AkdaamtLayoutComponent } from "./layouts/akdaamt-layout/akdaamt-layout.component";
@@ -26,6 +26,7 @@ import { ComponentsModule } from "./components/components.module";
 import { AccessDenied } from "./layouts/access-denied/access-denied.component";
 import { AuthService } from './services/auth.services';
 import { PanelModule } from 'primeng/panel';
+import { AkdaafeLayoutComponent } from "./layouts/akdaafe-layout/akdaafe-layout.component";
 
 @NgModule({
   imports: [
@@ -48,6 +49,7 @@ import { PanelModule } from 'primeng/panel';
                  AkdafpLayoutComponent,
                  AkdaafpLayoutComponent,
                  AkdarfeLayoutComponent,
+                 AkdaaerfeLayoutComponent,
                  AkdaafeLayoutComponent,
                  AkdafeLayoutComponent,
                  AkdarmtLayoutComponent,

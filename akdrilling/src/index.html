@@ -6,6 +6,12 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script type="text/javascript" src="../SASStoredProcess/scripts/sas_Bootstrap.js"></script>
+  <script type="text/javascript">/*<![CDATA[*/
+
+    sas.setJavaScriptLocation("/SASStoredProcess/scripts/");
+    sas.requires("sas_Common");
+    /*]]>*/</script>
   <script type="text/javascript" src="../SASStoredProcess/scripts/sas_Common.js"></script>
 </head>
 <script type="text/javascript">
@@ -51,10 +57,10 @@
      var xmlhttp = sas_createXMLHttpRequest();
      xmlhttp.open('POST', url, true);
      xmlhttp.send('');
-    window.top.warningShown = null;
+    window.top.warningShown = null;a
     sas_framework_updateFrameTimeout();
   }
-  sas_framework_updateTimeout();
+  //sas_framework_updateTimeout();
   </script>
 <body>
   <app-root></app-root>

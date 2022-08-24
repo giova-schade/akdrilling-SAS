@@ -71,7 +71,7 @@ export class AdAndRedComponent implements OnInit {
       name: 'Crear Meet'
     })
     this.usuario = this.authService.GetuserInfo();
-    if (this.usuario.role == 'AKDAMT' || this.usuario.role == 'AKDAAMT' || this.usuario.role == 'AKDADM') {
+    if (this.usuario.role == 'AKDAMT' || this.usuario.role == 'AKDAAERFE' || this.usuario.role == 'AKDADM') {
       this.CargaAdRed = true;
     }
 

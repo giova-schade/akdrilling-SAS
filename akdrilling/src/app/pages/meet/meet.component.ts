@@ -74,7 +74,7 @@ export class MeetComponent implements OnInit {
       name: 'Crear Meet'
     })
     this.usuario = this.authService.GetuserInfo();
-    if (this.usuario.role == 'AKDAMT' || this.usuario.role == 'AKDAAMT' || this.usuario.role == 'AKDADM') {
+    if (this.usuario.role == 'AKDAMT' || this.usuario.role == 'AKDARFE' || this.usuario.role == 'AKDADM') {
       this.CargaMeet = true;
     }
 

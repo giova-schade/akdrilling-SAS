@@ -1,5 +1,6 @@
 import { Routes } from "@angular/router";
 import { AdAndRedComponent } from "src/app/pages/adAndRed/adAndRed.component";
+import { ViewAdAndRedComponent } from "src/app/pages/adAndRed/ViewAdAndRed/ViewAdAndRed.component";
 import { ClosePeriodComponent } from "src/app/pages/closePeriod/closePeriod.component";
 import { DashboardComponent } from "src/app/pages/dashboard/dashboard.component";
 import { FloatInActionComponent } from "src/app/pages/floatInAction/floatInAction.component";
@@ -12,10 +13,12 @@ import { OpenPeriodComponent } from "src/app/pages/openPeriod/openPeriod.compone
 import { PaymentsComponent } from "src/app/pages/pagos/payments.component";
 import { ReopenPeriodComponent } from "src/app/pages/reopenPeriod/reopenPeriod.component";
 import { UploadFilesComponent } from "src/app/pages/UploadFiles/uploadFiles.component";
+import { ViewPagosComponent } from "src/app/pages/pagos/ViewPagos/ViewPagos.component";
 
 import { BudgetComponent } from "../../pages/Budget/budget.component";
 import { ViewBudgetComponent } from "../../pages/Budget/ViewBudget/Viewbudget.component";
 import { ReportComponent } from "src/app/pages/report/report.component";
+import { ViewMeetComponent } from "src/app/pages/meet/ViewMeet/ViewMeet.component";
 
 export const AkdaafeRoutes: Routes = [
   { path: "Home", component: HomeComponent },
@@ -31,7 +34,10 @@ export const AkdaafeRoutes: Routes = [
   { path: "floatInAction", component:  FloatInActionComponent},
   { path: "floatInAction/view", component:  ViewFloateComponent},
   { path: "floatInAction/adAndRed", component:  AdAndRedComponent},
+  { path: "floatInAction/adAndRed/view", component:  ViewAdAndRedComponent},
   { path: "floatInAction/meet", component:  MeetComponent},
+  { path: "floatInAction/meet/view", component:  ViewMeetComponent},
   { path: "floatInAction/payments", component:  PaymentsComponent},
+  { path: "floatInAction/payments/view", component:  ViewPagosComponent},
   { path: "reports", component:  ReportComponent}  
 ];

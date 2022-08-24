@@ -75,7 +75,7 @@ export class FloatPlannedComponent implements OnInit {
       name: 'Crear Float planificado'
     })
     this.usuario = this.authService.GetuserInfo();
-    if (this.usuario.role == 'AKDAFP' || this.usuario.role == 'AKDAAFP' || this.usuario.role == 'AKDADM' ) {
+    if (this.usuario.role == 'AKDAFP' || this.usuario.role == 'AKDADM' ) {
       this.CargaFloatFP = true;
     }
 

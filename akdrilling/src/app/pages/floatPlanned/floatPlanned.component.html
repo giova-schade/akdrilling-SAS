@@ -95,7 +95,7 @@
                     <!-- inicio codigo crear float planificado-->
                     <div class=" card-body" *ngIf="floatFP.controls['Option'].value['Code'] == '02'">
                         <form class="p-grid" [formGroup]="floatFP" accept-charset="utf-8">
-                            <div class=" row">
+                            <div class=" row" *ngIf="CargaFloatFP">
                                 <div class=" col-md-10">
                                     <div class="form-group">
                                         <div class=" card-body" *ngIf="DatosFloatFP.length ==  0">

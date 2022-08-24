@@ -1,12 +1,18 @@
+%let action_=%scan(%quote(&sysparm),1,%str(,));
+%let tabla_=%scan(%quote(&sysparm),2,%str(,));
+
 %let username=sasdemo;
 %let pwd={SAS002}3CD4EA1E0188202203533924;
 %let hostname=http://redhat1.internal.cloudapp.net:7980;
-%let tablamaestra=SEDE;
+*%let tablamaestra=SEDE;
+%let tablamaestra=&tabla_;
+%put tablamaestra : &tablamaestra;
 filename input TEMP;
 filename resp TEMP;
 filename headers TEMP;
 %global hcode hmessage location ticket tablamaestra;
-
+proc printto log="/sasdata/akdrilling/logs/cargaMaestro_&tablamaestra..log";
+run;
 /*
  * Create the input file for the first request
  */

@@ -121,21 +121,21 @@ export class ViewMeetComponent implements OnInit {
       id: '2',
       command: (event: any) => {
         this.activeIndex = 3;
-      }            
+      }
     },
     {
       label: 'Adición / Reducción',
       id: '3',
       command: (event: any) => {
         this.activeIndex = 3;
-      }            
+      }
     },
     {
       label: 'Cerrado',
       id: '4',
       command: (event: any) => {
         this.activeIndex = 4;
-      }      
+      }
     }
     ];
 
@@ -181,34 +181,31 @@ export class ViewMeetComponent implements OnInit {
                   }
                 }
                 this.camposMt = [
-                  { field: 'idbgdt5', header: 'idbgdt5' },
-                  { field: 'bdgt1', header: 'bdgt1' },
-                  { field: 'bdgt2', header: 'bdgt2' },
-                  { field: 'bdgt3', header: 'bdgt3' },
-                  { field: 'bdgt4', header: 'bdgt4' },
-                  { field: 'bdgt5', header: 'bdgt5' },
-                  { field: 'budgV1', header: 'budgV1' }
+                  { field: 'Nombre_Proveedor', header: 'Nombre_Proveedor' },
+                  { field: 'Monto_Total_USD_Mes', header: 'Monto_Total_USD_Mes' },
+                  { field: 'Observaciones', header: 'Observaciones' },
+                  { field: 'Valor solicitado Part Dom', header: 'Valor solicitado Part Dom' },
+                  { field: 'Valor solicitado Part IDM', header: 'Valor solicitado Part IDM' },
+                  { field: 'Valor solicitado Part PTY', header: 'Valor solicitado Part PTY' },
+                  { field: 'Orden_Compra', header: 'Orden_Compra' },
+                  { field: 'Nro Requerimiento', header: 'Nro Requerimiento' },
+                  { field: 'Codigo_Budgt_Nivel_5', header: 'Codigo_Budgt_Nivel_5' },
+                  { field: 'DescripcionBudget_Nivel_1', header: 'DescripcionBudget_Nivel_1' },
+                  { field: 'DescripcionBudget_Nivel_2', header: 'DescripcionBudget_Nivel_2' },
+                  { field: 'DescripcionBudget_Nivel_3', header: 'DescripcionBudget_Nivel_3' },
+                  { field: 'DescripcionBudget_Nivel_5', header: 'DescripcionBudget_Nivel_5' },
+                  { field: 'Fecha de aprobación', header: 'Fecha de aprobación' }
                 ]
-                
+
+
                 for (let i in this.mainForm.controls) {
-                  if (i.indexOf('Week') == 0) {
-                    this.camposMt.push({ field: i, header: i })
-                  }
                   // this.camposMt.push({ field: i, header: i })
-                  if (i == 'bdgt1') {
+                  if (i == 'Nombre_Proveedor') {
                     this.multiSortMetaMt.push({ field: i, order: -1 });
                   }
                 }
-                for (let i in this.mainForm.controls) {
-                  if (i.indexOf('Remaning') == 0) {
-                    this.camposMt.push({ field: i, header: i })
-                  }
-                }
-                for (let i in this.mainForm.controls) {
-                  if (i.indexOf('description') == 0) {
-                    this.camposMt.push({ field: i, header: i })
-                  }
-                }
+
+
 
                 if (response.downloadMeet.length > 0) {
                   this.urlDounload = response.downloadMeet;
@@ -560,6 +557,7 @@ export class ViewMeetComponent implements OnInit {
             { field: 'Monto Total USD(Mes)', header: 'Monto Total USD(Mes)' },
             { field: 'week', header: 'week' },
             { field: 'Estado', header: 'Estado' },
+            { field: 'description', header: 'description'}
           ]
 
 
@@ -577,7 +575,7 @@ export class ViewMeetComponent implements OnInit {
       error: (response: any) => {
 
       },
-      complete: () => { 
+      complete: () => {
         this.loadingPage = false;
       }
 

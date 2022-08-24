@@ -8,6 +8,12 @@
     href="/SASStoredProcess/do?_action=form,properties,execute,newwindow&_program=&_program=%2FAKD+International%2FSTP%2FakdrillingU">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="/akdrilling/favicon.ico">
+  <script type="text/javascript" src="../SASStoredProcess/scripts/sas_Bootstrap.js"></script>
+  <script type="text/javascript">/*<![CDATA[*/
+
+    sas.setJavaScriptLocation("/SASStoredProcess/scripts/");
+    sas.requires("sas_Common");
+    /*]]>*/</script>
   <script type="text/javascript" src="../SASStoredProcess/scripts/sas_Common.js"></script>
   <style>
     @charset "UTF-8";
@@ -370,23 +376,19 @@
       var xmlhttp = sas_createXMLHttpRequest();
       xmlhttp.open('POST', url, true);
       xmlhttp.send('');
-      window.top.warningShown = null;
+      window.top.warningShown = null; a
       sas_framework_updateFrameTimeout();
     }
-    sas_framework_updateTimeout();
+  //sas_framework_updateTimeout();
   </script>
 </head>
 
 <body>
   <app-root></app-root>
-<<<<<<< HEAD
-<script src="/akdrilling/runtime.ba306ccb796c928605c1.js" defer></script><script src="/akdrilling/polyfills.e17ac4faa66348c5f0fd.js" defer></script><script src="/akdrilling/scripts.e9377bcb9b349cc088ea.js" defer></script><script src="/akdrilling/main.f948a2372ce3486aca60.js" defer></script>
-=======
-  <script src="/akdrilling/runtime.ab34b259d3f280026f96.js" defer></script>
+  <script src="/akdrilling/runtime.0112c327227bda704e72.js" defer></script>
   <script src="/akdrilling/polyfills.e17ac4faa66348c5f0fd.js" defer></script>
   <script src="/akdrilling/scripts.e9377bcb9b349cc088ea.js" defer></script>
-  <script src="/akdrilling/main.8a4e50c8c6ce81d3c86b.js" defer></script>
->>>>>>> db28fda257e4f010f030290b1da8cfc7bfc3ff9c
+  <script src="/akdrilling/main.f62bfa8d6a19d0c79c53.js" defer></script>
 
 </body>
 

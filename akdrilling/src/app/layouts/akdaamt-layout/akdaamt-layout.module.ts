@@ -33,6 +33,7 @@ import {PanelMenuModule} from 'primeng/panelmenu';
 //modulos
 import {  Budget } from "../../pages/Budget/budget.component.module";
 import {  BudgetV } from "../../pages/Budget/ViewBudget/Viewbudget.component.module";
+import {  AdAndRedV } from "../../pages/adAndRed/ViewAdAndRed/ViewAdAndRed.component.module";
 import { Report } from "src/app/pages/report/report.component.module";
 
 
@@ -65,6 +66,7 @@ import { Report } from "src/app/pages/report/report.component.module";
     PanelMenuModule,
     Budget,
     BudgetV,
+    AdAndRedV,
     Report
 
   ],

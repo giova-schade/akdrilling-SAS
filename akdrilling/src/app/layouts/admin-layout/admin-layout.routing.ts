@@ -9,14 +9,17 @@ import { BudgetComponent } from "../../pages/Budget/budget.component";
 import { FloatPlannedComponent } from "../../pages/floatPlanned/floatPlanned.component";
 import { FloatInActionComponent } from "../../pages/floatInAction/floatInAction.component";
 import { AdAndRedComponent } from "../../pages/adAndRed/adAndRed.component";
+import { ViewAdAndRedComponent } from "../../pages/adAndRed/ViewAdAndRed/ViewAdAndRed.component";
 import { MeetComponent } from "../../pages/meet/meet.component";
 import { HomeComponent } from "../../pages/home/home.component";
 import { PaymentsComponent } from "../../pages/pagos/payments.component";
+import { ViewPagosComponent } from "../../pages/pagos/ViewPagos/ViewPagos.component";
 import { ViewBudgetComponent } from "../../pages/Budget/ViewBudget/Viewbudget.component";
 import { ViewFloatpComponent } from "src/app/pages/floatPlanned/ViewFloatP/ViewFloatp.component";
 import { ViewFloateComponent } from "src/app/pages/floatInAction/ViewFloatAction/ViewFloatAction.component";
 import { ViewMeetComponent } from "src/app/pages/meet/ViewMeet/ViewMeet.component";
 import { ReportComponent } from "src/app/pages/report/report.component";
+
 export const AdminLayoutRoutes: Routes = [
   { path: "Home", component: HomeComponent },
   { path: "dashboard", component: DashboardComponent },
@@ -31,8 +34,10 @@ export const AdminLayoutRoutes: Routes = [
   { path: "floatInAction", component:  FloatInActionComponent},
   { path: "floatInAction/view", component:  ViewFloateComponent},
   { path: "floatInAction/adAndRed", component:  AdAndRedComponent},
+  { path: "floatInAction/adAndRed/view", component:  ViewAdAndRedComponent},
   { path: "floatInAction/meet", component:  MeetComponent},
   { path: "floatInAction/meet/view", component:  ViewMeetComponent},
   { path: "floatInAction/payments", component:  PaymentsComponent},  
+  { path: "floatInAction/payments/view", component:  ViewPagosComponent},  
   { path: "reports", component:  ReportComponent}  
 ];

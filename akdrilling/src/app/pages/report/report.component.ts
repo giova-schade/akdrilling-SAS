@@ -67,6 +67,7 @@ export class ReportComponent implements OnInit {
   }
   datosReporteInicial() {
     this.periodos = [];
+    this.reports.controls['PERIODO'].setValue([])
     this.master.apiPostPeriodReportFI(this.reports).subscribe({
       next: (result: any) => {
         if (result.status == "ok") {
@@ -94,6 +95,7 @@ export class ReportComponent implements OnInit {
   }
   datosReporteFloatEjecucion() {
     this.periodos = [];
+    this.reports.controls['PERIODO'].setValue([])
     this.master.apiPostPeriodReportFE(this.reports).subscribe({
       next: (result: any) => {
         if (result.status == "ok") {

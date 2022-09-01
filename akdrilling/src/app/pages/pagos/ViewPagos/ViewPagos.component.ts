@@ -322,7 +322,7 @@ export class ViewPagosComponent implements OnInit {
         const a = document.createElement('a')
         const objectUrl = URL.createObjectURL(blob)
         a.href = objectUrl
-        a.download = 'Pagos' + this.pagos.controls['PERIODO'].value['periodo'] + '.xlsx';
+        a.download = 'PagosRegistrados' + this.pagos.controls['PERIODO'].value['periodo'] + '.xlsx';
         a.click();
         URL.revokeObjectURL(objectUrl);
       })
@@ -335,7 +335,7 @@ export class ViewPagosComponent implements OnInit {
         const a = document.createElement('a')
         const objectUrl = URL.createObjectURL(blob)
         a.href = objectUrl
-        a.download = 'Pagos' + this.pagos.controls['PERIODO'].value['periodo'] + '.xlsx';
+        a.download = 'PagosNoregistrados' + this.pagos.controls['PERIODO'].value['periodo'] + '.xlsx';
         a.click();
         URL.revokeObjectURL(objectUrl);
       })

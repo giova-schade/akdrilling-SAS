@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- Copyright(C) 2002-2011, SAS Institute Inc., Cary, NC, USA. All Rights Reserved -->
+<html><head>
+<title>Error en el proceso almacenado</title>
+<link type="text/css" href="http://redhat1.internal.cloudapp.net:7980/SASTheme_default/themes/default/styles/sasComponents_FF_5.css" rel="stylesheet" />
+<link type="text/css" href="http://redhat1.internal.cloudapp.net:7980/SASTheme_default/themes/default/styles/sasStyle.css" rel="stylesheet" />
+<link type="text/css" href="http://redhat1.internal.cloudapp.net:7980/SASTheme_default/themes/default/styles/custom.css" rel="stylesheet" />
+
+<style type="text/css">
+BODY { background-image:      url(http://redhat1.internal.cloudapp.net:7980/SASTheme_default/themes/default/images/LogonArtTile.gif);
+       background-repeat:     repeat-y;
+       background-attachment: scroll;
+       background-position:   left top;
+       margin-top:            15px;
+       margin-left:           168px;
+}
+.coloredbar { position: absolute;
+              top:      70px;
+              left:     70px;
+}
+</style>
+</head>
+<body>
+<img class="coloredbar" src="http://redhat1.internal.cloudapp.net:7980/SASTheme_default/themes/default/images/SASColoredBarsTransparent.gif" alt="" title="" />
+<div class="solutionsErrorTitle">
+<img src="http://redhat1.internal.cloudapp.net:7980/SASTheme_default/themes/default/images/MessageError24.gif" border="0" height="24" width="24" alt="Error" title="Error" align="absmiddle" />
+Error en el parámetro
+</div>
+<div class="solutionsSmallItem">
+<img src="http://redhat1.internal.cloudapp.net:7980/SASTheme_default/themes/default/images/spacer.gif" height="10" alt="" title="" /><br />
+<h2>Proceso almacenado no encontrado: <i>/AKD International/API/downloadDatos</i><p/> </h2>
+</div>
+</body></html>

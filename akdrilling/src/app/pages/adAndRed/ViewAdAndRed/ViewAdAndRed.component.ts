@@ -199,8 +199,7 @@ export class ViewAdAndRedComponent implements OnInit {
                   { field: 'bdgt2', header: 'bdgt2' },
                   { field: 'bdgt3', header: 'bdgt3' },
                   { field: 'bdgt4', header: 'bdgt4' },
-                  { field: 'bdgt5', header: 'bdgt5' },
-                  { field: 'budgV1', header: 'budgV1' }
+                  { field: 'bdgt5', header: 'bdgt5' }
                 ]
                 this.camposRe = [
                   { field: 'idbgdt5', header: 'idbgdt5' },
@@ -208,8 +207,7 @@ export class ViewAdAndRedComponent implements OnInit {
                   { field: 'bdgt2', header: 'bdgt2' },
                   { field: 'bdgt3', header: 'bdgt3' },
                   { field: 'bdgt4', header: 'bdgt4' },
-                  { field: 'bdgt5', header: 'bdgt5' },
-                  { field: 'budgV1', header: 'budgV1' }
+                  { field: 'bdgt5', header: 'bdgt5' }
                 ]
                 for (let i in this.mainForm.controls) {
                   if (i.indexOf('Week') == 0) {

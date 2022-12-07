@@ -176,9 +176,9 @@ export class MaestrosService {
             responseType: 'blob'
         })
     }
-    downloadADRE(url: string, typeFile: string ): Observable<Blob> {
-        var param = '&typeFile='+typeFile;
-        return this.http.get(url+param, {
+    downloadADRE(url: string, typeFile: string): Observable<Blob> {
+        var param = '&typeFile=' + typeFile;
+        return this.http.get(url + param, {
             responseType: 'blob'
         })
     }
@@ -576,75 +576,75 @@ export class MaestrosService {
         return this.http.post(CONFIG.apiGetAdReAll, formData);
     }
 
-/*  */
-/*adred detalle */
+    /*  */
+    /*adred detalle */
 
-apiPostAdReByID(form: any): Observable<any> {
-    var formData: any = new FormData();
-    for (let i in form.controls) {
-        if (i == 'idAdRed') {
-            formData.append(i, form.controls[i].value);
-        }
-    }
-    return this.http.post(CONFIG.apiPostAdReByID, formData)
-}
-
-apiPostApproveAdRe(form: any): Observable<any> {
-    var formData: any = new FormData();
-    for (let i in form.controls) {
-        if (i == 'idAdRed') {
-            formData.append(i, form.controls[i].value);
-        }
-    }
-    return this.http.post(CONFIG.apiPostApproveAdRe, formData)
-}
-apiPostRejectAdRe(form: any): Observable<any> {
-    var formData: any = new FormData();
-    for (let i in form.controls) {
-        if (i == 'idAdRed') {
-            formData.append(i, form.controls[i].value);
-        }
-    }
-    return this.http.post(CONFIG.apiPostRejectAdRe, formData)
-}
-
-apiPostLoadAdicion(form: any): Observable<any> {
-    var formData: any = new FormData();
-    for (let i in form.controls) {
-        if (i != 'DatosAdRed') {
-            if (i == 'PERIODO') {
-                formData.append(i, form.controls[i].value.date);
-
-            } else if (i == 'Option') {
-                formData.append(i, form.controls[i].value.Code);
-            } else {
+    apiPostAdReByID(form: any): Observable<any> {
+        var formData: any = new FormData();
+        for (let i in form.controls) {
+            if (i == 'idAdRed') {
                 formData.append(i, form.controls[i].value);
             }
         }
-
+        return this.http.post(CONFIG.apiPostAdReByID, formData)
     }
-    return this.http.post(CONFIG.apiPostLoadAdicion, formData)
-}
 
-apiPostLoadReduccion(form: any): Observable<any> {
-    var formData: any = new FormData();
-    for (let i in form.controls) {
-        if (i != 'DatosAdRed') {
-            if (i == 'PERIODO') {
-                formData.append(i, form.controls[i].value.date);
-
-            } else if (i == 'Option') {
-                formData.append(i, form.controls[i].value.Code);
-            } else {
+    apiPostApproveAdRe(form: any): Observable<any> {
+        var formData: any = new FormData();
+        for (let i in form.controls) {
+            if (i == 'idAdRed') {
                 formData.append(i, form.controls[i].value);
             }
         }
-
+        return this.http.post(CONFIG.apiPostApproveAdRe, formData)
     }
-    return this.http.post(CONFIG.apiPostLoadReduccion, formData)
-}
+    apiPostRejectAdRe(form: any): Observable<any> {
+        var formData: any = new FormData();
+        for (let i in form.controls) {
+            if (i == 'idAdRed') {
+                formData.append(i, form.controls[i].value);
+            }
+        }
+        return this.http.post(CONFIG.apiPostRejectAdRe, formData)
+    }
 
-/* */
+    apiPostLoadAdicion(form: any): Observable<any> {
+        var formData: any = new FormData();
+        for (let i in form.controls) {
+            if (i != 'DatosAdRed') {
+                if (i == 'PERIODO') {
+                    formData.append(i, form.controls[i].value.date);
+
+                } else if (i == 'Option') {
+                    formData.append(i, form.controls[i].value.Code);
+                } else {
+                    formData.append(i, form.controls[i].value);
+                }
+            }
+
+        }
+        return this.http.post(CONFIG.apiPostLoadAdicion, formData)
+    }
+
+    apiPostLoadReduccion(form: any): Observable<any> {
+        var formData: any = new FormData();
+        for (let i in form.controls) {
+            if (i != 'DatosAdRed') {
+                if (i == 'PERIODO') {
+                    formData.append(i, form.controls[i].value.date);
+
+                } else if (i == 'Option') {
+                    formData.append(i, form.controls[i].value.Code);
+                } else {
+                    formData.append(i, form.controls[i].value);
+                }
+            }
+
+        }
+        return this.http.post(CONFIG.apiPostLoadReduccion, formData)
+    }
+
+    /* */
     apiPostCreatePagos(form: any): Observable<any> {
         var formData: any = new FormData();
         for (let i in form.controls) {
@@ -768,7 +768,36 @@ apiPostLoadReduccion(form: any): Observable<any> {
         return this.http.post(CONFIG.apiPostPeriodReportFE, formData)
 
     }
-    apiGetRunPagos(){
+    apiGetRunPagos() {
         return this.http.get(CONFIG.apiGetRunPagos)
     }
+
+
+    /*apis de revenue*/
+
+    apiPostPeriodRevenue(form: any) {
+        var formData: any = new FormData();
+        for (let i in form.controls) {
+            if (i == 'PERIODO') {
+                formData.append(i, form.controls[i].value.date);
+            } else {
+                formData.append(i, form.controls[i].value);
+            }
+        }
+        return this.http.post(CONFIG.apiPostPeriodRevenue, formData)
+
+    }
+    apiPostLoadRevenue(form: any) {
+        var formData: any = new FormData();
+        for (let i in form.controls) {
+            if (i == 'PERIODO') {
+                formData.append(i, form.controls[i].value.date);
+            } else {
+                formData.append(i, form.controls[i].value);
+            }
+        }
+        return this.http.post(CONFIG.apiPostLoadRevenue, formData)
+
+    }
+
 }

@@ -19,6 +19,7 @@ import { ReportComponent } from "src/app/pages/report/report.component";
 import { BudgetComponent } from "../../pages/Budget/budget.component";
 import { ViewFloatpComponent } from "src/app/pages/floatPlanned/ViewFloatP/ViewFloatp.component";
 import { ViewFloateComponent } from "src/app/pages/floatInAction/ViewFloatAction/ViewFloatAction.component";
+import { RevenueComponent } from "src/app/pages/revenue/revenue.component";
 export const AkdaaerfeRoutes: Routes = [
   { path: "Home", component: HomeComponent },
   { path: "dashboard", component: DashboardComponent },
@@ -26,6 +27,7 @@ export const AkdaaerfeRoutes: Routes = [
   { path: "openPeriod", component: OpenPeriodComponent },
   { path: "closePeriod", component: ClosePeriodComponent },
   { path: "reopenPeriod", component: ReopenPeriodComponent },
+  { path: "revenue", component: RevenueComponent },
   { path: "budget", component:  BudgetComponent},
   { path: "budget/view", component:  ViewBudgetComponent},
   { path: "floatPlanned", component:  FloatPlannedComponent},

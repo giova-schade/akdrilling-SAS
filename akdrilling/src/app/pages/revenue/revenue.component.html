@@ -1,0 +1,74 @@
+<div class="content">
+    <div class=" row">
+        <div class=" col-12">
+            <div class=" card">
+                <p-progressBar *ngIf="loadingPage" mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
+                <p-blockUI [blocked]="loadingPage" [style]="{'z-index': '2'}"></p-blockUI>
+                <div class=" card-header">
+                    <div class=" col-sm-8 text-left">
+                    </div>
+                    <div class=" card-body">
+                        <form class="p-grid" [formGroup]="revenue" accept-charset="utf-8">
+                            <div class=" row">
+                                <div class=" col-md-12">
+                                    <div class="form-group">
+                                        <h6>
+                                            Periodos disponibles a cargar
+                                        </h6>
+                                        <div class=" card-body">
+                                            <p-dropdown [options]="periodos" formControlName="PERIODO"
+                                            placeholder="Seleccione un periodo" optionLabel="periodo" [showClear]="true"
+                                            emptyFilterMessage="No hay peridos disponibles" >
+                                        </p-dropdown>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="container"  appDnd
+                                        (fileDropped)="onFileDropped($event)">
+                                        <input type="file" #fileDropRef id="fileDropRef" multiple
+                                            (change)="fileBrowseHandler($event)" />
+                                        <img src="/akdrilling/assets/img/dnd/ic-upload-file.svg" alt="">
+                                        <h3>Arrastra y suelta el archivo aquí</h3>
+                                        <h3>o</h3>
+                                        <label for="fileDropRef">Selecciona el archivo</label>
+                                    </div>
+                                    <div class="files-list" >
+                                        <div class="single-file" *ngFor="let file of files; let i = index">
+                                            <img src="/akdrilling/assets/img/dnd/ic-file-excel.svg" width="45px"
+                                                alt="file">
+                                            <div class="info">
+                                                <h4 class="name">
+                                                    {{ file?.name }}
+                                                </h4>
+                                                <p class="size">
+                                                    {{ formatBytes(file?.size) }}
+                                                </p>
+                                                <app-progress [progress]="file?.progress"></app-progress>
+                                            </div>
+                                            <img src="/akdrilling/assets/img/dnd/ic-delete-file.svg" class="delete"
+                                                width="20px" alt="file" (click)="deleteFile(i)">
+                                        </div>
+                                    </div>
+                                    <div class=" col-md-12" >
+                                        <div class=" form-group">
+                                            <button pButton type="submit" label="Subir ingreso"
+                                                (click)="SubirRevenue()"></button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>      
+                    
+                    <!-- Fin codigo crear budget-->
+                    <p-confirmDialog [style]="{width: '50vw'}" key="positionDialog" [position]="'bottom'"
+                        [baseZIndex]="10000"></p-confirmDialog>
+                    <p-messages [value]="msgs"></p-messages>                                  
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

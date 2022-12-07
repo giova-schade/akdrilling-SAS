@@ -20,6 +20,7 @@ import { ViewPagosComponent } from "src/app/pages/pagos/ViewPagos/ViewPagos.comp
 import { BudgetComponent } from "../../pages/Budget/budget.component";
 import { ReportComponent } from "src/app/pages/report/report.component";
 import { ViewMeetComponent } from "src/app/pages/meet/ViewMeet/ViewMeet.component";
+import { RevenueComponent } from "src/app/pages/revenue/revenue.component";
 
 export const AkdafeRoutes: Routes = [
   { path: "Home", component: HomeComponent },
@@ -28,6 +29,7 @@ export const AkdafeRoutes: Routes = [
   { path: "openPeriod", component: OpenPeriodComponent },
   { path: "closePeriod", component: ClosePeriodComponent },
   { path: "reopenPeriod", component: ReopenPeriodComponent },
+  { path: "revenue", component: RevenueComponent },
   { path: "budget", component:  BudgetComponent},
   { path: "budget/view", component:  ViewBudgetComponent},
   { path: "floatPlanned", component:  FloatPlannedComponent},

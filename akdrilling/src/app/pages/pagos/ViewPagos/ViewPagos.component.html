@@ -280,7 +280,7 @@
                                                         </ng-template>
                                                         <ng-template pTemplate="body" let-rowData let-columns="columns">
                                                             <tr [pSelectableRow]="rowData"
-                                                                (dblclick)="onRowDblClick($event, rowData)">
+                                                               >
                                                                 <td *ngFor="let col of columns"
                                                                     [ngClass]="col.field.indexOf('Valor solicitado Part Dom') != -1 ? 'dollar-col' :
                                                                     col.field.indexOf('Valor solicitado Part IDM') != -1 ? 'dollar-col' :

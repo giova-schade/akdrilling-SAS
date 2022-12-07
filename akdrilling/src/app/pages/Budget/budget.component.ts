@@ -253,7 +253,8 @@ export class BudgetComponent implements OnInit {
       },
       error: (result) => {
 
-        this.notify.showNotification('top', 'right', 4, 'Error al crear o actualizar el Budget de ' + this.budget.controls['PERIODO'].value.periodo);
+        this.notify.showNotification('top', 'right', 4, 'Error al crear o actualizar el Budget de ' + this.budget.controls['PERIODO'].value.periodo + ', verifique que el archivo se encuentra cerrado');
+        this.deleteFile(0);
         this.loadingPage = false;
 
       },
@@ -331,27 +332,10 @@ export class BudgetComponent implements OnInit {
     this.prepareFilesList(files.target.files);
   }
   deleteFile(index: number) {
-    if (this.files[index].progress < 100) {
-      console.log("Carga en progreso.");
-      return;
-    }
     this.files.splice(index, 1);
   }
   uploadFilesSimulator(index: number) {
-    setTimeout(() => {
-      if (index === this.files.length) {
-        return;
-      } else {
-        const progressInterval = setInterval(() => {
-          if (this.files[index].progress === 100) {
-            clearInterval(progressInterval);
-            this.uploadFilesSimulator(index + 1);
-          } else {
-            this.files[index].progress += 5;
-          }
-        }, 200);
-      }
-    }, 1000);
+ 
   }
   viewBudget() {
 

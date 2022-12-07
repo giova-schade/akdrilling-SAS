@@ -577,7 +577,8 @@ export class ViewAdAndRedComponent implements OnInit {
 
         },
         error: (response: any) => {
-          this.notify.showNotification('top', 'right', 4, 'Error al cargar el documento');
+          this.notify.showNotification('top', 'right', 4, 'Error al cargar el documento'+ ', verifique que el archivo se encuentra cerrado');
+          this.deleteFile(0,'ad');
           this.loadingPage = false;
         },
         complete: () => { }
@@ -715,7 +716,9 @@ export class ViewAdAndRedComponent implements OnInit {
 
         },
         error: (response: any) => {
-          this.notify.showNotification('top', 'right', 4, 'Error al cargar el documento');
+          this.notify.showNotification('top', 'right', 4, 'Error al cargar el documento'+ ', verifique que el archivo se encuentra cerrado');
+          this.deleteFile(0,'re');
+
           this.loadingPage = false;
         },
         complete: () => { }
@@ -865,16 +868,8 @@ export class ViewAdAndRedComponent implements OnInit {
   deleteFile(index: number, typefile: string) {
     if (typefile == 'ad') {
       this.filesAD.splice(index, 1);
-      if (this.filesAD[index].progress < 100) {
-        console.log("Carga en progreso.");
-        return;
-      }
     } else if (typefile == 're') {
       this.filesRe.splice(index, 1);
-      if (this.filesRe[index].progress < 100) {
-        console.log("Carga en progreso.");
-        return;
-      }
     }
 
   }

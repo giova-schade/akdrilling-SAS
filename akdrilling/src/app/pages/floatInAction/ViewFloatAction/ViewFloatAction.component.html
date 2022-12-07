@@ -52,7 +52,7 @@
                     <div class=" card-body" *ngIf="floatFE.controls['Option'].value['Code'] == '01'">
                         <form class="p-grid" [formGroup]="floatFE" accept-charset="utf-8">
 
-                            <div class=" card" *ngIf="DatosFloatE.length !=  0">
+                            <div class=" card" >
                                 <div class="card-header">
                                     <div class="download">
                                         <div class="row">
@@ -99,7 +99,7 @@
                                                 [responsive]="true"
                                                 [autoLayout]="true" 
                                                 [globalFilterFields]="camposFe.field"
-                                                styleClass="tabla" *ngIf="DatosFloatE.length >  0" [scrollable]="true"
+                                                styleClass="tabla" [scrollable]="true"
                                                 [reorderableColumns]="true" 
                                                 scrollHeight="500px" 
                                                 [multiSortMeta]="multiSortMetaFE"
@@ -162,7 +162,7 @@
                             </div>
 
                             <p-card class=" card-body" style="text-align: center;"
-                                *ngIf="DatosFloatE.length !=  0 && floatFE.controls['estado'].value == 'Creado' && usuario.role =='AKDAFE' || usuario.role =='AKDADM'">
+                                *ngIf=" floatFE.controls['estado'].value == 'Creado' && usuario.role =='AKDAFE' || usuario.role =='AKDADM'">
                                 <ng-template pTemplate="header">
                                     Actualización de float en ejecución
                                 </ng-template>
@@ -170,7 +170,7 @@
                                     <div class="col">
                                         <div class="row justify-content-md-center">
                                             <div class="col">
-                                                <div class="container" *ngIf="DatosFloatE.length !=  0" appDnd
+                                                <div class="container"  appDnd
                                                     (fileDropped)="onFileDropped($event)">
                                                     <input type="file" #fileDropRef id="fileDropRef" multiple
                                                         (change)="fileBrowseHandler($event)" />
@@ -179,7 +179,7 @@
                                                     <h3>o</h3>
                                                     <label for="fileDropRef">Selecciona el archivo</label>
                                                 </div>
-                                                <div class="files-list" *ngIf="DatosFloatE.length !=  0">
+                                                <div class="files-list" >
                                                     <div class="single-file" *ngFor="let file of files; let i = index">
                                                         <img src="/akdrilling/assets/img/dnd/ic-file-excel.svg"
                                                             width="45px" alt="file">

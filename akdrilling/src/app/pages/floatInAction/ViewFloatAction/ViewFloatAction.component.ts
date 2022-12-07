@@ -414,7 +414,7 @@ export class ViewFloateComponent implements OnInit {
 
 
                   for (let i in this.mainForm.controls) {
-                    this.camposFe.push({ field: i, header: i })
+//                    this.camposFe.push({ field: i, header: i })
                     if (i == 'idFloatE') {
                       this.multiSortMetaFE.push({ field: i, order: -1 });
                     }
@@ -493,7 +493,8 @@ export class ViewFloateComponent implements OnInit {
 
       },
       error: (response: any) => {
-        this.notify.showNotification('top', 'right', 4, 'Error al cargar el documento');
+        this.notify.showNotification('top', 'right', 4, 'Error al cargar el documento'+ ', verifique que el archivo se encuentra cerrado');
+        this.deleteFile(0);
         this.loadingPage = false;
       },
       complete: () => { }
@@ -599,20 +600,7 @@ export class ViewFloateComponent implements OnInit {
   }
 
   uploadFilesSimulator(index: number) {
-    setTimeout(() => {
-      if (index === this.files.length) {
-        return;
-      } else {
-        const progressInterval = setInterval(() => {
-          if (this.files[index].progress === 100) {
-            clearInterval(progressInterval);
-            this.uploadFilesSimulator(index + 1);
-          } else {
-            this.files[index].progress += 5;
-          }
-        }, 200);
-      }
-    }, 1000);
+   
   }
   onFileDropped($event: any) {
     this.prepareFilesList($event);
@@ -621,10 +609,6 @@ export class ViewFloateComponent implements OnInit {
     this.prepareFilesList(files.target.files);
   }
   deleteFile(index: number) {
-    if (this.files[index].progress < 100) {
-      console.log("Carga en progreso.");
-      return;
-    }
     this.files.splice(index, 1);
   }
   applyFilterGlobalBD($event: any, stringVal: any) {

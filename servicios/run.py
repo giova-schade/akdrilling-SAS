@@ -13739,7 +13739,7 @@ def apiPostPeriodReportFI():
     if(request.method == 'POST'):
         data = {
             "status": "ok",
-            "downloadFI": "http://192.168.68.71:5000/DownloadFI*",
+            "downloadFI": "http://192.168.68.71:5000/DownloadFI",
             "datos": [
                 {"periodo": "Mayo", "date": "01/05/2022"},
             ]
@@ -15209,6 +15209,34 @@ def apiGetRunPagos():
   ]
 }
         return jsonify(data)
+
+
+@app.route('/apiPostPeriodRevenue', methods=['POST'])
+def apiPostPeriodRevenue():
+    if(request.method == 'POST'):
+        data = {
+            "status": "ok",
+            "datos": [
+                {"periodo": "Mayo", "date": "01/05/2022"},
+            ]
+        }
+        return jsonify(data)
+
+@app.route('/apiPostLoadRevenue', methods=['POST'])
+def apiPostLoadRevenue():
+    if(request.method == 'POST'):
+        data = {
+            "status": "warning",
+            "idBudget": "123",
+            "rol": "AKDABOP",
+            "urlResutlado": "http://192.168.68.71:5000/DownloadBG",
+            "datos": [
+                {
+                    "detail": "ingreso subido correctamente!"
+                }
+            ]
+        }
+        return jsonify(data)        
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)

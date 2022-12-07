@@ -46,7 +46,7 @@
                     <div class=" card-body" *ngIf="meet.controls['Option'].value['Code'] == '01'">
                         <form class="p-grid" [formGroup]="meet" accept-charset="utf-8">
 
-                            <div class=" card" *ngIf="DatosMeet.length !=  0">
+                            <div class=" card" >
                                 <div class="card-header">
                                     <div class="download">
                                         <div class="row">
@@ -93,7 +93,7 @@
                                                 [responsive]="true"
                                                 [autoLayout]="true" 
                                                 [globalFilterFields]="camposMt.field"
-                                                styleClass="tabla" *ngIf="DatosMeet.length >  0" [scrollable]="true"
+                                                styleClass="tabla"  [scrollable]="true"
                                                 [reorderableColumns]="true" 
                                                 scrollHeight="500px" 
                                                 [multiSortMeta]="multiSortMetaMt"

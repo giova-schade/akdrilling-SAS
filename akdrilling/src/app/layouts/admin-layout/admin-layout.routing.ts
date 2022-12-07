@@ -5,6 +5,7 @@ import { UploadFilesComponent } from "../../pages/UploadFiles/uploadFiles.compon
 import { OpenPeriodComponent } from "../../pages/openPeriod/openPeriod.component";
 import { ClosePeriodComponent } from "../../pages/closePeriod/closePeriod.component";
 import { ReopenPeriodComponent } from "../../pages/reopenPeriod/reopenPeriod.component";
+import { RevenueComponent } from "../../pages/revenue/revenue.component";
 import { BudgetComponent } from "../../pages/Budget/budget.component";
 import { FloatPlannedComponent } from "../../pages/floatPlanned/floatPlanned.component";
 import { FloatInActionComponent } from "../../pages/floatInAction/floatInAction.component";
@@ -27,6 +28,7 @@ export const AdminLayoutRoutes: Routes = [
   { path: "openPeriod", component: OpenPeriodComponent },
   { path: "closePeriod", component: ClosePeriodComponent },
   { path: "reopenPeriod", component: ReopenPeriodComponent },
+  { path: "revenue", component: RevenueComponent },
   { path: "budget", component:  BudgetComponent},
   { path: "budget/view", component:  ViewBudgetComponent},
   { path: "floatPlanned", component:  FloatPlannedComponent},

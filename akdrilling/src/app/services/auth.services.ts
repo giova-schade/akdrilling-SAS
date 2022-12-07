@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { User , Cias} from '../models/user';
-import { Role, AKDABRRHH, AKDADM, AKDABOP, AKDABDF, AKDAFP, AKDAAFP, AKDAFE, AKDAAFE, AKDARFE, AKDAAERFE  } from '../models/role';
+import { User, Cias } from '../models/user';
+import { Role, AKDABRRHH, AKDADM, AKDABOP, AKDABDF, AKDAFP, AKDAAFP, AKDAFE, AKDAAFE, AKDARFE, AKDAAERFE } from '../models/role';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { CONFIG } from '../../environments/global.component';
@@ -28,10 +28,16 @@ export const alllinks: MenuItem[] = [
         routerLink: "closePeriod",
         label: "Cerrar periodo",
         icon: "pi pi-lock"
-    }, {
+    },
+    {
         routerLink: "reopenPeriod",
         label: "Reabrir periodo",
         icon: "pi pi-refresh"
+    }
+    , {
+        routerLink: "revenue",
+        label: "Ingresos",
+        icon: "pi pi-money-bill"
     }, {
         routerLink: "budget",
         label: "Budget",
@@ -88,24 +94,24 @@ export class AuthService {
 
     hasRole(role: Role) {
         const roles = Role;
-        var validate = false ;
-        for (const a in roles){
-            if(a == role){
+        var validate = false;
+        for (const a in roles) {
+            if (a == role) {
                 validate = true;
             }
         }
         return this.isAuthorized() && validate;
     }
 
-    login(role: Role, name: any, info: any , roleDescription:any , ciaSelected:any) {
-        this.user = { role: role,name: name, info: info , roleDescription: roleDescription , ciaSelected };
-        this.cias = {info: info }
+    login(role: Role, name: any, info: any, roleDescription: any, ciaSelected: any) {
+        this.user = { role: role, name: name, info: info, roleDescription: roleDescription, ciaSelected };
+        this.cias = { info: info }
     }
     GetuserInfo() {
         return this.user;
     }
-    GetCias(){
-            return this.cias;
+    GetCias() {
+        return this.cias;
     }
     GetUserOptions(role: any) {
         alllinks.forEach((link) => {
@@ -120,155 +126,155 @@ export class AuthService {
     }
 
     pushlink(role: string, link: any) {
-        if (role == "AKDADM") {            
-            let roleConfig = AKDADM;   
+        if (role == "AKDADM") {
+            let roleConfig = AKDADM;
 
             if (this.ValidaUrl(link, roleConfig)) {
-                link.routerLink=role+'/'+link.routerLink;
+                link.routerLink = role + '/' + link.routerLink;
                 links.push(link);
-                
+
             }
-            let subrl = this.PushSuburl(link,roleConfig,role); 
-            if(subrl.hasOwnProperty('items')){   
-                if(subrl.items.length){
-                 links.push(subrl);                    
-                }              
+            let subrl = this.PushSuburl(link, roleConfig, role);
+            if (subrl.hasOwnProperty('items')) {
+                if (subrl.items.length) {
+                    links.push(subrl);
+                }
             };
         } else if (role == "AKDABRRHH") {
             let roleConfig = AKDABRRHH;
             if (this.ValidaUrl(link, roleConfig)) {
-                link.routerLink=role+'/'+link.routerLink;
+                link.routerLink = role + '/' + link.routerLink;
                 links.push(link);
             }
-            let subrl = this.PushSuburl(link,roleConfig,role); 
-            if(subrl.hasOwnProperty('items')){                 
-                if(subrl.items.length){
-                    links.push(subrl);                    
-                   } 
+            let subrl = this.PushSuburl(link, roleConfig, role);
+            if (subrl.hasOwnProperty('items')) {
+                if (subrl.items.length) {
+                    links.push(subrl);
+                }
             };
         } else if (role == "AKDABOP") {
             let roleConfig = AKDABOP;
             if (this.ValidaUrl(link, roleConfig)) {
-                link.routerLink=role+'/'+link.routerLink;
+                link.routerLink = role + '/' + link.routerLink;
                 links.push(link);
             }
-            let subrl = this.PushSuburl(link,roleConfig,role); 
-            if(subrl.hasOwnProperty('items')){                 
-                if(subrl.items.length){
-                    links.push(subrl);                    
-                   } 
+            let subrl = this.PushSuburl(link, roleConfig, role);
+            if (subrl.hasOwnProperty('items')) {
+                if (subrl.items.length) {
+                    links.push(subrl);
+                }
             };
-        }else if (role == "AKDABDF") {
+        } else if (role == "AKDABDF") {
             let roleConfig = AKDABDF;
             if (this.ValidaUrl(link, roleConfig)) {
-                link.routerLink=role+'/'+link.routerLink;
+                link.routerLink = role + '/' + link.routerLink;
                 links.push(link);
             }
-            let subrl = this.PushSuburl(link,roleConfig,role); 
-            if(subrl.hasOwnProperty('items')){                 
-                if(subrl.items.length){
-                    links.push(subrl);                    
-                   } 
+            let subrl = this.PushSuburl(link, roleConfig, role);
+            if (subrl.hasOwnProperty('items')) {
+                if (subrl.items.length) {
+                    links.push(subrl);
+                }
             };
-        }else if (role == "AKDAFP") {
+        } else if (role == "AKDAFP") {
             let roleConfig = AKDAFP;
             if (this.ValidaUrl(link, roleConfig)) {
-                link.routerLink=role+'/'+link.routerLink;
+                link.routerLink = role + '/' + link.routerLink;
                 links.push(link);
             }
-            let subrl = this.PushSuburl(link,roleConfig,role); 
-            if(subrl.hasOwnProperty('items')){                 
-                if(subrl.items.length){
-                    links.push(subrl);                    
-                   } 
+            let subrl = this.PushSuburl(link, roleConfig, role);
+            if (subrl.hasOwnProperty('items')) {
+                if (subrl.items.length) {
+                    links.push(subrl);
+                }
             };
-        }else if (role == "AKDAAFP") {
+        } else if (role == "AKDAAFP") {
             let roleConfig = AKDAAFP;
             if (this.ValidaUrl(link, roleConfig)) {
-                link.routerLink=role+'/'+link.routerLink;
+                link.routerLink = role + '/' + link.routerLink;
                 links.push(link);
             }
-            let subrl = this.PushSuburl(link,roleConfig,role); 
-            if(subrl.hasOwnProperty('items')){                 
-                if(subrl.items.length){
-                    links.push(subrl);                    
-                   } 
+            let subrl = this.PushSuburl(link, roleConfig, role);
+            if (subrl.hasOwnProperty('items')) {
+                if (subrl.items.length) {
+                    links.push(subrl);
+                }
             };
-        }else if (role == "AKDAFE") {
+        } else if (role == "AKDAFE") {
             let roleConfig = AKDAFE;
             if (this.ValidaUrl(link, roleConfig)) {
-                link.routerLink=role+'/'+link.routerLink;
+                link.routerLink = role + '/' + link.routerLink;
                 links.push(link);
             }
-            let subrl = this.PushSuburl(link,roleConfig,role); 
-            if(subrl.hasOwnProperty('items')){                 
-                if(subrl.items.length){
-                    links.push(subrl);                    
-                   } 
+            let subrl = this.PushSuburl(link, roleConfig, role);
+            if (subrl.hasOwnProperty('items')) {
+                if (subrl.items.length) {
+                    links.push(subrl);
+                }
             };
-        }else if (role == "AKDAAFE") {
+        } else if (role == "AKDAAFE") {
             let roleConfig = AKDAAFE;
             if (this.ValidaUrl(link, roleConfig)) {
-                link.routerLink=role+'/'+link.routerLink;
+                link.routerLink = role + '/' + link.routerLink;
                 links.push(link);
             }
-            let subrl = this.PushSuburl(link,roleConfig,role); 
-            if(subrl.hasOwnProperty('items')){                 
-                if(subrl.items.length){
-                    links.push(subrl);                    
-                   } 
+            let subrl = this.PushSuburl(link, roleConfig, role);
+            if (subrl.hasOwnProperty('items')) {
+                if (subrl.items.length) {
+                    links.push(subrl);
+                }
             };
-        }else if (role == "AKDARFE") {
+        } else if (role == "AKDARFE") {
             let roleConfig = AKDARFE;
             if (this.ValidaUrl(link, roleConfig)) {
-                link.routerLink=role+'/'+link.routerLink;
+                link.routerLink = role + '/' + link.routerLink;
                 links.push(link);
             }
-            let subrl = this.PushSuburl(link,roleConfig,role); 
-            if(subrl.hasOwnProperty('items')){                 
-                if(subrl.items.length){
-                    links.push(subrl);                    
-                   } 
+            let subrl = this.PushSuburl(link, roleConfig, role);
+            if (subrl.hasOwnProperty('items')) {
+                if (subrl.items.length) {
+                    links.push(subrl);
+                }
             };
-        }else if (role == "AKDAAERFE") {
+        } else if (role == "AKDAAERFE") {
             let roleConfig = AKDAAERFE;
             if (this.ValidaUrl(link, roleConfig)) {
-                link.routerLink=role+'/'+link.routerLink;
+                link.routerLink = role + '/' + link.routerLink;
                 links.push(link);
             }
-            let subrl = this.PushSuburl(link,roleConfig,role); 
-            if(subrl.hasOwnProperty('items')){                 
-                if(subrl.items.length){
-                    links.push(subrl);                    
-                   } 
+            let subrl = this.PushSuburl(link, roleConfig, role);
+            if (subrl.hasOwnProperty('items')) {
+                if (subrl.items.length) {
+                    links.push(subrl);
+                }
             };
         }
 
 
 
     }
-    PushSuburl(link: any, roleConfig : any, role : string){
-        var  suburl = [];
-        if (link.hasOwnProperty('items')){
-            for ( let subitem in link.items ){
-                if(link.items[subitem].routerLink.indexOf('/') > 0){
-                    for(let sub in roleConfig){
-                        if (sub == link.items[subitem].routerLink.split('/')[1] && roleConfig[sub] == 'Yes'  ){
-                            link.items[subitem].routerLink=role+'/'+link.items[subitem].routerLink;
+    PushSuburl(link: any, roleConfig: any, role: string) {
+        var suburl = [];
+        if (link.hasOwnProperty('items')) {
+            for (let subitem in link.items) {
+                if (link.items[subitem].routerLink.indexOf('/') > 0) {
+                    for (let sub in roleConfig) {
+                        if (sub == link.items[subitem].routerLink.split('/')[1] && roleConfig[sub] == 'Yes') {
+                            link.items[subitem].routerLink = role + '/' + link.items[subitem].routerLink;
                             suburl.push(link.items[subitem]);
                         }
                     }
-                }else{
+                } else {
                     console.log(link.items[subitem].routerLink);
-                    for(let sub in roleConfig){
-                        if (sub == link.items[subitem].routerLink && roleConfig[sub] == 'Yes'  ){
-                            link.items[subitem].routerLink=role+'/'+link.items[subitem].routerLink;
+                    for (let sub in roleConfig) {
+                        if (sub == link.items[subitem].routerLink && roleConfig[sub] == 'Yes') {
+                            link.items[subitem].routerLink = role + '/' + link.items[subitem].routerLink;
                             suburl.push(link.items[subitem]);
                         }
                     }
                 }
             }
-            link.items=suburl;
+            link.items = suburl;
         }
 
         return link;

@@ -94,6 +94,7 @@ export class ReportComponent implements OnInit {
     })
   }
   datosReporteFloatEjecucion() {
+    this.loadingPage = true;
     this.periodos = [];
     this.reports.controls['PERIODO'].setValue([])
     this.master.apiPostPeriodReportFE(this.reports).subscribe({
@@ -111,6 +112,7 @@ export class ReportComponent implements OnInit {
           this.notify.showNotification('top', 'right', 4, result.datos[0].detail);
 
         }
+        this.loadingPage = false;
       },
       error: (result: any) => {
         this.notify.showNotification('top', 'right', 4, result.datos[0].detail);

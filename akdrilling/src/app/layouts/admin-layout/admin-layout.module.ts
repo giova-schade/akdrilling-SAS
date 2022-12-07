@@ -39,6 +39,7 @@ import { RippleModule } from 'primeng/ripple';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import {BlockUIModule} from 'primeng/blockui';
 import {PanelMenuModule} from 'primeng/panelmenu';
+import { Revenue } from "src/app/pages/revenue/revenue.component.module";
 
 
 
@@ -80,7 +81,8 @@ import {PanelMenuModule} from 'primeng/panelmenu';
     ReopenPeriod,
     Payments,
     home,
-    Report
+    Report,
+    Revenue
     
 
   ],

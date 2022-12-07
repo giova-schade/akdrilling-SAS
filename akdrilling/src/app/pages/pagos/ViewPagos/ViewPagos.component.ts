@@ -222,7 +222,8 @@ export class ViewPagosComponent implements OnInit {
                   { field: 'DescripcionBudget_Nivel_2', header: 'DescripcionBudget_Nivel_2' },
                   { field: 'DescripcionBudget_Nivel_3', header: 'DescripcionBudget_Nivel_3' },
                   { field: 'DescripcionBudget_Nivel_5', header: 'DescripcionBudget_Nivel_5' },
-                  { field: 'Fecha de aprobación', header: 'Fecha de aprobación' }
+                  { field: 'Fecha de aprobación', header: 'Fecha de aprobación' },
+                  { field: 'IDSAS', header: 'IDSAS' }
                 ]
                 for (let i in this.mainForm.controls) {
                   // this.camposMt.push({ field: i, header: i })

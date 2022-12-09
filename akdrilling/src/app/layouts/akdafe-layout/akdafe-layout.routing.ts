@@ -21,6 +21,7 @@ import { BudgetComponent } from "../../pages/Budget/budget.component";
 import { ReportComponent } from "src/app/pages/report/report.component";
 import { ViewMeetComponent } from "src/app/pages/meet/ViewMeet/ViewMeet.component";
 import { RevenueComponent } from "src/app/pages/revenue/revenue.component";
+import { ViewRevenueComponent } from "src/app/pages/revenue/ViewRevenue/ViewRevenue.component";
 
 export const AkdafeRoutes: Routes = [
   { path: "Home", component: HomeComponent },
@@ -30,6 +31,7 @@ export const AkdafeRoutes: Routes = [
   { path: "closePeriod", component: ClosePeriodComponent },
   { path: "reopenPeriod", component: ReopenPeriodComponent },
   { path: "revenue", component: RevenueComponent },
+  { path: "revenue/view", component:  ViewRevenueComponent},
   { path: "budget", component:  BudgetComponent},
   { path: "budget/view", component:  ViewBudgetComponent},
   { path: "floatPlanned", component:  FloatPlannedComponent},

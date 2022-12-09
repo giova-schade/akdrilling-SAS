@@ -22,6 +22,7 @@ import { ViewMeetComponent } from "src/app/pages/meet/ViewMeet/ViewMeet.componen
 import { ViewFloatpComponent } from "src/app/pages/floatPlanned/ViewFloatP/ViewFloatp.component";
 import { ViewFloateComponent } from "src/app/pages/floatInAction/ViewFloatAction/ViewFloatAction.component";
 import { RevenueComponent } from "src/app/pages/revenue/revenue.component";
+import { ViewRevenueComponent } from "src/app/pages/revenue/ViewRevenue/ViewRevenue.component";
 export const AkdarmtRoutes: Routes = [
   { path: "Home", component: HomeComponent },
   { path: "dashboard", component: DashboardComponent },
@@ -30,6 +31,7 @@ export const AkdarmtRoutes: Routes = [
   { path: "closePeriod", component: ClosePeriodComponent },
   { path: "reopenPeriod", component: ReopenPeriodComponent },
   { path: "revenue", component: RevenueComponent },
+  { path: "revenue/view", component:  ViewRevenueComponent},
   { path: "budget", component:  BudgetComponent},
   { path: "budget/view", component:  ViewBudgetComponent},
   { path: "floatPlanned", component:  FloatPlannedComponent},

@@ -1,0 +1,161 @@
+<div class="content">
+
+    
+    <div class=" row">
+        <div class=" col-12">
+            <div class=" card">
+                <p-progressBar *ngIf="loadingPage" mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
+                <p-blockUI [blocked]="loadingPage" [style]="{'z-index': '2'}"></p-blockUI>
+                
+                <div class="row">
+                    <div class="col-12">
+                        <div class=" card">
+                            <p-menubar>
+                                <div *ngIf="CargaRevenue">
+                                    <button  type="button" pButton
+                                    label="Cerrar Ingreso" icon="pi pi-check-circle" style="margin-left:.25em"
+                                    (click)="CerrarRevenue()"></button>
+                                </div>
+
+                            </p-menubar>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <p-steps [model]="items" [(activeIndex)]="activeIndex" [readonly]="true"></p-steps>
+                    </div>
+                </div>
+
+                <div class=" card-header">
+                    <!-- Inicio codigo ver revenue-->
+
+                    <div class=" card-body" *ngIf="revenue.controls['Option'].value['Code'] == '01'">
+                        <form class="p-grid" [formGroup]="revenue" accept-charset="utf-8">
+                            
+                            <div class=" card" *ngIf="DatosRevenue.length !=  0">
+                                <div class="card-header">
+                                    <div class="download">
+                                        <div class="row">
+                                            <div class="col-md-11">
+                                                <h5>Ingreso: {{revenue.controls['PERIODO'].value['periodo']}}</h5>
+                                            </div>
+                                            
+                                            <div class="col-md-12">
+                                                <div class=" row" style="text-align: right;">
+                                                    <div >
+                                                        <button pButton pRipple type="button" (click)="downloadBD()"
+                                                            class="p-button-rounded p-button-text ">
+                                                            <img src="/akdrilling/assets/img/dnd/ic-file-excel.svg" width="45px"
+                                                                alt="file">
+
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-body">
+                                        <div class=" col-sm-12">
+                                            <p-table #bds [columns]="campos" 
+                                                [paginator]="true"
+                                                [value]="datasource"
+                                                [rowHover]="true"
+                                                [rows]="10"
+                                                [showCurrentPageReport]="true"
+                                                [loading]="loading"
+                                                currentPageReportTemplate="Mostrar {first} hasta  {last} de {totalRecords} datos"
+                                                [filterDelay]="0" 
+                                                [autoLayout]="true" 
+                                                [globalFilterFields]="campos.field"
+                                                styleClass="tabla" 
+                                                *ngIf="DatosRevenue.length >  0" 
+                                                [scrollable]="true"
+                                                [reorderableColumns]="true" 
+                                                [multiSortMeta]="multiSortMeta"
+                                                [tableStyle]="{ width: 'max-content'}"
+                                                responsiveLayout="scroll"
+                                                >
+
+                                                <ng-template pTemplate="caption">
+                                                    <div class="p-d-flex">
+
+                                                        <button pButton label="Limpiar" class="p-button-outlined"
+                                                            icon="pi pi-filter-slash" (click)="clear(bds)"></button>
+                                                        <span class="p-input-icon-left p-ml-auto">
+                                                            <i class="pi pi-search"></i>
+                                                            <input pInputText type="text"
+                                                                (input)="applyFilterGlobalBD($event, 'contains')"
+                                                                placeholder="Filtrar" />
+                                                        </span>
+
+                                                    </div>
+                                                </ng-template>
+                                                <ng-template pTemplate="header" let-columns>
+                                                    <tr>
+                                                        <th *ngFor="let col of columns" pReorderableColumn>
+                                                            <p-columnFilter type="text" [field]="col.field">
+
+                                                            </p-columnFilter>
+                                                        </th>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <th *ngFor="let col of columns" pSortableColumn="{{col.field}}">
+                                                            {{col.field}}
+                                                            <p-sortIcon field="{{col.field}}">
+                                                            </p-sortIcon>
+                                                        </th>
+
+                                                    </tr>
+                                                </ng-template>
+                                                <ng-template pTemplate="body" let-rowData let-columns="columns">
+                                                    <tr >
+                                                        <td *ngFor="let col of columns" [ngClass]="col.field.indexOf('Mensual') != -1 ? 'dollar-col' :
+                                                                                                col.field.indexOf('Mes') != -1 ? 'dollar-col' : ''">
+                                                            {{rowData[col.field]}}</td>
+                                                    </tr>
+
+                                                </ng-template>
+                                                <ng-template pTemplate="emptymessage" let-columns>
+                                                    <tr>
+                                                      <td [attr.colspan]="columns.length" >
+                                                        No records found
+                                                      </td>
+                                                    </tr>
+                                                  </ng-template>
+                                            </p-table>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <p-card  class=" card-body" *ngIf="DatosRevenue.length !=  0" >
+                                <ng-template pTemplate="header" >
+                                    Información del ingreso
+                                </ng-template>
+                                <div class=" row PanelInformacion">
+                                    <div class="col-sm-12">
+                                        <div class="row">
+                                            <div class="col-md-2">Estado:</div>
+                                            <div class="col-md-10 estado">{{revenue.controls['estado'].value}} </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                                              
+                                </p-card>
+
+
+                        </form>
+                    </div>
+                    <!-- Fin codigo ver ingreso-->
+
+                    <p-confirmDialog [style]="{width: '50vw'}" key="positionDialog" [position]="'bottom'"
+                        [baseZIndex]="10000"></p-confirmDialog>
+                    <p-messages [value]="msgs"></p-messages>
+
+                </div>
+            </div>
+        </div>
+    </div>

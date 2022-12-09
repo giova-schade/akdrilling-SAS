@@ -34,6 +34,7 @@ import {PanelMenuModule} from 'primeng/panelmenu';
 import {  Budget } from "../../pages/Budget/budget.component.module";
 import { Report } from "src/app/pages/report/report.component.module";
 import { Revenue } from "src/app/pages/revenue/revenue.component.module";
+import { RevenueV } from "src/app/pages/revenue/ViewRevenue/viewRevenue.component.module";
 
 
 @NgModule({

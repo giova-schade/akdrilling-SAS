@@ -787,7 +787,7 @@ export class MaestrosService {
         return this.http.post(CONFIG.apiPostPeriodRevenue, formData)
 
     }
-    apiPostLoadRevenue(form: any) {
+    apiPostCreaRevenue(form: any) {
         var formData: any = new FormData();
         for (let i in form.controls) {
             if (i == 'PERIODO') {
@@ -798,6 +798,33 @@ export class MaestrosService {
         }
         return this.http.post(CONFIG.apiPostLoadRevenue, formData)
 
+    }
+    getGetRevenues(form: any) {
+        var formData: any = new FormData();
+        for (let i in form.controls) {
+            if (i == 'PERIODO') {
+                formData.append(i, form.controls[i].value.date);
+
+            } else if (i == 'Option') {
+                formData.append(i, form.controls[i].value.Code);
+            } else {
+                formData.append(i, form.controls[i].value);
+            }
+        }
+        return this.http.post(CONFIG.apiGetRevenues, formData);
+    }
+
+
+    GetRevenue(form: any): Observable<any> {
+        var formData: any = new FormData();
+        for (let i in form.controls) {
+            if (i == 'idBudget') {
+                formData.append(i, form.controls[i].value);
+            } else {
+                formData.append(i, form.controls[i].value);
+            }
+        }
+        return this.http.post(CONFIG.apiGetrevenue, formData)
     }
 
 }

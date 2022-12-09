@@ -75,7 +75,10 @@ export const CONFIG = {
   apiGetRunPagos: 'http://192.168.68.78:5000/apiGetRunPagos',
   apiRollbackbyPeriod: 'http://192.168.68.78:5000/apiRollbackbyPeriod',
   apiPostPeriodRevenue: 'http://192.168.68.78:5000/apiPostPeriodRevenue',
-  apiPostLoadRevenue: 'http://192.168.68.78:5000/apiPostLoadRevenue'
+  apiPostLoadRevenue: 'http://192.168.68.78:5000/apiPostLoadRevenue',
+  apiGetRevenues : 'http://192.168.68.78:5000/apiGetRevenues',
+  apiGetrevenue : 'http://192.168.68.78:5000/apiGetrevenue',
+
 };
 /*
 export const CONFIG = {

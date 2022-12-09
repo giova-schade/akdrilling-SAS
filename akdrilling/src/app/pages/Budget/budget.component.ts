@@ -43,7 +43,6 @@ export class BudgetComponent implements OnInit {
   periodos!: Periodos[];
   optionsBudget!: OptionBudget[];
   PERIODO_REQ: boolean;
-  testForm!: any;
   camposBd: any;
   multiSortMetaBD: any;
   loading!: boolean;

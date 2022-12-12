@@ -61,14 +61,42 @@ export class ReportComponent implements OnInit {
       }
 
     })
-    this.datosReporteInicial();
+    this.datosReporteBudget();
     this.loadingPage = true;
 
   }
-  datosReporteInicial() {
+  datosReporteBudget() {
     this.periodos = [];
     this.reports.controls['PERIODO'].setValue([])
-    this.master.apiPostPeriodReportFI(this.reports).subscribe({
+    this.master.apiPostPeriodReportBudget(this.reports).subscribe({
+      next: (result: any) => {
+        if (result.status == "ok") {
+          result.datos.forEach((x: any) => {
+            this.periodos.push({ periodo: x.periodo + ' ' + x.date.split('/')[2], date: x.date });
+          })
+          this.reports.controls['urlDownload'].setValue(result.downloadBudget);
+          console.log(this.reports)
+
+        } else if (result.status == 'warning') {
+          this.notify.showNotification('top', 'right', 3, result.datos[0].detail);
+        } else {
+          this.notify.showNotification('top', 'right', 4, result.datos[0].detail);
+
+        }
+      },
+      error: (result: any) => {
+        this.notify.showNotification('top', 'right', 4, result.datos[0].detail);
+      },
+      complete: () => {
+        this.loadingPage = false;
+      },
+
+    })
+  }
+  datosReporteFloatPlanificado() {
+    this.periodos = [];
+    this.reports.controls['PERIODO'].setValue([])
+    this.master.apiPostPeriodReportFP(this.reports).subscribe({
       next: (result: any) => {
         if (result.status == "ok") {
           result.datos.forEach((x: any) => {
@@ -159,8 +187,10 @@ export class ReportComponent implements OnInit {
   }
   reporte(event: any) {
     if (event.index == 0) {
-      this.datosReporteInicial();
+      this.datosReporteBudget();
     } else if (event.index == 1) {
+      this.datosReporteFloatPlanificado();
+    } else if (event.index == 2) {
       this.datosReporteFloatEjecucion();
     }
   }

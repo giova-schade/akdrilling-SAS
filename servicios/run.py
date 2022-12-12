@@ -13734,8 +13734,8 @@ def apiPostFPByID():
 ###api de reportes
 
 
-@app.route('/apiPostPeriodReportFI', methods=['POST'])
-def apiPostPeriodReportFI():
+@app.route('/apiPostPeriodReportFP', methods=['POST'])
+def apiPostPeriodReportFP():
     if(request.method == 'POST'):
         data = {
             "status": "ok",
@@ -13750,6 +13750,18 @@ def apiPostPeriodReportFI():
 def DownloadFI():
     if(request.method == 'GET'):
         return send_file('Copy of GAPS AKD_v2.7.xlsx', as_attachment=True)
+
+@app.route('/apiPostPeriodReportBudget', methods=['POST'])
+def apiPostPeriodReportBudget():
+    if(request.method == 'POST'):
+        data = {
+            "status": "ok",
+            "downloadBudget": "http://192.168.68.71:5000/DownloadFI",
+            "datos": [
+                {"periodo": "Mayo", "date": "01/05/2022"},
+            ]
+        }
+        return jsonify(data)        
 
 
 

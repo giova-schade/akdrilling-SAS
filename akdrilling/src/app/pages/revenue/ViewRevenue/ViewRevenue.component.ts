@@ -259,7 +259,7 @@ export class ViewRevenueComponent implements OnInit {
     table.clear();
   }
   closeRevenue() {
-    this.master.postCloseBudget(this.revenue).subscribe({
+    this.master.postCloseRevenue(this.revenue).subscribe({
       next: (result: any) => {
         if (result.status == "ok") {
           this.notify.showNotification('top', 'right', 1, 'Ingreso Cerrado!');

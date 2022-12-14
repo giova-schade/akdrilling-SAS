@@ -75,7 +75,7 @@ export class FloatPlannedComponent implements OnInit {
       name: 'Crear Float planificado'
     })
     this.usuario = this.authService.GetuserInfo();
-    if (this.usuario.role == 'AKDAFP' || this.usuario.role == 'AKDADM' ) {
+    if (this.usuario.role == 'AKDAFP' || this.usuario.role == 'AKDADM') {
       this.CargaFloatFP = true;
     }
 
@@ -155,7 +155,12 @@ export class FloatPlannedComponent implements OnInit {
       complete: () => { }
     })
   }
-
+  Cback() {
+    this.floatFP.controls['Option'].setValue({
+      Code: '01',
+      name: 'Ver ingreso'
+    });
+  }
   get DatosFloatFP(): FormArray {
     return this.floatFP.get("DatosFloatFP") as FormArray;
   }

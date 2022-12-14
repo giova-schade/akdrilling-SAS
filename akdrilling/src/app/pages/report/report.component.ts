@@ -168,6 +168,22 @@ export class ReportComponent implements OnInit {
 
 
   }
+
+  DownloadBudget() {
+    if (!this.PERIODO_REQ) {
+      this.notify.showNotification('top', 'right', 3, 'Debe seleccionar un periodo para descargar el Reporte de Budget');
+    } else {
+      this.master.download(this.reports.controls['urlDownload'].value + '&PERIODO=' + this.reports.controls['PERIODO'].value.date + '&IdCia=' + this.reports.controls['IdCia'].value).subscribe(blob => {
+        const a = document.createElement('a')
+        const objectUrl = URL.createObjectURL(blob)
+        a.href = objectUrl
+        a.download = 'Budget' + this.reports.controls['PERIODO'].value['periodo'] + '.xlsx';
+        a.click();
+        URL.revokeObjectURL(objectUrl);
+      })
+    }
+  }
+
   DownloadFE() {
 
     if (!this.PERIODO_REQ) {

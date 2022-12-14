@@ -78,9 +78,10 @@ export const CONFIG = {
   apiPostLoadRevenue: 'http://192.168.68.78:5000/apiPostLoadRevenue',
   apiGetRevenues : 'http://192.168.68.78:5000/apiGetRevenues',
   apiGetrevenue : 'http://192.168.68.78:5000/apiGetrevenue',
-
+  apipostCloseRevenue : 'http://192.168.68.78:5000/apipostCloseRevenue'
 };
 /*
+
 export const CONFIG = {
   apiUrlLogin: 'http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=form,properties,execute,newwindow&_program=%2FAKD+International%2FSTP%2FSTP_GetUserSession',
   apiFlujoCaja: 'w  E://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FAKADMAPI&action=consulta&maestro=FLUJOCAJACORPORATIVO',
@@ -156,7 +157,10 @@ export const CONFIG = {
   apiPostLoadReduccion : 'http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FAKADMAPI&action=apiPostLoadReduccion',
   apiGetRunPagos: 'http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FValidaPagos&action=LOADMASTER',
   apiRollbackbyPeriod: 'http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FeliminaRegistros',
-  apiPostPeriodRevenue: 'http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FAKADMAPI&action=apiPostPeriodRevenue'
-
+  apiPostPeriodRevenue: 'http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FRevenueAPI&action=PeriodRevenue',
+  apiPostLoadRevenue: 'http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FRevenueAPI&action=LoadRevenue',
+  apiGetRevenues : 'http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FRevenueAPI&action=apiGetRevenues',
+  apiGetrevenue : 'http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FRevenueAPI&action=apiGetrevenue',
+  apipostCloseRevenue : 'http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FRevenueAPI&action=apipostCloseRevenue'
 
 } */

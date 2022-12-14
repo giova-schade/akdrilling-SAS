@@ -38,6 +38,7 @@ import {  MeetV  } from "../../pages/meet/ViewMeet/ViewMeet.component.module";
 import {  PayV  } from "../../pages/pagos/ViewPagos/ViewPagos.component.module";
 import { Report } from "src/app/pages/report/report.component.module";
 import { Revenue } from "src/app/pages/revenue/revenue.component.module";
+import { RevenueV } from "src/app/pages/revenue/ViewRevenue/ViewRevenue.component.module";
 
 
 
@@ -74,7 +75,8 @@ import { Revenue } from "src/app/pages/revenue/revenue.component.module";
     MeetV,
     Report,
     PayV,
-    Revenue
+    Revenue,
+    RevenueV
 
   ],
   declarations: [

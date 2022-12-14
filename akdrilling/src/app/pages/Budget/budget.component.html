@@ -5,7 +5,7 @@
                 <p-progressBar *ngIf="loadingPage" mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
                 <p-blockUI [blocked]="loadingPage" [style]="{'z-index': '2'}"></p-blockUI>
                 <div class=" card-header">
-                    <div *ngIf="budget.controls['Option'].value.length == 0">
+                    <div *ngIf="budget.controls['Option'].value.length == 0 || budget.controls['Option']['value']['Code'] == '01'">
                         <form class="p-grid" [formGroup]="budget" accept-charset="utf-8">
                             <div class=" row" *ngIf="CargaBudget">
                                 <div class=" col-md-12">
@@ -119,7 +119,7 @@
                                         </p-dropdown>
                                     </div>
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-10">
                                     <div class="container" *ngIf="DatosBudget.length ==  0" appDnd
                                         (fileDropped)="onFileDropped($event)">
                                         <input type="file" #fileDropRef id="fileDropRef" multiple
@@ -146,11 +146,18 @@
                                                 width="20px" alt="file" (click)="deleteFile(i)">
                                         </div>
                                     </div>
-                                    <div class=" col-md-12" *ngIf="DatosBudget.length ==  0">
-                                        <div class=" form-group">
-                                            <button pButton type="submit" label="Crear Budget "
-                                                (click)="cargarBudget()"></button>
+
+                                    <div class=" row" *ngIf="DatosBudget.length ==  0">
+                                        <div class="col-sm-10">
+                                            <div class="row">
+                                                <div class="col-md-3"><button pButton type="submit" label="Crear Budget "
+                                                    (click)="cargarBudget()"></button></div>
+                                                <div class="col-md-5 "><button pButton type="submit"
+                                                        label="Volver " (click)="Cback()"></button> </div>
+                                            </div>
+
                                         </div>
+
                                     </div>
                                 </div>
 

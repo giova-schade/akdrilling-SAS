@@ -40,7 +40,7 @@ import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import {BlockUIModule} from 'primeng/blockui';
 import {PanelMenuModule} from 'primeng/panelmenu';
 import { Revenue } from "src/app/pages/revenue/revenue.component.module";
-import { RevenueV } from "src/app/pages/revenue/ViewRevenue/viewRevenue.component.module";
+import { RevenueV } from "src/app/pages/revenue/ViewRevenue/ViewRevenue.component.module";
 
 
 
@@ -83,7 +83,8 @@ import { RevenueV } from "src/app/pages/revenue/ViewRevenue/viewRevenue.componen
     Payments,
     home,
     Report,
-    Revenue
+    Revenue,
+    RevenueV
     
 
   ],

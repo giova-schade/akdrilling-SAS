@@ -5,7 +5,7 @@
                 <p-progressBar *ngIf="loadingPage" mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
                 <p-blockUI [blocked]="loadingPage" [style]="{'z-index': '2'}"></p-blockUI>
                 <div class=" card-header"  >
-                    <div *ngIf="floatFE.controls['Option'].value.length == 0">
+                    <div *ngIf="floatFE.controls['Option'].value.length == 0 || floatFE.controls['Option']['value']['Code'] == '01'">
                         <form class="p-grid" [formGroup]="floatFE" accept-charset="utf-8"
                             >
                             <div class=" row" *ngIf="CargaFloatFE">
@@ -106,12 +106,21 @@
 
                                     </div>
                                 </div> 
-                                <div class=" col-md-12" *ngIf="DatosFloatFE.length ==  0">
-                                    <div class=" form-group">
-                                        <button pButton type="submit" label="Crear Float en ejecución "
+
+                                <div class=" row" *ngIf="DatosFloatFE.length ==  0">
+                                    <div class="col-sm-12">
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <button pButton type="submit" label="Crear Float en ejecución "
                                             (click)="crearFloatFE()"></button>
+                                            </div>
+                                            <div class="col-md-5 "><button pButton type="submit"
+                                                    label="Volver " (click)="Cback()"></button> </div>
+                                        </div>
+
                                     </div>
-                                </div>                               
+
+                                </div>                            
                             </div>
                             
 

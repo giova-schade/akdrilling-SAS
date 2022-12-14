@@ -5,7 +5,7 @@
                 <p-progressBar *ngIf="loadingPage" mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
                 <p-blockUI [blocked]="loadingPage" [style]="{'z-index': '2'}"></p-blockUI>
                 <div class=" card-header">
-                    <div *ngIf="floatFP.controls['Option'].value.length == 0">
+                    <div *ngIf="floatFP.controls['Option'].value.length == 0 || floatFP.controls['Option']['value']['Code'] == '01'">
                         <form class="p-grid" [formGroup]="floatFP" accept-charset="utf-8">
                             <div class=" row" *ngIf="CargaFloatFP">
                                 <div class=" col-md-12">
@@ -107,12 +107,23 @@
 
                                     </div>
                                 </div>
-                                <div class=" col-md-12" *ngIf="DatosFloatFP.length ==  0">
-                                    <div class=" form-group">
-                                        <button pButton type="submit" label="Crear Float Planificado "
+
+
+                                <div class=" row" *ngIf="DatosFloatFP.length ==  0">
+                                    <div class="col-sm-12">
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <button pButton type="submit" label="Crear Float Planificado "
                                             (click)="crearFloatFP()"></button>
+                                            </div>
+                                            <div class="col-md-5 "><button pButton type="submit"
+                                                    label="Volver " (click)="Cback()"></button> </div>
+                                        </div>
+
                                     </div>
+
                                 </div>
+
                             </div>
 
 

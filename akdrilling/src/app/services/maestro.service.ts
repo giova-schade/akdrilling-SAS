@@ -831,7 +831,7 @@ export class MaestrosService {
     GetRevenue(form: any): Observable<any> {
         var formData: any = new FormData();
         for (let i in form.controls) {
-            if (i == 'idBudget') {
+            if (i == 'idRevenue') {
                 formData.append(i, form.controls[i].value);
             } else {
                 formData.append(i, form.controls[i].value);
@@ -839,5 +839,15 @@ export class MaestrosService {
         }
         return this.http.post(CONFIG.apiGetrevenue, formData)
     }
-
+    postCloseRevenue(form: any) {
+        var formData: any = new FormData();
+        for (let i in form.controls) {
+            if (i == 'idRevenue') {
+                formData.append(i, form.controls[i].value);
+            } else {
+                formData.append(i, form.controls[i].value);
+            }
+        }
+        return this.http.post(CONFIG.apipostCloseRevenue, formData)
+    }
 }

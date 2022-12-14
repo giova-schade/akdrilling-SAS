@@ -155,6 +155,12 @@ export class FloatInActionComponent implements OnInit {
     })
   }
 
+  Cback () {
+    this.floatFE.controls['Option'].setValue({
+        Code: '01',
+        name: 'Ver ingreso'
+    });
+}
   get DatosFloatFE(): FormArray {
     return this.floatFE.get("DatosFloatFE") as FormArray;
   }

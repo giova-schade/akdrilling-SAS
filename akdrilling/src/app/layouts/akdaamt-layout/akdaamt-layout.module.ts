@@ -36,6 +36,7 @@ import {  BudgetV } from "../../pages/Budget/ViewBudget/Viewbudget.component.mod
 import {  AdAndRedV } from "../../pages/adAndRed/ViewAdAndRed/ViewAdAndRed.component.module";
 import { Report } from "src/app/pages/report/report.component.module";
 import { Revenue } from "src/app/pages/revenue/revenue.component.module";
+import { RevenueV } from "src/app/pages/revenue/ViewRevenue/ViewRevenue.component.module";
 
 
 @NgModule({
@@ -69,7 +70,8 @@ import { Revenue } from "src/app/pages/revenue/revenue.component.module";
     BudgetV,
     AdAndRedV,
     Report,
-    Revenue
+    Revenue,
+    RevenueV
 
   ],
   declarations: [

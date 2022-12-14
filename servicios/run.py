@@ -9,7 +9,7 @@ CORS(app)
 def Login():
     if(request.method == 'GET'):
         data = {
-    "role": "AKDAFE",
+    "role": "AKDADM",
     "Nombre": "janicama",
     "roleDescription": "Analista Budget RRHH",
     "info": {
@@ -15273,7 +15273,15 @@ def apiGetRevenues():
   ]
 }
 
-        return jsonify(data)        
+        return jsonify(data) 
+
+@app.route('/apipostCloseRevenue', methods=['POST'])
+def apipostCloseRevenue():
+    if(request.method == 'POST'):
+        data = {
+            "status": "ok"
+        }
+        return jsonify(data)
 
 @app.route('/apiGetrevenue', methods=['POST'])
 def apiGetrevenue():

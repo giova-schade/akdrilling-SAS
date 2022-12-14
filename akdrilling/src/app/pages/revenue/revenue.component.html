@@ -5,7 +5,7 @@
                 <p-progressBar *ngIf="loadingPage" mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
                 <p-blockUI [blocked]="loadingPage" [style]="{'z-index': '2'}"></p-blockUI>
                 <div class=" card-header">
-                    <div *ngIf="revenue.controls['Option'].value.length == 0">
+                    <div *ngIf="revenue.controls['Option'].value.length == 0 || revenue.controls['Option']['value']['Code'] == '01'">
                         <form class="p-grid" [formGroup]="revenue" accept-charset="utf-8">
                             <div class=" row" *ngIf="CargaRevenue">
                                 <div class=" col-md-12">
@@ -24,23 +24,13 @@
                         <div class=" row">
                             <div class=" col-md-12">
                                 <div class="card-body">
-                                    <p-table #revs 
-                                        [columns]="RevenueCampos" 
-                                        [paginator]="true" 
-                                        [value]="datasourceRevenues"
-                                        [rowHover]="true" 
-                                        [rows]="10" 
-                                        [showCurrentPageReport]="true" 
-                                        [loading]="loading"
-                                        [paginator]="true"
+                                    <p-table #revs [columns]="RevenueCampos" [paginator]="true"
+                                        [value]="datasourceRevenues" [rowHover]="true" [rows]="10"
+                                        [showCurrentPageReport]="true" [loading]="loading" [paginator]="true"
                                         currentPageReportTemplate="Mostrar {first} hasta  {last} de {totalRecords} datos"
-                                        [filterDelay]="0" 
-                                        [responsive]="true"
-                                        [autoLayout]="true" 
-                                        [globalFilterFields]="RevenueCampos.field" 
-                                        styleClass="tabla"
-                                        sortMode="multiple" 
-                                        [multiSortMeta]="multiSortRevS"
+                                        [filterDelay]="0" [responsive]="true" [autoLayout]="true"
+                                        [globalFilterFields]="RevenueCampos.field" styleClass="tabla"
+                                        sortMode="multiple" [multiSortMeta]="multiSortRevS"
                                         [tableStyle]="{ width: 'max-content'}">
                                         <ng-template pTemplate="caption">
                                             <div class="p-d-flex">
@@ -138,11 +128,18 @@
                                                 width="20px" alt="file" (click)="deleteFile(i)">
                                         </div>
                                     </div>
-                                    <div class=" col-md-12" *ngIf="DatosRevenue.length ==  0">
-                                        <div class=" form-group">
-                                            <button pButton type="submit" label="Crear revenue "
-                                                (click)="cargaRevenue()"></button>
+
+                                    <div class=" row">
+                                        <div class="col-sm-12">
+                                            <div class="row">
+                                                <div class="col-md-3"><button pButton type="submit"
+                                                        label="Crear revenue " (click)="cargaRevenue()"></button></div>
+                                                <div class="col-md-5 "><button pButton type="submit"
+                                                        label="Volver " (click)="Cback()"></button> </div>
+                                            </div>
+
                                         </div>
+
                                     </div>
                                 </div>
 

@@ -209,7 +209,12 @@ export class BudgetComponent implements OnInit {
 
   get tControls() { return this.DatosBudget.controls as FormGroup[]; }
 
-
+Cback () {
+        this.budget.controls['Option'].setValue({
+            Code: '01',
+            name: 'Ver ingreso'
+        });
+    }
 
   setDepto(event: any) {
     this.budget.controls['Role'].setValue(event.value.codigo);

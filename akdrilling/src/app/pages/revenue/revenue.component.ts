@@ -279,6 +279,13 @@ export class RevenueComponent implements OnInit {
             name: 'Crear Revenue'
         });
     }
+
+    Cback () {
+        this.revenue.controls['Option'].setValue({
+            Code: '01',
+            name: 'Ver ingreso'
+        });
+    }
     prepareFilesList(files: Array<any>) {
         for (const item of files) {
             if (item.type == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" || item.type == ".csv" || item.type == "application/vnd.ms-excel") {

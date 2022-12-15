@@ -15288,11 +15288,11 @@ def apiGetrevenue():
     if(request.method == 'POST'):
         data = {
     "status": "ok",
-    "downloadRevenue": "http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FDownloadBudget&IdBg=2621fe61-8bf5-5e41-9791-3c367d46faff",
+    "download": "http://redhat1.internal.cloudapp.net:7980/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FDownloadBudget&IdBg=2621fe61-8bf5-5e41-9791-3c367d46faff",
     "periodo": "Mayo",
     "date": "24/05/2022",
     "idRevenue": "2621fe61-8bf5-5e41-9791-3c367d46faff",
-    "estado": "Creado",
+    "estado": "Cerrado",
     "datos": [
         {
             "Item": 1,

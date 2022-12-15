@@ -145,10 +145,12 @@ export class ViewRevenueComponent implements OnInit {
 
             this.revenue.controls['estado'].setValue(response.estado);
             this.revenue.controls['date'].setValue(response.date);
-            if (response.estado = 'Creado') {
+            console.log(response.estado)
+            if (response.estado == 'Creado') {
               if (this.usuario.role == 'AKDABOP' || this.usuario.role == 'AKDADM') {
                 this.CargaRevenue = true;
               }
+              
             }
 
 
@@ -168,8 +170,8 @@ export class ViewRevenueComponent implements OnInit {
                   this.multiSortMeta.push({ field: i, order: -1 });
                 }
               }
-              if (response.downloadRevenue.length > 0) {
-                this.urlDounload = response.downloadRevenue;
+              if (response.download.length > 0) {
+                this.urlDounload = response.download;
               } else {
                 this.notify.showNotification('top', 'right', 3, 'No hay archivo para descargar');
 

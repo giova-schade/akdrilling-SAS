@@ -27,7 +27,8 @@ import { AccessDenied } from "./layouts/access-denied/access-denied.component";
 import { AuthService } from './services/auth.services';
 import { PanelModule } from 'primeng/panel';
 import { AkdaafeLayoutComponent } from "./layouts/akdaafe-layout/akdaafe-layout.component";
-
+import {DropdownModule} from 'primeng/dropdown';
+import { DialogModule } from 'primeng/dialog';
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -38,7 +39,9 @@ import { AkdaafeLayoutComponent } from "./layouts/akdaafe-layout/akdaafe-layout.
     RouterModule,
     AppRoutingModule,
     PanelModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    DropdownModule,
+    DialogModule
   ],
   declarations: [AppComponent,
                  AdminLayoutComponent ,

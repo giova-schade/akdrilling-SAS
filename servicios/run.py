@@ -9,21 +9,31 @@ CORS(app)
 def Login():
     if(request.method == 'GET'):
         data = {
-    "role": "AKDADM",
-    "Nombre": "janicama",
-    "roleDescription": "Analista Budget RRHH",
-    "info": {
-        "sede": [
-            {
-                "IdCia": "AKDSEDE18",
-                "NomSede": "TYCHE GLOBAL CORP."
-            },
-            {
-                "IdCia": "AKDSEDE21",
-                "NomSede": "AKD INTERNATIONAL PANAMA CORP."
-            }
-        ]
-    }
+  "Nombre": "sasdemo",
+  "info": {
+    "sede": [
+      {
+        "IdCia": "AKDSEDE21",
+        "NomSede": "AKD INTERNATIONAL PANAMA CORP."
+      },
+      {
+        "IdCia": "AKDSEDE18",
+        "NomSede": "TYCHE GLOBAL CORP."
+      }
+    ],
+    "roles": [
+      {
+        "name": "sasdemo",
+        "group": "AKDABOP",
+        "desgroup": "Analista Budget Operaciones"
+      },
+      {
+        "name": "sasdemo",
+        "group": "AKDADM",
+        "desgroup": "Administrador"
+      }
+    ]
+  }
 }
 
         return jsonify(data)
@@ -15232,6 +15242,7 @@ def apiPostPeriodRevenue():
                 {"periodo": "Mayo", "date": "01/05/2022"},
             ]
         }
+        
         return jsonify(data)
 
 @app.route('/apiPostLoadRevenue', methods=['POST'])
@@ -15242,6 +15253,7 @@ def apiPostLoadRevenue():
             "idBudget": "123",
             "rol": "AKDABOP",
             "urlResutlado": "http://192.168.68.71:5000/DownloadBG",
+            "montoTotalBudget": "$228,061.14",
             "datos": [
                 {
                     "detail": "ingreso subido correctamente!"
@@ -15293,6 +15305,7 @@ def apiGetrevenue():
     "date": "24/05/2022",
     "idRevenue": "2621fe61-8bf5-5e41-9791-3c367d46faff",
     "estado": "Cerrado",
+    "montoTotalRevenue": "$228,061.14",
     "datos": [
         {
             "Item": 1,

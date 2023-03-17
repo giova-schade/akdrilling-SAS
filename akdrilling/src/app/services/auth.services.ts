@@ -103,8 +103,8 @@ export class AuthService {
         return this.isAuthorized() && validate;
     }
 
-    login(role: Role, name: any, info: any, roleDescription: any, ciaSelected: any) {
-        this.user = { role: role, name: name, info: info, roleDescription: roleDescription, ciaSelected };
+    login(roles:any , role: Role, name: any, info: any, roleDescription: any, ciaSelected: any,ready : any) {
+        this.user = { roles:roles ,role: role, name: name, info: info, roleDescription: roleDescription, ciaSelected , ready : ready};
         this.cias = { info: info }
     }
     GetuserInfo() {

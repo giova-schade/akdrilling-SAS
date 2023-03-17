@@ -64,6 +64,7 @@ export class ViewRevenueComponent implements OnInit {
     file: new FormControl(Blob, Validators.required),
     DatosRevenue: new FormArray([]),
     Option: new FormControl('', Validators.required),
+    montoTotalRevenue: new FormControl('', Validators.required),
     date: new FormControl('', Validators.required),
     estado: new FormControl('', Validators.required),
     Role: new FormControl('', Validators.required),
@@ -144,6 +145,7 @@ export class ViewRevenueComponent implements OnInit {
             });
 
             this.revenue.controls['estado'].setValue(response.estado);
+            this.revenue.controls['montoTotalRevenue'].setValue(response.montoTotalRevenue);
             this.revenue.controls['date'].setValue(response.date);
             console.log(response.estado)
             if (response.estado == 'Creado') {

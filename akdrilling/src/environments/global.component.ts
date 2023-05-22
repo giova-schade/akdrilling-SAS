@@ -191,7 +191,14 @@ export const CONFIG = {
   apiPostPeriodReportCM8 : 'https://sas.akdcloud.com:8343/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FReportCM8&action=apiPostPeriodReportCM8',
   apiPostPeriodReportCM9 : 'https://sas.akdcloud.com:8343/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FReportCM9&action=apiPostPeriodReportCM9',
   apiPostPeriodReportCM10 : 'https://sas.akdcloud.com:8343/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FReportCM10&action=apiPostPeriodReportCM10',
-  apiPostPeriodReportCCD : 'https://sas.akdcloud.com:8343/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FReportCCD&action=apiPostPeriodReeportCCD'
+  apiPostPeriodReportCCD : 'https://sas.akdcloud.com:8343/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FReportCCD&action=apiPostPeriodReeportCCD',
+  apiPostCreaDistribution : 'https://sas.akdcloud.com:8343/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FDistributionAPI&action=apiPostCreaDistribution',
+  apiGetDistributions : 'https://sas.akdcloud.com:8343/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FDistributionAPI&action=apiGetDistributions',
+  apiGetPeriodDistribution: 'https://sas.akdcloud.com:8343/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FDistributionAPI&action=apiGetPeriodDistribution',
+  apipostCloseDistribution : 'https://sas.akdcloud.com:8343/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FDistributionAPI&action=apipostCloseDistribution',
+  apipostCloseDistributionT : 'https://sas.akdcloud.com:8343/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FDistributionAPI&action=apipostCloseDistributionT',
+  apiGetDistribution: 'https://sas.akdcloud.com:8343/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FDistributionAPI&action=apiGetDistribution'
+
   
 }
 */

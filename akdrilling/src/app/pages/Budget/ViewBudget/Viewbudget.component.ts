@@ -284,7 +284,7 @@ export class ViewBudgetComponent implements OnInit {
   CerrarBudget() {
     this.loadingPage = false;
     this.confirmationService.confirm({
-      message: 'Se cerrara el Budget ' + this.budget.controls['idBudget'].value,
+      message: 'Se cerrará el Budget ' + this.budget.controls['idBudget'].value,
       header: 'Crear budget ',
       icon: 'pi pi-info-circle',
       accept: () => {

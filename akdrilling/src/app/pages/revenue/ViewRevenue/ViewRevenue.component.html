@@ -111,6 +111,28 @@
                                                 <ng-template pTemplate="body" let-rowData let-columns="columns">
                                                     <tr >
                                                         <td *ngFor="let col of columns" [ngClass]="col.field.indexOf('Mensual') != -1 ? 'dollar-col' :
+                                                                                                    col.field.indexOf('rev_ndias ') != -1 ? 'dollar-col' :
+                                                                                                    col.field.indexOf('rev_nmeters') != -1 ? 'dollar-col' :
+                                                                                                    col.field.indexOf('rev_totrev') != -1 ? 'dollar-col' :
+                                                                                                    col.field.indexOf('rev_totrev_meter') != -1 ? 'dollar-col' :
+                                                                                                    col.field.indexOf('rev_totrev_hours') != -1 ? 'dollar-col' :
+                                                                                                    col.field.indexOf('rev_totrev_serv') != -1 ? 'dollar-col' :
+                                                                                                    col.field.indexOf('rev_totrev_other') != -1 ? 'dollar-col' :
+                                                                                                    col.field.indexOf('rev_totrev_sales') != -1 ? 'dollar-col' :
+                                                                                                    col.field.indexOf('rev_inservice') != -1 ? 'dollar-col' :
+                                                                                                    col.field.indexOf('rev_sinservice') != -1 ? 'dollar-col' :
+                                                                                                    col.field.indexOf('rev_sched_maint') != -1 ? 'dollar-col' :
+                                                                                                    col.field.indexOf('rev_nosched_maint') != -1 ? 'dollar-col' :
+                                                                                                    col.field.indexOf('rev_drilling') != -1 ? 'dollar-col' :
+                                                                                                    col.field.indexOf('rev_poper_hours') != -1 ? 'dollar-col' :
+                                                                                                    col.field.indexOf('rev_mobil_hours') != -1 ? 'dollar-col' :
+                                                                                                    col.field.indexOf('rev_secop_hours') != -1 ? 'dollar-col' :
+                                                                                                    col.field.indexOf('rev_chargb_s_by') != -1 ? 'dollar-col' :
+                                                                                                    col.field.indexOf('rev_nchrgb_s_by') != -1 ? 'dollar-col' :
+                                                                                                    col.field.indexOf('rev_sched_safty') != -1 ? 'dollar-col' :
+                                                                                                    col.field.indexOf('rev_nosched_sfy') != -1 ? 'dollar-col' :
+                                                                                                    col.field.indexOf('rev_health') != -1 ? 'dollar-col' :
+                                                                                                    col.field.indexOf('rev_death_time') != -1 ? 'dollar-col' :
                                                                                                 col.field.indexOf('Mes') != -1 ? 'dollar-col' : ''">
                                                             {{rowData[col.field]}}</td>
                                                     </tr>

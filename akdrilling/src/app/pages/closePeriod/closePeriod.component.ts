@@ -109,7 +109,7 @@ export class ClosePeriodComponent implements OnInit {
     if (this.PERIODO_REQ) {
 
       this.confirmationService.confirm({
-        message: 'Se cerrara el periodo de ' + this.closePeriod.controls['PERIODO'].value.periodo,
+        message: 'Se cerrará el periodo de ' + this.closePeriod.controls['PERIODO'].value.periodo,
         header: 'Cerrar periodo ',
         icon: 'pi pi-info-circle',
         rejectLabel: 'Cancelar', 

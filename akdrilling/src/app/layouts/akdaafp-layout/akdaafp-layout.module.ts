@@ -39,6 +39,22 @@ import {  PayV  } from "../../pages/pagos/ViewPagos/ViewPagos.component.module";
 import { Report } from "src/app/pages/report/report.component.module";
 import { Revenue } from "src/app/pages/revenue/revenue.component.module";
 import { RevenueV } from "src/app/pages/revenue/ViewRevenue/ViewRevenue.component.module";
+import { ReportCCD } from "src/app/pages/reportCCD/reportCCD.component.module";
+import { ReportCm1 } from "src/app/pages/reportCm1/reportCm1.component.module";
+import { ReportCm2 } from "src/app/pages/reportCm2/reportCm2.component.module";
+import { ReportCm3 } from "src/app/pages/reportCm3/reportCm3.component.module";
+import { ReportCm4 } from "src/app/pages/reportCm4/reportCm4.component.module";
+import { ReportCm5 } from "src/app/pages/reportCm5/reportCm5.component.module";
+import { ReportCm6 } from "src/app/pages/reportCm6/reportCm6.component.module";
+import { ReportCm7 } from "src/app/pages/reportCm7/reportCm7.component.module";
+import { ReportCm8 } from "src/app/pages/reportCm8/reportCm8.component.module";
+import { ReportCm9 } from "src/app/pages/reportCm9/reportCm9.component.module";
+import { ReportCm10 } from "src/app/pages/reportCm10/reportCm10.component.module";
+import { ReportBudget } from "src/app/pages/reportBudget/reportBudget.component.module";
+import { ReportFP } from "src/app/pages/reportFP/reportFP.component.module";
+import { ReportFE } from "src/app/pages/reportFE/reportFE.component.module";
+import { Distribution } from "src/app/pages/distribution/distribution.component.module";
+import { DistributionV } from "src/app/pages/distribution/ViewDistribution/Viewdistribution.component.module";
 
 
 
@@ -76,7 +92,23 @@ import { RevenueV } from "src/app/pages/revenue/ViewRevenue/ViewRevenue.componen
     Report,
     PayV,
     Revenue,
-    RevenueV
+    RevenueV,
+    ReportBudget,
+    ReportFP,
+    ReportFE,
+    ReportCCD,
+    ReportCm1,
+    ReportCm2,
+    ReportCm3,
+    ReportCm4,
+    ReportCm5,
+    ReportCm6,
+    ReportCm7,
+    ReportCm8,
+    ReportCm9,
+    ReportCm10,
+    Distribution,
+    DistributionV
 
   ],
   declarations: [

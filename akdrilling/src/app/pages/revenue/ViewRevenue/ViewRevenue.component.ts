@@ -289,7 +289,7 @@ export class ViewRevenueComponent implements OnInit {
   CerrarRevenue() {
     this.loadingPage = false;
     this.confirmationService.confirm({
-      message: 'Se cerrara el ingreso ' + this.revenue.controls['idRevenue'].value,
+      message: 'Se cerrará el ingreso ' + this.revenue.controls['idRevenue'].value,
       header: 'Cerrar revenue ',
       icon: 'pi pi-info-circle',
       accept: () => {

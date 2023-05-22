@@ -12,10 +12,11 @@ import { ButtonModule } from 'primeng/button';
 import {DropdownModule} from 'primeng/dropdown';
 import {PanelMenuModule} from 'primeng/panelmenu';
 import {StyleClassModule} from 'primeng/styleclass';
+import { SlideMenuModule } from 'primeng/slidemenu';
 
 
 @NgModule({
-  imports: [CommonModule, RouterModule, NgbModule, DialogModule, ButtonModule, DropdownModule, FormsModule, PanelMenuModule, StyleClassModule],
+  imports: [CommonModule, RouterModule, NgbModule, DialogModule, ButtonModule, DropdownModule, FormsModule, PanelMenuModule, StyleClassModule , SlideMenuModule],
   declarations: [FooterComponent, NavbarComponent, SidebarComponent, SedeComponent],
   exports: [FooterComponent, NavbarComponent, SidebarComponent, SedeComponent]
 })

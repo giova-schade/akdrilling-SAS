@@ -8,6 +8,10 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from "@ang
 import { AuthService } from "src/app/services/auth.services";
 import { MaestrosService } from "src/app/services/maestro.service";
 import { ActivatedRoute, Router } from "@angular/router";
+import { MenuItem, MessageService } from 'primeng/api';
+
+
+
 interface Periodos {
   periodo: string,
   date: string
@@ -16,13 +20,14 @@ interface Periodos {
   selector: "app-report",
   templateUrl: "report.component.html",
   styleUrls: ["report.component.scss"],
-  providers: [NotificationsComponent, ConfirmationService]
+  providers: [NotificationsComponent, ConfirmationService, MessageService ]
 })
 export class ReportComponent implements OnInit {
   periodos!: Periodos[];
   usuario!: any;
   loadingPage: boolean;
   PERIODO_REQ: boolean;
+  items: MenuItem[];
 
   reports = new FormGroup({
     PERIODO: new FormControl('', Validators.required),
@@ -40,13 +45,95 @@ export class ReportComponent implements OnInit {
     private authService: AuthService,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private messageService: MessageService
   ) {
     this.periodos = [];
     this.loadingPage = true;
     this.PERIODO_REQ = true;
+    this.items = [];
   }
   ngOnInit() {
+
+
+    this.items = [
+      {
+        label: 'Reportes',
+        items: [
+          {
+            routerLink: "reportBudget",
+            label: "Budget",
+            icon: "pi pi-wallet"
+        },
+        {
+            routerLink: "reportFP",
+            label: "Float Planificado",
+            icon: "pi pi-list"
+        },
+        {
+            routerLink: "reportFE",
+            label: "Float en Ejecución",
+            icon: "pi pi-dollar"
+        },
+        {
+            routerLink: "reportCCD",
+            label: "CCD Semanal",
+            icon: "pi pi-dollar"
+        },
+        {
+            routerLink: "reportCm1",
+            label: "Custom 1",
+            icon: "pi pi-clock"
+        },
+        {
+            routerLink: "reportCm2",
+            label: "Custom 2",
+            icon: "pi pi-clock"
+        },
+        {
+            routerLink: "reportCm3",
+            label: "Custom 3",
+            icon: "pi pi-clock"
+        },
+        {
+            routerLink: "reportCm4",
+            label: "Custom 4",
+            icon: "pi pi-clock"
+        },
+        {
+            routerLink: "reportCm5",
+            label: "Custom 5",
+            icon: "pi pi-clock"
+        },
+        {
+            routerLink: "reportCm6",
+            label: "Custom 6",
+            icon: "pi pi-clock"
+        },
+        {
+            routerLink: "reportCm7",
+            label: "Custom 7",
+            icon: "pi pi-clock"
+        },
+        {
+            routerLink: "reportCm8",
+            label: "Custom 8",
+            icon: "pi pi-clock"
+        },
+        {
+            routerLink: "reportCm9",
+            label: "Custom 9",
+            icon: "pi pi-clock"
+        },
+        {
+            routerLink: "reportCm10",
+            label: "Custom 10",
+            icon: "pi pi-clock"
+        }
+        ]
+      }
+    ];
+
     this.usuario = this.authService.GetuserInfo();
 
     this.reports.controls['IdCia'].setValue(this.usuario.ciaSelected.IdCia);
@@ -65,6 +152,7 @@ export class ReportComponent implements OnInit {
     this.loadingPage = true;
 
   }
+
   datosReporteBudget() {
     this.periodos = [];
     this.reports.controls['PERIODO'].setValue([])

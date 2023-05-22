@@ -1,0 +1,396 @@
+<div class="content">
+
+
+    <div class=" row">
+        <div class=" col-12">
+            <div class=" card">
+                <p-progressBar *ngIf="loadingPage" mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
+                <p-blockUI [blocked]="loadingPage" [style]="{'z-index': '2'}"></p-blockUI>
+
+
+                <p-tabView styleClass="tabview-custom-loadMaster" (onChange)="handleChangedistribution($event)">
+                    <p-tabPanel header="Carga distribución Budget">
+                        <div class="row">
+                            <div class="col-12" *ngIf="distribution.controls['estadoBGDT'].value == 'Creado' ">
+                                <div class=" card">
+                                    <p-menubar>
+                                        <div class="row">
+                                            <div class="col-sm">
+                                                <div >
+                                                    <button
+                                                        type="button" pButton label="Volver"
+                                                        icon="pi pi-chevron-left" style="margin-left:.25em"
+                                                        (click)="Volver()"
+                                                        class="fixed-width"></button>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm">
+                                                <div *ngIf="usuario.role == 'AKDADM' || usuario.role != 'AKDABDF' ">
+                                                    <button
+                                                        *ngIf="distribution.controls['estadoBGDT'].value == 'Creado' "
+                                                        type="button" pButton label="Cerrar distribución"
+                                                        icon="pi pi-check-circle" style="margin-left:.25em"
+                                                        (click)="CerrarDistributionT()"></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </p-menubar>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <p-steps [model]="items" [(activeIndex)]="activeIndex" [readonly]="true"></p-steps>
+                            </div>
+                        </div>
+                        <!-- Inicio codigo ver distribution-->
+                        <div class=" card-body" *ngIf="distribution.controls['Option'].value['Code'] == '01'">
+                            <form class="p-grid" [formGroup]="distribution" accept-charset="utf-8">
+
+                                <div class=" card" *ngIf="DatosDistribution.length !=  0">
+                                    <div class="card-header">
+                                        <div class="download">
+                                            <div class="row">
+                                                <div class="col-md-11">
+                                                    <h5>Distribución:
+                                                        {{distribution.controls['PERIODO'].value['periodo']}}
+                                                        {{distribution.controls['PERIODO'].value.date.split('/')[2]}}
+                                                    </h5>
+                                                </div>
+
+                                                <div class="col-md-12">
+                                                    <div class=" row" style="text-align: right;">
+                                                        <div>
+                                                            <button pButton pRipple type="button" (click)="downloadBD()"
+                                                                class="p-button-rounded p-button-text ">
+                                                                <img src="/akdrilling/assets/img/dnd/ic-file-excel.svg"
+                                                                    width="45px" alt="file">
+
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="card-body">
+                                            <div class=" col-sm-12">
+                                                <p-table #bds [columns]="camposBd" [paginator]="true"
+                                                    [value]="datasourceBD" [rowHover]="true" [rows]="10"
+                                                    [showCurrentPageReport]="true" [loading]="loading"
+                                                    currentPageReportTemplate="Mostrar {first} hasta  {last} de {totalRecords} datos"
+                                                    [filterDelay]="0" [autoLayout]="true"
+                                                    [globalFilterFields]="camposBd.field" styleClass="tabla"
+                                                    *ngIf="DatosDistribution.length >  0" [scrollable]="true"
+                                                    [reorderableColumns]="true" [multiSortMeta]="multiSortMetaBD"
+                                                    [tableStyle]="{ width: 'max-content'}" responsiveLayout="scroll">
+
+                                                    <ng-template pTemplate="caption">
+                                                        <div class="p-d-flex">
+
+                                                            <button pButton label="Limpiar" class="p-button-outlined"
+                                                                icon="pi pi-filter-slash" (click)="clear(bds)"></button>
+                                                            <span class="p-input-icon-left p-ml-auto">
+                                                                <i class="pi pi-search"></i>
+                                                                <input pInputText type="text"
+                                                                    (input)="applyFilterGlobalBD($event, 'contains')"
+                                                                    placeholder="Filtrar" />
+                                                            </span>
+
+                                                        </div>
+                                                    </ng-template>
+                                                    <ng-template pTemplate="header" let-columns>
+                                                        <tr>
+                                                            <th *ngFor="let col of columns" pReorderableColumn>
+                                                                <p-columnFilter type="text" [field]="col.field">
+
+                                                                </p-columnFilter>
+                                                            </th>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <th *ngFor="let col of columns"
+                                                                pSortableColumn="{{col.field}}">
+                                                                {{col.field}}
+                                                                <p-sortIcon field="{{col.field}}">
+                                                                </p-sortIcon>
+                                                            </th>
+
+                                                        </tr>
+                                                    </ng-template>
+                                                    <ng-template pTemplate="body" let-rowData let-columns="columns">
+                                                        <tr>
+                                                            <td *ngFor="let col of columns"
+                                                                [ngClass]="col.field.indexOf('Mensual') != -1 ? 'dollar-col' :
+                                                                                                col.field.indexOf('Mes') != -1 ? 'dollar-col' : ''">
+                                                                {{rowData[col.field]}}</td>
+                                                        </tr>
+
+                                                    </ng-template>
+                                                    <ng-template pTemplate="emptymessage" let-columns>
+                                                        <tr>
+                                                            <td [attr.colspan]="columns.length">
+                                                                No records found
+                                                            </td>
+                                                        </tr>
+                                                    </ng-template>
+                                                </p-table>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                                <p-card class=" card-body" *ngIf="updateBDGDT">
+                                    <ng-template pTemplate="header">
+                                        Actualización de distribución budget
+                                    </ng-template>
+                                    <div class=" row PanelInformacion">
+                                        <div class="col">
+                                            <div class="row justify-content-md-center">
+                                                <div class="col">
+                                                    <div class="container" appDnd (fileDropped)="onFileDropped($event)">
+                                                        <input type="file" #fileDropRef id="fileDropRef" multiple
+                                                            (change)="fileBrowseHandler($event)" />
+                                                        <img src="/akdrilling/assets/img/dnd/ic-upload-file.svg" alt="">
+                                                        <h3>Arrastra y suelta el archivo aquí</h3>
+                                                        <h3>o</h3>
+                                                        <label for="fileDropRef">Selecciona el archivo</label>
+                                                    </div>
+                                                    <div class="files-list">
+                                                        <div class="single-file"
+                                                            *ngFor="let file of files; let i = index">
+                                                            <img src="/akdrilling/assets/img/dnd/ic-file-excel.svg"
+                                                                width="45px" alt="file">
+                                                            <div class="info">
+                                                                <h4 class="name">
+                                                                    {{ file?.name }}
+                                                                </h4>
+                                                                <p class="size">
+                                                                    {{ formatBytes(file?.size) }}
+                                                                </p>
+                                                                <app-progress
+                                                                    [progress]="file?.progress"></app-progress>
+                                                            </div>
+                                                            <img src="/akdrilling/assets/img/dnd/ic-delete-file.svg"
+                                                                class="delete" width="20px" alt="file"
+                                                                (click)="deleteFile(i)">
+                                                        </div>
+                                                    </div>
+                                                    <button pButton pRipple type="button" label="Cargar"
+                                                        class="p-button-outlined" (click)="Procesar()"></button>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                </p-card>
+
+                            </form>
+
+                        </div>
+                        <!-- Fin codigo ver distribución-->
+                    </p-tabPanel>
+                    <p-tabPanel header="Carga distribución Ejecutado">
+                        <div class="row">
+                            <div class="col-12" *ngIf="distribution.controls['estadoBGDT'].value == 'Creado' ">
+                                <div class=" card">
+                                    <p-menubar>
+                                        <div class="row">
+                                            <div class="col-sm">
+                                                <div >
+                                                    <button
+                                                        type="button" pButton label="Volver"
+                                                        icon="pi pi-chevron-left" style="margin-left:.25em"
+                                                        class="fixed-width"
+                                                        (click)="Volver()"></button>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm">
+                                                <div *ngIf="usuario.role == 'AKDADM' || usuario.role != 'AKDABDF' ">
+                                                    <button
+                                                        *ngIf="distribution.controls['estadoBGDT'].value == 'Creado' "
+                                                        type="button" pButton label="Cerrar distribución"
+                                                        icon="pi pi-check-circle" style="margin-left:.25em"
+                                                        (click)="CerrarDistribution()"></button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </p-menubar>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <p-steps [model]="items" [(activeIndex)]="activeIndex" [readonly]="true"></p-steps>
+                            </div>
+                        </div>
+                        <!-- Inicio codigo ver distribution-->
+                        <div class=" card-body" *ngIf="distribution.controls['Option'].value['Code'] == '01'">
+                            <form class="p-grid" [formGroup]="distribution" accept-charset="utf-8">
+
+                                <div class=" card" *ngIf="DatosDistribution.length !=  0">
+                                    <div class="card-header">
+                                        <div class="download">
+                                            <div class="row">
+                                                <div class="col-md-11">
+                                                    <h5>Distribución:
+                                                        {{distribution.controls['PERIODO'].value['periodo']}}
+                                                        {{distribution.controls['PERIODO'].value.date.split('/')[2]}}
+                                                    </h5>
+                                                </div>
+
+                                                <div class="col-md-12">
+                                                    <div class=" row" style="text-align: right;">
+                                                        <div>
+                                                            <button pButton pRipple type="button"
+                                                                (click)="downloadBDExecT()"
+                                                                class="p-button-rounded p-button-text ">
+                                                                <img src="/akdrilling/assets/img/dnd/ic-file-excel.svg"
+                                                                    width="45px" alt="file">
+
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="card-body">
+                                            <div class=" col-sm-12">
+                                                <p-table #bds [columns]="camposBdT" [paginator]="true"
+                                                    [value]="datasourceBD" [rowHover]="true" [rows]="10"
+                                                    [showCurrentPageReport]="true" [loading]="loading"
+                                                    currentPageReportTemplate="Mostrar {first} hasta  {last} de {totalRecords} datos"
+                                                    [filterDelay]="0" [autoLayout]="true"
+                                                    [globalFilterFields]="camposBdT.field" styleClass="tabla"
+                                                    *ngIf="DatosDistribution.length >  0" [scrollable]="true"
+                                                    [reorderableColumns]="true" [multiSortMeta]="multiSortMetaBDT"
+                                                    [tableStyle]="{ width: 'max-content'}" responsiveLayout="scroll">
+
+                                                    <ng-template pTemplate="caption">
+                                                        <div class="p-d-flex">
+
+                                                            <button pButton label="Limpiar" class="p-button-outlined"
+                                                                icon="pi pi-filter-slash" (click)="clear(bds)"></button>
+                                                            <span class="p-input-icon-left p-ml-auto">
+                                                                <i class="pi pi-search"></i>
+                                                                <input pInputText type="text"
+                                                                    (input)="applyFilterGlobalBD($event, 'contains')"
+                                                                    placeholder="Filtrar" />
+                                                            </span>
+
+                                                        </div>
+                                                    </ng-template>
+                                                    <ng-template pTemplate="header" let-columns>
+                                                        <tr>
+                                                            <th *ngFor="let col of columns" pReorderableColumn>
+                                                                <p-columnFilter type="text" [field]="col.field">
+
+                                                                </p-columnFilter>
+                                                            </th>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <th *ngFor="let col of columns"
+                                                                pSortableColumn="{{col.field}}">
+                                                                {{col.field}}
+                                                                <p-sortIcon field="{{col.field}}">
+                                                                </p-sortIcon>
+                                                            </th>
+
+                                                        </tr>
+                                                    </ng-template>
+                                                    <ng-template pTemplate="body" let-rowData let-columns="columns">
+                                                        <tr>
+                                                            <td *ngFor="let col of columns"
+                                                                [ngClass]="col.field.indexOf('Mensual') != -1 ? 'dollar-col' :
+                                                                                                col.field.indexOf('Mes') != -1 ? 'dollar-col' : ''">
+                                                                {{rowData[col.field]}}</td>
+                                                        </tr>
+
+                                                    </ng-template>
+                                                    <ng-template pTemplate="emptymessage" let-columns>
+                                                        <tr>
+                                                            <td [attr.colspan]="columns.length">
+                                                                No records found
+                                                            </td>
+                                                        </tr>
+                                                    </ng-template>
+                                                </p-table>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                                <p-card id="loadupdate" class=" card-body" *ngIf="updateBDGDT">
+                                    <ng-template pTemplate="header">
+                                        Actualización de distribución ejecutado
+                                    </ng-template>
+                                    <div class=" row PanelInformacion">
+                                        <div class="col">
+                                            <div class="row justify-content-md-center">
+                                                <div class="col">
+                                                    <div class="container" appDnd
+                                                        (fileDropped)="onFileDroppedD($event)">
+                                                        <input type="file" #fileDropRef id="fileDropRef" multiple
+                                                            (change)="fileBrowseHandlerD($event)" />
+                                                        <img src="/akdrilling/assets/img/dnd/ic-upload-file.svg" alt="">
+                                                        <h3>Arrastra y suelta el archivo aquí</h3>
+                                                        <h3>o</h3>
+                                                        <label for="fileDropRefD">Selecciona el archivo</label>
+                                                    </div>
+                                                    <div class="files-list">
+                                                        <div class="single-file"
+                                                            *ngFor="let file of filesD; let i = index">
+                                                            <img src="/akdrilling/assets/img/dnd/ic-file-excel.svg"
+                                                                width="45px" alt="file">
+                                                            <div class="info">
+                                                                <h4 class="name">
+                                                                    {{ file?.name }}
+                                                                </h4>
+                                                                <p class="size">
+                                                                    {{ formatBytes(file?.size) }}
+                                                                </p>
+                                                                <app-progress
+                                                                    [progress]="file?.progress"></app-progress>
+                                                            </div>
+                                                            <img src="/akdrilling/assets/img/dnd/ic-delete-file.svg"
+                                                                class="delete" width="20px" alt="file"
+                                                                (click)="deleteFileD(i)">
+                                                        </div>
+                                                    </div>
+                                                    <button pButton pRipple type="button" label="Cargar"
+                                                        class="p-button-outlined" (click)="Procesar()"></button>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                </p-card>
+
+                            </form>
+
+                        </div>
+                        <!-- Fin codigo ver distribución-->
+                    </p-tabPanel>
+                </p-tabView>
+                <div class=" card-header">
+
+
+                    <p-confirmDialog [style]="{width: '50vw'}" key="positionDialog" [position]="'bottom'"
+                        [baseZIndex]="10000"></p-confirmDialog>
+                    <p-messages [value]="msgs"></p-messages>
+
+                </div>
+            </div>
+        </div>
+    </div>

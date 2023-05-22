@@ -25,7 +25,19 @@ export enum Role {
     payments = 'No',
     meet = 'No',
     adAndRed = 'No',
-    reports = 'Yes'
+    reportBudget = 'Yes',
+    reportFP = 'Yes' ,
+    /*distribution = 'Yes'
+    reportCm1 = 'Yes',
+    reportCm2 = 'Yes' ,
+    reportCm3 = 'Yes' ,
+    reportCm4 = 'Yes' ,
+    reportCm5 = 'Yes' ,
+    reportCm6 = 'Yes' ,
+    reportCm7 = 'Yes' ,
+    reportCm8 = 'Yes',
+    reportCm9 = 'Yes' ,
+    reportCm10 = 'Yes'    */
     
   }
 
@@ -42,7 +54,25 @@ export enum Role {
     payments = 'Yes',
     meet = 'Yes',
     adAndRed = 'Yes',
-    reports = 'Yes'
+    /*reports = 'Yes',*/
+    reportBudget = 'Yes',
+    reportFP = 'Yes',
+    reportFE = 'Yes',
+    reportCCD = 'Yes' ,
+    reportCm1 = 'Yes',
+    reportCm2 = 'Yes' ,
+    reportCm3 = 'Yes' ,
+    reportCm4 = 'Yes' ,
+    reportCm5 = 'Yes' ,
+    reportCm6 = 'Yes' ,
+    reportCm7 = 'Yes' ,
+    reportCm8 = 'Yes',
+    reportCm9 = 'Yes' ,
+    reportCm10 = 'Yes',
+    distribution = 'Yes'
+
+
+
   }
 
   export enum AKDAAMT {
@@ -58,7 +88,22 @@ export enum Role {
     payments = 'Yes',
     meet = 'Yes',
     adAndRed = 'Yes',
-    reports = 'Yes'
+    reportBudget = 'Yes',
+    reportFP = 'Yes',
+    reportFE = 'Yes',
+    reportCCD = 'Yes' ,
+    /*distribution = 'Yes'*/
+    /*reportCm1 = 'Yes',
+    reportCm2 = 'Yes' ,
+    reportCm3 = 'Yes' ,
+    reportCm4 = 'Yes' ,
+    reportCm5 = 'Yes' ,
+    reportCm6 = 'Yes' ,
+    reportCm7 = 'Yes' ,
+    reportCm8 = 'Yes',
+    reportCm9 = 'Yes' ,
+    reportCm10 = 'Yes'    */
+
   }
 
   export enum AKDABOP {
@@ -74,7 +119,22 @@ export enum Role {
     payments = 'No',
     meet = 'No',
     adAndRed = 'No',
-    reports = 'Yes'
+    reportBudget = 'Yes',
+    reportFP = 'Yes',
+    reportFE = 'Yes',
+    reportCCD = 'Yes' ,
+    /*distribution = 'Yes'*/
+    /*reportCm1 = 'Yes',
+    reportCm2 = 'Yes' ,
+    reportCm3 = 'Yes' ,
+    reportCm4 = 'Yes' ,
+    reportCm5 = 'Yes' ,
+    reportCm6 = 'Yes' ,
+    reportCm7 = 'Yes' ,
+    reportCm8 = 'Yes',
+    reportCm9 = 'Yes' ,
+    reportCm10 = 'Yes'    */
+
 
   }
   export enum AKDABDF {
@@ -90,7 +150,22 @@ export enum Role {
     payments = 'No',
     meet = 'No',
     adAndRed = 'No',
-    reports = 'Yes'
+    reportBudget = 'Yes',
+    reportFP = 'Yes',
+    reportFE = 'Yes',
+    reportCCD = 'Yes' ,
+    distribution = 'Yes'
+    /*reportCm1 = 'Yes',
+    reportCm2 = 'Yes' ,
+    reportCm3 = 'Yes' ,
+    reportCm4 = 'Yes' ,
+    reportCm5 = 'Yes' ,
+    reportCm6 = 'Yes' ,
+    reportCm7 = 'Yes' ,
+    reportCm8 = 'Yes',
+    reportCm9 = 'Yes' ,
+    reportCm10 = 'Yes'    */
+
 
   }
   export enum AKDAFP {
@@ -106,7 +181,21 @@ export enum Role {
     payments = 'No',
     meet = 'Yes',
     adAndRed = 'Yes',
-    reports = 'Yes'
+    reportBudget = 'Yes',
+    reportFP = 'Yes',
+    reportFE = 'Yes',
+    reportCCD = 'Yes' ,
+    /*distribution = 'Yes'*/
+    /*reportCm1 = 'Yes',
+    reportCm2 = 'Yes' ,
+    reportCm3 = 'Yes' ,
+    reportCm4 = 'Yes' ,
+    reportCm5 = 'Yes' ,
+    reportCm6 = 'Yes' ,
+    reportCm7 = 'Yes' ,
+    reportCm8 = 'Yes',
+    reportCm9 = 'Yes' ,
+    reportCm10 = 'Yes'    */
 
   }
   export enum AKDAAFP {
@@ -122,7 +211,22 @@ export enum Role {
     payments = 'No',
     meet = 'Yes',
     adAndRed = 'Yes',
-    reports = 'Yes'
+    reportBudget = 'Yes',
+    reportFP = 'Yes',
+    reportFE = 'Yes',
+    reportCCD = 'Yes' ,
+    /*distribution = 'Yes'*/
+    /*reportCm1 = 'Yes',
+    reportCm2 = 'Yes' ,
+    reportCm3 = 'Yes' ,
+    reportCm4 = 'Yes' ,
+    reportCm5 = 'Yes' ,
+    reportCm6 = 'Yes' ,
+    reportCm7 = 'Yes' ,
+    reportCm8 = 'Yes',
+    reportCm9 = 'Yes' ,
+    reportCm10 = 'Yes'    */
+
 
   }
   export enum AKDAFE {
@@ -138,7 +242,22 @@ export enum Role {
     payments = 'Yes',
     meet = 'Yes',
     adAndRed = 'Yes',
-    reports = 'Yes'
+    reportBudget = 'Yes',
+    reportFP = 'Yes',
+    reportFE = 'Yes',
+    reportCCD = 'Yes' ,
+    /*distribution = 'Yes'*/
+    /*reportCm1 = 'Yes',
+    reportCm2 = 'Yes' ,
+    reportCm3 = 'Yes' ,
+    reportCm4 = 'Yes' ,
+    reportCm5 = 'Yes' ,
+    reportCm6 = 'Yes' ,
+    reportCm7 = 'Yes' ,
+    reportCm8 = 'Yes',
+    reportCm9 = 'Yes' ,
+    reportCm10 = 'Yes'    */
+
 
   }
   export enum AKDAAFE {
@@ -154,7 +273,22 @@ export enum Role {
     payments = 'Yes',
     meet = 'Yes',
     adAndRed = 'Yes',
-    reports = 'Yes'
+    reportBudget = 'Yes',
+    reportFP = 'Yes',
+    reportFE = 'Yes',
+    reportCCD = 'Yes' ,
+    /*distribution = 'Yes'*/
+    /*reportCm1 = 'Yes',
+    reportCm2 = 'Yes' ,
+    reportCm3 = 'Yes' ,
+    reportCm4 = 'Yes' ,
+    reportCm5 = 'Yes' ,
+    reportCm6 = 'Yes' ,
+    reportCm7 = 'Yes' ,
+    reportCm8 = 'Yes',
+    reportCm9 = 'Yes' ,
+    reportCm10 = 'Yes'    */ 
+
 
   }
   export enum AKDARFE {
@@ -170,7 +304,22 @@ export enum Role {
     payments = 'Yes',
     meet = 'Yes',
     adAndRed = 'Yes',
-    reports = 'Yes'
+    reportBudget = 'Yes',
+    reportFP = 'Yes',
+    reportFE = 'Yes',
+    reportCCD = 'Yes' ,
+    /*distribution = 'Yes'*/
+    /*reportCm1 = 'Yes',
+    reportCm2 = 'Yes' ,
+    reportCm3 = 'Yes' ,
+    reportCm4 = 'Yes' ,
+    reportCm5 = 'Yes' ,
+    reportCm6 = 'Yes' ,
+    reportCm7 = 'Yes' ,
+    reportCm8 = 'Yes',
+    reportCm9 = 'Yes' ,
+    reportCm10 = 'Yes'    */
+
 
   }
   export enum AKDAAERFE {
@@ -186,6 +335,21 @@ export enum Role {
     payments = 'Yes',
     meet = 'Yes',
     adAndRed = 'Yes',
-    reports = 'Yes'
+    reportBudget = 'Yes',
+    reportFP = 'Yes',
+    reportFE = 'Yes',
+    reportCCD = 'Yes' ,
+    /*distribution = 'Yes'*/
+    /*reportCm1 = 'Yes',
+    reportCm2 = 'Yes' ,
+    reportCm3 = 'Yes' ,
+    reportCm4 = 'Yes' ,
+    reportCm5 = 'Yes' ,
+    reportCm6 = 'Yes' ,
+    reportCm7 = 'Yes' ,
+    reportCm8 = 'Yes',
+    reportCm9 = 'Yes' ,
+    reportCm10 = 'Yes'    */
+
 
   }

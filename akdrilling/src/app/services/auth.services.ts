@@ -42,7 +42,13 @@ export const alllinks: MenuItem[] = [
         routerLink: "budget",
         label: "Budget",
         icon: "pi pi-wallet"
-    }, {
+    },
+    {
+        routerLink: "distribution",
+        label: "Distribución",
+        icon: "pi pi-share-alt"
+    }
+    , {
         routerLink: "floatPlanned",
         label: "Float planificado",
         icon: "pi pi-list"
@@ -77,7 +83,84 @@ export const alllinks: MenuItem[] = [
         routerLink: "reports",
         label: "Reportes",
         icon: "pi pi-chart-line"
+    },
+    {
+        label: 'Reportes',
+        icon: "pi pi-chart-line",
+        items: [
+            {
+                routerLink: "reports/reportBudget",
+                label: "Budget",
+                icon: "pi pi-wallet"
+            },
+            {
+                routerLink: "reports/reportFP",
+                label: "Float Planificado",
+                icon: "pi pi-list"
+            },
+            {
+                routerLink: "reports/reportFE",
+                label: "Float en Ejecución",
+                icon: "pi pi-dollar"
+            },
+            {
+                routerLink: "reports/reportCCD",
+                label: "CCD Semanal",
+                icon: "pi pi-dollar"
+            },
+            {
+                routerLink: "reports/reportCm1",
+                label: "Custom 1",
+                icon: "pi pi-clock"
+            },
+            {
+                routerLink: "reports/reportCm2",
+                label: "Custom 2",
+                icon: "pi pi-clock"
+            },
+            {
+                routerLink: "reports/reportCm3",
+                label: "Custom 3",
+                icon: "pi pi-clock"
+            },
+            {
+                routerLink: "reports/reportCm4",
+                label: "Custom 4",
+                icon: "pi pi-clock"
+            },
+            {
+                routerLink: "reports/reportCm5",
+                label: "Custom 5",
+                icon: "pi pi-clock"
+            },
+            {
+                routerLink: "reports/reportCm6",
+                label: "Custom 6",
+                icon: "pi pi-clock"
+            },
+            {
+                routerLink: "reports/reportCm7",
+                label: "Custom 7",
+                icon: "pi pi-clock"
+            },
+            {
+                routerLink: "reports/reportCm8",
+                label: "Custom 8",
+                icon: "pi pi-clock"
+            },
+            {
+                routerLink: "reports/reportCm9",
+                label: "Custom 9",
+                icon: "pi pi-clock"
+            },
+            {
+                routerLink: "reports/reportCm10",
+                label: "Custom 10",
+                icon: "pi pi-clock"
+            }
+        ]
     }
+
 ];
 export const links: MenuItem[] = []
 @Injectable()
@@ -103,8 +186,8 @@ export class AuthService {
         return this.isAuthorized() && validate;
     }
 
-    login(roles:any , role: Role, name: any, info: any, roleDescription: any, ciaSelected: any,ready : any) {
-        this.user = { roles:roles ,role: role, name: name, info: info, roleDescription: roleDescription, ciaSelected , ready : ready};
+    login(roles: any, role: Role, name: any, info: any, roleDescription: any, ciaSelected: any, ready: any) {
+        this.user = { roles: roles, role: role, name: name, info: info, roleDescription: roleDescription, ciaSelected, ready: ready };
         this.cias = { info: info }
     }
     GetuserInfo() {

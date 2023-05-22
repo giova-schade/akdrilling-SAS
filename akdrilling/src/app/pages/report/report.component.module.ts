@@ -24,7 +24,8 @@ import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import {BlockUIModule} from 'primeng/blockui';
 import {PanelMenuModule} from 'primeng/panelmenu';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
-
+import { MenuModule } from 'primeng/menu';
+import  { ReportBudgetComponent } from './../reportBudget/reportBudget.component';
 @NgModule({
 
     imports:[
@@ -49,13 +50,15 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
         RippleModule,
         ProgressSpinnerModule,
         BlockUIModule,
-        PanelMenuModule
+        PanelMenuModule,
+        MenuModule
     ],
-    declarations:[ReportComponent],
+    declarations:[ReportComponent ],
     exports:[
         ReportComponent,
         CommonModule,
         FormsModule
+        
     ],
     schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     

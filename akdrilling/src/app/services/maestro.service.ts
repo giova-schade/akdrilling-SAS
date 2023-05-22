@@ -785,7 +785,149 @@ export class MaestrosService {
         return this.http.post(CONFIG.apiPostPeriodReportBudget, formData)
 
     }
+    apiPostPeriodReportCCD(form: any) {
+        var formData: any = new FormData();
+        for (let i in form.controls) {
+            if (i == 'PERIODO') {
+                formData.append(i, form.controls[i].value.date);
 
+            } else {
+                formData.append(i, form.controls[i].value);
+            }
+        }
+        return this.http.post(CONFIG.apiPostPeriodReportCCD, formData)
+
+    }
+    apiPostPeriodReportCM1(form: any) {
+        var formData: any = new FormData();
+        for (let i in form.controls) {
+            if (i == 'PERIODO') {
+                formData.append(i, form.controls[i].value.date);
+
+            } else {
+                formData.append(i, form.controls[i].value);
+            }
+        }
+        return this.http.post(CONFIG.apiPostPeriodReportCM1, formData)
+
+    }
+    apiPostPeriodReportCM2(form: any) {
+        var formData: any = new FormData();
+        for (let i in form.controls) {
+            if (i == 'PERIODO') {
+                formData.append(i, form.controls[i].value.date);
+
+            } else {
+                formData.append(i, form.controls[i].value);
+            }
+        }
+        return this.http.post(CONFIG.apiPostPeriodReportCM2, formData)
+
+    }
+    apiPostPeriodReportCM3(form: any) {
+        var formData: any = new FormData();
+        for (let i in form.controls) {
+            if (i == 'PERIODO') {
+                formData.append(i, form.controls[i].value.date);
+
+            } else {
+                formData.append(i, form.controls[i].value);
+            }
+        }
+        return this.http.post(CONFIG.apiPostPeriodReportCM3, formData)
+
+    }
+    apiPostPeriodReportCM4(form: any) {
+        var formData: any = new FormData();
+        for (let i in form.controls) {
+            if (i == 'PERIODO') {
+                formData.append(i, form.controls[i].value.date);
+
+            } else {
+                formData.append(i, form.controls[i].value);
+            }
+        }
+        return this.http.post(CONFIG.apiPostPeriodReportCM4, formData)
+
+    }
+    apiPostPeriodReportCM5(form: any) {
+        var formData: any = new FormData();
+        for (let i in form.controls) {
+            if (i == 'PERIODO') {
+                formData.append(i, form.controls[i].value.date);
+
+            } else {
+                formData.append(i, form.controls[i].value);
+            }
+        }
+        return this.http.post(CONFIG.apiPostPeriodReportCM5, formData)
+
+    }
+    apiPostPeriodReportCM6(form: any) {
+        var formData: any = new FormData();
+        for (let i in form.controls) {
+            if (i == 'PERIODO') {
+                formData.append(i, form.controls[i].value.date);
+
+            } else {
+                formData.append(i, form.controls[i].value);
+            }
+        }
+        return this.http.post(CONFIG.apiPostPeriodReportCM6, formData)
+
+    }
+    apiPostPeriodReportCM7(form: any) {
+        var formData: any = new FormData();
+        for (let i in form.controls) {
+            if (i == 'PERIODO') {
+                formData.append(i, form.controls[i].value.date);
+
+            } else {
+                formData.append(i, form.controls[i].value);
+            }
+        }
+        return this.http.post(CONFIG.apiPostPeriodReportCM7, formData)
+
+    }
+    apiPostPeriodReportCM8(form: any) {
+        var formData: any = new FormData();
+        for (let i in form.controls) {
+            if (i == 'PERIODO') {
+                formData.append(i, form.controls[i].value.date);
+
+            } else {
+                formData.append(i, form.controls[i].value);
+            }
+        }
+        return this.http.post(CONFIG.apiPostPeriodReportCM8, formData)
+
+    }
+    apiPostPeriodReportCM9(form: any) {
+        var formData: any = new FormData();
+        for (let i in form.controls) {
+            if (i == 'PERIODO') {
+                formData.append(i, form.controls[i].value.date);
+
+            } else {
+                formData.append(i, form.controls[i].value);
+            }
+        }
+        return this.http.post(CONFIG.apiPostPeriodReportCM9, formData)
+
+    }
+    apiPostPeriodReportCM10(form: any) {
+        var formData: any = new FormData();
+        for (let i in form.controls) {
+            if (i == 'PERIODO') {
+                formData.append(i, form.controls[i].value.date);
+
+            } else {
+                formData.append(i, form.controls[i].value);
+            }
+        }
+        return this.http.post(CONFIG.apiPostPeriodReportCM10, formData)
+
+    }
     /*apis de revenue*/
 
     apiPostPeriodRevenue(form: any) {
@@ -850,4 +992,83 @@ export class MaestrosService {
         }
         return this.http.post(CONFIG.apipostCloseRevenue, formData)
     }
+
+    /* funciones para distribucion*/
+
+    postCreaDistribution(form: any): Observable<any> {
+        var formData: any = new FormData();
+        for (let i in form.controls) {
+            if (i == 'PERIODO') {
+                formData.append(i, form.controls[i].value.date);
+
+            } else if (i == 'Option') {
+                formData.append(i, form.controls[i].value.Code);
+            } else {
+                formData.append(i, form.controls[i].value);
+            }
+        }
+        return this.http.post(CONFIG.apiPostCreaDistribution, formData)
+    }
+    getGetDistributions(form: any) {
+        var formData: any = new FormData();
+        for (let i in form.controls) {
+            if (i == 'PERIODO') {
+                formData.append(i, form.controls[i].value.date);
+
+            } else if (i == 'Option') {
+                formData.append(i, form.controls[i].value.Code);
+            } else {
+                formData.append(i, form.controls[i].value);
+            }
+        }
+        return this.http.post(CONFIG.apiGetDistributions, formData);
+    }
+
+    getPeriodDistribution(form: any) {
+        var formData: any = new FormData();
+        for (let i in form.controls) {
+            if (i == 'PERIODO') {
+                formData.append(i, form.controls[i].value.date);
+
+            } else {
+                formData.append(i, form.controls[i].value);
+            }
+        }
+        return this.http.post(CONFIG.apiGetPeriodDistribution, formData)
+
+    }
+    
+    GetDistribution(form: any): Observable<any> {
+        var formData: any = new FormData();
+        for (let i in form.controls) {
+            if (i == 'idDistribution') {
+                formData.append(i, form.controls[i].value);
+            } else {
+                formData.append(i, form.controls[i].value);
+            }
+        }
+        return this.http.post(CONFIG.apiGetDistribution, formData)
+    }
+    postCloseDistribution(form: any) {
+        var formData: any = new FormData();
+        for (let i in form.controls) {
+            if (i == 'idDistribution') {
+                formData.append(i, form.controls[i].value);
+            } else {
+                formData.append(i, form.controls[i].value);
+            }
+        }
+        return this.http.post(CONFIG.apipostCloseDistribution, formData)
+    }
+    postCloseDistributionT(form: any) {
+        var formData: any = new FormData();
+        for (let i in form.controls) {
+            if (i == 'idDistribution') {
+                formData.append(i, form.controls[i].value);
+            } else {
+                formData.append(i, form.controls[i].value);
+            }
+        }
+        return this.http.post(CONFIG.apipostCloseDistributionT, formData)
+    }    
 }

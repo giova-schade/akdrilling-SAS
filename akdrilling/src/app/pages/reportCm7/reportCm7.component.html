@@ -1,0 +1,40 @@
+<div class="content">
+    <div class=" row">
+        <div class=" col-12">
+            <div class=" card">
+                <p-progressBar *ngIf="loadingPage" mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
+                <p-blockUI [blocked]="loadingPage" [style]="{'z-index': '2'}"></p-blockUI>
+
+                <div class=" card-header">
+                    <form class="p-grid" [formGroup]="reportcm" accept-charset="utf-8">
+
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div style="height: 100px;">
+                                    <p-dropdown [options]="periodos" formControlName="PERIODO"
+                                        placeholder="Seleccione un periodo" optionLabel="periodo" [showClear]="true">
+                                    </p-dropdown>
+                                </div>
+
+                            </div>
+                            <div class=" card-body">
+                                <div class="col-md-12">
+                                    <button pButton pRipple type="button" (click)="DownloadCM()"
+                                        class="p-button-rounded p-button-text ">
+                                        <img src="/akdrilling/assets/img/dnd/ic-file-excel.svg" width="45px"
+                                            style="text-align: center;" alt="file">
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </form>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>

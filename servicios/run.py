@@ -19,17 +19,61 @@ def Login():
       {
         "IdCia": "AKDSEDE18",
         "NomSede": "TYCHE GLOBAL CORP."
+      },
+      {
+        "IdCia": "AKDSEDE60",
+        "NomSede": "AKD INTERNATIONAL CHILE S.A."
       }
     ],
     "roles": [
       {
-        "name": "sasdemo",
+        "name": "Analista Budget Operaciones",
+        "group": "AKDADM",
+        "desgroup": "Administrador"
+      },
+      {
+        "name": "Analista Budget Operaciones",
+        "group": "AKDABRRHH",
+        "desgroup": "Analista Budget Operaciones"
+      },
+      {
+        "name": "Analista Budget Operaciones",
         "group": "AKDABOP",
         "desgroup": "Analista Budget Operaciones"
       },
       {
+        "name": "Analista Budget Departamento Finanzas",
+        "group": "AKDABDF",
+        "desgroup": "Analista Budget Departamento Finanzas"
+      },
+      {
+        "name": "Analista creador Float planificación",
+        "group": "AKDAFP",
+        "desgroup": "Analista creador Float planificación"
+      },
+      {
+        "name": "Analista aprobador Float planificado",
+        "group": "AKDAAFP",
+        "desgroup": "Analista aprobador Float planificado"
+      },
+      {
+        "name": "Analista creador Float ejecución",
+        "group": "AKDAFE",
+        "desgroup": "Analista creador Float ejecución"
+      },
+      {
+        "name": "Analista aprobador Float ejecución",
+        "group": "AKDAAFE",
+        "desgroup": "Analista aprobador Float ejecución"
+      },
+      {
+        "name": "Analista aprobador Float ejecución en reunión",
+        "group": "AKDARFE",
+        "desgroup": "Analista aprobador Float ejecución en reunión"
+      },
+      {
         "name": "sasdemo",
-        "group": "AKDADM",
+        "group": "AKDAAERFE",
         "desgroup": "Administrador"
       }
     ]
@@ -13509,7 +13553,7 @@ def apiPostCreaBudget():
             "status": "ok",
             "idBudget": "123",
             "rol": "AKDABOP",
-            "urlResutlado": "http://192.168.68.71:5000/DownloadBG",
+            "urlResutlado": "http://192.168.68.60:5000/DownloadBG",
             "datos": [
                 {
                     "detail": "error en el archivo"
@@ -13535,7 +13579,7 @@ def apiPostLoadFloatP():
         data = {
             "status": "ok",
             "idFloatP": "123",
-            "urlResutlado": "http://192.168.68.71:5000/DownloadBG",
+            "urlResutlado": "http://192.168.68.60:5000/DownloadBG",
             "datos": [
                 {
                     "detail": "Carga Correcta!"
@@ -13608,7 +13652,7 @@ def apiPostCreateFP():
         data = {
             "status": "ok",
             "idFloatP": "123",
-            "urlResutlado": "http://192.168.68.71:5000/DownloadBG",
+            "urlResutlado": "http://192.168.68.60:5000/DownloadBG",
             "datos": [
                 {
                     "detail": "el float planificado se creo correctamente"
@@ -13771,12 +13815,138 @@ def apiPostPeriodReportBudget():
                 {"periodo": "Mayo", "date": "01/05/2022"},
             ]
         }
-        return jsonify(data)        
+        return jsonify(data)    
+            
+@app.route('/apiPostPeriodReeportCCD', methods=['POST'])
+def apiPostPeriodReeportCCD():
+    if(request.method == 'POST'):
+        data = {
+            "status": "ok",
+            "downloadBudget": "http://192.168.68.71:5000/DownloadCCD",
+            "datos": [
+                {"periodo": "Mayo", "date": "01/05/2022"},
+            ]
+        }
+        return jsonify(data)          
 
+@app.route('/apiPostPeriodReportCM1', methods=['POST'])
+def apiPostPeriodReportCM1():
+    if(request.method == 'POST'):
+        data = {
+            "status": "ok",
+            "downloadCM": "http://192.168.68.60:5000/DownloadCM1",
+            "datos": [
+                {"periodo": "Mayo", "date": "01/05/2022"},
+            ]
+        }
+        return jsonify(data)     
 
+@app.route('/DownloadCM1&PERIODO=01/05/2022&IdCia=AKDSEDE18', methods=['GET'])
+def DownloadCM1():
+    if(request.method == 'GET'):
+        return send_file('Copy of GAPS AKD_v2.7.xlsx', as_attachment=True)
+        
+                   
+@app.route('/apiPostPeriodReportCM2', methods=['POST'])
+def apiPostPeriodReportCM2():
+    if(request.method == 'POST'):
+        data = {
+            "status": "ok",
+            "downloadBudget": "http://192.168.68.71:5000/DownloadCM2",
+            "datos": [
+                {"periodo": "Mayo", "date": "01/05/2022"},
+            ]
+        }
+        return jsonify(data)  
+@app.route('/apiPostPeriodReportCM3', methods=['POST'])
+def apiPostPeriodReportCM3():
+    if(request.method == 'POST'):
+        data = {
+            "status": "ok",
+            "downloadBudget": "http://192.168.68.71:5000/DownloadCM3",
+            "datos": [
+                {"periodo": "Mayo", "date": "01/05/2022"},
+            ]
+        }
+        return jsonify(data)          
 
-
-
+@app.route('/apiPostPeriodReportCM4', methods=['POST'])
+def apiPostPeriodReportCM4():
+    if(request.method == 'POST'):
+        data = {
+            "status": "ok",
+            "downloadBudget": "http://192.168.68.71:5000/DownloadCM4",
+            "datos": [
+                {"periodo": "Mayo", "date": "01/05/2022"},
+            ]
+        }
+        return jsonify(data)  
+@app.route('/apiPostPeriodReportCM5', methods=['POST'])
+def apiPostPeriodReportCM5():
+    if(request.method == 'POST'):
+        data = {
+            "status": "ok",
+            "downloadBudget": "http://192.168.68.71:5000/DownloadCM5",
+            "datos": [
+                {"periodo": "Mayo", "date": "01/05/2022"},
+            ]
+        }
+        return jsonify(data)  
+@app.route('/apiPostPeriodReportCM6', methods=['POST'])
+def apiPostPeriodReportCM6():
+    if(request.method == 'POST'):
+        data = {
+            "status": "ok",
+            "downloadBudget": "http://192.168.68.71:5000/DownloadCM6",
+            "datos": [
+                {"periodo": "Mayo", "date": "01/05/2022"},
+            ]
+        }
+        return jsonify(data)  
+@app.route('/apiPostPeriodReportCM7', methods=['POST'])
+def apiPostPeriodReportCM7():
+    if(request.method == 'POST'):
+        data = {
+            "status": "ok",
+            "downloadBudget": "http://192.168.68.71:5000/DownloadCM7",
+            "datos": [
+                {"periodo": "Mayo", "date": "01/05/2022"},
+            ]
+        }
+        return jsonify(data)    
+@app.route('/apiPostPeriodReportCM8', methods=['POST'])
+def apiPostPeriodReportCM8():
+    if(request.method == 'POST'):
+        data = {
+            "status": "ok",
+            "downloadBudget": "http://192.168.68.71:5000/DownloadCM8",
+            "datos": [
+                {"periodo": "Mayo", "date": "01/05/2022"},
+            ]
+        }
+        return jsonify(data)     
+@app.route('/apiPostPeriodReportCM9', methods=['POST'])
+def apiPostPeriodReportCM9():
+    if(request.method == 'POST'):
+        data = {
+            "status": "ok",
+            "downloadBudget": "http://192.168.68.71:5000/DownloadCM9",
+            "datos": [
+                {"periodo": "Mayo", "date": "01/05/2022"},
+            ]
+        }
+        return jsonify(data)
+@app.route('/apiPostPeriodReportCM10', methods=['POST'])
+def apiPostPeriodReportCM10():
+    if(request.method == 'POST'):
+        data = {
+            "status": "ok",
+            "downloadBudget": "http://192.168.68.71:5000/DownloadCM10",
+            "datos": [
+                {"periodo": "Mayo", "date": "01/05/2022"},
+            ]
+        }
+        return jsonify(data)                               
 ## api de float en ejecucion
 #crear una api para traer todos los float en ejecucion a partir de una cia 
 #CREAR UNA API PARA RETORNAR LOS PERIODOS CON EL CUAL SE PUEDE CREAR UN FLOAT EN EJECUCION
@@ -13799,7 +13969,7 @@ def apiPostLoadFloatE():
         data = {
             "status": "ok",
             "idFloatE": "123",
-            "urlResutlado": "http://192.168.68.71:5000/DownloadBG",
+            "urlResutlado": "http://192.168.68.60:5000/DownloadBG",
             "datos": [
                 {
                     "detail": "Carga Correcta!"
@@ -14053,7 +14223,7 @@ def apiPostLoadMeet():
         data = {
             "status": "ok",
             "idMeet": "123",
-            "urlResutlado": "http://192.168.68.71:5000/DownloadBG",
+            "urlResutlado": "http://192.168.68.60:5000/DownloadBG",
             "datos": [
                 {
                     "detail": "Carga Correcta!"
@@ -27767,6 +27937,244 @@ def apiGetrevenue():
 }
         return jsonify(data)
 
+
+### api de distribcucion
+
+
+
+@app.route('/apiPostCreaDistribution', methods=['POST'])
+def apiPostCreaDistribution():
+    if(request.method == 'POST'):
+        data = {
+            "status": "ok",
+            "idDistribution": "123",
+            "rol": "AKDABOP",
+            "urlResutlado": "http://192.168.68.71:5000/DownloadBG",
+            "datos": [
+                {
+                    "detail": "error en el archivo"
+                }
+            ]
+        }
+        return jsonify(data) 
+    
+@app.route('/apiGetDistributions', methods=['POST'])
+def apiGetDistributions():
+    if(request.method == 'POST'):
+        data = {
+  "status": "ok",
+  "datos": [
+    {
+      "IdDistribution": "85a6e709-5630-a640-a244-36dbedda311e",
+      "Periodo": "Mayo",
+      "Estado": "Creado",
+      "Año": "2023"
+    },
+    {
+      "IdDistribution": "85a6e709-5630-a640-a244-36dbedda311e",
+      "Periodo": "Mayo",
+      "Estado": "Creado",
+      "Año": "2023"
+    }
+  ]
+}
+
+        return jsonify(data)
+    
+@app.route('/apiGetPeriodDistribution', methods=['POST'])
+def apiGetPeriodDistribution():
+    if(request.method == 'POST'):
+        data = {
+            "status": "ok",
+            "datos": [
+                {"periodo": "Enero", "date": "01/01/2022" , "año":"2023"},
+                {"periodo": "Febrero", "date": "01/02/2022", "año":"2023"},
+                {"periodo": "Marzo", "date": "01/03/2022", "año":"2023"}
+            ]
+        }
+        return jsonify(data)
+
+        
+
+@app.route('/apipostCloseDistribution', methods=['POST'])
+def apipostCloseDistribution():
+    if(request.method == 'POST'):
+        data = {
+            "status": "ok"
+        }
+        return jsonify(data)
+@app.route('/apipostCloseDistributionT', methods=['POST'])
+def apipostCloseDistributionT():
+    if(request.method == 'POST'):
+        data = {
+            "status": "ok"
+        }
+        return jsonify(data)        
+
+
+@app.route('/apiGetDistribution', methods=['POST'])
+def apiGetDistribution():
+    if(request.method == 'POST'):
+        data = {
+    "status": "ok",
+    "downloadDistribution": "http://192.168.68.71:5000/DownloadBG",
+    "downloadDistributionT": "http://192.168.68.71:5000/DownloadBG",
+    "periodo": "Mayo",
+    "date": "24/05/2022",
+    "idDistribution": "2621fe61-8bf5-5e41-9791-3c367d46faff",
+    "estadoBGDT": "Creado",
+    "datos": [
+        {
+            "Item": 1,
+            "ID Cia": "21",
+            "Nombre Sede": "AKD INTERNATIONAL PANAMA CORP.",
+            "ID Periodo": "052022",
+            "ID Proyecto": "00002",
+            "Nombre Proyecto": "Cobre",
+            "Tipo Asignación": "Proyecto",
+            "Código Budget Nivel 5": "0203020101",
+            "Descripción Budget Nivel 1": "OPERATING COST",
+            "Descripción Budget Nivel 2": "TOTAL OPERATING HHRR Cash Egress",
+            "Descripción Budget Nivel 3": "DIRECT PERSONNEL COST - Maintanance  - Cash Egress",
+            "Descripción Budget Nivel 4": "DIRECT PERSONNEL COST - Maintanance  - Cash Egress",
+            "Descripción Budget Nivel 5": "Local Salaries  - 1Q",
+            "ID Poveedor": "99999999999",
+            "Nombre Proveedor": "VARIOS",
+            "Categoría Pago": "Local Salaries  - 1Q",
+            "ID Ceco": "21MP100000",
+            "Nombre Ceco": "CIA. MINERA PANAMA S.A.",
+            "ID Asignación": "0",
+            "Nombre Asignación": "0",
+            "ID UNegocio": "0",
+            "Descripción Unidad Negocio": "0",
+            "ID Servicio": "",
+            "Descripción Servicio": "0",
+            "Cantidad Días": 31,
+            "Cantidad Productos": 1,
+            "ID Moneda": "USD",
+            "P Unit MN Inc Impuesto": 'null',
+            "P Unit UDS Mensual": 0,
+            "Monto Valor USD Mes": 0,
+            "Observaciones": "",
+            "Fecha Pago": 'null',
+            "Fecha Solicitud Pago": 'null',
+            "Orden Compra": ""
+        },
+        {
+            "Item": 2,
+            "ID Cia": "21",
+            "Nombre Sede": "AKD INTERNATIONAL PANAMA CORP.",
+            "ID Periodo": "052022",
+            "ID Proyecto": "00002",
+            "Nombre Proyecto": "Cobre",
+            "Tipo Asignación": "Proyecto",
+            "Código Budget Nivel 5": "0203020102",
+            "Descripción Budget Nivel 1": "OPERATING COST",
+            "Descripción Budget Nivel 2": "TOTAL OPERATING HHRR Cash Egress",
+            "Descripción Budget Nivel 3": "DIRECT PERSONNEL COST - Maintanance  - Cash Egress",
+            "Descripción Budget Nivel 4": "DIRECT PERSONNEL COST - Maintanance  - Cash Egress",
+            "Descripción Budget Nivel 5": "Local Salaries  - 2Q",
+            "ID Poveedor": "99999999999",
+            "Nombre Proveedor": "VARIOS",
+            "Categoría Pago": "Local Salaries  - 2Q",
+            "ID Ceco": "21MP100000",
+            "Nombre Ceco": "CIA. MINERA PANAMA S.A.",
+            "ID Asignación": "0",
+            "Nombre Asignación": "0",
+            "ID UNegocio": "0",
+            "Descripción Unidad Negocio": "0",
+            "ID Servicio": "",
+            "Descripción Servicio": "0",
+            "Cantidad Días": 31,
+            "Cantidad Productos": 1,
+            "ID Moneda": "USD",
+            "P Unit MN Inc Impuesto": 'null',
+            "P Unit UDS Mensual": 0,
+            "Monto Valor USD Mes": 0,
+            "Observaciones": "",
+            "Fecha Pago": 'null',
+            "Fecha Solicitud Pago": 'null',
+            "Orden Compra": ""
+        }        
+    ],
+    "datosT": [
+        {
+            "Item": 1,
+            "ID Cia": "21",
+            "Nombre Sede": "AKD INTERNATIONAL PANAMA CORP.",
+            "ID Periodo": "052022",
+            "ID Proyecto": "00002",
+            "Nombre Proyecto": "Cobre",
+            "Tipo Asignación": "Proyecto",
+            "Código Budget Nivel 5": "0203020101",
+            "Descripción Budget Nivel 1": "OPERATING COST",
+            "Descripción Budget Nivel 2": "TOTAL OPERATING HHRR Cash Egress",
+            "Descripción Budget Nivel 3": "DIRECT PERSONNEL COST - Maintanance  - Cash Egress",
+            "Descripción Budget Nivel 4": "DIRECT PERSONNEL COST - Maintanance  - Cash Egress",
+            "Descripción Budget Nivel 5": "Local Salaries  - 1Q",
+            "ID Poveedor": "99999999999",
+            "Nombre Proveedor": "VARIOS",
+            "Categoría Pago": "Local Salaries  - 1Q",
+            "ID Ceco": "21MP100000",
+            "Nombre Ceco": "CIA. MINERA PANAMA S.A.",
+            "ID Asignación": "0",
+            "Nombre Asignación": "0",
+            "ID UNegocio": "0",
+            "Descripción Unidad Negocio": "0",
+            "ID Servicio": "",
+            "Descripción Servicio": "0",
+            "Cantidad Días": 31,
+            "Cantidad Productos": 1,
+            "ID Moneda": "USD",
+            "P Unit MN Inc Impuesto": 'null',
+            "P Unit UDS Mensual": 0,
+            "Monto Valor USD Mes": 0,
+            "Observaciones": "",
+            "Fecha Pago": 'null',
+            "Fecha Solicitud Pago": 'null',
+            "Orden Compra": ""
+        },
+        {
+            "Item": 2,
+            "ID Cia": "21",
+            "Nombre Sede": "AKD INTERNATIONAL PANAMA CORP.",
+            "ID Periodo": "052022",
+            "ID Proyecto": "00002",
+            "Nombre Proyecto": "Cobre",
+            "Tipo Asignación": "Proyecto",
+            "Código Budget Nivel 5": "0203020102",
+            "Descripción Budget Nivel 1": "OPERATING COST",
+            "Descripción Budget Nivel 2": "TOTAL OPERATING HHRR Cash Egress",
+            "Descripción Budget Nivel 3": "DIRECT PERSONNEL COST - Maintanance  - Cash Egress",
+            "Descripción Budget Nivel 4": "DIRECT PERSONNEL COST - Maintanance  - Cash Egress",
+            "Descripción Budget Nivel 5": "Local Salaries  - 2Q",
+            "ID Poveedor": "99999999999",
+            "Nombre Proveedor": "VARIOS",
+            "Categoría Pago": "Local Salaries  - 2Q",
+            "ID Ceco": "21MP100000",
+            "Nombre Ceco": "CIA. MINERA PANAMA S.A.",
+            "ID Asignación": "0",
+            "Nombre Asignación": "0",
+            "ID UNegocio": "0",
+            "Descripción Unidad Negocio": "0",
+            "ID Servicio": "",
+            "Descripción Servicio": "0",
+            "Cantidad Días": 31,
+            "Cantidad Productos": 1,
+            "ID Moneda": "USD",
+            "P Unit MN Inc Impuesto": 'null',
+            "P Unit UDS Mensual": 0,
+            "Monto Valor USD Mes": 0,
+            "Observaciones": "",
+            "Fecha Pago": 'null',
+            "Fecha Solicitud Pago": 'null',
+            "Orden Compra": ""
+        },
+        
+    ]
+}
+        return jsonify(data)
+        
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
 

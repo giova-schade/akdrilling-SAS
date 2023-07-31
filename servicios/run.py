@@ -13,68 +13,25 @@ def Login():
   "info": {
     "sede": [
       {
-        "IdCia": "AKDSEDE21",
-        "NomSede": "AKD INTERNATIONAL PANAMA CORP."
-      },
-      {
         "IdCia": "AKDSEDE18",
         "NomSede": "TYCHE GLOBAL CORP."
-      },
-      {
-        "IdCia": "AKDSEDE60",
-        "NomSede": "AKD INTERNATIONAL CHILE S.A."
       }
     ],
     "roles": [
       {
-        "name": "Analista Budget Operaciones",
-        "group": "AKDADM",
-        "desgroup": "Administrador"
-      },
-      {
-        "name": "Analista Budget Operaciones",
-        "group": "AKDABRRHH",
-        "desgroup": "Analista Budget Operaciones"
-      },
-      {
-        "name": "Analista Budget Operaciones",
+        "name": "sasdemo",
         "group": "AKDABOP",
         "desgroup": "Analista Budget Operaciones"
       },
       {
-        "name": "Analista Budget Departamento Finanzas",
-        "group": "AKDABDF",
-        "desgroup": "Analista Budget Departamento Finanzas"
-      },
-      {
-        "name": "Analista creador Float planificación",
-        "group": "AKDAFP",
-        "desgroup": "Analista creador Float planificación"
-      },
-      {
-        "name": "Analista aprobador Float planificado",
-        "group": "AKDAAFP",
-        "desgroup": "Analista aprobador Float planificado"
-      },
-      {
-        "name": "Analista creador Float ejecución",
-        "group": "AKDAFE",
-        "desgroup": "Analista creador Float ejecución"
-      },
-      {
-        "name": "Analista aprobador Float ejecución",
-        "group": "AKDAAFE",
-        "desgroup": "Analista aprobador Float ejecución"
-      },
-      {
-        "name": "Analista aprobador Float ejecución en reunión",
-        "group": "AKDARFE",
-        "desgroup": "Analista aprobador Float ejecución en reunión"
+        "name": "sasdemo",
+        "group": "AKDADM",
+        "desgroup": "Administrador"
       },
       {
         "name": "sasdemo",
-        "group": "AKDAAERFE",
-        "desgroup": "Administrador"
+        "group": "AKDAFP",
+        "desgroup": "Analista creador Float planificación"
       }
     ]
   }
@@ -1083,7 +1040,7 @@ def apiGetBudget():
     "periodo": "Mayo",
     "date": "24/05/2022",
     "idBudget": "2621fe61-8bf5-5e41-9791-3c367d46faff",
-    "estado": "Cerrado",
+    "estado": "Creado",
     "datos": [
         {
             "Item": 1,
@@ -13699,7 +13656,7 @@ def apigetDetailFloat():
                     "Categoria 5: Descripción": "Maintenance Lubricants",
                     "Monto Total USD(Mes)": 2866.62333333,
                     "week": "12MAY2022",
-                    "Estado": "Cerrado",
+                    "Estado": "Enviado",
                     "description": "SOMACC Operations"
                 },
                 {
@@ -13724,7 +13681,7 @@ def apiPostFPByID():
             "periodo": "Mayo",
             "date": "13/05/2022",
             "idFloatP": "",
-            "estado": "Creado",
+            "estado": "En aprobación",
             "datos": [
                 {
                     "idbgdt5": "0201010101",
@@ -13810,8 +13767,10 @@ def apiPostPeriodReportBudget():
     if(request.method == 'POST'):
         data = {
             "status": "ok",
-            "downloadBudget": "http://192.168.68.71:5000/DownloadFI",
+            "downloadBudget": "http://192.168.68.60:5000/DownloadFI",
+            "downloadBudgetProyect": "http://192.168.68.60:5000/DownloadFI",
             "datos": [
+              
                 {"periodo": "Mayo", "date": "01/05/2022"},
             ]
         }
@@ -14100,7 +14059,7 @@ def apigetDetailFloatE():
                     "Categoria 5: Descripción": "Maintenance Lubricants",
                     "Monto Total USD(Mes)": 2866.62333333,
                     "week": "12MAY2022",
-                    "Estado": "Cerrado",
+                    "Estado": "Enviado",
                     "description": "Drill Bits"
                 },
                 {
@@ -14125,7 +14084,7 @@ def apiPostFEByID():
             "periodo": "Mayo",
             "date": "13/05/2022",
             "idFloatE": "",
-            "estado": "Meet",
+            "estado": "Cerrado",
             "weekInProgress": "1",
             "datos": [
                 {
@@ -27963,21 +27922,28 @@ def apiGetDistributions():
     if(request.method == 'POST'):
         data = {
   "status": "ok",
+  "download": "",
+  "periodo": "undefined",
+  "date": "",
+  "estado": "",
+  "IdDistribution": "",
+  "rol": "AKDADM",
   "datos": [
     {
-      "IdDistribution": "85a6e709-5630-a640-a244-36dbedda311e",
-      "Periodo": "Mayo",
-      "Estado": "Creado",
-      "Año": "2023"
+      "IdDistribution": "6264a7f9-7ad7-8343-b895-0f1161aacdf6",
+      "periodo": "Mayo",
+      "estado": "Creado",
+      "tipoDistribucion": "Budget"
     },
     {
-      "IdDistribution": "85a6e709-5630-a640-a244-36dbedda311e",
-      "Periodo": "Mayo",
-      "Estado": "Creado",
-      "Año": "2023"
+      "IdDistribution": "6264a7f9-7ad7-8343-b895-0f1161aacdf6",
+      "periodo": "Mayo",
+      "estado": "Creado",
+      "tipoDistribucion": "Ejecutada"
     }
   ]
 }
+
 
         return jsonify(data)
     
@@ -28016,165 +27982,262 @@ def apipostCloseDistributionT():
 def apiGetDistribution():
     if(request.method == 'POST'):
         data = {
-    "status": "ok",
-    "downloadDistribution": "http://192.168.68.71:5000/DownloadBG",
-    "downloadDistributionT": "http://192.168.68.71:5000/DownloadBG",
-    "periodo": "Mayo",
-    "date": "24/05/2022",
-    "idDistribution": "2621fe61-8bf5-5e41-9791-3c367d46faff",
-    "estadoBGDT": "Creado",
-    "datos": [
-        {
-            "Item": 1,
-            "ID Cia": "21",
-            "Nombre Sede": "AKD INTERNATIONAL PANAMA CORP.",
-            "ID Periodo": "052022",
-            "ID Proyecto": "00002",
-            "Nombre Proyecto": "Cobre",
-            "Tipo Asignación": "Proyecto",
-            "Código Budget Nivel 5": "0203020101",
-            "Descripción Budget Nivel 1": "OPERATING COST",
-            "Descripción Budget Nivel 2": "TOTAL OPERATING HHRR Cash Egress",
-            "Descripción Budget Nivel 3": "DIRECT PERSONNEL COST - Maintanance  - Cash Egress",
-            "Descripción Budget Nivel 4": "DIRECT PERSONNEL COST - Maintanance  - Cash Egress",
-            "Descripción Budget Nivel 5": "Local Salaries  - 1Q",
-            "ID Poveedor": "99999999999",
-            "Nombre Proveedor": "VARIOS",
-            "Categoría Pago": "Local Salaries  - 1Q",
-            "ID Ceco": "21MP100000",
-            "Nombre Ceco": "CIA. MINERA PANAMA S.A.",
-            "ID Asignación": "0",
-            "Nombre Asignación": "0",
-            "ID UNegocio": "0",
-            "Descripción Unidad Negocio": "0",
-            "ID Servicio": "",
-            "Descripción Servicio": "0",
-            "Cantidad Días": 31,
-            "Cantidad Productos": 1,
-            "ID Moneda": "USD",
-            "P Unit MN Inc Impuesto": 'null',
-            "P Unit UDS Mensual": 0,
-            "Monto Valor USD Mes": 0,
-            "Observaciones": "",
-            "Fecha Pago": 'null',
-            "Fecha Solicitud Pago": 'null',
-            "Orden Compra": ""
-        },
-        {
-            "Item": 2,
-            "ID Cia": "21",
-            "Nombre Sede": "AKD INTERNATIONAL PANAMA CORP.",
-            "ID Periodo": "052022",
-            "ID Proyecto": "00002",
-            "Nombre Proyecto": "Cobre",
-            "Tipo Asignación": "Proyecto",
-            "Código Budget Nivel 5": "0203020102",
-            "Descripción Budget Nivel 1": "OPERATING COST",
-            "Descripción Budget Nivel 2": "TOTAL OPERATING HHRR Cash Egress",
-            "Descripción Budget Nivel 3": "DIRECT PERSONNEL COST - Maintanance  - Cash Egress",
-            "Descripción Budget Nivel 4": "DIRECT PERSONNEL COST - Maintanance  - Cash Egress",
-            "Descripción Budget Nivel 5": "Local Salaries  - 2Q",
-            "ID Poveedor": "99999999999",
-            "Nombre Proveedor": "VARIOS",
-            "Categoría Pago": "Local Salaries  - 2Q",
-            "ID Ceco": "21MP100000",
-            "Nombre Ceco": "CIA. MINERA PANAMA S.A.",
-            "ID Asignación": "0",
-            "Nombre Asignación": "0",
-            "ID UNegocio": "0",
-            "Descripción Unidad Negocio": "0",
-            "ID Servicio": "",
-            "Descripción Servicio": "0",
-            "Cantidad Días": 31,
-            "Cantidad Productos": 1,
-            "ID Moneda": "USD",
-            "P Unit MN Inc Impuesto": 'null',
-            "P Unit UDS Mensual": 0,
-            "Monto Valor USD Mes": 0,
-            "Observaciones": "",
-            "Fecha Pago": 'null',
-            "Fecha Solicitud Pago": 'null',
-            "Orden Compra": ""
-        }        
-    ],
-    "datosT": [
-        {
-            "Item": 1,
-            "ID Cia": "21",
-            "Nombre Sede": "AKD INTERNATIONAL PANAMA CORP.",
-            "ID Periodo": "052022",
-            "ID Proyecto": "00002",
-            "Nombre Proyecto": "Cobre",
-            "Tipo Asignación": "Proyecto",
-            "Código Budget Nivel 5": "0203020101",
-            "Descripción Budget Nivel 1": "OPERATING COST",
-            "Descripción Budget Nivel 2": "TOTAL OPERATING HHRR Cash Egress",
-            "Descripción Budget Nivel 3": "DIRECT PERSONNEL COST - Maintanance  - Cash Egress",
-            "Descripción Budget Nivel 4": "DIRECT PERSONNEL COST - Maintanance  - Cash Egress",
-            "Descripción Budget Nivel 5": "Local Salaries  - 1Q",
-            "ID Poveedor": "99999999999",
-            "Nombre Proveedor": "VARIOS",
-            "Categoría Pago": "Local Salaries  - 1Q",
-            "ID Ceco": "21MP100000",
-            "Nombre Ceco": "CIA. MINERA PANAMA S.A.",
-            "ID Asignación": "0",
-            "Nombre Asignación": "0",
-            "ID UNegocio": "0",
-            "Descripción Unidad Negocio": "0",
-            "ID Servicio": "",
-            "Descripción Servicio": "0",
-            "Cantidad Días": 31,
-            "Cantidad Productos": 1,
-            "ID Moneda": "USD",
-            "P Unit MN Inc Impuesto": 'null',
-            "P Unit UDS Mensual": 0,
-            "Monto Valor USD Mes": 0,
-            "Observaciones": "",
-            "Fecha Pago": 'null',
-            "Fecha Solicitud Pago": 'null',
-            "Orden Compra": ""
-        },
-        {
-            "Item": 2,
-            "ID Cia": "21",
-            "Nombre Sede": "AKD INTERNATIONAL PANAMA CORP.",
-            "ID Periodo": "052022",
-            "ID Proyecto": "00002",
-            "Nombre Proyecto": "Cobre",
-            "Tipo Asignación": "Proyecto",
-            "Código Budget Nivel 5": "0203020102",
-            "Descripción Budget Nivel 1": "OPERATING COST",
-            "Descripción Budget Nivel 2": "TOTAL OPERATING HHRR Cash Egress",
-            "Descripción Budget Nivel 3": "DIRECT PERSONNEL COST - Maintanance  - Cash Egress",
-            "Descripción Budget Nivel 4": "DIRECT PERSONNEL COST - Maintanance  - Cash Egress",
-            "Descripción Budget Nivel 5": "Local Salaries  - 2Q",
-            "ID Poveedor": "99999999999",
-            "Nombre Proveedor": "VARIOS",
-            "Categoría Pago": "Local Salaries  - 2Q",
-            "ID Ceco": "21MP100000",
-            "Nombre Ceco": "CIA. MINERA PANAMA S.A.",
-            "ID Asignación": "0",
-            "Nombre Asignación": "0",
-            "ID UNegocio": "0",
-            "Descripción Unidad Negocio": "0",
-            "ID Servicio": "",
-            "Descripción Servicio": "0",
-            "Cantidad Días": 31,
-            "Cantidad Productos": 1,
-            "ID Moneda": "USD",
-            "P Unit MN Inc Impuesto": 'null',
-            "P Unit UDS Mensual": 0,
-            "Monto Valor USD Mes": 0,
-            "Observaciones": "",
-            "Fecha Pago": 'null',
-            "Fecha Solicitud Pago": 'null',
-            "Orden Compra": ""
-        },
-        
-    ]
+  "status": "ok",
+  "estadoBGDT": "Creado",
+  "estadoExecT": "Creado",
+  "downloadDistribution": "https://sas.akdcloud.com:8343/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FDownloaddistributionBudget&iddistribution=6264a7f9-7ad7-8343-b895-0f1161aacdf6&rol=AKDADM",
+  "downloadDistributionT": "https://sas.akdcloud.com:8343/SASStoredProcess/do?_action=execute&_program=%2FAKD+International%2FAPI%2FDownloaddistributionEjecutado&iddistribution=6264a7f9-7ad7-8343-b895-0f1161aacdf6&rol=AKDADM",
+  "periodo": "Mayo",
+  "date": "01/05/2023",
+  "iddistribution": "6264a7f9-7ad7-8343-b895-0f1161aacdf6",
+  "rol": "AKDADM",
+  "datos": [
+    {
+      "idcia": "60",
+      "nomsede": "Chile",
+      "anio": "2023",
+      "mes": "05",
+      "iddistribution": "6264a7f9-7ad7-8343-b895-0f1161aacdf6",
+      "nomproyecto": "Pampa Esperanza",
+      "porcentaje": 20,
+      "estado": "Creado"
+    },
+    {
+      "idcia": "60",
+      "nomsede": "Chile",
+      "anio": "2023",
+      "mes": "05",
+      "iddistribution": "6264a7f9-7ad7-8343-b895-0f1161aacdf6",
+      "nomproyecto": "La poderosa",
+      "porcentaje": 30,
+      "estado": "Creado"
+    },
+    {
+      "idcia": "60",
+      "nomsede": "Chile",
+      "anio": "2023",
+      "mes": "05",
+      "iddistribution": "6264a7f9-7ad7-8343-b895-0f1161aacdf6",
+      "nomproyecto": "Cabildo",
+      "porcentaje": 25,
+      "estado": "Creado"
+    },
+    {
+      "idcia": "60",
+      "nomsede": "Chile",
+      "anio": "2023",
+      "mes": "05",
+      "iddistribution": "6264a7f9-7ad7-8343-b895-0f1161aacdf6",
+      "nomproyecto": "Capricornio",
+      "porcentaje": 25,
+      "estado": "Creado"
+    }
+  ],
+  "datosT": [
+    {
+      "idcia": "60",
+      "nomsede": "Chile",
+      "anio": "2023",
+      "mes": "05",
+      "iddistribution": "6264a7f9-7ad7-8343-b895-0f1161aacdf6",
+      "nomproyecto": "Pampa Esperanza",
+      "porcentaje": 20,
+      "estado": "Creado"
+    },
+    {
+      "idcia": "60",
+      "nomsede": "Chile",
+      "anio": "2023",
+      "mes": "05",
+      "iddistribution": "6264a7f9-7ad7-8343-b895-0f1161aacdf6",
+      "nomproyecto": "La poderosa",
+      "porcentaje": 30,
+      "estado": "Creado"
+    },
+    {
+      "idcia": "60",
+      "nomsede": "Chile",
+      "anio": "2023",
+      "mes": "05",
+      "iddistribution": "6264a7f9-7ad7-8343-b895-0f1161aacdf6",
+      "nomproyecto": "Cabildo",
+      "porcentaje": 25,
+      "estado": "Creado"
+    },
+    {
+      "idcia": "60",
+      "nomsede": "Chile",
+      "anio": "2023",
+      "mes": "05",
+      "iddistribution": "6264a7f9-7ad7-8343-b895-0f1161aacdf6",
+      "nomproyecto": "Capricornio",
+      "porcentaje": 25,
+      "estado": "Creado"
+    }
+  ]
 }
+
+
         return jsonify(data)
-        
+    
+@app.route('/apiGetListProyectos', methods=['POST'])
+def apiGetListProyectos():
+    if(request.method == 'POST'):
+        data = {
+  "status": "ok",
+  "datos": [
+    {
+      "idproyecto": "00003",
+      "nomproyecto": "El Peñon"
+    },
+    {
+      "idproyecto": "00004",
+      "nomproyecto": "Sierra Gorda"
+    },
+    {
+      "idproyecto": "00005",
+      "nomproyecto": "El Peñon"
+    },
+    {
+      "idproyecto": "00006",
+      "nomproyecto": "Cachorro"
+    },
+    {
+      "idproyecto": "00007",
+      "nomproyecto": "Pampa Unión"
+    },
+    {
+      "idproyecto": "00008",
+      "nomproyecto": "Quebrada Blanca"
+    },
+    {
+      "idproyecto": "00009",
+      "nomproyecto": "Guanaco"
+    },
+    {
+      "idproyecto": "00010",
+      "nomproyecto": "San Marcos"
+    },
+    {
+      "idproyecto": "00011",
+      "nomproyecto": "El Loro"
+    },
+    {
+      "idproyecto": "00012",
+      "nomproyecto": "Amancaya"
+    },
+    {
+      "idproyecto": "00013",
+      "nomproyecto": "Máquina Inoperativas"
+    },
+    {
+      "idproyecto": "00014",
+      "nomproyecto": "Indra"
+    },
+    {
+      "idproyecto": "00015",
+      "nomproyecto": "Cerro Marquez"
+    },
+    {
+      "idproyecto": "00016",
+      "nomproyecto": "Paloma"
+    },
+    {
+      "idproyecto": "00017",
+      "nomproyecto": "Cambiazo"
+    },
+    {
+      "idproyecto": "00018",
+      "nomproyecto": "LA PUNTA"
+    },
+    {
+      "idproyecto": "00019",
+      "nomproyecto": "La Pintana"
+    },
+    {
+      "idproyecto": "00020",
+      "nomproyecto": "San Juan"
+    },
+    {
+      "idproyecto": "00021",
+      "nomproyecto": "Lo Campino"
+    },
+    {
+      "idproyecto": "00022",
+      "nomproyecto": "Cerro Negro"
+    },
+    {
+      "idproyecto": "00023",
+      "nomproyecto": "Coliseo"
+    },
+    {
+      "idproyecto": "00024",
+      "nomproyecto": "Algarrobo"
+    },
+    {
+      "idproyecto": "00025",
+      "nomproyecto": "Buin"
+    },
+    {
+      "idproyecto": "00026",
+      "nomproyecto": "SAN CRISTOBAL"
+    },
+    {
+      "idproyecto": "00027",
+      "nomproyecto": "Calama"
+    },
+    {
+      "idproyecto": "00028",
+      "nomproyecto": "La Poderosa"
+    },
+    {
+      "idproyecto": "00029",
+      "nomproyecto": "Pampa Camarones"
+    },
+    {
+      "idproyecto": "00030",
+      "nomproyecto": "Bastet"
+    },
+    {
+      "idproyecto": "00031",
+      "nomproyecto": "Condoriaco"
+    },
+    {
+      "idproyecto": "00032",
+      "nomproyecto": "Capricornio"
+    },
+    {
+      "idproyecto": "00033",
+      "nomproyecto": "Domeyko Sur"
+    },
+    {
+      "idproyecto": "00034",
+      "nomproyecto": "Cerro Cumbre"
+    },
+    {
+      "idproyecto": "00035",
+      "nomproyecto": "Pampa Esperanza"
+    },
+    {
+      "idproyecto": "00036",
+      "nomproyecto": "Capricornio"
+    },
+    {
+      "idproyecto": "00037",
+      "nomproyecto": "Cabildo"
+    },
+    {
+      "idproyecto": "00038",
+      "nomproyecto": "Chiu Chiu"
+    },
+    {
+      "idproyecto": "00039",
+      "nomproyecto": "Gargamel"
+    }
+  ]
+}
+        return jsonify(data)  
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
 

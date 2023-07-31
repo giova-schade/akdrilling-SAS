@@ -57,7 +57,7 @@ export class DistributionComponent implements OnInit {
     file: new FormControl(Blob, Validators.required),
     DatosDistribution: new FormArray([]),
     Option: new FormControl('', Validators.required),
-    idDistribution: new FormControl('', Validators.required),
+    IdDistribution: new FormControl('', Validators.required),
     Role: new FormControl('', Validators.required),
     typeDist: new FormControl('', Validators.required),
   })
@@ -240,9 +240,9 @@ export class DistributionComponent implements OnInit {
       next: (result) => {
         if (result.status == "ok") {
           this.notify.showNotification('top', 'right', 1, 'Distribucion Creado y actualizado!');
-          this.distribution.controls['idDistribution'].setValue(result.idDistribution);
+          this.distribution.controls['IdDistribution'].setValue(result.IdDistribution);
           this.loadingPage = true;
-          this.router.navigate(['/' + this.usuario.role + '/distribution/view'], { queryParams: { idDistribution: result.idDistribution, Option: '01'} })
+          this.router.navigate(['/' + this.usuario.role + '/distribution/view'], { queryParams: { IdDistribution: result.IdDistribution, Option: '01'} })
         } else if (result.status == "warning") {
           this.notify.showNotification('top', 'right', 3, result.datos[0].detail);
         } else {
@@ -277,7 +277,7 @@ export class DistributionComponent implements OnInit {
     })
   }
   setIdBdg(event: any) {
-    this.distribution.controls['idDistribution'].setValue(event.value.date);
+    this.distribution.controls['IdDistribution'].setValue(event.value.date);
   }
   startdistribution() {
     this.distribution.controls['Option'].setValue({
@@ -287,7 +287,7 @@ export class DistributionComponent implements OnInit {
   }
 
   onRowDblClick(event: Event, datos: any) {
-    this.router.navigate(['/' + this.usuario.role + '/distribution/view'], { queryParams: { idDistribution: datos.IdDistribution, Option: '01' } })
+    this.router.navigate(['/' + this.usuario.role + '/distribution/view'], { queryParams: { IdDistribution: datos.IdDistribution, Option: '01' } })
   }
 
   cargarDistribution() {

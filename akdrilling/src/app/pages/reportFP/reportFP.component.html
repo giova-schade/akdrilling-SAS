@@ -12,9 +12,29 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div style="height: 100px;">
-                                    <p-dropdown [options]="periodos" formControlName="PERIODO"
-                                        placeholder="Seleccione un periodo" optionLabel="periodo" [showClear]="true">
-                                    </p-dropdown>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <p-dropdown [options]="periodos" formControlName="PERIODO"
+                                                placeholder="Seleccione un periodo" optionLabel="periodo"
+                                                [showClear]="true">
+                                            </p-dropdown>
+                                        </div>
+                                        <div class="col-sm" style="height: 50px;">
+
+                                            <p-multiSelect [options]="proyectos" formControlName="PROYECTOS"
+                                                class="multiSelect" optionLabel="nameProyect"
+                                                placeholder="Seleccione un proyecto"
+                                                selectedItemsLabel="Proyectos Seleccionados: {0}">
+                                                <ng-template let-proyect pTemplate="item">
+                                                    <div class="flex align-items-center gap-2">
+                                                        <div>{{proyect.codeProyect}}={{proyect.nameProyect}}</div>
+                                                    </div>
+                                                </ng-template>
+                                            </p-multiSelect>
+
+
+                                        </div>
+                                    </div>
                                 </div>
 
                             </div>

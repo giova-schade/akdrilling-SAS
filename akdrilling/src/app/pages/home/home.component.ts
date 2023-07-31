@@ -33,6 +33,7 @@ export class HomeComponent implements OnInit {
       this.displayPosition = true;
     } else {
       this.usurio.info.sede = this.cias.info.sede[0];
+      this.usurio.ciaSelected= this.usurio.info.sede;
     }
   }
   onChange(event: any) {

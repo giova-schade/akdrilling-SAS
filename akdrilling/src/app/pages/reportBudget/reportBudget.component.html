@@ -12,12 +12,45 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div style="height: 100px;">
-                                    <p-dropdown [options]="periodos" formControlName="PERIODO"
-                                        placeholder="Seleccione un periodo" optionLabel="periodo" [showClear]="true">
-                                    </p-dropdown>
+
+
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <p-dropdown [options]="periodos" formControlName="PERIODO"
+                                                placeholder="Seleccione un periodo" optionLabel="periodo"
+                                                [showClear]="true">
+                                            </p-dropdown>
+                                        </div>
+                                        <div class="col-md-3" >
+
+                                            <p-multiSelect 
+                                            [options]="proyectos" formControlName="PROYECTOS"
+                                            class="multiSelect" optionLabel="nameProyect"
+                                            placeholder="Seleccione un proyecto"
+                                            selectedItemsLabel="Proyectos Seleccionados: {0}">
+
+                                            <ng-template let-proyect pTemplate="item">
+                                                <div class="flex align-items-center gap-2">
+                                                    <div>{{proyect.codeProyect}}={{proyect.nameProyect}}</div>
+                                                </div>
+                                            </ng-template>
+
+                                            </p-multiSelect>
+
+
+                                        </div>
+                                        <div  class="col-md-3" >
+                                            <p-dropdown [options]="typetable" formControlName="typetable"
+                                            placeholder="Seleccione una tabla" optionLabel="name"
+                                            [showClear]="true">
+                                            </p-dropdown>
+                                        </div>
+                                    </div>
+
                                     <ng-template let-group pTemplate="group">
                                         <div class="flex align-items-center">
-                                            <img src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png" [class]="'mr-2 flag flag-' + group.value" style="width: 20px" />
+                                            <img src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png"
+                                                [class]="'mr-2 flag flag-' + group.value" style="width: 20px" />
                                             <span>{{ group.label }}</span>
                                         </div>
                                     </ng-template>
@@ -25,13 +58,27 @@
 
                             </div>
                             <div class=" card-body">
-                                <div class="col-md-12">
-                                    <button pButton pRipple type="button" (click)="DownloadBudget()"
-                                        class="p-button-rounded p-button-text ">
-                                        <img src="/akdrilling/assets/img/dnd/ic-file-excel.svg" width="45px"
-                                            style="text-align: center;" alt="file">
-                                    </button>
+                                <div class="row">
+                                    <div class="col-sm">
+                                         <div style="color:black">descarga de budget</div>
+
+                                        <button pButton pRipple type="button" (click)="DownloadBudget()"
+                                            class="p-button-rounded p-button-text ">
+                                            <img src="/akdrilling/assets/img/dnd/ic-file-excel.svg" width="45px"
+                                                style="text-align: center;" alt="file">
+                                        </button>
+                                    </div>
+                                    <div class="col-sm">
+                                        <div style="color:black">descarga de budget por proyecto</div>
+
+                                        <button pButton pRipple type="button" (click)="DownloadBudgetByProyect()"
+                                            class="p-button-rounded p-button-text ">
+                                            <img src="/akdrilling/assets/img/dnd/ic-file-excel.svg" width="45px"
+                                                style="text-align: center;" alt="file">
+                                        </button>
+                                    </div>
                                 </div>
+                               
                             </div>
 
                         </div>

@@ -177,7 +177,7 @@
                                                         </div>
                                                     </div>
                                                     <button pButton pRipple type="button" label="Cargar"
-                                                        class="p-button-outlined" (click)="Procesar()"></button>
+                                                        class="p-button-outlined" (click)="ProcesarDTB()"></button>
                                                 </div>
 
 
@@ -196,7 +196,7 @@
                     </p-tabPanel>
                     <p-tabPanel header="Carga distribución Ejecutado">
                         <div class="row">
-                            <div class="col-12" *ngIf="distribution.controls['estadoBGDT'].value == 'Creado' ">
+                            <div class="col-12" *ngIf="distribution.controls['estadoExecT'].value == 'Creado' ">
                                 <div class=" card">
                                     <p-menubar>
                                         <div class="row">
@@ -212,7 +212,7 @@
                                             <div class="col-sm">
                                                 <div *ngIf="usuario.role == 'AKDADM' || usuario.role != 'AKDABDF' ">
                                                     <button
-                                                        *ngIf="distribution.controls['estadoBGDT'].value == 'Creado' "
+                                                        *ngIf="distribution.controls['estadoExecT'].value == 'Creado' "
                                                         type="button" pButton label="Cerrar distribución"
                                                         icon="pi pi-check-circle" style="margin-left:.25em"
                                                         (click)="CerrarDistribution()"></button>
@@ -261,7 +261,7 @@
                                         <div class="card-body">
                                             <div class=" col-sm-12">
                                                 <p-table #bds [columns]="camposBdT" [paginator]="true"
-                                                    [value]="datasourceBD" [rowHover]="true" [rows]="10"
+                                                    [value]="datasourceBDT" [rowHover]="true" [rows]="10"
                                                     [showCurrentPageReport]="true" [loading]="loading"
                                                     currentPageReportTemplate="Mostrar {first} hasta  {last} de {totalRecords} datos"
                                                     [filterDelay]="0" [autoLayout]="true"
@@ -327,7 +327,7 @@
                                 </div>
 
 
-                                <p-card id="loadupdate" class=" card-body" *ngIf="updateBDGDT">
+                                <p-card id="loadupdate" class=" card-body" *ngIf="updateExecuted">
                                     <ng-template pTemplate="header">
                                         Actualización de distribución ejecutado
                                     </ng-template>
@@ -365,7 +365,7 @@
                                                         </div>
                                                     </div>
                                                     <button pButton pRipple type="button" label="Cargar"
-                                                        class="p-button-outlined" (click)="Procesar()"></button>
+                                                        class="p-button-outlined" (click)="ProcesarDTE()"></button>
                                                 </div>
 
 

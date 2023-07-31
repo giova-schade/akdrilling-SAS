@@ -12,6 +12,10 @@ interface Periodos {
   periodo: string,
   date: string
 }
+interface Proyectos {
+  nameProyect: string,
+  codeProyect: string
+}
 @Component({
   selector: "app-reportFP",
   templateUrl: "reportFP.component.html",
@@ -20,11 +24,15 @@ interface Periodos {
 })
 export class ReportFPComponent implements OnInit {
   periodos!: Periodos[];
+  proyectos!: Proyectos[];
+  proyectlist: Array<[]>;
+  
   usuario!: any;
   loadingPage: boolean;
   PERIODO_REQ: boolean;
 
   reportFP = new FormGroup({
+    PROYECTOS: new FormControl('', Validators.required),
     PERIODO: new FormControl('', Validators.required),
     IdCia: new FormControl('', Validators.required),
     NomSede: new FormControl('', Validators.required),
@@ -43,6 +51,9 @@ export class ReportFPComponent implements OnInit {
     private router: Router
   ) {
     this.periodos = [];
+    this.proyectos = [];
+    this.proyectlist = [];
+    
     this.loadingPage = true;
     this.PERIODO_REQ = true;
   }
@@ -92,6 +103,29 @@ export class ReportFPComponent implements OnInit {
       },
 
     })
+    this.master.apiGetListProyectos(this.reportFP).subscribe({
+      next: (result: any) => {
+        if (result.status == "ok") {
+          result.datos.forEach((x: any) => {
+            this.proyectos.push({ nameProyect: x.nomproyecto , codeProyect: x.idproyecto });
+          })
+          this.reportFP.controls['PROYECTOS'].setValue(this.proyectos)
+
+        } else if (result.status == 'warning') {
+          this.notify.showNotification('top', 'right', 3, result.datos[0].detail);
+        } else {
+          this.notify.showNotification('top', 'right', 4, result.datos[0].detail);
+
+        }
+
+      },
+      error: (result: any) => {
+        this.notify.showNotification('top', 'right', 4, result.datos[0].detail);
+      },
+      complete: () => {
+        this.loadingPage = false;
+      },
+    })
   }
 
   DownloadFP() {
@@ -99,7 +133,9 @@ export class ReportFPComponent implements OnInit {
     if (!this.PERIODO_REQ) {
       this.notify.showNotification('top', 'right', 3, 'Debe seleccionar un periodo para descargar el Reporte de Float Inicial');
     } else {
-      this.master.download(this.reportFP.controls['urlDownload'].value + '&PERIODO=' + this.reportFP.controls['PERIODO'].value.date + '&IdCia=' + this.reportFP.controls['IdCia'].value).subscribe(blob => {
+      this.proyectlist = [];
+      this.reportFP.controls['PROYECTOS'].value.forEach((x:any)  => this.proyectlist.push(x.codeProyect));
+      this.master.download(this.reportFP.controls['urlDownload'].value + '&PERIODO=' + this.reportFP.controls['PERIODO'].value.date + '&IdCia=' + this.reportFP.controls['IdCia'].value+'&listProyect='+this.proyectlist.map(elemento => `'${elemento}'`).join(',')).subscribe(blob => {
         const a = document.createElement('a')
         const objectUrl = URL.createObjectURL(blob)
         a.href = objectUrl

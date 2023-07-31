@@ -12,6 +12,10 @@ interface Periodos {
   periodo: string,
   date: string
 }
+interface Proyectos {
+  nameProyect: string,
+  codeProyect: string
+}
 @Component({
   selector: "app-reportFE",
   templateUrl: "reportFE.component.html",
@@ -20,11 +24,14 @@ interface Periodos {
 })
 export class ReportFEComponent implements OnInit {
   periodos!: Periodos[];
+  proyectos!: Proyectos[];
   usuario!: any;
   loadingPage: boolean;
   PERIODO_REQ: boolean;
+  proyectlist: Array<[]>;
 
   reportFE = new FormGroup({
+    PROYECTOS: new FormControl('', Validators.required),
     PERIODO: new FormControl('', Validators.required),
     IdCia: new FormControl('', Validators.required),
     NomSede: new FormControl('', Validators.required),
@@ -43,8 +50,11 @@ export class ReportFEComponent implements OnInit {
     private router: Router
   ) {
     this.periodos = [];
+    this.proyectos = [];
     this.loadingPage = true;
     this.PERIODO_REQ = true;
+    this.proyectlist = [];
+
   }
   ngOnInit() {
     this.usuario = this.authService.GetuserInfo();
@@ -94,6 +104,29 @@ export class ReportFEComponent implements OnInit {
       },
 
     })
+    this.master.apiGetListProyectos(this.reportFE).subscribe({
+      next: (result: any) => {
+        if (result.status == "ok") {
+          result.datos.forEach((x: any) => {
+            this.proyectos.push({ nameProyect: x.nomproyecto , codeProyect: x.idproyecto });
+          })
+          this.reportFE.controls['PROYECTOS'].setValue(this.proyectos)
+
+        } else if (result.status == 'warning') {
+          this.notify.showNotification('top', 'right', 3, result.datos[0].detail);
+        } else {
+          this.notify.showNotification('top', 'right', 4, result.datos[0].detail);
+
+        }
+
+      },
+      error: (result: any) => {
+        this.notify.showNotification('top', 'right', 4, result.datos[0].detail);
+      },
+      complete: () => {
+        this.loadingPage = false;
+      },
+    })
   }
 
   DownloadFE() {
@@ -101,7 +134,9 @@ export class ReportFEComponent implements OnInit {
     if (!this.PERIODO_REQ) {
       this.notify.showNotification('top', 'right', 3, 'Debe seleccionar un periodo para descargar el Reporte de Float en ejecucion');
     } else {
-      this.master.download(this.reportFE.controls['urlDownload'].value + '&PERIODO=' + this.reportFE.controls['PERIODO'].value.date + '&IdCia=' + this.reportFE.controls['IdCia'].value).subscribe(blob => {
+      this.proyectlist = [];
+      this.reportFE.controls['PROYECTOS'].value.forEach((x:any)  => this.proyectlist.push(x.codeProyect));
+      this.master.download(this.reportFE.controls['urlDownload'].value + '&PERIODO=' + this.reportFE.controls['PERIODO'].value.date + '&IdCia=' + this.reportFE.controls['IdCia'].value+'&listProyect='+this.proyectlist.map(elemento => `'${elemento}'`).join(',')).subscribe(blob => {
         const a = document.createElement('a')
         const objectUrl = URL.createObjectURL(blob)
         a.href = objectUrl

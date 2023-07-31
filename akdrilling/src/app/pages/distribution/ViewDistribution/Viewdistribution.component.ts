@@ -41,6 +41,7 @@ export class ViewdistributionComponent implements OnInit {
   datasourceBD: any;
   datasourceBDT: any;
   urlDownload: string;
+  urlDownloadT: string;
   datasourceBdgs: any;
   BudgtsCampos: any;
   items!: MenuItem[];
@@ -50,8 +51,9 @@ export class ViewdistributionComponent implements OnInit {
   @ViewChild('bdgs') bdgs: any;
   loadingBdgs!: boolean;
   updateBDGDT: boolean;
+  updateExecuted: boolean;
   distribution = new FormGroup({
-    idDistribution: new FormControl('', Validators.required),
+    IdDistribution: new FormControl('', Validators.required),
     PERIODO: new FormControl('', Validators.required),
     IdCia: new FormControl('', Validators.required),
     NomSede: new FormControl('', Validators.required),
@@ -62,7 +64,9 @@ export class ViewdistributionComponent implements OnInit {
     estadoBGDT: new FormControl('', Validators.required),
     estadoExecT: new FormControl('', Validators.required),
     Role: new FormControl('', Validators.required),
-    Rol: new FormControl('', Validators.required)
+    Rol: new FormControl('', Validators.required),
+    typeDist: new FormControl('', Validators.required)
+
 
   })
 
@@ -88,10 +92,12 @@ export class ViewdistributionComponent implements OnInit {
     this.datasourceBD = [];
     this.datasourceBDT = [];
     this.urlDownload = '';
+    this.urlDownloadT = '';
     this.BudgtsCampos = [];
     this.multiSortBDGS = [];
     this.activeIndex = 0;
     this.updateBDGDT = false;
+    this.updateExecuted = false;
   }
   ngOnInit() {
     /*cargo flujo*/
@@ -118,7 +124,7 @@ export class ViewdistributionComponent implements OnInit {
     this.route.queryParams
       .subscribe((params: any) => {
         console.log(params)
-        this.distribution.controls['idDistribution'].setValue(params.idDistribution);
+        this.distribution.controls['IdDistribution'].setValue(params.IdDistribution);
         this.distribution.controls['Rol'].setValue(this.usuario.role);
         this.distribution.controls['Option'].setValue({
           Code: params.Option,
@@ -136,8 +142,10 @@ export class ViewdistributionComponent implements OnInit {
             });
 
             this.distribution.controls['estadoBGDT'].setValue(response.estadoBGDT);
+            this.distribution.controls['estadoExecT'].setValue(response.estadoExecT);
             this.distribution.controls['date'].setValue(response.date);
             this.updateBDGDT = this.unlockUpdateBDGT();
+            this.updateExecuted = this.unlockUpdateExecuted();
 
 
             this.datasourceBD = response.datos;
@@ -172,7 +180,7 @@ export class ViewdistributionComponent implements OnInit {
 
               }
               if (response.downloadDistributionT.length > 0) {
-                this.urlDownload = response.downloadDistributionT;
+                this.urlDownloadT = response.downloadDistributionT;
               } else {
                 this.notify.showNotification('top', 'right', 3, 'No hay archivo de distribución ejecutada para descargar');
 
@@ -198,7 +206,7 @@ export class ViewdistributionComponent implements OnInit {
           },
           error: (result: any) => {
 
-            this.notify.showNotification('top', 'right', 4, 'Error al obtener la distribución ' + this.distribution.controls['idDistribution'].value);
+            this.notify.showNotification('top', 'right', 4, 'Error al obtener la distribución ' + this.distribution.controls['IdDistribution'].value);
             this.loadingPage = false;
 
           },
@@ -247,8 +255,8 @@ export class ViewdistributionComponent implements OnInit {
 
   }
   downloadBDExecT() {
-    if (this.urlDownload.length > 0) {
-      this.master.download(this.urlDownload).subscribe(blob => {
+    if (this.urlDownloadT.length > 0) {
+      this.master.download(this.urlDownloadT).subscribe(blob => {
         const a = document.createElement('a')
         const objectUrl = URL.createObjectURL(blob)
         a.href = objectUrl
@@ -281,7 +289,7 @@ export class ViewdistributionComponent implements OnInit {
     this.master.postCloseDistributionT(this.distribution).subscribe({
       next: (result: any) => {
         if (result.status == "ok") {
-          this.notify.showNotification('top', 'right', 1, 'Distribución Cerrada');
+          this.notify.showNotification('top', 'right', 1, 'Distribución budget Cerrada' );
           this.router.navigate(['/' + this.usuario.role + '/distribution/'], { queryParams: {} })
 
         } else if (result.status == 'warning') {
@@ -306,7 +314,7 @@ export class ViewdistributionComponent implements OnInit {
     this.master.postCloseDistribution(this.distribution).subscribe({
       next: (result: any) => {
         if (result.status == "ok") {
-          this.notify.showNotification('top', 'right', 1, 'Distribución Cerrada');
+          this.notify.showNotification('top', 'right', 1, 'Distribución ejecutada Cerrada');
           this.router.navigate(['/' + this.usuario.role + '/distribution/'], { queryParams: {} })
 
         } else if (result.status == 'warning') {
@@ -330,7 +338,7 @@ export class ViewdistributionComponent implements OnInit {
   CerrarDistributionT() {
     this.loadingPage = false;
     this.confirmationService.confirm({
-      message: 'Se cerrará la distribución budget ' + this.distribution.controls['idDistribution'].value,
+      message: 'Se cerrará la distribución budget ' + this.distribution.controls['IdDistribution'].value,
       header: 'Crear distribución ',
       icon: 'pi pi-info-circle',
       accept: () => {
@@ -346,7 +354,7 @@ export class ViewdistributionComponent implements OnInit {
   CerrarDistribution() {
     this.loadingPage = false;
     this.confirmationService.confirm({
-      message: 'Se cerrará la distribución ejecutado ' + this.distribution.controls['idDistribution'].value,
+      message: 'Se cerrará la distribución ejecutado ' + this.distribution.controls['IdDistribution'].value,
       header: 'Crear distribución ',
       icon: 'pi pi-info-circle',
       accept: () => {
@@ -435,9 +443,9 @@ export class ViewdistributionComponent implements OnInit {
       next: (result) => {
         if (result.status == "ok") {
           this.notify.showNotification('top', 'right', 1, 'Distribucion Creado y actualizado!');
-          this.distribution.controls['idDistribution'].setValue(result.idDistribution);
+          this.distribution.controls['IdDistribution'].setValue(result.IdDistribution);
           this.loadingPage = true;
-          this.router.navigate(['/' + this.usuario.role + '/distribution/view'], { queryParams: { idDistribution: result.idDistribution, Option: '01' } })
+          this.router.navigate(['/' + this.usuario.role + '/distribution/view'], { queryParams: { IdDistribution: result.IdDistribution, Option: '01' } })
         } else if (result.status == "warning") {
           this.notify.showNotification('top', 'right', 3, result.datos[0].detail);
         } else {
@@ -471,9 +479,32 @@ export class ViewdistributionComponent implements OnInit {
       }
     })
   }
-  Procesar() {
+  ProcesarDTB() {
+    this.distribution.controls['typeDist'].setValue('budgetDistribution');
     if (this.files.length == 0) {
-      this.notify.showNotification('top', 'right', 3, 'Debe seleccionar un archivo para cargar el float en ejecución');
+      this.notify.showNotification('top', 'right', 3, 'Debe seleccionar un archivo para cargar la distribución Budget');
+    }
+    if (this.files.length > 0) {
+      this.distribution.controls['file'].setValue(this.files[0]);
+      this.confirmationService.confirm({
+        message: 'Se cargara el archivo ' + this.files[0].name,
+        header: 'Crear Float en Ejecución ',
+        icon: 'pi pi-info-circle',
+        accept: () => {
+          this.loadingPage = true;
+          this.acceptCreateDistribution();
+        },
+        reject: () => {
+          this.msgs = [{ severity: 'info', summary: 'Rejected', detail: 'You have rejected' }];
+        },
+        key: "positionDialog"
+      });
+    }
+  }
+  ProcesarDTE() {
+    this.distribution.controls['typeDist'].setValue('executedDistribution');
+    if (this.files.length == 0) {
+      this.notify.showNotification('top', 'right', 3, 'Debe seleccionar un archivo para cargar la distribución ejecutada');
     }
     if (this.files.length > 0) {
       this.distribution.controls['file'].setValue(this.files[0]);
@@ -501,7 +532,15 @@ export class ViewdistributionComponent implements OnInit {
       return false
     }
   }
-
+  unlockUpdateExecuted() {
+    if (this.distribution.controls['Rol'].value == "AKDADM" && this.distribution.controls['estadoExecT'].value == "Creado") {
+      return true;
+    } else if (this.distribution.controls['Rol'].value == "AKDABDF" && this.distribution.controls['estadoExecT'].value == "Creado") {
+      return true;
+    } else {
+      return false
+    }
+  }
   handleChangedistribution(event: any) {
 
   }

@@ -785,6 +785,20 @@ export class MaestrosService {
         return this.http.post(CONFIG.apiPostPeriodReportBudget, formData)
 
     }
+    apiGetListProyectos(form: any) {
+        var formData: any = new FormData();
+        for (let i in form.controls) {
+            if (i == 'PERIODO') {
+                formData.append(i, form.controls[i].value.date);
+
+            } else {
+                formData.append(i, form.controls[i].value);
+            }
+        }
+        return this.http.post(CONFIG.apiGetListProyectos, formData)
+
+    }
+
     apiPostPeriodReportCCD(form: any) {
         var formData: any = new FormData();
         for (let i in form.controls) {

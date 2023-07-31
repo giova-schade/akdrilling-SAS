@@ -12,6 +12,10 @@ interface Periodos {
   periodo: string,
   date: string
 }
+interface Proyectos {
+  nameProyect: string,
+  codeProyect: string
+}
 @Component({
   selector: "app-reportCm10",
   templateUrl: "reportCm10.component.html",
@@ -20,11 +24,15 @@ interface Periodos {
 })
 export class ReportCm10Component implements OnInit {
   periodos!: Periodos[];
+  proyectos!: Proyectos[];
+  proyectlist: Array<[]>;
+
   usuario!: any;
   loadingPage: boolean;
   PERIODO_REQ: boolean;
 
   reportcm = new FormGroup({
+    PROYECTOS: new FormControl('', Validators.required),
     PERIODO: new FormControl('', Validators.required),
     IdCia: new FormControl('', Validators.required),
     NomSede: new FormControl('', Validators.required),
@@ -45,6 +53,9 @@ export class ReportCm10Component implements OnInit {
     private router: Router
   ) {
     this.periodos = [];
+    this.proyectos = [];
+    this.proyectlist = [];
+
     this.loadingPage = true;
     this.PERIODO_REQ = true;
   }
@@ -69,6 +80,8 @@ export class ReportCm10Component implements OnInit {
   }
   datosReporteCM() {
     this.periodos = [];
+    this.proyectos = [];
+
     this.reportcm.controls['PERIODO'].setValue([])
     this.master.apiPostPeriodReportCM10(this.reportcm).subscribe({
       next: (result: any) => {
@@ -95,13 +108,38 @@ export class ReportCm10Component implements OnInit {
       },
 
     })
+    this.master.apiGetListProyectos(this.reportcm).subscribe({
+      next: (result: any) => {
+        if (result.status == "ok") {
+          result.datos.forEach((x: any) => {
+            this.proyectos.push({ nameProyect: x.nomproyecto , codeProyect: x.idproyecto });
+          })
+          this.reportcm.controls['PROYECTOS'].setValue(this.proyectos)
+
+        } else if (result.status == 'warning') {
+          this.notify.showNotification('top', 'right', 3, result.datos[0].detail);
+        } else {
+          this.notify.showNotification('top', 'right', 4, result.datos[0].detail);
+
+        }
+
+      },
+      error: (result: any) => {
+        this.notify.showNotification('top', 'right', 4, result.datos[0].detail);
+      },
+      complete: () => {
+        this.loadingPage = false;
+      },
+    })
   }
   DownloadCM() {
 
     if (!this.PERIODO_REQ) {
       this.notify.showNotification('top', 'right', 3, 'Debe seleccionar un periodo para descargar el Reporte ');
     } else {
-      this.master.download(this.reportcm.controls['urlDownload'].value + '&PERIODO=' + this.reportcm.controls['PERIODO'].value.date + '&IdCia=' + this.reportcm.controls['IdCia'].value).subscribe(blob => {
+      this.proyectlist = [];
+      this.reportcm.controls['PROYECTOS'].value.forEach((x:any)  => this.proyectlist.push(x.codeProyect));
+      this.master.download(this.reportcm.controls['urlDownload'].value + '&PERIODO=' + this.reportcm.controls['PERIODO'].value.date + '&IdCia=' + this.reportcm.controls['IdCia'].value+'&listProyect='+this.proyectlist.join(',')).subscribe(blob => {
         const a = document.createElement('a')
         const objectUrl = URL.createObjectURL(blob)
         a.href = objectUrl

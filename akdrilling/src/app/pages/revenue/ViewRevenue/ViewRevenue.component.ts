@@ -23,6 +23,7 @@ interface Option {
   name: string
 }
 
+
 @Component({
   selector: "app-viewRevenue",
   templateUrl: "ViewRevenue.component.html",

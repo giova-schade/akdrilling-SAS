@@ -12,6 +12,10 @@ interface Periodos {
   periodo: string,
   date: string
 }
+interface Proyectos {
+  nameProyect: string,
+  codeProyect: string
+}
 @Component({
   selector: "app-reportCCD",
   templateUrl: "reportCCD.component.html",
@@ -20,12 +24,15 @@ interface Periodos {
 })
 export class ReportCCDComponent implements OnInit {
   periodos!: Periodos[];
+  proyectos!: Proyectos[];
   usuario!: any;
   loadingPage: boolean;
+  proyectlist: Array<[]>;
   PERIODO_REQ: boolean;
 
   reportCCD = new FormGroup({
     PERIODO: new FormControl('', Validators.required),
+    PROYECTOS: new FormControl('', Validators.required),
     IdCia: new FormControl('', Validators.required),
     NomSede: new FormControl('', Validators.required),
     file: new FormControl(Blob, Validators.required),
@@ -43,8 +50,11 @@ export class ReportCCDComponent implements OnInit {
     private router: Router
   ) {
     this.periodos = [];
+    this.proyectos = [];
     this.loadingPage = true;
     this.PERIODO_REQ = true;
+    this.proyectlist = [];
+
   }
   
   ngOnInit() {
@@ -68,6 +78,7 @@ export class ReportCCDComponent implements OnInit {
   }
   datosReporteBudget() {
     this.periodos = [];
+    this.proyectos = [];
     this.reportCCD.controls['PERIODO'].setValue([])
     this.master.apiPostPeriodReportCCD(this.reportCCD).subscribe({
       next: (result: any) => {
@@ -93,13 +104,38 @@ export class ReportCCDComponent implements OnInit {
       },
 
     })
+    this.master.apiGetListProyectos(this.reportCCD).subscribe({
+      next: (result: any) => {
+        if (result.status == "ok") {
+          result.datos.forEach((x: any) => {
+            this.proyectos.push({ nameProyect: x.nomproyecto , codeProyect: x.idproyecto });
+          })
+          this.reportCCD.controls['PROYECTOS'].setValue(this.proyectos)
+
+        } else if (result.status == 'warning') {
+          this.notify.showNotification('top', 'right', 3, result.datos[0].detail);
+        } else {
+          this.notify.showNotification('top', 'right', 4, result.datos[0].detail);
+
+        }
+
+      },
+      error: (result: any) => {
+        this.notify.showNotification('top', 'right', 4, result.datos[0].detail);
+      },
+      complete: () => {
+        this.loadingPage = false;
+      },
+    })
   }
   DownloadCCD() {
 
     if (!this.PERIODO_REQ) {
       this.notify.showNotification('top', 'right', 3, 'Debe seleccionar un periodo para descargar el Reporte de CCD');
     } else {
-      this.master.download(this.reportCCD.controls['urlDownload'].value + '&PERIODO=' + this.reportCCD.controls['PERIODO'].value.date + '&IdCia=' + this.reportCCD.controls['IdCia'].value).subscribe(blob => {
+      this.proyectlist = [];
+      this.reportCCD.controls['PROYECTOS'].value.forEach((x:any)  => this.proyectlist.push(x.codeProyect));
+      this.master.download(this.reportCCD.controls['urlDownload'].value + '&PERIODO=' + this.reportCCD.controls['PERIODO'].value.date + '&IdCia=' + this.reportCCD.controls['IdCia'].value+'&listProyect='+this.proyectlist.map(elemento => `'${elemento}'`).join(',')).subscribe(blob => {
         const a = document.createElement('a')
         const objectUrl = URL.createObjectURL(blob)
         a.href = objectUrl
